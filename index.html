@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Yoldaş — رفيقك اليومي للأكل والحركة والمتابعة الصحية." />
+    <title>Yoldaş — رفيقك اليومي</title>
+    <link rel="icon" type="image/jpeg" href="assets/Yoldas_logo_enhanced.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <main id="app">
+      <!-- ============== صفحة الترحيب ============== -->
+      <section id="welcome-view" class="welcome-page">
+        <nav class="topbar">
+          <a class="wordmark" href="#" aria-label="Yoldaş"><img class="wordmark-logo" src="assets/Yoldas_nav_logo_trimmed.png" alt="Yoldaş" /></a>
+          <div class="topbar-tools">
+            <span class="nav-label" data-i18n="dailyCompanion">رفيقك اليومي</span>
+            <div class="language-switch" aria-label="اختيار اللغة">
+              <button type="button" class="language-button active" data-locale="ar">العربية</button>
+              <button type="button" class="language-button" data-locale="tr">Türkçe</button>
+              <button type="button" class="language-button" data-locale="en">English</button>
+            </div>
+          </div>
+        </nav>
+
+        <div class="welcome-ad-shell">
+          <aside class="ad-slot ad-slot-rail" data-ad-slot="welcome-left-rail" aria-label="مساحة إعلانية جاهزة">
+            <span data-i18n="adSlotLabel">مساحة إعلانية</span>
+            <small data-i18n="adSlotHint">مهيّأة لإعلان Google لاحقًا</small>
+          </aside>
+          <div class="welcome-grid">
+          <article class="hero-card">
+            <img class="brand-mark hero-logo" src="assets/Yoldas_nav_logo_trimmed.png" alt="شعار Yoldaş" width="150" height="64" />
+            <p class="eyebrow light" data-i18n="heroEyebrow">رحلتك تبدأ بخطوة مفهومة</p>
+            <h1 class="hero-title"><span data-i18n="heroTitleLead">غيّر جسمك. ثبّت عاداتك.</span><span data-i18n="heroTitleTail">خطوتك الجاية تبدأ هنا.</span></h1>
+            <p data-i18n="heroDescription">نحوّل هدفك إلى أكل وحركة ومتابعة يومية من غير تعقيد أو حرمان.</p>
+            <div class="hero-steps">
+              <span><b>01</b> <em data-i18n="heroStepFood">أكل أذكى</em></span>
+              <span><b>02</b> <em data-i18n="heroStepMove">حركة ثابتة</em></span>
+              <span><b>03</b> <em data-i18n="heroStepTrack">متابعة هادية</em></span>
+            </div>
+          </article>
+
+          <article class="intro-card">
+            <p class="eyebrow" data-i18n="introEyebrow">برنامجك الصحي الشخصي</p>
+            <h2 data-i18n="introTitle">كل ما تحتاجه لتبدأ صح — في مكان واحد.</h2>
+            <p data-i18n="introDescription">خطة أكل وتمارين تناسب هدفك، ومتابعة للماء والوجبات والحركة، مع مساعد يفهم كلامك الطبيعي.</p>
+            <div class="feature-list">
+              <div><i>🥗</i><span><b data-i18n="featureFood">خطة أكل شخصية</b><small data-i18n="featureFoodSub">حسب هدفك وتفضيلاتك</small></span></div>
+              <div><i>🏋️</i><span><b data-i18n="featureWorkout">خطة تمرين قابلة للتعديل</b><small data-i18n="featureWorkoutSub">حسب وقتك ومستواك</small></span></div>
+              <div><i>💧</i><span><b data-i18n="featureTrack">متابعة بسيطة لليوم</b><small data-i18n="featureTrackSub">ماء ووجبات وتمرين</small></span></div>
+              <div><i>💬</i><span><b data-i18n="featureAssistant">مساعد واضح</b><small data-i18n="featureAssistantSub">اسأل وسجّل من كلامك الطبيعي</small></span></div>
+            </div>
+            <p class="privacy"><b data-i18n="privacyFirst">الخصوصية أولًا.</b> <span data-i18n="guestPrivacy">يمكنك التجربة بدون حساب، أو حفظ رحلتك باسم مستخدم وكلمة مرور.</span></p>
+            <div class="welcome-actions">
+              <button id="start-button" class="primary-button" data-i18n="startGuest">ابدأ كتجربة ←</button>
+              <button id="account-button" class="secondary-button" type="button" data-i18n="accountButton">دخول أو إنشاء حساب</button>
+              <a class="secondary-button" href="#how-it-works" data-i18n="discoverHow">اكتشف كيف يعمل Yoldaş</a>
+            </div>
+            <p id="welcome-error" class="form-message" hidden></p>
+          </article>
+          </div>
+          <aside class="ad-slot ad-slot-rail" data-ad-slot="welcome-right-rail" aria-label="مساحة إعلانية جاهزة">
+            <span data-i18n="adSlotLabel">مساحة إعلانية</span>
+            <small data-i18n="adSlotHint">مهيّأة لإعلان Google لاحقًا</small>
+          </aside>
+        </div>
+
+        <section id="account-panel" class="account-panel" hidden aria-live="polite">
+          <div class="account-panel-header">
+            <div><p class="eyebrow" data-i18n="accountEyebrow">احفظ رحلتك</p><h2 id="account-title">إنشاء حساب</h2></div>
+            <button id="account-close" class="text-button" type="button" data-i18n="close">إغلاق</button>
+          </div>
+          <p id="account-description" class="account-description">أنشئ اسم مستخدم وكلمة مرور. لا نطلب منك بريدًا إلكترونيًا.</p>
+          <div class="account-tabs">
+            <button class="account-mode active" type="button" data-account-mode="signup" data-i18n="createAccount">إنشاء حساب</button>
+            <button class="account-mode" type="button" data-account-mode="login" data-i18n="login">تسجيل الدخول</button>
+          </div>
+          <form id="account-form" class="account-form">
+            <label for="account-username" data-i18n="username">اسم المستخدم</label>
+            <input id="account-username" type="text" autocomplete="username" autocapitalize="none" data-i18n-placeholder="usernamePlaceholder" placeholder="مثال: ahmed.fit" />
+            <small id="username-hint" data-i18n="usernameHint">من 3 إلى 24 حرفًا إنجليزيًا صغيرًا أو رقمًا، مع . أو _ أو - فقط.</small>
+            <label for="account-password" data-i18n="password">كلمة المرور</label>
+            <input id="account-password" type="password" autocomplete="current-password" data-i18n-placeholder="passwordPlaceholder" placeholder="8 أحرف أو أكثر" />
+            <small id="password-hint" data-i18n="passwordHint">احفظها جيدًا: بدون بريد إلكتروني لا تتوفر استعادة تلقائية لكلمة المرور.</small>
+            <div id="recovery-email-field" hidden>
+              <label for="account-recovery-email" data-i18n="recoveryEmail">بريد الاسترجاع</label>
+              <input id="account-recovery-email" type="email" autocomplete="email" data-i18n-placeholder="recoveryEmailPlaceholder" placeholder="name@example.com" />
+              <small data-i18n="recoveryEmailHint">خاص ولا يظهر للناس. يستخدم فقط عند نسيان كلمة السر.</small>
+            </div>
+            <button id="account-submit" class="primary-button" type="submit">إنشاء حسابي</button>
+            <button id="forgot-password" class="text-button" type="button" hidden data-i18n="forgotPassword">نسيت كلمة السر؟</button>
+            <p id="account-error" class="form-message" hidden></p>
+          </form>
+          <form id="reset-request-form" class="account-form" hidden>
+            <label for="reset-username" data-i18n="username">اسم المستخدم</label>
+            <input id="reset-username" type="text" autocomplete="username" data-i18n-placeholder="usernamePlaceholder" placeholder="مثال: ahmed.fit" />
+            <p class="settings-hint" data-i18n="resetPasswordHint">إذا كان للحساب بريد استرجاع، سنرسل له رابط تغيير كلمة السر.</p>
+            <button id="reset-request-submit" class="primary-button" type="submit" data-i18n="sendResetLink">أرسل رابط الاسترجاع</button>
+            <button id="back-to-login" class="text-button" type="button" data-i18n="backToLogin">العودة للدخول</button>
+            <p id="reset-request-message" class="form-message info" hidden></p>
+          </form>
+          <form id="reset-complete-form" class="account-form" hidden>
+            <h3 data-i18n="resetCompleteTitle">اختَر كلمة سر جديدة</h3>
+            <p class="settings-hint" data-i18n="resetCompleteHint">اكتب كلمة سر جديدة من 8 أحرف أو أكثر لحسابك.</p>
+            <label for="reset-new-password" data-i18n="newPassword">كلمة السر الجديدة</label>
+            <input id="reset-new-password" type="password" autocomplete="new-password" data-i18n-placeholder="passwordPlaceholder" placeholder="8 أحرف أو أكثر" />
+            <label for="reset-confirm-password" data-i18n="confirmPassword">تأكيد كلمة السر</label>
+            <input id="reset-confirm-password" type="password" autocomplete="new-password" data-i18n-placeholder="passwordPlaceholder" placeholder="8 أحرف أو أكثر" />
+            <button class="primary-button" type="submit" data-i18n="saveNewPassword">حفظ كلمة السر الجديدة</button>
+            <p id="reset-complete-message" class="form-message info" hidden></p>
+          </form>
+        </section>
+
+        <section id="how-it-works" class="how-section">
+          <p class="eyebrow" data-i18n="howEyebrow">رحلة بسيطة</p>
+          <h2 data-i18n="howTitle">كيف يعمل Yoldaş؟</h2>
+          <div class="how-grid">
+            <article><b>1</b><h3 data-i18n="howStep1Title">جاوب على أسئلة بسيطة</h3><p data-i18n="howStep1Desc">عن هدفك ووضعك الحالي.</p></article>
+            <article><b>2</b><h3 data-i18n="howStep2Title">خد خطتك الشخصية</h3><p data-i18n="howStep2Desc">أكل وتمارين يناسبوك.</p></article>
+            <article><b>3</b><h3 data-i18n="howStep3Title">سجّل يومك</h3><p data-i18n="howStep3Desc">ماء ووجبات وتمرين.</p></article>
+            <article><b>4</b><h3 data-i18n="howStep4Title">عدّل مع الوقت</h3><p data-i18n="howStep4Desc">حسب احتياجك وتطورك.</p></article>
+          </div>
+          <div class="how-detail-panel">
+            <article>
+              <span>01</span>
+              <div><h3 data-i18n="howDetail1Title">ابدأ من هدفك الحقيقي</h3><p data-i18n="howDetail1Desc">تختار هدفك، مستوى نشاطك، وقتك المتاح، وتفضيلاتك. لا نستخدم نموذجًا واحدًا للجميع.</p></div>
+            </article>
+            <article>
+              <span>02</span>
+              <div><h3 data-i18n="howDetail2Title">خطة بداية قابلة للتنفيذ</h3><p data-i18n="howDetail2Desc">Yoldaş يجهّز بداية عملية للأكل أو التمرين، ثم يمكنك إنشاء خطة جديدة عندما يتغير وقتك أو هدفك.</p></div>
+            </article>
+            <article>
+              <span>03</span>
+              <div><h3 data-i18n="howDetail3Title">متابعة يومية بدون ضغط</h3><p data-i18n="howDetail3Desc">سجّل كوب ماء أو وجبة أو تمرين. ستظهر لك خطوات اليوم من بياناتك الفعلية فقط، من غير أرقام أو إنجازات وهمية.</p></div>
+            </article>
+            <article>
+              <span>04</span>
+              <div><h3 data-i18n="howDetail4Title">مساعد عربي داعم</h3><p data-i18n="howDetail4Desc">اكتب ما أكلته أو اسأل عن تنظيم يومك بلغة طبيعية. الإرشادات عامة ولا تستبدل الطبيب أو المختص عند وجود حالة صحية خاصة.</p></div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <!-- ============== واجهة التطبيق بعد بدء الرحلة ============== -->
+      <section id="dashboard-view" class="dashboard-page" hidden>
+        <nav class="topbar dashboard-nav">
+          <a class="wordmark" href="#" aria-label="Yoldaş"><img class="wordmark-logo" src="assets/Yoldas_nav_logo_trimmed.png" alt="Yoldaş" /></a>
+          <div class="nav-tabs">
+            <button class="tab active" data-screen="today" data-i18n="navToday">اليوم</button>
+            <button class="tab" data-screen="plans" data-i18n="navPlans">الخطط</button>
+            <button class="tab" data-screen="assistant" data-i18n="navAssistant">المساعد</button>
+            <button class="tab" data-screen="progress" data-i18n="navProgress">التقدم</button>
+            <button class="tab" data-screen="community" data-i18n="navCommunity">المجتمع</button>
+            <button class="tab" data-screen="settings" data-i18n="navSettings">الإعدادات</button>
+          </div>
+          <div class="topbar-tools">
+            <div class="language-switch" aria-label="اختيار اللغة">
+              <button type="button" class="language-button active" data-locale="ar">العربية</button>
+              <button type="button" class="language-button" data-locale="tr">Türkçe</button>
+              <button type="button" class="language-button" data-locale="en">English</button>
+            </div>
+            <button id="reset-journey" class="text-button" type="button" aria-label="بدء من جديد" title="بدء من جديد" data-i18n="startOver">بدء من جديد</button>
+          </div>
+        </nav>
+
+        <div id="connection-status" class="connection-status" hidden></div>
+
+        <!-- شاشة اليوم -->
+        <section id="today-screen" class="screen active">
+          <header class="dashboard-heading">
+            <p class="eyebrow" data-i18n="dailyTracking">المتابعة اليومية</p>
+            <h1 data-i18n="todayTitle">مهمتي اليوم</h1>
+            <p data-i18n="todayDescription">خطوات صغيرة وواضحة تساعدك تكمّل من غير ضغط.</p>
+          </header>
+
+          <div class="summary-grid">
+            <article class="active-plan-summary-card"><span data-i18n="activePlanSummary">الخطة النشطة</span><strong id="active-plan-value">—</strong><small id="active-plan-caption" data-i18n="activePlanNone">مفيش خطة حالية</small></article>
+            <article><span data-i18n="water">الماء</span><strong id="water-value">—</strong><small data-i18n="cupsToday">كوب اليوم</small></article>
+            <article><span data-i18n="meals">الوجبات</span><strong id="meal-value">—</strong><small data-i18n="mealsToday">وجبات اليوم</small></article>
+            <article><span data-i18n="movement">الحركة</span><strong id="exercise-value">—</strong><small id="movement-caption" data-i18n="minutesToday">دقيقة اليوم</small></article>
+            <article class="streak-card"><span data-i18n="streak">الستريك</span><strong id="streak-value">—</strong><small id="streak-caption" data-i18n="streakStart">سجّل خطوة اليوم لتبدأ</small></article>
+          </div>
+
+          <div class="content-grid">
+            <article class="mission-card">
+              <div class="section-title"><div><p class="eyebrow" data-i18n="yourSteps">خطواتك</p><h2 data-i18n="todayTitle">مهمتي اليوم</h2></div><span id="mission-count">0 / 4</span></div>
+              <div id="mission-list" class="mission-list"></div>
+              <div class="quick-actions">
+                <button id="water-button" class="action-button" data-i18n="addWater">+ كوباية ميه</button>
+                <button id="open-food-catalog" class="action-button" data-i18n="missionMeal">سجّل وجبة</button>
+                <button id="open-gym-mode" class="action-button" data-i18n="openGymMode">وضع الجيم</button>
+                <button class="action-button" data-go="assistant" data-prompt="" data-i18n="askYoldas">اسأل ميري</button>
+              </div>
+            </article>
+            <article class="empty-card" id="today-empty-card">
+              <span>✦</span>
+              <h2 data-i18n="emptyTodayTitle">بياناتك تظهر هنا</h2>
+              <p data-i18n="emptyTodayDescription">لن نعرض أرقامًا أو مستخدمين وهميين. ابدأ بتسجيل أي خطوة في يومك.</p>
+            </article>
+          </div>
+
+          <article id="food-library" class="food-library-card">
+            <div class="section-title"><div><p class="eyebrow" data-i18n="referenceRecipes">وصفات مرجعية محلية</p><h2 data-i18n="foodCatalogTitle">دليل أكل Yoldaş</h2></div><span id="food-catalog-count">36</span></div>
+            <p class="food-library-intro" data-i18n="foodCatalogDescription">وصفات مصرية وتركية بحصص متوسطة وأوزان واضحة. القيمة مرجعية وتختلف مع الزيت والإضافات والحجم الفعلي.</p>
+            <div class="food-catalog-tools">
+              <input id="food-catalog-search" autocomplete="off" data-i18n-placeholder="foodSearchPlaceholder" placeholder="ابحث عن كشري أو دونر أو شوربة عدس..." />
+              <div class="food-filter-row" aria-label="تصنيف الوصفات">
+                <button type="button" class="food-filter active" data-food-filter="all" data-i18n="allRecipes">الكل</button>
+                <button type="button" class="food-filter" data-food-filter="EG" data-i18n="egyptRecipes">مصرية</button>
+                <button type="button" class="food-filter" data-food-filter="TR" data-i18n="turkeyRecipes">تركية</button>
+                <button type="button" class="food-filter" data-food-filter="DAILY" data-i18n="dailyRecipes">وجبات يومية</button>
+              </div>
+            </div>
+            <div id="food-catalog-results" class="food-catalog-results" aria-live="polite"></div>
+            <div id="food-catalog-detail" class="food-catalog-detail" hidden></div>
+            <p id="food-catalog-message" class="food-catalog-message" hidden aria-live="polite"></p>
+          </article>
+
+          <article id="gym-mode" class="gym-mode-card">
+            <div class="section-title"><div><p class="eyebrow" data-i18n="gymEyebrow">تدريبك الحقيقي</p><h2 data-i18n="gymTitle">وضع الجيم</h2></div><span id="gym-week-volume">—</span></div>
+            <p class="gym-intro" data-i18n="gymDescription">سجّل كل مجموعة بوزنها وعداتها. تقدمك يعتمد على أرقامك التي تدخلها أنت فقط.</p>
+            <form id="gym-set-form" class="gym-set-form">
+              <label><span data-i18n="gymExercise">التمرين</span><input id="gym-exercise" autocomplete="off" maxlength="120" required data-i18n-placeholder="gymExercisePlaceholder" placeholder="مثال: بنش برس" /></label>
+              <label><span data-i18n="gymSetNumber">المجموعة</span><input id="gym-set-number" type="number" min="1" max="50" value="1" required /></label>
+              <label><span data-i18n="gymReps">العدات</span><input id="gym-reps" type="number" min="1" max="500" value="10" required /></label>
+              <label><span data-i18n="gymWeight">الوزن (كجم)</span><input id="gym-weight" type="number" min="0" max="1000" step="0.25" value="0" required /></label>
+              <button class="primary-button" type="submit" data-i18n="gymSaveSet">سجّل المجموعة</button>
+            </form>
+            <p id="gym-message" class="gym-message" hidden></p>
+            <div class="gym-progress-layout">
+              <div><h3 data-i18n="gymRecentSets">آخر المجموعات</h3><div id="gym-recent-sets" class="gym-recent-sets"></div></div>
+              <div><h3 data-i18n="gymPersonalBest">أفضل أرقامك</h3><div id="gym-personal-bests" class="gym-personal-bests"></div></div>
+            </div>
+          </article>
+        </section>
+
+        <!-- شاشة الخطط -->
+        <section id="plans-screen" class="screen" hidden>
+          <header class="dashboard-heading"><p class="eyebrow" data-i18n="personalPlan">خطة شخصية</p><h1 data-i18n="planTitle">خطة أكل أو تمرين</h1><p data-i18n="planDescription">جاوب على أربع أسئلة قصيرة وسنطلب من المساعد تجهيز بداية مناسبة.</p></header>
+          <article class="plan-card">
+            <div id="plan-wizard">
+              <div class="plan-switch"><button class="plan-type active" data-plan="food" data-i18n="planFood">خطة أكل</button><button class="plan-type" data-plan="workout" data-i18n="planWorkout">خطة تمرين</button></div>
+              <div class="step-meta"><span id="plan-step-label">السؤال 1 من 4</span><span id="plan-kind-label">خطة أكل</span></div>
+              <div class="progress-track"><i id="plan-progress"></i></div>
+              <label id="plan-question" for="plan-answer">ما هدفك الأساسي؟</label>
+              <input id="plan-answer" type="text" placeholder="مثال: خسارة وزن بهدوء" autocomplete="off" />
+              <div class="plan-actions"><button id="plan-back" class="secondary-button" hidden>السابق</button><button id="plan-next" class="primary-button">التالي</button></div>
+              <p id="plan-result" class="plan-result" hidden></p>
+            </div>
+          </article>
+          <article id="active-plan-card" class="active-plan-card" hidden></article>
+        </section>
+
+        <!-- شاشة المساعد -->
+        <section id="assistant-screen" class="screen" hidden>
+          <header class="dashboard-heading"><p class="eyebrow" data-i18n="healthAssistant">Miri، مساعدتك الصحية</p><h1 data-i18n="askYoldas">اسأل ميري</h1><p data-i18n="assistantDescription">اكتب عن وجبتك أو تمرينك أو هدفك بكلامك الطبيعي.</p></header>
+          <article class="assistant-card">
+            <div class="assistant-identity" aria-label="Miri">
+              <span class="assistant-avatar" aria-hidden="true">M</span>
+              <div><strong data-i18n="assistantName">Miri</strong><small data-i18n="assistantStatus">معك خطوة بخطوة</small></div>
+            </div>
+            <div id="chat-messages" class="chat-messages" aria-live="polite"><div class="chat bot">أهلًا، أنا ميري. اكتب لي ما أكلته أو تمرينك اليوم، ونأخذ خطوة مفيدة معًا.</div></div>
+            <div class="prompt-row"><button data-prompt="مشيت 20 دقيقة النهارده" data-i18n="promptWalk" data-i18n-prompt="promptWalkValue">مشيت 20 دقيقة</button><button data-prompt="اقترح لي فطار صحي سريع" data-i18n="promptBreakfast" data-i18n-prompt="promptBreakfastValue">فطار صحي سريع</button><button data-prompt="كيف أرتب وجباتي اليوم؟" data-i18n="promptOrganize" data-i18n-prompt="promptOrganizeValue">رتّب يومي</button></div>
+            <form id="chat-form" class="chat-form"><input id="chat-input" autocomplete="off" placeholder="اكتب وجبتك أو سؤالك..." /><button class="primary-button" type="submit" data-i18n="send">إرسال</button></form>
+            <div id="assistant-error" class="assistant-error" hidden><span></span><button id="assistant-retry" data-i18n="retry">حاول مرة أخرى</button></div>
+          </article>
+        </section>
+
+        <!-- شاشة التقدم -->
+        <section id="progress-screen" class="screen" hidden>
+          <header class="dashboard-heading"><p class="eyebrow" data-i18n="yourJourney">مسيرتك</p><h1 data-i18n="navProgress">التقدم</h1><p data-i18n="progressDescription">صورة أوضح لخطواتك كل ما سجّلت بياناتك الحقيقية.</p></header>
+          <article class="empty-card wide" id="progress-empty">
+            <span>📈</span>
+            <h2 data-i18n="progressEmptyTitle">لسه مفيش بيانات هنا</h2>
+            <p data-i18n="progressEmptyDescription">ابدأ بتسجيل أول وجبة أو تمرين، وسنحوّل خطواتك الصغيرة إلى صورة أوضح لتقدمك.</p>
+          </article>
+          <div id="progress-content" class="progress-content" hidden></div>
+        </section>
+
+        <!-- شاشة المجتمع -->
+        <section id="community-screen" class="screen" hidden>
+          <header class="dashboard-heading"><p class="eyebrow" data-i18n="friendsEyebrow">أصحابك المختارين</p><h1 data-i18n="navCommunity">المجتمع</h1><p data-i18n="friendsDescription">ابحث باسم مستخدم دقيق، أضف أصحابك بموافقتهم، وشارك ستريك صغير خاص.</p></header>
+          <article class="community-card">
+            <section class="friends-search-card">
+              <h2 data-i18n="findFriend">ابحث عن صاحب</h2>
+              <form id="friend-search-form" class="chat-form"><input id="friend-search-input" autocomplete="off" data-i18n-placeholder="friendSearchPlaceholder" placeholder="اكتب اسم المستخدم بالضبط" /><button class="primary-button" type="submit" data-i18n="search">بحث</button></form>
+              <div id="friend-search-result" class="friend-search-result" hidden></div>
+              <p id="friends-status" class="settings-hint" hidden></p>
+            </section>
+            <section class="friends-section">
+              <h2 data-i18n="friendRequests">طلبات الصداقة</h2>
+              <div id="friend-requests" class="friend-list"></div>
+            </section>
+            <section class="friends-section">
+              <h2 data-i18n="myFriends">أصحابي</h2>
+              <div id="friends-list" class="friend-list"></div>
+            </section>
+            <section class="snap-section">
+              <div><p class="eyebrow" data-i18n="snapEyebrow">ستريك خاص</p><h2 data-i18n="snapTitle">صورة ستريك لصاحب</h2><p data-i18n="snapPrivacy">صورة واحدة يوميًا لكل صديق، تظهر 24 ساعة فقط. لا ترسل صورًا حساسة أو شخصية.</p></div>
+              <form id="snap-form" class="snap-form">
+                <label><span data-i18n="snapFriend">الصاحب</span><select id="snap-recipient" required></select></label>
+                <label class="snap-file-label"><span data-i18n="snapPhoto">الصورة</span><input id="snap-file" type="file" accept="image/jpeg,image/webp" required /></label>
+                <label><span data-i18n="snapCaption">كلمة قصيرة (اختياري)</span><input id="snap-caption" maxlength="140" data-i18n-placeholder="snapCaptionPlaceholder" placeholder="مثال: مشي اليوم" /></label>
+                <button class="primary-button" type="submit" data-i18n="sendSnap">أرسل الستريك</button>
+              </form>
+              <p id="snap-status" class="settings-hint" hidden></p>
+              <div id="snap-list" class="snap-list"></div>
+            </section>
+            <section class="motivation-card" aria-live="polite">
+              <div><p class="eyebrow" data-i18n="motivationEyebrow">دعم اختياري</p><h2 data-i18n="motivationTitle">خُد دفعة حماس حقيقية</h2><p data-i18n="motivationDescription">رسالة كتبها مستخدم واختار مشاركتها بدون اسم. لا يوجد ترتيب ولا حسابات وهمية.</p></div>
+              <button id="get-motivation" class="secondary-button" type="button" data-i18n="motivationGet">اعرض رسالة داعمة</button>
+              <blockquote id="motivation-message" class="motivation-message" hidden></blockquote>
+              <p id="motivation-status" class="motivation-status" hidden></p>
+            </section>
+          </article>
+        </section>
+
+        <!-- شاشة الإعدادات -->
+        <section id="settings-screen" class="screen" hidden>
+          <header class="dashboard-heading"><p class="eyebrow" data-i18n="fullControl">تحكّم كامل</p><h1 data-i18n="navSettings">الإعدادات</h1><p data-i18n="settingsDescription">عدّل هدفك وتفضيلاتك، أو تعرّف على خصوصية جلستك.</p></header>
+
+          <article class="settings-card">
+            <h3 data-i18n="recoveryEmail">بريد الاسترجاع</h3>
+            <p class="settings-hint" data-i18n="recoveryEmailHint">خاص ولا يظهر للناس. يستخدم فقط عند نسيان كلمة السر.</p>
+            <div class="settings-row">
+              <input id="recovery-email-input" type="email" autocomplete="email" data-i18n-placeholder="recoveryEmailPlaceholder" placeholder="name@example.com" />
+              <button id="recovery-email-save" class="secondary-button" type="button" data-i18n="saveRecoveryEmail">حفظ بريد الاسترجاع</button>
+            </div>
+            <p id="recovery-email-message" class="settings-hint" hidden></p>
+          </article>
+
+          <article class="settings-card">
+            <h3 data-i18n="aliasTitle">الاسم المستعار في المجتمع</h3>
+            <div class="settings-row">
+              <input id="alias-input" type="text" data-i18n-placeholder="aliasPlaceholder" placeholder="مثال: رفيق_هادي" autocomplete="off" />
+              <button id="alias-save" class="secondary-button" data-i18n="save">حفظ</button>
+            </div>
+          </article>
+
+          <article class="settings-card">
+            <h3 data-i18n="goalTitle">الهدف الأساسي</h3>
+            <div class="settings-row">
+              <input id="goal-input" type="text" data-i18n-placeholder="goalPlaceholder" placeholder="مثال: خسارة وزن بهدوء" autocomplete="off" />
+              <button id="goal-save" class="secondary-button" data-i18n="save">حفظ</button>
+            </div>
+          </article>
+
+          <article class="settings-card">
+            <h3 data-i18n="miriStyleTitle">أسلوب ميري</h3>
+            <p class="settings-hint" data-i18n="miriStyleDescription">اختَر نبرة الحديث التي تناسبك. حدود الإرشاد الصحي لا تتغير.</p>
+            <div id="miri-style-options" class="miri-style-options" role="radiogroup" data-i18n-aria-label="miriStyleTitle">
+              <button type="button" class="miri-style-option" data-miri-style="supportive" role="radio"><b data-i18n="miriStyleSupportive">داعم ودافئ</b><small data-i18n="miriStyleSupportiveHint">تشجيع متزن وخطوة بسيطة.</small></button>
+              <button type="button" class="miri-style-option" data-miri-style="calm" role="radio"><b data-i18n="miriStyleCalm">هادئ ومباشر</b><small data-i18n="miriStyleCalmHint">إجابة قصيرة بلا زحمة كلام.</small></button>
+              <button type="button" class="miri-style-option" data-miri-style="energetic" role="radio"><b data-i18n="miriStyleEnergetic">حماسي</b><small data-i18n="miriStyleEnergeticHint">طاقة وتشجيع من غير ضغط.</small></button>
+            </div>
+            <div class="settings-row"><button id="miri-style-save" class="secondary-button" data-i18n="saveMiriStyle">حفظ أسلوب ميري</button></div>
+          </article>
+
+          <article class="settings-card">
+            <h3 data-i18n="motivationSettingsTitle">رسالة حماس اختيارية</h3>
+            <p class="settings-hint" data-i18n="motivationSettingsHint">اكتب رسالة قصيرة حقيقية لو تحب تساعد شخصًا آخر. لن يظهر اسمك ولا يمكن للموقع اختراع رسائل أو نسبتها لك.</p>
+            <textarea id="motivation-note-input" maxlength="280" rows="3" data-i18n-placeholder="motivationPlaceholder" placeholder="مثال: البداية الصغيرة أحسن من انتظار اليوم المثالي."></textarea>
+            <label class="settings-toggle"><input id="motivation-opt-in" type="checkbox" /><span data-i18n="motivationOptIn">أوافق على مشاركة هذه الرسالة بدون اسمي داخل مساحة الدعم.</span></label>
+            <div class="settings-row"><button id="motivation-save" class="secondary-button" data-i18n="motivationSave">احفظ تفضيل الرسالة</button></div>
+            <p id="motivation-settings-message" class="settings-hint" hidden></p>
+          </article>
+
+          <article class="settings-card">
+            <h3 data-i18n="reminderTitle">تفضيلات التذكير</h3>
+            <label class="settings-toggle">
+              <input id="reminder-toggle" type="checkbox" />
+              <span data-i18n="reminderToggle">ذكّرني بتسجيل يومي (اختياري)</span>
+            </label>
+            <p class="settings-hint" data-i18n="reminderHint">لن نطلب إذن الإشعارات إلا بعد أن ترى فائدة واضحة، ولن نفعّله دون موافقتك.</p>
+          </article>
+
+          <article class="settings-card">
+            <h3 data-i18n="privacyTitle">بياناتك وخصوصيتك</h3>
+            <p class="settings-hint" data-i18n="privacyHint">في وضع التجربة، بياناتك مرتبطة بهذا المتصفح فقط. الحساب باسم المستخدم يحفظ رحلتك بشكل منفصل.</p>
+            <div class="settings-row">
+              <button id="export-data" class="secondary-button" data-i18n="exportData">تصدير بياناتي</button>
+              <button id="delete-data" class="danger-button" data-i18n="deleteData">حذف بياناتي</button>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <!-- شريط تنقل سفلي للهاتف -->
+      <nav id="mobile-nav" class="mobile-nav" hidden>
+        <button class="mobile-tab active" data-screen="today"><span class="mobile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></svg></span><em data-i18n="navToday">اليوم</em></button>
+        <button class="mobile-tab" data-screen="plans"><span class="mobile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5h6M9 10h6M9 14h6M9 18h3"/></svg></span><em data-i18n="navPlans">الخطط</em></button>
+        <button class="mobile-tab" data-screen="assistant"><span class="mobile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-7.8 7.5 8.3 8.3 0 0 1-3.5-.8L4 20l1.4-4a7.3 7.3 0 0 1-1.2-4.1A7.5 7.5 0 0 1 12 4a7.5 7.5 0 0 1 8 7.5Z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg></span><em data-i18n="navAssistant">المساعد</em></button>
+        <button class="mobile-tab" data-screen="progress"><span class="mobile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="m7 15 4-4 3 2 5-6"/></svg></span><em data-i18n="navProgress">التقدم</em></button>
+        <button class="mobile-tab" data-screen="settings"><span class="mobile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.2 2.2-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-3.2v-.2a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1-2.2-2.2.1-.1A1.7 1.7 0 0 0 6.6 15a1.7 1.7 0 0 0-1.6-1H4.8v-3.2H5a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1 2.2-2.2.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.6v-.2h3.2v.2a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1 2.2 2.2-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2V14H21a1.7 1.7 0 0 0-1.6 1Z"/></svg></span><em data-i18n="navSettings">الإعدادات</em></button>
+      </nav>
+    </main>
+  </body>
+</html>
