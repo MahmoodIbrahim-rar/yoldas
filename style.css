@@ -882,6 +882,13 @@ input { font-family: inherit; }
 .mobile-tab.active::before { content: ""; position: absolute; top: 0; width: 22px; height: 3px; border-radius: 0 0 4px 4px; background: var(--color-primary); }
 .mobile-tab:active { transform: scale(0.96); }
 
+@media (max-width: 440px) {
+  .mobile-nav { padding-inline: 5px; }
+  .mobile-tab { min-width: 0; min-height: 56px; gap: 3px; padding: 7px 1px 5px; font-size: 9.5px; }
+  .mobile-icon { width: 19px; height: 19px; }
+  .mobile-icon svg { width: 19px; height: 19px; }
+}
+
 /* ============== حركات ============== */
 
 @keyframes rise {
