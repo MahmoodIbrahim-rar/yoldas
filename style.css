@@ -330,6 +330,8 @@ input { font-family: inherit; }
 .ad-slot span { font-size: 12px; font-weight: 800; color: #9b7020; }
 .ad-slot small { max-width: 14ch; font-size: 11px; line-height: 1.55; }
 .ad-slot-rail { min-height: 100%; }
+.ad-slot-mobile { display: none; }
+.ad-slot-section { margin-block: 30px; }
 .intro-card h2 { font-size: 22px; margin: 0 0 10px; line-height: 1.4; }
 .intro-card > p { color: var(--color-text-soft); margin: 0 0 20px; font-size: 15px; }
 
@@ -962,6 +964,14 @@ input { font-family: inherit; }
 }
 
 @media (max-width: 720px) {
+  .ad-slot-mobile {
+    display: flex;
+    min-height: 112px;
+    margin: 8px 0 20px;
+    padding: 16px;
+    border-radius: 12px 4px 12px 4px;
+  }
+  .ad-slot-section { margin: 26px 0; }
   .food-catalog-tools { grid-template-columns: 1fr; }
   .food-catalog-results { grid-template-columns: 1fr; }
   .food-library-card { padding: 18px; }
