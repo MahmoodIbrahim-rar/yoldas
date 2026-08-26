@@ -244,7 +244,7 @@
 
         <!-- شاشة الخطط -->
         <section id="plans-screen" class="screen" hidden>
-          <header class="dashboard-heading"><p class="eyebrow" data-i18n="personalPlan">خطة شخصية</p><h1 data-i18n="planTitle">خطة أكل أو تمرين</h1><p data-i18n="planDescription">جاوب على أربع أسئلة قصيرة وسنطلب من المساعد تجهيز بداية مناسبة.</p></header>
+          <header class="dashboard-heading"><p class="eyebrow" data-i18n="personalPlan">خطة شخصية</p><h1 data-i18n="planTitle">خطة أكل أو تمرين</h1><p data-i18n="planDescription">جاوب على أسئلة مناسبة لهدفك ومستواك، وميري تجهز بداية عملية ومتدرجة.</p></header>
           <article class="plan-card">
             <div id="plan-wizard">
               <div class="plan-switch"><button class="plan-type active" data-plan="food" data-i18n="planFood">خطة أكل</button><button class="plan-type" data-plan="workout" data-i18n="planWorkout">خطة تمرين</button></div>
@@ -252,6 +252,7 @@
               <div class="progress-track"><i id="plan-progress"></i></div>
               <label id="plan-question" for="plan-answer">ما هدفك الأساسي؟</label>
               <input id="plan-answer" type="text" placeholder="مثال: خسارة وزن بهدوء" autocomplete="off" />
+              <small id="plan-answer-hint" class="plan-answer-hint"></small>
               <div class="plan-actions"><button id="plan-back" class="secondary-button" hidden>السابق</button><button id="plan-next" class="primary-button">التالي</button></div>
               <p id="plan-result" class="plan-result" hidden></p>
             </div>
@@ -288,23 +289,38 @@
         <!-- شاشة المجتمع -->
         <section id="community-screen" class="screen" hidden>
           <header class="dashboard-heading"><p class="eyebrow" data-i18n="friendsEyebrow">أصحابك المختارين</p><h1 data-i18n="navCommunity">المجتمع</h1><p data-i18n="friendsDescription">ابحث باسم مستخدم دقيق، أضف أصحابك بموافقتهم، وشارك ستريك صغير خاص.</p></header>
-          <article class="community-card">
-            <section class="friends-search-card">
-              <h2 data-i18n="findFriend">ابحث عن صاحب</h2>
+          <article class="community-card community-hub">
+            <section class="community-brief">
+              <div>
+                <span class="community-private-label"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span data-i18n="communityPrivateLabel">خاص بين الأصدقاء</span></span>
+                <p data-i18n="communityPromise">لا يوجد ترتيب عام أو حسابات وهمية. أنت وحدك تختار أصدقاءك، وصور الستريك لا يراها إلا طرفا الصداقة.</p>
+              </div>
+              <div class="community-live-summary" aria-live="polite">
+                <div><strong id="community-friend-count">0</strong><span data-i18n="communityFriendsStat">أصحاب مقبولين</span></div>
+                <div><strong id="community-streak-count">0</strong><span data-i18n="communityStreaksStat">ستريك نشط</span></div>
+                <div><strong id="community-snap-count">0</strong><span data-i18n="communitySnapsStat">صور نشطة</span></div>
+              </div>
+            </section>
+            <div class="community-workspace">
+              <div class="community-main-column">
+                <section class="friends-search-card">
+                  <header class="community-section-header"><span>01</span><div><h2 data-i18n="findFriend">ابحث عن صاحب</h2><p data-i18n="communityFindHint">ابحث باسم المستخدم الدقيق فقط، ثم أرسل طلب صداقة.</p></div></header>
               <form id="friend-search-form" class="chat-form"><input id="friend-search-input" autocomplete="off" data-i18n-placeholder="friendSearchPlaceholder" placeholder="اكتب اسم المستخدم بالضبط" /><button class="primary-button" type="submit" data-i18n="search">بحث</button></form>
               <div id="friend-search-result" class="friend-search-result" hidden></div>
               <p id="friends-status" class="settings-hint" hidden></p>
-            </section>
-            <section class="friends-section">
-              <h2 data-i18n="friendRequests">طلبات الصداقة</h2>
-              <div id="friend-requests" class="friend-list"></div>
-            </section>
-            <section class="friends-section">
-              <h2 data-i18n="myFriends">أصحابي</h2>
-              <div id="friends-list" class="friend-list"></div>
-            </section>
-            <section class="snap-section">
-              <div><p class="eyebrow" data-i18n="snapEyebrow">ستريك خاص</p><h2 data-i18n="snapTitle">صورة ستريك لصاحب</h2><p data-i18n="snapPrivacy">صورة واحدة يوميًا لكل صديق، تظهر 24 ساعة فقط. لا ترسل صورًا حساسة أو شخصية.</p></div>
+                </section>
+                <section class="friends-section community-requests-panel">
+                  <header class="community-section-header"><span>02</span><div><h2 data-i18n="friendRequests">طلبات الصداقة</h2><p data-i18n="communityRequestsHint">لا تتم إضافة أي شخص إلا بعد قبوله.</p></div></header>
+                  <div id="friend-requests" class="friend-list"></div>
+                </section>
+                <section class="friends-section community-friends-panel">
+                  <header class="community-section-header"><span>03</span><div><h2 data-i18n="myFriends">أصحابي</h2><p data-i18n="communityFriendsHint">هنا يظهر عداد الستريك المشترك لكل صديق.</p></div></header>
+                  <div id="friends-list" class="friend-list"></div>
+                </section>
+              </div>
+              <aside class="community-side-column">
+                <section class="snap-section">
+                  <div><p class="eyebrow" data-i18n="snapEyebrow">ستريك خاص</p><h2 data-i18n="snapTitle">صورة ستريك لصاحب</h2><p data-i18n="snapPrivacy">صورة واحدة يوميًا لكل صديق، تظهر 24 ساعة فقط. لا ترسل صورًا حساسة أو شخصية.</p></div>
               <form id="snap-form" class="snap-form">
                 <label><span data-i18n="snapFriend">الصاحب</span><select id="snap-recipient" required></select></label>
                 <label class="snap-file-label"><span data-i18n="snapPhoto">الصورة</span><input id="snap-file" type="file" accept="image/jpeg,image/webp" required /></label>
@@ -313,7 +329,9 @@
               </form>
               <p id="snap-status" class="settings-hint" hidden></p>
               <div id="snap-list" class="snap-list"></div>
-            </section>
+                </section>
+              </aside>
+            </div>
             <section class="motivation-card" aria-live="polite">
               <div><p class="eyebrow" data-i18n="motivationEyebrow">دعم اختياري</p><h2 data-i18n="motivationTitle">خُد دفعة حماس حقيقية</h2><p data-i18n="motivationDescription">رسالة كتبها مستخدم واختار مشاركتها بدون اسم. لا يوجد ترتيب ولا حسابات وهمية.</p></div>
               <button id="get-motivation" class="secondary-button" type="button" data-i18n="motivationGet">اعرض رسالة داعمة</button>

@@ -97,17 +97,33 @@
   const EXTRA_UI_TEXT = {
     ar: {
       motivationEyebrow: "دعم اختياري", motivationTitle: "خُد دفعة حماس حقيقية", motivationDescription: "رسالة كتبها مستخدم واختار مشاركتها بدون اسم. لا يوجد ترتيب ولا حسابات وهمية.", motivationGet: "اعرض رسالة داعمة", motivationEmpty: "لا توجد رسالة مشاركة الآن. يمكنك العودة لاحقًا أو كتابة رسالة حقيقية خاصة بك.", motivationLoadError: "تعذر تحميل رسالة الدعم الآن.", motivationSettingsTitle: "رسالة حماس اختيارية", motivationSettingsHint: "اكتب رسالة قصيرة حقيقية لو تحب تساعد شخصًا آخر. لن يظهر اسمك ولا يمكن للموقع اختراع رسائل أو نسبتها لك.", motivationPlaceholder: "مثال: البداية الصغيرة أحسن من انتظار اليوم المثالي.", motivationOptIn: "أوافق على مشاركة هذه الرسالة بدون اسمي داخل مساحة الدعم.", motivationSave: "احفظ تفضيل الرسالة", motivationSaved: "تم حفظ تفضيل الرسالة. يمكنك إيقاف المشاركة في أي وقت.", motivationSaveError: "تعذر حفظ تفضيل الرسالة الآن.", motivationSetupRequired: "دعم الحافز لم يتم تفعيله بعد: شغّل ملف motivation-support-setup.sql مرة واحدة داخل Supabase SQL Editor، ثم أعد تحميل الموقع.", motivationMinLength: "اكتب رسالة من 12 حرفًا على الأقل قبل المشاركة.",
-      friendsEyebrow: "أصحابك المختارين", friendsDescription: "ابحث باسم مستخدم دقيق، أضف أصحابك بموافقتهم، وشارك ستريك صغير خاص.", findFriend: "ابحث عن صاحب", friendSearchPlaceholder: "اكتب اسم المستخدم بالضبط", search: "بحث", addFriend: "أرسل طلب صداقة", requestSent: "تم إرسال طلب الصداقة.", friendRequests: "طلبات الصداقة", myFriends: "أصحابي", accept: "قبول", decline: "رفض", removeFriend: "إزالة", block: "حظر", report: "إبلاغ", noRequests: "لا توجد طلبات صداقة الآن.", noFriends: "لسه ما أضفتش أصحاب.", noSearchResult: "لم نجد حسابًا مطابقًا أو لا يسمح بالبحث عنه.", snapEyebrow: "ستريك خاص", snapTitle: "صورة ستريك لصاحب", snapPrivacy: "صورة واحدة يوميًا لكل صديق، تظهر 24 ساعة فقط. لا ترسل صورًا حساسة أو شخصية.", snapFriend: "الصاحب", snapPhoto: "الصورة", snapCaption: "كلمة قصيرة (اختياري)", snapCaptionPlaceholder: "مثال: مشي اليوم", sendSnap: "أرسل الستريك", snapNoFriends: "أضف صديقًا مقبولًا أولًا لإرسال ستريك.", snapSaved: "تم إرسال الستريك، وينتهي خلال 24 ساعة.", snapEmpty: "لا توجد صور ستريك نشطة الآن.", snapTooLarge: "حجم الصورة يجب ألا يتجاوز 2 ميجابايت.", snapUnsupported: "اختر صورة JPG أو WebP فقط.", snapLimit: "أرسلت ستريك لهذا الصديق اليوم بالفعل.", friendLimit: "وصل أحدكما إلى حد 20 صديقًا حاليًا.", communitySetupRequired: "شغّل ملف friends-recovery-setup.sql ثم انشر social-service لتفعيل الأصدقاء والستريك.", reportPrompt: "اكتب سببًا قصيرًا للإبلاغ", actionFailed: "تعذر تنفيذ هذا الإجراء الآن. حاول لاحقًا.",
+      friendsEyebrow: "أصحابك المختارين", friendsDescription: "ابحث باسم مستخدم دقيق، أضف أصحابك بموافقتهم، وشارك ستريك صغير خاص.", findFriend: "ابحث عن صاحب", friendSearchPlaceholder: "اكتب اسم المستخدم بالضبط", search: "بحث", addFriend: "أرسل طلب صداقة", requestSent: "تم إرسال طلب الصداقة.", friendRequests: "طلبات الصداقة", myFriends: "أصحابي", accept: "قبول", decline: "رفض", removeFriend: "إزالة", block: "حظر", report: "إبلاغ", noRequests: "لا توجد طلبات صداقة الآن.", noFriends: "لسه ما أضفتش أصحاب.", noSearchResult: "لم نجد حسابًا مطابقًا أو لا يسمح بالبحث عنه.", friendStreakDays: "يوم ستريك", friendStreakStart: "ابدأ الستريك", streakSetupRequired: "لتشغيل عداد الستريك، شغّل ملف friend-streak-counter-setup.sql مرة واحدة داخل Supabase SQL Editor.", snapEyebrow: "ستريك خاص", snapTitle: "صورة ستريك لصاحب", snapPrivacy: "صورة واحدة يوميًا لكل صديق، تظهر 24 ساعة فقط. لا ترسل صورًا حساسة أو شخصية.", snapFriend: "الصاحب", snapPhoto: "الصورة", snapCaption: "كلمة قصيرة (اختياري)", snapCaptionPlaceholder: "مثال: مشي اليوم", sendSnap: "أرسل الستريك", snapNoFriends: "أضف صديقًا مقبولًا أولًا لإرسال ستريك.", snapSaved: "تم إرسال الستريك، وينتهي خلال 24 ساعة.", snapEmpty: "لا توجد صور ستريك نشطة الآن.", snapTooLarge: "حجم الصورة يجب ألا يتجاوز 2 ميجابايت.", snapUnsupported: "اختر صورة JPG أو WebP فقط.", snapLimit: "أرسلت ستريك لهذا الصديق اليوم بالفعل.", friendLimit: "وصل أحدكما إلى حد 20 صديقًا حاليًا.", communitySetupRequired: "شغّل ملف friends-recovery-setup.sql ثم انشر social-service لتفعيل الأصدقاء والستريك.", reportPrompt: "اكتب سببًا قصيرًا للإبلاغ", actionFailed: "تعذر تنفيذ هذا الإجراء الآن. حاول لاحقًا.",
     },
     tr: {
       motivationEyebrow: "İsteğe bağlı destek", motivationTitle: "Gerçek bir motivasyon mesajı al", motivationDescription: "Bir kullanıcının adı gösterilmeden paylaşmayı seçtiği gerçek bir mesajdır. Sıralama veya sahte hesap yoktur.", motivationGet: "Destek mesajı göster", motivationEmpty: "Şu anda paylaşılmış bir mesaj yok. Sonra tekrar deneyebilir veya kendi gerçek mesajını yazabilirsin.", motivationLoadError: "Destek mesajı şu anda yüklenemedi.", motivationSettingsTitle: "İsteğe bağlı motivasyon mesajı", motivationSettingsHint: "Başka birine yardımcı olmak istersen kısa ve gerçek bir mesaj yaz. Adın görünmez; uygulama sahte mesaj üretmez veya sana aitmiş gibi göstermez.", motivationPlaceholder: "Örnek: Küçük bir başlangıç, mükemmel günü beklemekten iyidir.", motivationOptIn: "Bu mesajın destek alanında adım olmadan paylaşılmasına izin veriyorum.", motivationSave: "Mesaj tercihini kaydet", motivationSaved: "Mesaj tercihin kaydedildi. Paylaşımı istediğin zaman kapatabilirsin.", motivationSaveError: "Mesaj tercihi şu anda kaydedilemedi.", motivationSetupRequired: "İsteğe bağlı destek henüz etkin değil: Supabase SQL Editor’da motivation-support-setup.sql dosyasını bir kez çalıştır, sonra siteyi yenile.", motivationMinLength: "Paylaşmadan önce en az 12 karakterlik bir mesaj yaz.",
-      friendsEyebrow: "Seçtiğin arkadaşların", friendsDescription: "Tam kullanıcı adıyla ara, onayla arkadaş ekle ve özel küçük bir seri paylaş.", findFriend: "Arkadaş ara", friendSearchPlaceholder: "Kullanıcı adını tam yaz", search: "Ara", addFriend: "Arkadaşlık isteği gönder", requestSent: "Arkadaşlık isteği gönderildi.", friendRequests: "Arkadaşlık istekleri", myFriends: "Arkadaşlarım", accept: "Kabul et", decline: "Reddet", removeFriend: "Kaldır", block: "Engelle", report: "Bildir", noRequests: "Şu anda arkadaşlık isteği yok.", noFriends: "Henüz arkadaş eklemedin.", noSearchResult: "Eşleşen bir hesap bulunamadı veya aramaya izin vermiyor.", snapEyebrow: "Özel seri", snapTitle: "Bir arkadaşa seri fotoğrafı", snapPrivacy: "Her arkadaş için günde bir fotoğraf; yalnızca 24 saat görünür. Hassas veya kişisel fotoğraf gönderme.", snapFriend: "Arkadaş", snapPhoto: "Fotoğraf", snapCaption: "Kısa not (isteğe bağlı)", snapCaptionPlaceholder: "Örnek: Bugünkü yürüyüş", sendSnap: "Seriyi gönder", snapNoFriends: "Seri göndermek için önce kabul edilmiş bir arkadaş ekle.", snapSaved: "Seri gönderildi; 24 saat içinde sona erer.", snapEmpty: "Şu anda etkin seri fotoğrafı yok.", snapTooLarge: "Fotoğraf boyutu 2 MB’ı aşmamalı.", snapUnsupported: "Yalnızca JPG veya WebP seç.", snapLimit: "Bugün bu arkadaşa zaten seri gönderdin.", friendLimit: "Biriniz 20 arkadaş sınırına ulaştı.", communitySetupRequired: "Arkadaşları ve serileri etkinleştirmek için friends-recovery-setup.sql dosyasını çalıştırıp social-service’i yayınla.", reportPrompt: "Bildirim için kısa bir neden yaz", actionFailed: "Bu işlem şu anda tamamlanamadı. Sonra tekrar dene.",
+      friendsEyebrow: "Seçtiğin arkadaşların", friendsDescription: "Tam kullanıcı adıyla ara, onayla arkadaş ekle ve özel küçük bir seri paylaş.", findFriend: "Arkadaş ara", friendSearchPlaceholder: "Kullanıcı adını tam yaz", search: "Ara", addFriend: "Arkadaşlık isteği gönder", requestSent: "Arkadaşlık isteği gönderildi.", friendRequests: "Arkadaşlık istekleri", myFriends: "Arkadaşlarım", accept: "Kabul et", decline: "Reddet", removeFriend: "Kaldır", block: "Engelle", report: "Bildir", noRequests: "Şu anda arkadaşlık isteği yok.", noFriends: "Henüz arkadaş eklemedin.", noSearchResult: "Eşleşen bir hesap bulunamadı veya aramaya izin vermiyor.", friendStreakDays: "günlük seri", friendStreakStart: "Seriye başla", streakSetupRequired: "Seri sayacını etkinleştirmek için friend-streak-counter-setup.sql dosyasını Supabase SQL Editor’da bir kez çalıştır.", snapEyebrow: "Özel seri", snapTitle: "Bir arkadaşa seri fotoğrafı", snapPrivacy: "Her arkadaş için günde bir fotoğraf; yalnızca 24 saat görünür. Hassas veya kişisel fotoğraf gönderme.", snapFriend: "Arkadaş", snapPhoto: "Fotoğraf", snapCaption: "Kısa not (isteğe bağlı)", snapCaptionPlaceholder: "Örnek: Bugünkü yürüyüş", sendSnap: "Seriyi gönder", snapNoFriends: "Seri göndermek için önce kabul edilmiş bir arkadaş ekle.", snapSaved: "Seri gönderildi; 24 saat içinde sona erer.", snapEmpty: "Şu anda etkin seri fotoğrafı yok.", snapTooLarge: "Fotoğraf boyutu 2 MB’ı aşmamalı.", snapUnsupported: "Yalnızca JPG veya WebP seç.", snapLimit: "Bugün bu arkadaşa zaten seri gönderdin.", friendLimit: "Biriniz 20 arkadaş sınırına ulaştı.", communitySetupRequired: "Arkadaşları ve serileri etkinleştirmek için friends-recovery-setup.sql dosyasını çalıştırıp social-service’i yayınla.", reportPrompt: "Bildirim için kısa bir neden yaz", actionFailed: "Bu işlem şu anda tamamlanamadı. Sonra tekrar dene.",
     },
     en: {
       motivationEyebrow: "Optional support", motivationTitle: "Get a real boost", motivationDescription: "A real message a user chose to share without their name. There are no rankings or fake accounts.", motivationGet: "Show a supportive message", motivationEmpty: "No shared message is available right now. You can return later or write your own real message.", motivationLoadError: "Support message could not be loaded now.", motivationSettingsTitle: "Optional motivation message", motivationSettingsHint: "Write a real short message if you want to help someone else. Your name is never shown and the app never invents messages.", motivationPlaceholder: "Example: A small start is better than waiting for the perfect day.", motivationOptIn: "I agree that this message may be shared without my name in the support space.", motivationSave: "Save message preference", motivationSaved: "Your message preference was saved. You can stop sharing at any time.", motivationSaveError: "Message preference could not be saved now.", motivationSetupRequired: "Optional support is not enabled yet: run motivation-support-setup.sql once in Supabase SQL Editor, then reload the site.", motivationMinLength: "Write at least 12 characters before sharing.",
-      friendsEyebrow: "Friends you choose", friendsDescription: "Search by an exact username, add friends with mutual consent, and share a small private streak.", findFriend: "Find a friend", friendSearchPlaceholder: "Type the exact username", search: "Search", addFriend: "Send friend request", requestSent: "Friend request sent.", friendRequests: "Friend requests", myFriends: "My friends", accept: "Accept", decline: "Decline", removeFriend: "Remove", block: "Block", report: "Report", noRequests: "No friend requests right now.", noFriends: "You have not added friends yet.", noSearchResult: "No matching account was found, or it does not allow discovery.", snapEyebrow: "Private streak", snapTitle: "Streak photo for a friend", snapPrivacy: "One photo per friend per day, visible for 24 hours only. Do not send sensitive or personal images.", snapFriend: "Friend", snapPhoto: "Photo", snapCaption: "Short note (optional)", snapCaptionPlaceholder: "Example: Today’s walk", sendSnap: "Send streak", snapNoFriends: "Add an accepted friend before sending a streak.", snapSaved: "Streak sent. It expires within 24 hours.", snapEmpty: "No active streak photos right now.", snapTooLarge: "Photo size must not exceed 2 MB.", snapUnsupported: "Choose JPG or WebP only.", snapLimit: "You already sent this friend a streak today.", friendLimit: "One of you has reached the current 20-friend limit.", communitySetupRequired: "Run friends-recovery-setup.sql and deploy social-service to enable friends and streaks.", reportPrompt: "Write a short reason for the report", actionFailed: "This action could not be completed. Try again later."
+      friendsEyebrow: "Friends you choose", friendsDescription: "Search by an exact username, add friends with mutual consent, and share a small private streak.", findFriend: "Find a friend", friendSearchPlaceholder: "Type the exact username", search: "Search", addFriend: "Send friend request", requestSent: "Friend request sent.", friendRequests: "Friend requests", myFriends: "My friends", accept: "Accept", decline: "Decline", removeFriend: "Remove", block: "Block", report: "Report", noRequests: "No friend requests right now.", noFriends: "You have not added friends yet.", noSearchResult: "No matching account was found, or it does not allow discovery.", friendStreakDays: "day streak", friendStreakStart: "Start a streak", streakSetupRequired: "Run friend-streak-counter-setup.sql once in Supabase SQL Editor to enable the streak counter.", snapEyebrow: "Private streak", snapTitle: "Streak photo for a friend", snapPrivacy: "One photo per friend per day, visible for 24 hours only. Do not send sensitive or personal images.", snapFriend: "Friend", snapPhoto: "Photo", snapCaption: "Short note (optional)", snapCaptionPlaceholder: "Example: Today’s walk", sendSnap: "Send streak", snapNoFriends: "Add an accepted friend before sending a streak.", snapSaved: "Streak sent. It expires within 24 hours.", snapEmpty: "No active streak photos right now.", snapTooLarge: "Photo size must not exceed 2 MB.", snapUnsupported: "Choose JPG or WebP only.", snapLimit: "You already sent this friend a streak today.", friendLimit: "One of you has reached the current 20-friend limit.", communitySetupRequired: "Run friends-recovery-setup.sql and deploy social-service to enable friends and streaks.", reportPrompt: "Write a short reason for the report", actionFailed: "This action could not be completed. Try again later."
     },
   };
+
+  Object.assign(EXTRA_UI_TEXT.ar, {
+    communityPrivateLabel: "خاص بين الأصدقاء", communityPromise: "لا يوجد ترتيب عام أو حسابات وهمية. أنت وحدك تختار أصدقاءك، وصور الستريك لا يراها إلا طرفا الصداقة.", communityFriendsStat: "أصحاب مقبولين", communityStreaksStat: "ستريك نشط", communitySnapsStat: "صور نشطة", communityFindHint: "ابحث باسم المستخدم الدقيق فقط، ثم أرسل طلب صداقة.", communityRequestsHint: "لا تتم إضافة أي شخص إلا بعد قبوله.", communityFriendsHint: "هنا يظهر عداد الستريك المشترك لكل صديق.", snapFromYou: "أنت"
+  });
+  Object.assign(EXTRA_UI_TEXT.tr, {
+    communityPrivateLabel: "Arkadaşlar arasında özel", communityPromise: "Herkese açık sıralama veya sahte hesap yok. Arkadaşlarını yalnızca sen seçersin; seri fotoğraflarını sadece iki taraf görür.", communityFriendsStat: "Kabul edilen arkadaş", communityStreaksStat: "Etkin seri", communitySnapsStat: "Etkin fotoğraf", communityFindHint: "Yalnızca tam kullanıcı adıyla ara, sonra istek gönder.", communityRequestsHint: "Kimse kabulün olmadan eklenmez.", communityFriendsHint: "Her arkadaşınla ortak seri sayacını burada görürsün.", snapFromYou: "Sen"
+  });
+  Object.assign(EXTRA_UI_TEXT.en, {
+    communityPrivateLabel: "Private between friends", communityPromise: "There are no public rankings or fake accounts. You choose your friends, and only the two friends can see streak photos.", communityFriendsStat: "Accepted friends", communityStreaksStat: "Active streaks", communitySnapsStat: "Active photos", communityFindHint: "Search by the exact username, then send a friend request.", communityRequestsHint: "No one is added unless they accept.", communityFriendsHint: "Your mutual streak counter appears beside each friend.", snapFromYou: "You"
+  });
+  Object.assign(EXTRA_UI_TEXT.ar, { planInputInvalid: "اكتب قيمة مناسبة قبل المتابعة.", planPersonalNote: "بياناتك دي خاصة بخطتك فقط، وميري تقدم إرشادًا عامًا لا تشخيصًا طبيًا." });
+  Object.assign(EXTRA_UI_TEXT.tr, { planInputInvalid: "Devam etmeden önce uygun bir değer gir.", planPersonalNote: "Bu bilgiler yalnızca planın içindir; Miri tıbbi tanı değil, genel rehberlik sunar." });
+  Object.assign(EXTRA_UI_TEXT.en, { planInputInvalid: "Enter a suitable value before continuing.", planPersonalNote: "These details are used only for your plan. Miri provides general guidance, not a medical diagnosis." });
+  Object.assign(UI_TEXT.ar, { planDescription: "هدفك ومستواك وبياناتك الأساسية تساعد ميري تجهّز بداية عملية ومتدرجة." });
+  Object.assign(UI_TEXT.tr, { planDescription: "Hedefin, seviyen ve temel bilgilerin Miri'nin sana uygun, aşamalı bir başlangıç hazırlamasına yardımcı olur." });
+  Object.assign(UI_TEXT.en, { planDescription: "Your goal, level, and basic details help Miri prepare a practical, progressive starting plan." });
 
   const PLAN_QUESTIONS_TR = {
     food: [
@@ -154,8 +170,54 @@
     ],
   };
 
+  const PLAN_PERSONALIZATION = {
+    ar: {
+      food: [
+        { key: "age", label: "عندك كام سنة؟", placeholder: "مثال: 26", hint: "اكتب رقمًا فقط.", type: "number", min: 13, max: 100 },
+        { key: "height_cm", label: "طولك كام سم؟", placeholder: "مثال: 175", hint: "اكتب الطول بالسنتيمتر.", type: "number", min: 120, max: 230 },
+        { key: "weight_kg", label: "وزنك الحالي كام كجم؟", placeholder: "مثال: 82", hint: "اكتب وزنك التقريبي الحالي.", type: "number", min: 30, max: 300, step: "0.1" },
+      ],
+      health: { key: "health_context", label: "هل في حالة صحية أو أكل لازم نراعيه؟", placeholder: "مثال: أقلل اللاكتوز؛ أو اكتب مافيش", hint: "لو في أعراض، دواء، أو حالة خاصة استشر مختص.", optional: true },
+      ability: [
+        { key: "pushups", label: "بتعرف تعمل كام ضغطة كاملة براحة؟", placeholder: "مثال: 0 أو 5 أو 20", hint: "لو مش بتعرف تعمل ضغطة اكتب 0، وميري هتديك بديل أسهل.", type: "number", min: 0, max: 200 },
+        { key: "squat_ability", label: "بتعرف تعمل سكوات بوزن جسمك براحة؟", placeholder: "مثال: مرتاح / صعب / بيعمل ألم / مش بعرف" },
+      ],
+    },
+    tr: {
+      food: [
+        { key: "age", label: "Kaç yaşındasın?", placeholder: "Örnek: 26", hint: "Sayı olarak yaz.", type: "number", min: 13, max: 100 },
+        { key: "height_cm", label: "Boyun kaç cm?", placeholder: "Örnek: 175", hint: "Santimetre olarak yaz.", type: "number", min: 120, max: 230 },
+        { key: "weight_kg", label: "Güncel kilon kaç kg?", placeholder: "Örnek: 82", hint: "Yaklaşık güncel kilonu yaz.", type: "number", min: 30, max: 300, step: "0.1" },
+      ],
+      health: { key: "health_context", label: "Dikkate alınacak bir sağlık durumu veya besin tercihi var mı?", placeholder: "Örnek: Laktozu azaltıyorum; yoksa yok yaz", hint: "Belirti, ilaç veya özel durum varsa bir uzmana danış.", optional: true },
+      ability: [
+        { key: "pushups", label: "Rahat formda kaç şınav yapabiliyorsun?", placeholder: "Örnek: 0, 5 veya 20", hint: "Yapamıyorsan 0 yaz; Miri daha kolay bir seçenek verir.", type: "number", min: 0, max: 200 },
+        { key: "squat_ability", label: "Vücut ağırlığıyla squat yapabiliyor musun?", placeholder: "Örnek: Rahat / zor / ağrı oluyor / yapamıyorum" },
+      ],
+    },
+    en: {
+      food: [
+        { key: "age", label: "How old are you?", placeholder: "Example: 26", hint: "Enter a number.", type: "number", min: 13, max: 100 },
+        { key: "height_cm", label: "What is your height in cm?", placeholder: "Example: 175", hint: "Enter centimetres.", type: "number", min: 120, max: 230 },
+        { key: "weight_kg", label: "What is your current weight in kg?", placeholder: "Example: 82", hint: "Enter your approximate current weight.", type: "number", min: 30, max: 300, step: "0.1" },
+      ],
+      health: { key: "health_context", label: "Any health context or food need to consider?", placeholder: "Example: I reduce lactose; write none if not applicable", hint: "For symptoms, medication, or a special health condition, consult a qualified professional.", optional: true },
+      ability: [
+        { key: "pushups", label: "How many comfortable full push-ups can you do?", placeholder: "Example: 0, 5, or 20", hint: "Enter 0 if you cannot do one; Miri will give an easier option.", type: "number", min: 0, max: 200 },
+        { key: "squat_ability", label: "Can you do a bodyweight squat comfortably?", placeholder: "Example: Comfortable / difficult / painful / cannot do it" },
+      ],
+    },
+  };
+
   const t = (key, fallback = key) => UI_TEXT[currentLocale]?.[key] || EXTRA_UI_TEXT[currentLocale]?.[key] || fallback;
-  const activePlanQuestions = () => currentLocale === "tr" ? PLAN_QUESTIONS_TR : currentLocale === "en" ? PLAN_QUESTIONS_EN : PLAN_QUESTIONS;
+  const activePlanQuestions = () => {
+    const base = currentLocale === "tr" ? PLAN_QUESTIONS_TR : currentLocale === "en" ? PLAN_QUESTIONS_EN : PLAN_QUESTIONS;
+    const detail = PLAN_PERSONALIZATION[currentLocale] || PLAN_PERSONALIZATION.ar;
+    return {
+      food: [...detail.food, ...base.food, detail.health],
+      workout: [base.workout[0], base.workout[1], ...detail.ability, ...base.workout.slice(2)],
+    };
+  };
   const validMiriStyles = new Set(["supportive", "calm", "energetic"]);
   const normalizeMiriStyle = (value) => validMiriStyles.has(value) ? value : "supportive";
 
@@ -1114,8 +1176,17 @@
     $("plan-kind-label").textContent = planState.type === "food" ? t("planFood") : t("planWorkout");
     $("plan-progress").style.width = `${((planState.step + 1) / questions.length) * 100}%`;
     $("plan-question").textContent = q.label;
-    $("plan-answer").placeholder = q.placeholder;
-    $("plan-answer").value = planState.answers[q.key] || "";
+    const answerInput = $("plan-answer");
+    answerInput.type = q.type || "text";
+    answerInput.inputMode = q.type === "number" ? "decimal" : "text";
+    answerInput.min = q.min ?? "";
+    answerInput.max = q.max ?? "";
+    answerInput.step = q.step ?? "any";
+    answerInput.placeholder = q.placeholder;
+    answerInput.value = planState.answers[q.key] || "";
+    answerInput.setAttribute("aria-describedby", "plan-answer-hint");
+    const hint = $("plan-answer-hint");
+    if (hint) { hint.textContent = q.hint || t("planPersonalNote"); hint.hidden = false; }
 
     $("plan-back").hidden = planState.step === 0;
     $("plan-next").textContent = planState.step === questions.length - 1 ? t("createPlan") : t("next");
@@ -1138,10 +1209,14 @@
     const storedPlan = plan.plan_json || {};
     const planJson = storedPlan.translations?.[currentLocale] || storedPlan;
     const days = Array.isArray(planJson.days) ? planJson.days : [];
+    const dailyTargets = Array.isArray(planJson.dailyTargets) ? planJson.dailyTargets : [];
+    const progression = Array.isArray(planJson.progression) ? planJson.progression : [];
+    const targets = dailyTargets.length ? dailyTargets : progression;
 
     card.innerHTML = `
       <h3>${escapeHtml(planJson.title || t("currentPlan"))}</h3>
       <p class="plan-summary">${escapeHtml(planJson.summary || "")}</p>
+      ${targets.length ? `<ul class="plan-targets">${targets.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : ""}
       ${days
         .map(
           (d) => `
@@ -1162,7 +1237,7 @@
   }
 
   function originalPlanLocale(planJson) {
-    if (planJson?.source_locale === "ar" || planJson?.source_locale === "tr") return planJson.source_locale;
+    if (planJson?.source_locale === "ar" || planJson?.source_locale === "tr" || planJson?.source_locale === "en") return planJson.source_locale;
     return /[\u0600-\u06FF]/.test(JSON.stringify(planJson || {})) ? "ar" : "tr";
   }
 
@@ -1250,7 +1325,7 @@
 
     $("plan-back")?.addEventListener("click", () => {
       const answerInput = $("plan-answer");
-      const q = PLAN_QUESTIONS[planState.type][planState.step];
+      const q = activePlanQuestions()[planState.type][planState.step];
       planState.answers[q.key] = answerInput.value.trim();
       planState.step = Math.max(planState.step - 1, 0);
       renderPlanQuestion();
@@ -1259,10 +1334,18 @@
     $("plan-next")?.addEventListener("click", () => {
       const answerInput = $("plan-answer");
       const value = answerInput.value.trim();
-      if (!value) { answerInput.focus(); return; }
-
       const questions = activePlanQuestions()[planState.type];
       const q = questions[planState.step];
+      const numericValue = Number(value);
+      const invalidNumber = q.type === "number" && (!Number.isFinite(numericValue) || numericValue < q.min || numericValue > q.max);
+      if ((!value && !q.optional) || invalidNumber) {
+        const resultBox = $("plan-result");
+        resultBox.textContent = t("planInputInvalid");
+        resultBox.classList.add("error");
+        show(resultBox);
+        answerInput.focus();
+        return;
+      }
       planState.answers[q.key] = value;
 
       if (planState.step < questions.length - 1) {
@@ -1364,7 +1447,11 @@
     const requestBox = $("friend-requests");
     const list = $("friends-list");
     if (requestBox) requestBox.innerHTML = requests.length ? requests.map((friend) => `<div class="friend-row"><b>@${escapeHtml(friend.username)}</b><span>${escapeHtml(friend.alias)}</span><div><button data-friend-accept="${escapeHtml(friend.id)}">${escapeHtml(t("accept"))}</button><button data-friend-decline="${escapeHtml(friend.id)}">${escapeHtml(t("decline"))}</button></div></div>`).join("") : `<p class="community-empty">${escapeHtml(t("noRequests"))}</p>`;
-    if (list) list.innerHTML = accepted.length ? accepted.map((friend) => `<div class="friend-row"><b>@${escapeHtml(friend.username)}</b><span>${escapeHtml(friend.alias)}</span><div><button data-friend-remove="${escapeHtml(friend.userId)}">${escapeHtml(t("removeFriend"))}</button><button data-friend-block="${escapeHtml(friend.userId)}">${escapeHtml(t("block"))}</button><button data-friend-report="${escapeHtml(friend.userId)}">${escapeHtml(t("report"))}</button></div></div>`).join("") : `<p class="community-empty">${escapeHtml(t("noFriends"))}</p>`;
+    if (list) list.innerHTML = accepted.length ? accepted.map((friend) => {
+      const count = Number(friend.streakCount || 0);
+      const streakLabel = count ? `${count} ${t("friendStreakDays")}` : t("friendStreakStart");
+      return `<div class="friend-row friend-row-accepted"><div class="friend-identity"><b>@${escapeHtml(friend.username)}</b><span>${escapeHtml(friend.alias)}</span></div><span class="friend-streak ${count ? "" : "is-empty"}" aria-label="${escapeHtml(streakLabel)}">🔥 <strong>${count || "—"}</strong> <small>${escapeHtml(count ? t("friendStreakDays") : t("friendStreakStart"))}</small></span><div><button data-friend-remove="${escapeHtml(friend.userId)}">${escapeHtml(t("removeFriend"))}</button><button data-friend-block="${escapeHtml(friend.userId)}">${escapeHtml(t("block"))}</button><button data-friend-report="${escapeHtml(friend.userId)}">${escapeHtml(t("report"))}</button></div></div>`;
+    }).join("") : `<p class="community-empty">${escapeHtml(t("noFriends"))}</p>`;
     const select = $("snap-recipient");
     if (select) {
       select.innerHTML = accepted.length ? `<option value="">${escapeHtml(t("snapFriend"))}</option>${accepted.map((friend) => `<option value="${escapeHtml(friend.userId)}">@${escapeHtml(friend.username)}</option>`).join("")}` : `<option value="">${escapeHtml(t("snapNoFriends"))}</option>`;
@@ -1380,8 +1467,23 @@
       const current = Array.isArray(snap.reactions) ? snap.reactions : [];
       const reactionSummary = current.length ? `<div class="snap-reaction-summary">${current.map((reaction) => reactions.find((item) => item.key === reaction)?.icon || "").join("")}</div>` : "";
       const reactionButtons = snap.canReact ? `<div class="snap-reactions">${reactions.map((reaction) => `<button type="button" class="${snap.myReaction === reaction.key ? "active" : ""}" data-snap-reaction="${reaction.key}" aria-label="${escapeHtml(reaction.label)}" title="${escapeHtml(reaction.label)}">${reaction.icon}</button>`).join("")}</div>` : "";
-      return `<article class="snap-item" data-snap-id="${escapeHtml(snap.id)}"><img src="${escapeHtml(snap.url)}" alt="${escapeHtml(t("snapTitle"))}" loading="lazy" /><footer><b>${snap.fromMe ? "You" : `@${escapeHtml(snap.username)}`}</b>${snap.caption ? `<p>${escapeHtml(snap.caption)}</p>` : ""}<small>${new Date(snap.expiresAt).toLocaleString(currentLocale === "tr" ? "tr-TR" : "ar-EG")}</small>${reactionSummary}${reactionButtons}</footer></article>`;
+      const dateLocale = currentLocale === "tr" ? "tr-TR" : currentLocale === "en" ? "en-US" : "ar-EG";
+      return `<article class="snap-item" data-snap-id="${escapeHtml(snap.id)}"><img src="${escapeHtml(snap.url)}" alt="${escapeHtml(t("snapTitle"))}" loading="lazy" /><footer><b>${snap.fromMe ? escapeHtml(t("snapFromYou")) : `@${escapeHtml(snap.username)}`}</b>${snap.caption ? `<p>${escapeHtml(snap.caption)}</p>` : ""}<small>${new Date(snap.expiresAt).toLocaleString(dateLocale)}</small>${reactionSummary}${reactionButtons}</footer></article>`;
     }).join("") : `<p class="community-empty">${escapeHtml(t("snapEmpty"))}</p>`;
+  }
+
+  function renderCommunitySummary(friends = [], snaps = []) {
+    const accepted = friends.filter((friend) => friend.status === "accepted");
+    const activeStreaks = accepted.filter((friend) => Number(friend.streakCount || 0) > 0);
+    const values = {
+      "community-friend-count": accepted.length,
+      "community-streak-count": activeStreaks.length,
+      "community-snap-count": snaps.length,
+    };
+    Object.entries(values).forEach(([id, value]) => {
+      const target = $(id);
+      if (target) target.textContent = String(value);
+    });
   }
 
   async function loadCommunity() {
@@ -1391,11 +1493,13 @@
       const [friendsData, snapsData] = await Promise.all([socialCall("list_friends"), socialCall("list_snaps")]);
       renderFriendLists(friendsData.friends || []);
       renderSnaps(snapsData.snaps || []);
-      setFriendsStatus("");
+      renderCommunitySummary(friendsData.friends || [], snapsData.snaps || []);
+      setFriendsStatus(friendsData.streakSetupRequired ? t("streakSetupRequired") : "", Boolean(friendsData.streakSetupRequired));
     } catch (error) {
       console.error("loadFriends failed", error);
       renderFriendLists([]);
       renderSnaps([]);
+      renderCommunitySummary([], []);
       setFriendsStatus(socialErrorText(error), true);
     }
   }
