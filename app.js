@@ -121,6 +121,9 @@
   Object.assign(EXTRA_UI_TEXT.ar, { planInputInvalid: "اكتب قيمة مناسبة قبل المتابعة.", planPersonalNote: "بياناتك دي خاصة بخطتك فقط، وميري تقدم إرشادًا عامًا لا تشخيصًا طبيًا." });
   Object.assign(EXTRA_UI_TEXT.tr, { planInputInvalid: "Devam etmeden önce uygun bir değer gir.", planPersonalNote: "Bu bilgiler yalnızca planın içindir; Miri tıbbi tanı değil, genel rehberlik sunar." });
   Object.assign(EXTRA_UI_TEXT.en, { planInputInvalid: "Enter a suitable value before continuing.", planPersonalNote: "These details are used only for your plan. Miri provides general guidance, not a medical diagnosis." });
+  Object.assign(EXTRA_UI_TEXT.ar, { planEdit: "عدّل مع ميري", planEditTitle: "إيه اللي تحب نعدله؟", planEditPlaceholder: "مثال: بدّلي الغداء بحاجة بدون لبن، أو خففي ضغط اليوم الأول", planEditHint: "ميري هتعمل نسخة جديدة من خطتك وتحافظ على اللي مناسب منها.", planEditSend: "اطلبي التعديل", planEditEmpty: "اكتب التعديل اللي محتاجه الأول.", planEditTooLong: "اكتب التعديل في 600 حرف أو أقل.", planEditing: "ميري بتعدّل خطتك…", planEditError: "تعذر تعديل الخطة الآن. حاول مرة أخرى." });
+  Object.assign(EXTRA_UI_TEXT.tr, { planEdit: "Miri ile düzenle", planEditTitle: "Neyi değiştirmek istersin?", planEditPlaceholder: "Örnek: Öğle yemeğini sütsüz bir seçenekle değiştir veya ilk gün şınavı azalt", planEditHint: "Miri planının yeni bir sürümünü hazırlar ve uygun olan kısımları korur.", planEditSend: "Düzenleme iste", planEditEmpty: "Önce istediğin değişikliği yaz.", planEditTooLong: "Değişikliği 600 karakter veya daha kısa yaz.", planEditing: "Miri planını düzenliyor…", planEditError: "Plan şu anda düzenlenemedi. Lütfen tekrar dene." });
+  Object.assign(EXTRA_UI_TEXT.en, { planEdit: "Edit with Miri", planEditTitle: "What would you like to change?", planEditPlaceholder: "Example: Swap lunch for a dairy-free option, or reduce day-one push-ups", planEditHint: "Miri will create a new version of your plan while preserving what still fits.", planEditSend: "Request edit", planEditEmpty: "Write the change you need first.", planEditTooLong: "Keep your request to 600 characters or fewer.", planEditing: "Miri is updating your plan…", planEditError: "The plan could not be updated right now. Try again." });
   Object.assign(UI_TEXT.ar, { planDescription: "هدفك ومستواك وبياناتك الأساسية تساعد ميري تجهّز بداية عملية ومتدرجة." });
   Object.assign(UI_TEXT.tr, { planDescription: "Hedefin, seviyen ve temel bilgilerin Miri'nin sana uygun, aşamalı bir başlangıç hazırlamasına yardımcı olur." });
   Object.assign(UI_TEXT.en, { planDescription: "Your goal, level, and basic details help Miri prepare a practical, progressive starting plan." });
@@ -1230,10 +1233,63 @@
         )
         .join("")}
       <p class="plan-disclaimer">${escapeHtml(planJson.disclaimer || t("planDisclaimer"))}</p>
-      <button id="new-plan-button" class="secondary-button" type="button">${escapeHtml(t("newPlan"))}</button>
+      <div class="plan-card-actions">
+        <button id="edit-plan-button" class="primary-button" type="button">${escapeHtml(t("planEdit"))}</button>
+        <button id="new-plan-button" class="secondary-button" type="button">${escapeHtml(t("newPlan"))}</button>
+      </div>
+      <section id="plan-edit-panel" class="plan-edit-panel" hidden>
+        <label for="plan-edit-request">${escapeHtml(t("planEditTitle"))}</label>
+        <textarea id="plan-edit-request" maxlength="600" rows="3" placeholder="${escapeHtml(t("planEditPlaceholder"))}"></textarea>
+        <p>${escapeHtml(t("planEditHint"))}</p>
+        <div><button id="plan-edit-submit" class="primary-button" type="button">${escapeHtml(t("planEditSend"))}</button><span id="plan-edit-status" class="plan-edit-status" hidden></span></div>
+      </section>
     `;
     show(card);
     $("new-plan-button")?.addEventListener("click", () => resetPlanWizard(planState.type));
+    $("edit-plan-button")?.addEventListener("click", () => {
+      const panel = $("plan-edit-panel");
+      if (!panel) return;
+      panel.hidden = !panel.hidden;
+      if (!panel.hidden) $("plan-edit-request")?.focus();
+    });
+    $("plan-edit-submit")?.addEventListener("click", () => reviseActivePlan(plan));
+  }
+
+  function setPlanEditStatus(message = "", isError = false) {
+    const status = $("plan-edit-status");
+    if (!status) return;
+    status.textContent = message;
+    status.hidden = !message;
+    status.classList.toggle("error", Boolean(message && isError));
+  }
+
+  async function reviseActivePlan(plan) {
+    const request = $("plan-edit-request")?.value.trim() || "";
+    if (!request) { setPlanEditStatus(t("planEditEmpty"), true); return; }
+    if (request.length > 600) { setPlanEditStatus(t("planEditTooLong"), true); return; }
+    const button = $("plan-edit-submit");
+    if (!button || !plan?.id) return;
+    const originalLabel = button.textContent;
+    button.disabled = true;
+    button.textContent = t("planEditing");
+    setPlanEditStatus("");
+    try {
+      const { data, error } = await supabase.functions.invoke(CONFIG.assistantFunction, {
+        body: { mode: "revise_plan", planId: plan.id, request, locale: currentLocale },
+      });
+      if (error) throw error;
+      if (!data?.ok || !data?.data?.plan) throw new Error(data?.error || "plan_revision_error");
+      renderActivePlan(data.data.plan);
+      if (data.summary) { renderMissionList(data.summary); renderSummaryGrid(data.summary); }
+    } catch (error) {
+      console.error("reviseActivePlan failed", error);
+      setPlanEditStatus(t("planEditError"), true);
+    } finally {
+      if (document.body.contains(button)) {
+        button.disabled = false;
+        button.textContent = originalLabel;
+      }
+    }
   }
 
   function originalPlanLocale(planJson) {

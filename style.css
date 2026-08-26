@@ -686,6 +686,15 @@ input { font-family: inherit; }
 .plan-day h4 { margin: 0 0 8px; font-size: 14.5px; color: var(--color-primary-dark); }
 .plan-day ul { margin: 0; padding-inline-start: 18px; font-size: 13.5px; color: var(--color-text); }
 .plan-disclaimer { font-size: 12.5px; color: var(--color-text-soft); margin-top: 12px; }
+.plan-card-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+.plan-edit-panel { display: grid; gap: 9px; margin-top: 14px; padding: 15px; background: #fff9f4; border: 1px solid rgba(240,79,33,.16); border-radius: 7px 16px 7px 16px; }
+.plan-edit-panel label { font-weight: 850; font-size: 14px; }
+.plan-edit-panel textarea { width: 100%; min-height: 84px; box-sizing: border-box; resize: vertical; padding: 11px 12px; color: var(--color-text); background: #fff; border: 1px solid rgba(240,79,33,.2); border-radius: 6px 12px 6px 12px; font: inherit; line-height: 1.55; }
+.plan-edit-panel textarea:focus { outline: 2px solid var(--color-primary-light); outline-offset: 1px; }
+.plan-edit-panel p { margin: 0; color: var(--color-text-soft); font-size: 12px; line-height: 1.55; }
+.plan-edit-panel > div { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; }
+.plan-edit-status { color: var(--color-primary-dark); font-size: 12px; font-weight: 700; }
+.plan-edit-status.error { color: var(--color-danger); }
 
 /* ============== شاشة المساعد ============== */
 
