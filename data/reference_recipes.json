@@ -3,7 +3,7 @@
     "id": "eg-koshari",
     "country": "EG",
     "name_ar": "كشري",
-    "name_tr": "koshari",
+    "name_tr": "Mercimekli pirinç ve makarna",
     "search_terms": [
       "كشري",
       "koshari",
@@ -11,7 +11,7 @@
     ],
     "serving_weight_g": 350,
     "serving_ar": "طبق متوسط — نحو 350 غرام",
-    "serving_tr": "Orta porsiyon — yaklaşık 350 g",
+    "serving_tr": "Mercimek, pirinç, makarna ve nohutla orta porsiyon — yaklaşık 350 g",
     "ingredients": [
       [
         "cooked_white_rice",
@@ -102,14 +102,14 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Koshari",
-    "serving_en": "Approx. 350 g serving"
+    "name_en": "Rice, lentils and pasta",
+    "serving_en": "Rice, lentils, pasta, and chickpeas — approx. 350 g"
   },
   {
     "id": "eg-ful-medames",
     "country": "EG",
     "name_ar": "فول مدمس",
-    "name_tr": "ful medames",
+    "name_tr": "Bakla",
     "search_terms": [
       "فول",
       "فول مدمس",
@@ -118,7 +118,7 @@
     ],
     "serving_weight_g": 355,
     "serving_ar": "طبق فول متوسط مع رغيف صغير — نحو 355 غرام",
-    "serving_tr": "Küçük pideyle orta ful porsiyonu — yaklaşık 355 g",
+    "serving_tr": "Mısır usulü pişmiş bakla ve küçük pide — yaklaşık 355 g",
     "ingredients": [
       [
         "cooked_fava_beans",
@@ -189,14 +189,14 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Ful Medames",
-    "serving_en": "Approx. 355 g serving"
+    "name_en": "Fava beans",
+    "serving_en": "Egyptian-style cooked fava beans with a small pita — approx. 355 g"
   },
   {
     "id": "eg-taameya",
     "country": "EG",
     "name_ar": "طعمية",
-    "name_tr": "taamiya",
+    "name_tr": "Mısır falafeli",
     "search_terms": [
       "طعمية",
       "فلافل",
@@ -267,8 +267,8 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Taameya (Egyptian Falafel)",
-    "serving_en": "Approx. 245 g serving"
+    "name_en": "Egyptian falafel",
+    "serving_en": "Three Egyptian falafel pieces with pita and salad — approx. 245 g"
   },
   {
     "id": "eg-lentil-soup",
@@ -353,14 +353,14 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Egyptian Lentil Soup",
+    "name_en": "Lentil soup",
     "serving_en": "Approx. 320 g serving"
   },
   {
     "id": "eg-molokhia-rice",
     "country": "EG",
     "name_ar": "ملوخية وأرز",
-    "name_tr": "molohiya ve pilav",
+    "name_tr": "Jüt yaprağı yemeği ve pirinç",
     "search_terms": [
       "ملوخية وأرز",
       "ملوخية رز",
@@ -370,7 +370,7 @@
     ],
     "serving_weight_g": 428,
     "serving_ar": "طبق ملوخية وأرز متوسط — نحو 428 غرام",
-    "serving_tr": "Orta molohiya ve pilav tabağı — yaklaşık 428 g",
+    "serving_tr": "Jüt yaprağı yemeği ve pirinçle orta porsiyon — yaklaşık 428 g",
     "ingredients": [
       [
         "cooked_jute_leaves",
@@ -441,8 +441,8 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Molokhia with Rice",
-    "serving_en": "Approx. 428 g serving"
+    "name_en": "Jute leaf stew with rice",
+    "serving_en": "Jute leaf stew with rice — approx. 428 g"
   },
   {
     "id": "eg-mahshi",
@@ -539,8 +539,8 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Stuffed Zucchini (Mahshi)",
-    "serving_en": "Approx. 340 g serving"
+    "name_en": "Stuffed zucchini",
+    "serving_en": "Zucchini stuffed with rice and beef — approx. 340 g"
   },
   {
     "id": "eg-macarona-bechamel",
@@ -635,14 +635,14 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Egyptian Béchamel Pasta",
+    "name_en": "Baked pasta with béchamel",
     "serving_en": "Approx. 330 g serving"
   },
   {
     "id": "eg-chicken-shawarma",
     "country": "EG",
     "name_ar": "شاورما فراخ",
-    "name_tr": "tavuk şavurma",
+    "name_tr": "Tavuk döner",
     "search_terms": [
       "شاورما فراخ",
       "شاورما",
@@ -651,7 +651,7 @@
     ],
     "serving_weight_g": 305,
     "serving_ar": "سندوتش متوسط — نحو 305 غرام",
-    "serving_tr": "Orta sandviç — yaklaşık 305 g",
+    "serving_tr": "Tavuk dönerli orta sandviç — yaklaşık 305 g",
     "ingredients": [
       [
         "roasted_chicken_breast",
@@ -732,8 +732,8 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Chicken Shawarma Wrap",
-    "serving_en": "Approx. 305 g serving"
+    "name_en": "Chicken shawarma wrap",
+    "serving_en": "Chicken, pita, yogurt, and vegetables — approx. 305 g"
   },
   {
     "id": "eg-rice-pudding",
@@ -798,14 +798,14 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Egyptian Rice Pudding",
+    "name_en": "Rice pudding",
     "serving_en": "Approx. 220 g serving"
   },
   {
     "id": "eg-fatta-beef",
     "country": "EG",
     "name_ar": "فتة باللحم",
-    "name_tr": "etli fetteh",
+    "name_tr": "Etli pilav ve kızarmış pide",
     "search_terms": [
       "فتة",
       "فتة لحمة",
@@ -814,7 +814,7 @@
     ],
     "serving_weight_g": 365,
     "serving_ar": "طبق متوسط — نحو 365 غرام",
-    "serving_tr": "Orta porsiyon — yaklaşık 365 g",
+    "serving_tr": "Et, pirinç ve kızarmış pideyle orta porsiyon — yaklaşık 365 g",
     "ingredients": [
       [
         "cooked_white_rice",
@@ -895,14 +895,14 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Beef Fatta",
-    "serving_en": "Approx. 365 g serving"
+    "name_en": "Beef, rice and toasted pita",
+    "serving_en": "Beef, rice, toasted pita, and tomato sauce — approx. 365 g"
   },
   {
     "id": "eg-chicken-kabsa",
     "country": "EG",
     "name_ar": "كبسة دجاج",
-    "name_tr": "tavuk kabsa",
+    "name_tr": "Baharatlı tavuklu pilav",
     "search_terms": [
       "كبسة",
       "كبسة فراخ",
@@ -992,7 +992,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Chicken Kabsa",
+    "name_en": "Spiced chicken and rice",
     "serving_en": "Approx. 410 g serving"
   },
   {
@@ -1175,7 +1175,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Menemen",
+    "name_en": "Turkish eggs with tomatoes",
     "serving_en": "Approx. 265 g serving"
   },
   {
@@ -1261,7 +1261,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Turkish Lentil Soup",
+    "name_en": "Lentil soup",
     "serving_en": "Approx. 320 g serving"
   },
   {
@@ -1358,7 +1358,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Döner Dürüm",
+    "name_en": "Turkish meat wrap",
     "serving_en": "Approx. 305 g serving"
   },
   {
@@ -1445,7 +1445,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Chicken Shish with Rice",
+    "name_en": "Grilled chicken skewers with rice",
     "serving_en": "Approx. 360 g serving"
   },
   {
@@ -1542,7 +1542,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Turkish Köfte with Bulgur",
+    "name_en": "Meatballs with bulgur",
     "serving_en": "Approx. 335 g serving"
   },
   {
@@ -1638,7 +1638,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Lahmacun",
+    "name_en": "Minced meat flatbread",
     "serving_en": "Approx. 220 g serving"
   },
   {
@@ -1810,7 +1810,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Turkish Rice Pilaf",
+    "name_en": "Rice pilaf",
     "serving_en": "Approx. 220 g serving"
   },
   {
@@ -1896,7 +1896,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Simit",
+    "name_en": "Sesame bread ring",
     "serving_en": "Approx. 95 g serving"
   },
   {
@@ -1982,7 +1982,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Imam Bayildi",
+    "name_en": "Braised eggplant with onions",
     "serving_en": "Approx. 310 g serving"
   },
   {
@@ -2069,7 +2069,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Cheese Börek",
+    "name_en": "Cheese pastry",
     "serving_en": "Approx. 190 g serving"
   },
   {
@@ -2145,7 +2145,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Baklava",
+    "name_en": "Layered nut pastry",
     "serving_en": "Approx. 85 g serving"
   },
   {
@@ -3131,7 +3131,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Ful Medames Sandwich",
+    "name_en": "Fava bean sandwich",
     "serving_en": "Approx. 323 g serving"
   },
   {
@@ -3306,7 +3306,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Egyptian Tomato Pasta",
+    "name_en": "Pasta with tomato sauce",
     "serving_en": "Approx. 370 g serving"
   },
   {
@@ -3394,7 +3394,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Shakshuka",
+    "name_en": "Eggs in tomato sauce",
     "serving_en": "Approx. 350 g serving"
   },
   {
@@ -3482,7 +3482,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Egyptian Eggplant Moussaka",
+    "name_en": "Eggplant in tomato sauce",
     "serving_en": "Approx. 380 g serving"
   },
   {
@@ -3854,7 +3854,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Ful Medames Salad",
+    "name_en": "Fava bean salad",
     "serving_en": "Approx. 460 g serving"
   },
   {
@@ -3942,7 +3942,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Taameya Sandwich",
+    "name_en": "Egyptian falafel sandwich",
     "serving_en": "Approx. 330 g serving"
   },
   {
@@ -4030,7 +4030,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Egg and Ful Breakfast",
+    "name_en": "Eggs and fava beans",
     "serving_en": "Approx. 368 g serving"
   },
   {
@@ -4636,7 +4636,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Turkish Eggplant Moussaka",
+    "name_en": "Eggplant and minced meat casserole",
     "serving_en": "Approx. 420 g serving"
   },
   {
@@ -4822,7 +4822,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Zucchini Fritters (Mücver)",
+    "name_en": "Zucchini fritters",
     "serving_en": "Approx. 355 g serving"
   },
   {
@@ -4890,7 +4890,7 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Cheese Cigars (Sigara Börek)",
+    "name_en": "Cheese pastry rolls",
     "serving_en": "Approx. 138 g serving"
   },
   {
@@ -5242,15 +5242,15 @@
       "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
       "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "name_en": "Potato Börek",
+    "name_en": "Potato pastry",
     "serving_en": "Approx. 273 g serving"
   },
   {
     "id": "eg-ful-taameya-breakfast",
     "country": "EG",
     "name_ar": "فول وطعمية",
-    "name_tr": "Ful ve taamiya kahvaltısı",
-    "name_en": "Ful and Taameya Breakfast",
+    "name_tr": "Bakla ve Mısır falafeli kahvaltısı",
+    "name_en": "Fava beans and Egyptian falafel breakfast",
     "search_terms": [
       "فول وطعمية",
       "فطار فول طعمية",
