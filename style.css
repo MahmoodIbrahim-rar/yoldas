@@ -1264,10 +1264,10 @@ html[data-theme="dark"] .theme-icon-moon { display: block; }
 
 /* ============== الوضع الداكن الاختياري ============== */
 html[data-theme="dark"] {
-  --color-primary: #d4a03c;
-  --color-primary-dark: #e5b554;
-  --color-primary-light: #f0cf83;
-  --color-gold: #d4a03c;
+  --color-primary: #e76632;
+  --color-primary-dark: #f0844d;
+  --color-primary-light: #ffad7e;
+  --color-gold: #e76632;
   --color-bg: #0a0907;
   --color-surface: #161412;
   --color-text: #f6f0e8;
@@ -1281,12 +1281,12 @@ html[data-theme="dark"] {
 }
 html[data-theme="dark"] body {
   background:
-    radial-gradient(680px 450px at 89% -9%, rgba(212,160,60,.16), transparent 62%),
+    radial-gradient(680px 450px at 89% -9%, rgba(231,102,50,.17), transparent 62%),
     radial-gradient(7px 7px at 20% 25%, rgba(255,255,255,.045) 0 0.7px, transparent .9px),
     linear-gradient(130deg, #0a0907, #0d0b09 58%, #080706);
   background-size: auto, 8px 8px, auto;
 }
-html[data-theme="dark"] .wordmark-logo { filter: brightness(0) saturate(100%) invert(72%) sepia(39%) saturate(622%) hue-rotate(357deg) brightness(87%) contrast(86%); }
+html[data-theme="dark"] .wordmark-logo { filter: brightness(0) saturate(100%) invert(54%) sepia(61%) saturate(3859%) hue-rotate(344deg) brightness(95%) contrast(88%); }
 html[data-theme="dark"] .language-menu-button,
 html[data-theme="dark"] .theme-toggle { color: var(--color-text); background: rgba(22,20,18,.88); border-color: rgba(212,160,60,.26); }
 html[data-theme="dark"] .language-menu-button[aria-expanded="true"],
@@ -1360,4 +1360,38 @@ html[data-theme="dark"] .reference-source { color: var(--color-text-soft); }
 @media (max-width: 720px) {
   html[data-theme="dark"] .dashboard-nav { background: rgba(13,11,9,.94); border-bottom-color: rgba(212,160,60,.2); box-shadow: 0 6px 20px rgba(0,0,0,.3); }
   html[data-theme="dark"] .dashboard-nav #reset-journey { color: #e5b554; background: #171310; border-color: rgba(212,160,60,.28); }
+}
+
+/* اللمسة النحاسية: تقرّب الداكن من برتقالي Yoldaş من دون تحويله إلى لون ساطع. */
+html[data-theme="dark"] .language-menu-button,
+html[data-theme="dark"] .theme-toggle { border-color: rgba(231,102,50,.3); }
+html[data-theme="dark"] .language-menu-button[aria-expanded="true"],
+html[data-theme="dark"] .theme-toggle:hover { color: #ffad7e; background: #211511; border-color: rgba(231,102,50,.75); }
+html[data-theme="dark"] .language-menu-list { background: #191310; border-color: rgba(231,102,50,.28); }
+html[data-theme="dark"] .language-option.active { color: #ffad7e; background: rgba(231,102,50,.14); }
+html[data-theme="dark"] .hero-card { background: linear-gradient(145deg, #24150f, #12100e 72%); border-color: rgba(231,102,50,.45); }
+html[data-theme="dark"] .hero-card h1 span:first-child { color: #ffb187; }
+html[data-theme="dark"] .hero-steps span { background: rgba(231,102,50,.09); border-inline-start-color: rgba(231,102,50,.8); }
+html[data-theme="dark"] .hero-card::after { background: rgba(231,102,50,.68); }
+html[data-theme="dark"] .primary-button { color: #ffad7e; background: #1a110e; border-color: #e76632; }
+html[data-theme="dark"] .primary-button:hover { color: #fff0e8; background: #27150f; box-shadow: 0 12px 28px rgba(0,0,0,.38), 0 0 0 1px rgba(231,102,50,.2); }
+html[data-theme="dark"] .secondary-button,
+html[data-theme="dark"] .friend-row,
+html[data-theme="dark"] .snap-item { border-color: rgba(231,102,50,.26); }
+html[data-theme="dark"] .tab.active { color: #ffad7e; background: #2a1813; box-shadow: inset 0 0 0 1px rgba(231,102,50,.6); }
+html[data-theme="dark"] .calorie-card { background: linear-gradient(145deg, #25160f, #12100e); border-color: rgba(231,102,50,.58); }
+html[data-theme="dark"] .snap-media-button { color: #f0844d; border-color: rgba(231,102,50,.44); }
+html[data-theme="dark"] .snap-camera-button { color: #ffad7e; background: #27150f; border-color: #e76632; }
+html[data-theme="dark"] .faq-item { border-color: rgba(231,102,50,.28); }
+html[data-theme="dark"] .faq-item summary::after { color: #f0844d; background: rgba(231,102,50,.14); }
+html[data-theme="dark"] .faq-item[open] summary::after { background: #e76632; }
+html[data-theme="dark"] .ad-slot { color: #dca181; background: linear-gradient(145deg, rgba(231,102,50,.09), rgba(22,20,18,.76)); border-color: rgba(231,102,50,.4); }
+html[data-theme="dark"] .ad-slot span { color: #f0844d; }
+@media (max-width: 720px) {
+  html[data-theme="dark"] .dashboard-nav { border-bottom-color: rgba(231,102,50,.24); }
+  html[data-theme="dark"] .dashboard-nav #reset-journey { color: #f0844d; border-color: rgba(231,102,50,.32); }
+  html[data-theme="dark"] .mobile-nav { background: rgba(16,12,10,.97); border-top-color: rgba(231,102,50,.3); box-shadow: 0 -12px 30px rgba(0,0,0,.42); }
+  html[data-theme="dark"] .mobile-tab { color: #bcaaa1; }
+  html[data-theme="dark"] .mobile-tab.active { color: #ffad7e; background: rgba(231,102,50,.14); }
+  html[data-theme="dark"] .mobile-tab.active::before { background: #e76632; }
 }
