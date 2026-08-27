@@ -314,6 +314,39 @@
       button.setAttribute("aria-checked", String(active));
     });
   }
+const PAGE_META = {
+  ar: {
+    title: "Yoldaş | خطة أكل وتمارين ومتابعة صحية يومية",
+    description: "Yoldaş يساعدك تنظم أكلك وتمارينك وتتابع الوجبات والماء والحركة بخطوات بسيطة وخطة مناسبة لك.",
+    shareTitle: "Yoldaş | ابدأ رحلتك الصحية بخطوات بسيطة"
+  },
+  tr: {
+    title: "Yoldaş | Kişisel beslenme ve egzersiz planın",
+    description: "Yoldaş ile beslenme ve egzersiz planını oluştur; öğünlerini, suyunu ve hareketini tek yerde takip et.",
+    shareTitle: "Yoldaş | Sağlık yolculuğuna küçük adımlarla başla"
+  },
+  en: {
+    title: "Yoldaş | Personal food plan, workouts and daily tracking",
+    description: "Build a personal food and workout plan with Yoldaş, track meals, water, and movement, and adapt your plan with Miri.",
+    shareTitle: "Yoldaş | Start your health journey with small steps"
+  }
+};
+
+function setMetaContent(selector, value) {
+  const tag = document.querySelector(selector);
+  if (tag) tag.setAttribute("content", value);
+}
+
+function updatePageMeta() {
+  const meta = PAGE_META[currentLocale] || PAGE_META.ar;
+  document.title = meta.title;
+  setMetaContent('meta[name="description"]', meta.description);
+  setMetaContent('meta[property="og:title"]', meta.shareTitle);
+  setMetaContent('meta[property="og:description"]', meta.description);
+  setMetaContent('meta[name="twitter:title"]', meta.shareTitle);
+  setMetaContent('meta[name="twitter:description"]', meta.description);
+}
+
 
   function applyLocale() {
     document.documentElement.lang = currentLocale;
