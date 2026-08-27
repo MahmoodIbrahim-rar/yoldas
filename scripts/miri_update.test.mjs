@@ -22,10 +22,12 @@ test("Turkish welcome steps retain left-to-right ordering", async () => {
   assert.match(css, /\.locale-tr \.how-grid article, \.locale-tr \.how-detail-panel article \{ direction: ltr; text-align: left; \}/);
 });
 
-test("Gemini receives the Miri supportive tone while health safeguards remain", async () => {
+test("Gemini receives Miri’s limited Yoldaş scope while health safeguards remain", async () => {
   const functionSource = await read("supabase/functions/health-assistant/index.ts");
-  assert.match(functionSource, /أنت ميري، المساعدة الصحية الدافئة والحماسية/);
+  assert.match(functionSource, /أنت ميري، المساعدة الداعمة داخل Yoldaş لتنظيم اليوم والتغذية والتمارين والحركة والماء/);
   assert.match(functionSource, /Sen Miri'sin/);
   assert.match(functionSource, /لا تشخّص أمراضًا/);
   assert.match(functionSource, /Hastalık teşhisi koyma/);
+  assert.match(functionSource, /لا تجيبي عن الرياضيات/);
+  assert.match(functionSource, /Never answer mathematics/);
 });

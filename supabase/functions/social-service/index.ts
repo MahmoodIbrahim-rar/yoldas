@@ -7,6 +7,8 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 const MAX_FRIENDS = 20;
+const MAX_CHALLENGE_PARTICIPANTS = 5;
+const CHALLENGE_TEMPLATE_KEYS = new Set(["pushups", "squats", "plank", "walk", "chair_stands"]);
 const SNAP_BUCKET = "yoldas-streak-snaps";
 
 function reply(body: unknown, status = 200) {
@@ -23,6 +25,23 @@ function previousUtcDay(day: string) {
 function visibleStreakCount(streak: { streak_count?: number; last_completed_day?: string | null } | undefined, today: string) {
   if (!streak?.last_completed_day) return 0;
   return [today, previousUtcDay(today)].includes(streak.last_completed_day) ? Number(streak.streak_count || 0) : 0;
+}
+function challengeLevel(wins: number) {
+  if (wins >= 80) return 8;
+  if (wins >= 55) return 7;
+  if (wins >= 35) return 6;
+  if (wins >= 20) return 5;
+  if (wins >= 10) return 4;
+  if (wins >= 5) return 3;
+  if (wins >= 3) return 2;
+  if (wins >= 1) return 1;
+  return 0;
+}
+function bitCount(value: number) {
+  let count = 0;
+  let probe = Math.max(0, Math.trunc(value || 0));
+  while (probe > 0) { count += probe & 1; probe >>= 1; }
+  return count;
 }
 
 async function cleanupExpiredSnaps(admin: ReturnType<typeof createClient>) {
@@ -74,6 +93,147 @@ serve(async (req) => {
     return data;
   };
   const isAcceptedFriend = async (otherId: string) => Boolean((await relation(otherId))?.status === "accepted");
+
+  if (mode === "create_challenge") {
+    const templateKey = String(body.templateKey || "").trim();
+    const durationDays = Number(body.durationDays);
+    const candidateIds = Array.isArray(body.userIds) ? body.userIds.map((item) => String(item || "").trim()) : [];
+    const participantIds = [...new Set([userId, ...candidateIds.filter(Boolean)])];
+    if (!CHALLENGE_TEMPLATE_KEYS.has(templateKey) || ![3, 7].includes(durationDays)) return fail("INVALID_CHALLENGE");
+    if (participantIds.length < 2 || participantIds.length > MAX_CHALLENGE_PARTICIPANTS) return fail("CHALLENGE_PARTICIPANT_LIMIT");
+    const dayStart = `${utcDayNow()}T00:00:00.000Z`;
+    const { count: createdToday } = await admin.from("friend_challenges").select("id", { count: "exact", head: true })
+      .eq("creator_user_id", userId).gte("created_at", dayStart);
+    if ((createdToday || 0) >= 2) return fail("CHALLENGE_CREATE_LIMIT", 429);
+    for (const otherId of participantIds.filter((id) => id !== userId)) {
+      if (await isBlocked(otherId) || !(await isAcceptedFriend(otherId))) return fail("CHALLENGE_FRIEND_REQUIRED", 403);
+    }
+    const { data: challenge, error: challengeError } = await admin.from("friend_challenges")
+      .insert({ creator_user_id: userId, template_key: templateKey, duration_days: durationDays, required_days: durationDays })
+      .select("id, status, template_key, duration_days, required_days").single();
+    if (challengeError || !challenge) return fail("CHALLENGE_CREATE_FAILED", 500);
+    const { error: participantsError } = await admin.from("friend_challenge_participants").insert(participantIds.map((id) => ({
+      challenge_id: challenge.id,
+      user_id: id,
+      accepted_at: id === userId ? isoNow() : null,
+    })));
+    if (participantsError) {
+      await admin.from("friend_challenges").delete().eq("id", challenge.id);
+      return fail("CHALLENGE_CREATE_FAILED", 500);
+    }
+    return reply({ ok: true, data: { challenge } });
+  }
+
+  if (mode === "respond_challenge") {
+    const challengeId = String(body.challengeId || "").trim();
+    const accept = Boolean(body.accept);
+    const { data: participant } = await admin.from("friend_challenge_participants")
+      .select("id, challenge_id, accepted_at, friend_challenges!inner(id, status, duration_days)")
+      .eq("challenge_id", challengeId).eq("user_id", userId).maybeSingle();
+    const challengeStatus = (participant as { friend_challenges?: { status?: string } } | null)?.friend_challenges?.status;
+    if (!participant || challengeStatus !== "pending") return fail("CHALLENGE_NOT_FOUND", 404);
+    if (!accept) {
+      const { error } = await admin.from("friend_challenges").update({ status: "cancelled", updated_at: isoNow() }).eq("id", challengeId).eq("status", "pending");
+      if (error) return fail("CHALLENGE_RESPONSE_FAILED", 500);
+      return reply({ ok: true, data: { status: "cancelled" } });
+    }
+    const { error: acceptError } = await admin.from("friend_challenge_participants").update({ accepted_at: isoNow(), updated_at: isoNow() })
+      .eq("id", participant.id).is("accepted_at", null);
+    if (acceptError) return fail("CHALLENGE_RESPONSE_FAILED", 500);
+    const { data: members, error: membersError } = await admin.from("friend_challenge_participants")
+      .select("accepted_at").eq("challenge_id", challengeId);
+    if (membersError || !members?.length) return fail("CHALLENGE_RESPONSE_FAILED", 500);
+    if (members.every((member) => Boolean(member.accepted_at))) {
+      const duration = Number((participant as { friend_challenges?: { duration_days?: number } }).friend_challenges?.duration_days || 3);
+      const startDate = utcDayNow();
+      const end = new Date(`${startDate}T00:00:00.000Z`);
+      end.setUTCDate(end.getUTCDate() + duration - 1);
+      const { error: activateError } = await admin.from("friend_challenges")
+        .update({ status: "active", start_date: startDate, end_date: end.toISOString().slice(0, 10), updated_at: isoNow() })
+        .eq("id", challengeId).eq("status", "pending");
+      if (activateError) return fail("CHALLENGE_RESPONSE_FAILED", 500);
+      return reply({ ok: true, data: { status: "active", startDate, endDate: end.toISOString().slice(0, 10) } });
+    }
+    return reply({ ok: true, data: { status: "pending" } });
+  }
+
+  if (mode === "list_challenges") {
+    const { data: myRows, error: myRowsError } = await admin.from("friend_challenge_participants")
+      .select("challenge_id, accepted_at, completed_days_mask, rewarded_at").eq("user_id", userId).limit(30);
+    if (myRowsError) return fail("CHALLENGES_READ_FAILED", 500);
+    const ids = (myRows || []).map((row) => row.challenge_id);
+    if (!ids.length) return reply({ ok: true, data: { challenges: [], challengeWins: 0, challengeLevel: 0 } });
+    const [{ data: challenges, error: challengesError }, { data: participants }, { data: profile }] = await Promise.all([
+      admin.from("friend_challenges").select("id, creator_user_id, template_key, duration_days, required_days, status, start_date, end_date, created_at").in("id", ids).order("created_at", { ascending: false }).limit(20),
+      admin.from("friend_challenge_participants").select("challenge_id, user_id, accepted_at, completed_days_mask, rewarded_at").in("challenge_id", ids),
+      admin.from("profiles").select("challenge_wins").eq("id", userId).maybeSingle(),
+    ]);
+    if (challengesError) return fail("CHALLENGES_READ_FAILED", 500);
+    const allUserIds = [...new Set((participants || []).map((member) => member.user_id))];
+    const { data: profiles } = allUserIds.length ? await admin.from("profiles").select("id, username, alias").in("id", allUserIds) : { data: [] };
+    const profileById = new Map((profiles || []).map((item) => [item.id, item]));
+    const currentById = new Map((myRows || []).map((item) => [item.challenge_id, item]));
+    const membersByChallenge = new Map<string, typeof participants>();
+    (participants || []).forEach((member) => membersByChallenge.set(member.challenge_id, [...(membersByChallenge.get(member.challenge_id) || []), member]));
+    const today = utcDayNow();
+    const output = (challenges || []).filter((challenge) => challenge.status !== "cancelled").map((challenge) => {
+      const own = currentById.get(challenge.id);
+      const startMs = challenge.start_date ? Date.parse(`${challenge.start_date}T00:00:00.000Z`) : NaN;
+      const currentDay = Number.isFinite(startMs) ? Math.max(0, Math.min(challenge.duration_days, Math.floor((Date.parse(`${today}T00:00:00.000Z`) - startMs) / 86400000) + 1)) : 0;
+      const members = (membersByChallenge.get(challenge.id) || []).map((member) => ({
+        userId: member.user_id,
+        alias: profileById.get(member.user_id)?.alias || profileById.get(member.user_id)?.username || "",
+        accepted: Boolean(member.accepted_at),
+        completedDays: bitCount(Number(member.completed_days_mask || 0)),
+        rewarded: Boolean(member.rewarded_at),
+      }));
+      return {
+        id: challenge.id,
+        creatorUserId: challenge.creator_user_id,
+        templateKey: challenge.template_key,
+        durationDays: challenge.duration_days,
+        requiredDays: challenge.required_days,
+        status: challenge.status,
+        startDate: challenge.start_date,
+        endDate: challenge.end_date,
+        currentDay,
+        myAccepted: Boolean(own?.accepted_at),
+        myCompletedMask: Number(own?.completed_days_mask || 0),
+        myCompletedDays: bitCount(Number(own?.completed_days_mask || 0)),
+        myRewarded: Boolean(own?.rewarded_at),
+        members,
+      };
+    });
+    const wins = Math.max(0, Number(profile?.challenge_wins || 0));
+    return reply({ ok: true, data: { challenges: output, challengeWins: wins, challengeLevel: challengeLevel(wins) } });
+  }
+
+  if (mode === "complete_challenge_day") {
+    const challengeId = String(body.challengeId || "").trim();
+    if (!challengeId) return fail("INVALID_CHALLENGE");
+    const { data: claimed, error: claimError } = await userClient.rpc("claim_friend_challenge_day", { p_challenge_id: challengeId });
+    if (claimError || !claimed) return fail("CHALLENGE_CLAIM_FAILED", 409);
+    const { data: award, error: awardError } = await userClient.rpc("award_friend_challenge_win", { p_challenge_id: challengeId });
+    if (awardError) return fail("CHALLENGE_AWARD_FAILED", 500);
+    const awardRow = Array.isArray(award) ? award[0] : award;
+    const { data: members } = await admin.from("friend_challenge_participants").select("rewarded_at, accepted_at").eq("challenge_id", challengeId);
+    if (members?.length && members.every((member) => !member.accepted_at || Boolean(member.rewarded_at))) {
+      await admin.from("friend_challenges").update({ status: "completed", updated_at: isoNow() }).eq("id", challengeId).eq("status", "active");
+    }
+    const claimRow = Array.isArray(claimed) ? claimed[0] : claimed;
+    const wins = Math.max(0, Number(awardRow?.challenge_wins || 0));
+    return reply({ ok: true, data: { dayNumber: claimRow?.day_number || null, challengeWins: wins, challengeLevel: challengeLevel(wins), rewardedNow: Boolean(awardRow?.rewarded_now) } });
+  }
+
+  if (mode === "cancel_challenge") {
+    const challengeId = String(body.challengeId || "").trim();
+    const { data: participant } = await admin.from("friend_challenge_participants").select("id").eq("challenge_id", challengeId).eq("user_id", userId).maybeSingle();
+    if (!participant) return fail("CHALLENGE_NOT_FOUND", 404);
+    const { error } = await admin.from("friend_challenges").update({ status: "cancelled", updated_at: isoNow() })
+      .eq("id", challengeId).in("status", ["pending", "active"]);
+    if (error) return fail("CHALLENGE_CANCEL_FAILED", 500);
+    return reply({ ok: true });
+  }
 
   if (mode === "search_user") {
     const username = String(body.username || "").trim().toLowerCase();

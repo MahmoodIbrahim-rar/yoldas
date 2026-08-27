@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="config.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script defer src="app.js"></script>
+    <script defer src="app.js?v=20260827-challenges-locale"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -534,6 +534,30 @@
                 </section>
               </aside>
             </div>
+            <section class="friend-challenges-section" aria-live="polite">
+              <header class="community-section-header"><span>04</span><div><p class="eyebrow" data-i18n="challengeEyebrow">تحديات الأصدقاء</p><h2 data-i18n="challengeTitle">تحدّوا معًا بخطوات صغيرة</h2><p data-i18n="challengeDescription">أنشئ تحديًا حركيًا لمدة 3 أو 7 أيام مع 2 إلى 5 أصدقاء. لا توجد صور أو ترتيب عام.</p></div></header>
+              <div id="challenge-level-card" class="challenge-level-card challenge-level-0" hidden>
+                <div class="challenge-level-orbit" aria-hidden="true"><span id="challenge-level-number">0</span></div>
+                <div><small data-i18n="challengeLevel">مستوى سلسلة الإنجاز</small><h3 id="challenge-level-name">بداية الطريق</h3><p><strong id="challenge-wins-count">0</strong> <span data-i18n="challengeWins">تحديات مكتملة</span></p></div>
+              </div>
+              <form id="challenge-form" class="challenge-form" hidden>
+                <label><span data-i18n="challengeTemplate">نوع التحدي</span><select id="challenge-template" required>
+                  <option value="pushups" data-i18n="challengePushups">ضغط اليوم</option>
+                  <option value="squats" data-i18n="challengeSquats">سكوات ثابت</option>
+                  <option value="plank" data-i18n="challengePlank">بلانك هادئ</option>
+                  <option value="walk" data-i18n="challengeWalk">مشي نشيط</option>
+                  <option value="chair_stands" data-i18n="challengeChairStands">قيام من الكرسي</option>
+                </select></label>
+                <label><span data-i18n="challengeDuration">المدة</span><select id="challenge-duration" required>
+                  <option value="3" data-i18n="challengeDuration3">3 أيام</option>
+                  <option value="7" data-i18n="challengeDuration7">7 أيام</option>
+                </select></label>
+                <fieldset id="challenge-friends" class="challenge-friends"><legend data-i18n="challengeFriends">اختر الأصدقاء</legend></fieldset>
+                <button class="primary-button" type="submit" data-i18n="challengeCreate">إنشاء تحدٍ</button>
+              </form>
+              <p id="challenge-status" class="settings-hint" hidden></p>
+              <div id="challenge-list" class="challenge-list"></div>
+            </section>
             <section class="motivation-card" aria-live="polite">
               <div><p class="eyebrow" data-i18n="motivationEyebrow">دعم اختياري</p><h2 data-i18n="motivationTitle">خُد دفعة حماس حقيقية</h2><p data-i18n="motivationDescription">رسالة كتبها مستخدم واختار مشاركتها بدون اسم. لا يوجد ترتيب ولا حسابات وهمية.</p></div>
               <button id="get-motivation" class="secondary-button" type="button" data-i18n="motivationGet">اعرض رسالة داعمة</button>

@@ -20,6 +20,7 @@
   let planTranslationInFlight = false;
   let gymSets = [];
   let miriStyle = "supportive";
+  let myChallengeLevel = 0;
 
   const UI_TEXT = {
     ar: {
@@ -211,6 +212,33 @@
     faqQuestion15: "How can I revise Miri's plan if it does not suit my schedule?", faqAnswer15: "Open your plan and ask Miri for a specific change, such as swapping a meal, shortening workout time, or suggesting an alternative. The revised version is saved in your account after it is created."
   });
 
+  Object.assign(EXTRA_UI_TEXT.ar, {
+    friendsEyebrow: "أصدقاؤك المختارون", friendsDescription: "ابحث باسم مستخدم كامل، وأضف أصدقاء بموافقتهم، وشارك سلسلة إنجاز خاصة.", findFriend: "البحث عن صديق", myFriends: "أصدقائي", noFriends: "لم تضف أصدقاء بعد.", friendStreakDays: "يومًا متتاليًا", friendStreakStart: "ابدأ سلسلة الإنجاز", snapEyebrow: "سلسلة إنجاز خاصة", snapTitle: "صورة سلسلة إنجاز لصديق", snapPrivacy: "صورة واحدة يوميًا لكل صديق، تظهر لمدة 24 ساعة فقط. لا ترسل صورًا حساسة أو شخصية.", snapFriend: "الصديق", snapCaption: "ملاحظة قصيرة (اختياري)", sendSnap: "إرسال الصورة", snapSaved: "أُرسلت الصورة، وستنتهي خلال 24 ساعة.", communityFindHint: "ابحث باسم المستخدم كاملًا، ثم أرسل طلب صداقة.", communityRequestsHint: "لا يُضاف أي شخص إلا بعد موافقته.", communityFriendsHint: "يظهر هنا عداد سلسلة الإنجاز المشتركة لكل صديق.", communityPrivateLabel: "خاص بين الأصدقاء", communityPromise: "لا توجد تصنيفات عامة أو حسابات مصطنعة. تختار أصدقاءك بنفسك، ولا يرى صور سلسلة الإنجاز إلا طرفا الصداقة.", communityFriendsStat: "أصدقاء مقبولون", communityStreaksStat: "سلاسل نشطة", communitySnapsStat: "صور نشطة",
+    challengeEyebrow: "تحديات الأصدقاء", challengeTitle: "تحدّوا معًا بخطوات صغيرة", challengeDescription: "أنشئ تحديًا حركيًا لمدة 3 أو 7 أيام مع صديق واحد إلى أربعة أصدقاء؛ ليصبح عدد المشاركين من 2 إلى 5. لا توجد صور أو ترتيب عام.", challengeTemplate: "نوع التحدي", challengeDuration: "المدة", challengeFriends: "اختر الأصدقاء", challengeCreate: "إنشاء تحدٍ", challengeNoFriends: "أضف أصدقاء مقبولين أولًا لإنشاء تحدٍ.", challengeSelectFriends: "اختر صديقًا واحدًا على الأقل؛ ستكون أنت المشارك الثاني.", challengePending: "بانتظار موافقة المشاركين", challengeAccept: "قبول التحدي", challengeDecline: "رفض التحدي", challengeComplete: "أنجزت تمرين اليوم", challengeCompleted: "اكتمل التحدي", challengeCancel: "إنهاء التحدي", challengeRefresh: "تحديث التحديات", challengeEmpty: "لا توجد تحديات نشطة. ابدأ تحديًا بسيطًا مع صديق.", challengeDay: "اليوم {day} من {total}", challengeProgress: "{count} من {total} أيام", challengeMembers: "المشاركون", challengeSetupRequired: "لتفعيل تحديات الأصدقاء، شغّل ملف friend-challenges-setup.sql ثم انشر social-service.", challengeCreateLimit: "يمكنك إنشاء تحديين فقط في اليوم.", challengeParticipantLimit: "يجب أن يكون عدد المشاركين، بمن فيهم منشئ التحدي، من 2 إلى 5.", challengeFriendRequired: "يمكن دعوة الأصدقاء المقبولين فقط.", challengeSaved: "تم إنشاء التحدي. يبدأ بعد موافقة جميع المشاركين.", challengeClaimed: "تم تسجيل إنجاز اليوم.", challengeWin: "أحسنت! اكتملت شروط التحدي وفُتح مستوى جديد.", challengeError: "تعذر تحديث التحدي الآن. حاول مرة أخرى.", challengeLevel: "مستوى سلسلة الإنجاز", challengeWins: "تحديات مكتملة", challengeLevel0: "بداية الطريق", challengeLevel1: "خطوة مطمئنة", challengeLevel2: "دفء الاستمرار", challengeLevel3: "رفقة ثابتة", challengeLevel4: "طريق مزدهر", challengeLevel5: "أثر ملهم", challengeLevel6: "نبض العافية", challengeLevel7: "صحبة راسخة", challengeLevel8: "أفق Yoldaş", challengePushups: "ضغط اليوم", challengeSquats: "سكوات ثابت", challengePlank: "بلانك هادئ", challengeWalk: "مشي نشيط", challengeChairStands: "قيام من الكرسي", challengeDuration3: "3 أيام", challengeDuration7: "7 أيام"
+  });
+  Object.assign(EXTRA_UI_TEXT.tr, {
+    challengeEyebrow: "Arkadaş meydan okumaları", challengeTitle: "Küçük adımlarda birlikte ilerleyin", challengeDescription: "Bir ila dört kabul edilmiş arkadaşınla 3 veya 7 günlük hareket meydan okuması oluştur; toplam katılımcı sayısı 2–5 olur. Fotoğraf ve genel sıralama yoktur.", challengeTemplate: "Meydan okuma türü", challengeDuration: "Süre", challengeFriends: "Arkadaşlarını seç", challengeCreate: "Meydan okuması oluştur", challengeNoFriends: "Meydan okuması oluşturmak için önce kabul edilmiş arkadaşlar ekle.", challengeSelectFriends: "En az bir arkadaş seç; sen ikinci katılımcı olacaksın.", challengePending: "Katılımcı onayları bekleniyor", challengeAccept: "Kabul et", challengeDecline: "Reddet", challengeComplete: "Bugünkü egzersizi tamamladım", challengeCompleted: "Meydan okuma tamamlandı", challengeCancel: "Meydan okumayı bitir", challengeRefresh: "Meydan okumaları yenile", challengeEmpty: "Etkin meydan okuma yok. Bir arkadaşınla küçük bir meydan okuması başlat.", challengeDay: "{day}. gün / {total}", challengeProgress: "{count} / {total} gün", challengeMembers: "Katılımcılar", challengeSetupRequired: "Arkadaş meydan okumalarını etkinleştirmek için friend-challenges-setup.sql dosyasını çalıştırıp social-service’i yayınla.", challengeCreateLimit: "Günde yalnızca iki meydan okuması oluşturabilirsin.", challengeParticipantLimit: "Meydan okumasında, oluşturan kişi dâhil, 2–5 katılımcı olmalıdır.", challengeFriendRequired: "Yalnızca kabul edilmiş arkadaşlar davet edilebilir.", challengeSaved: "Meydan okuması oluşturuldu. Tüm katılımcılar kabul edince başlar.", challengeClaimed: "Bugünkü tamamlanma kaydedildi.", challengeWin: "Harika! Meydan okumasını tamamladın ve yeni bir seviye açtın.", challengeError: "Meydan okuması şu anda güncellenemedi. Lütfen tekrar dene.", challengeLevel: "Seri seviyesi", challengeWins: "Tamamlanan meydan okumalar", challengeLevel0: "Yolun başlangıcı", challengeLevel1: "Güvenli adım", challengeLevel2: "Devamın sıcaklığı", challengeLevel3: "Sağlam arkadaşlık", challengeLevel4: "Gelişen yol", challengeLevel5: "İlham veren iz", challengeLevel6: "İyi oluş ritmi", challengeLevel7: "Köklü arkadaşlık", challengeLevel8: "Yoldaş ufku", challengePushups: "Günün şınavı", challengeSquats: "Dengeli squat", challengePlank: "Sakin plank", challengeWalk: "Tempolu yürüyüş", challengeChairStands: "Sandalyeden kalkma", challengeDuration3: "3 gün", challengeDuration7: "7 gün"
+  });
+  Object.assign(EXTRA_UI_TEXT.en, {
+    challengeEyebrow: "Friend challenges", challengeTitle: "Build small wins together", challengeDescription: "Create a 3- or 7-day movement challenge with 1 to 4 accepted friends, for 2 to 5 participants in total. No photos and no public rankings.", challengeTemplate: "Challenge type", challengeDuration: "Duration", challengeFriends: "Choose friends", challengeCreate: "Create challenge", challengeNoFriends: "Add accepted friends before creating a challenge.", challengeSelectFriends: "Choose at least one friend; you will be the second participant.", challengePending: "Waiting for participant approvals", challengeAccept: "Accept challenge", challengeDecline: "Decline", challengeComplete: "I completed today’s workout", challengeCompleted: "Challenge completed", challengeCancel: "End challenge", challengeRefresh: "Refresh challenges", challengeEmpty: "No active challenges yet. Start a small challenge with a friend.", challengeDay: "Day {day} of {total}", challengeProgress: "{count} of {total} days", challengeMembers: "Participants", challengeSetupRequired: "Run friend-challenges-setup.sql, then deploy social-service to enable friend challenges.", challengeCreateLimit: "You can create up to two challenges per day.", challengeParticipantLimit: "A challenge needs 2 to 5 participants, including the creator.", challengeFriendRequired: "Only accepted friends can be invited.", challengeSaved: "Challenge created. It starts when every participant accepts.", challengeClaimed: "Today’s completion was logged.", challengeWin: "Great work! You completed the challenge and unlocked a new level.", challengeError: "The challenge could not be updated right now. Please try again.", challengeLevel: "Streak level", challengeWins: "Challenges completed", challengeLevel0: "Starting point", challengeLevel1: "Steady first step", challengeLevel2: "Warm momentum", challengeLevel3: "Reliable company", challengeLevel4: "Growing path", challengeLevel5: "Inspiring mark", challengeLevel6: "Wellbeing rhythm", challengeLevel7: "Lasting company", challengeLevel8: "Yoldaş horizon", challengePushups: "Daily push-ups", challengeSquats: "Steady squats", challengePlank: "Calm plank", challengeWalk: "Brisk walk", challengeChairStands: "Chair stands", challengeDuration3: "3 days", challengeDuration7: "7 days"
+  });
+
+  Object.assign(UI_TEXT.ar, {
+    startGuest: "ابدأ التجربة", accountButton: "تسجيل الدخول أو إنشاء حساب", discoverHow: "تعرّف إلى طريقة عمل Yoldaş", guestPrivacy: "يمكنك تجربة الموقع من دون حساب، أو حفظ رحلة تقدمك باسم مستخدم وكلمة مرور.",
+    passwordHint: "استخدم كلمة مرور تتكون من 8 أحرف أو أكثر.", recoveryEmail: "البريد الإلكتروني للاسترداد", recoveryEmailHint: "يبقى خاصًا ولا يظهر للآخرين، ويُستخدم فقط إذا نسيت كلمة المرور.", saveRecoveryEmail: "حفظ بريد الاسترداد", forgotPassword: "هل نسيت كلمة المرور؟", resetPasswordHint: "إذا كان للحساب بريد استرداد، فسنرسل إليه رابطًا لتغيير كلمة المرور.", sendResetLink: "إرسال رابط الاسترداد", backToLogin: "العودة إلى تسجيل الدخول", resetLinkSent: "إذا كان للحساب بريد استرداد، فقد أُرسل الرابط إليه.", recoveryEmailSaved: "تم حفظ بريد الاسترداد.", resetCompleteTitle: "اختر كلمة مرور جديدة", resetCompleteHint: "اكتب كلمة مرور جديدة تتكون من 8 أحرف أو أكثر.", newPassword: "كلمة المرور الجديدة", confirmPassword: "تأكيد كلمة المرور", saveNewPassword: "حفظ كلمة المرور الجديدة", passwordMismatch: "كلمتا المرور غير متطابقتين.", passwordChanged: "تم تغيير كلمة المرور. يمكنك الآن تسجيل الدخول بها.",
+    signupDescription: "أنشئ اسم مستخدم وكلمة مرور وبريد استرداد خاصًا.", loginDescription: "سجّل الدخول باسم المستخدم وكلمة المرور المحفوظين لديك.", assistantGreeting: "مرحبًا، أنا ميري. اكتب ما تناولته أو التمرين الذي أنجزته اليوم، وسنختار خطوة مفيدة معًا.", thinking: "تُعد ميري ردًا مفيدًا...", aiDailyLimit: "لقد بلغت حد ميري اليومي. يمكنك تسجيل وجبتك يدويًا من دليل الطعام أو العودة غدًا.", reactionFire: "رائع", reactionClap: "واصل التقدم", reactionHeart: "أحسنت",
+    heroEyebrow: "تبدأ رحلتك بخطوة واضحة", heroTitleLead: "غيّر جسدك. ثبّت عاداتك.", heroTitleTail: "تبدأ خطوتك التالية من هنا.", heroDescription: "نحوّل هدفك إلى غذاء وحركة ومتابعة يومية من دون تعقيد أو حرمان.", heroStepFood: "غذاء أذكى", heroStepMove: "حركة منتظمة", heroStepTrack: "متابعة هادئة", introTitle: "كل ما تحتاج إليه لبداية صحيحة في مكان واحد.", introDescription: "خطط غذاء وتمارين تناسب هدفك، ومتابعة للماء والوجبات والحركة، مع مساعدة تفهم لغتك الطبيعية.",
+    todayTitle: "مهامي اليوم", todayDescription: "خطوات صغيرة وواضحة تساعدك على الاستمرار من دون ضغط.", cupsToday: "أكواب اليوم", mealsToday: "وجبات اليوم", minutesToday: "دقائق اليوم", streak: "سلسلة الإنجاز", streakStart: "سجّل خطوة اليوم للبدء", streakDayOne: "يوم متتالٍ", streakDays: "أيام متتالية", healthAssistant: "ميري، مساعدتك اليومية", assistantDescription: "اكتب عن وجبتك أو تمرينك أو هدفك بلغة طبيعية؛ وستقترح ميري خطوة عملية مناسبة.", promptWalkValue: "مشيت لمدة 20 دقيقة اليوم", promptBreakfastValue: "اقترحي لي إفطارًا صحيًا سريعًا", promptOrganizeValue: "كيف أنظم وجباتي اليوم؟",
+    howStep1Title: "أجب عن أسئلة بسيطة", howStep2Title: "احصل على خطتك الشخصية", howStep3Title: "سجّل يومك", howStep4Title: "عدّل مع مرور الوقت", howDetail2Desc: "يُعد Yoldaş بداية عملية للغذاء أو التمرين، ويمكنك إنشاء خطة جديدة عندما يتغير وقتك أو هدفك.", howDetail3Desc: "سجّل كوبًا من الماء أو وجبة أو تمرينًا. ستظهر لك خطوات اليوم من بياناتك الفعلية فقط، من دون أرقام أو إنجازات مصطنعة.", howDetail4Desc: "اكتب ما تناولته أو اسأل ميري عن تنظيم يومك بلغة طبيعية. تقدم ميري إرشادات عامة ولا تغني عن الطبيب أو المختص عند وجود حالة صحية خاصة.",
+    faqQuestion3: "كيف أفقد الوزن من دون حرمان؟", faqAnswer3: "ابدأ بتغيير صغير يمكنك الاستمرار عليه: وجبات مشبعة، وحصص أوضح، وحركة منتظمة. لا تحتاج إلى منع الأطعمة التي تحبها؛ الأهم هو الكمية وتكرارها ضمن يومك كله.", faqQuestion5: "هل ينبغي أن أزن طعامي؟", faqAnswer5: "ليس دائمًا. قد يساعدك وزن الطعام لفترة قصيرة على فهم الحصص، ثم يمكنك استخدام حصص تقريبية واضحة تناسب حياتك.", faqQuestion7: "هل يمكنني تناول الكشري أو الشاورما مع محاولة خفض الوزن؟", faqAnswer7: "نعم، يمكن أن تدخل الأطعمة التي تحبها ضمن يومك. اختر حصة مناسبة وسجّلها، ثم وازن بقية اليوم بدل اعتبار وجبة واحدة إخفاقًا للخطة.", faqQuestion9: "هل أتناول الطعام قبل التمرين أم بعده؟", faqAnswer9: "قد تساعد وجبة خفيفة قبل التمرين بعض الأشخاص على الشعور بالطاقة، وقد تدعم وجبة عادية بعده تحتوي على بروتين وكربوهيدرات مناسبة التعافي. اختر الوقت الذي تشعر معه بالراحة ولا تتمرن مع ألم أو دوار.",
+    addWater: "+ كوب ماء", activePlanNone: "لا توجد خطة نشطة", progressEmptyTitle: "لا توجد بيانات بعد", progressEmptyDescription: "ابدأ بتسجيل أول وجبة أو تمرين، وسنحوّل خطواتك الصغيرة إلى صورة أوضح لتقدمك.", referenceRecipes: "وصفات مرجعية", foodCatalogTitle: "دليل طعام Yoldaş", referenceMealNote: "قيمة مرجعية محسوبة لوصفة وحصة تقريبية؛ عدّل حجم الحصة إذا كانت حصتك مختلفة.", fullControl: "إدارة الحساب", gymDescription: "سجّل كل مجموعة بوزنها وعدد تكراراتها. يعتمد تقدمك على الأرقام التي تدخلها فقط.", gymReps: "التكرارات", miriStyleDescription: "اختر أسلوب الحديث الذي يناسبك. لا تتغير حدود الإرشاد الصحي.", miriStyleCalmHint: "إجابة قصيرة وواضحة من دون إطالة.", miriStyleEnergeticHint: "طاقة وتشجيع من دون ضغط."
+  });
+  Object.assign(UI_TEXT.tr, {
+    communityAlias: "Yol Arkadaşı", cupsToday: "Bugün içilen bardak", mealsToday: "Bugünkü öğünler", minutesToday: "Bugünkü hareket dakikaları", healthAssistant: "Miri, günlük yardımcın", assistantDescription: "Öğünün, antrenmanın veya hedefin hakkında doğal bir dille yaz; Miri sana uygun, uygulanabilir bir sonraki adımı önersin.", foodCatalogDescription: "Mısır, Türk mutfağı ve günlük yemeklerden açık porsiyonlu tarifler. Değerler referanstır; yağ, ek malzeme ve gerçek porsiyona göre değişir.", referenceMealNote: "Bu değer, belirli bir tarif ve yaklaşık porsiyon için hesaplanmış bir referanstır; porsiyonun farklıysa miktarı ayarla.", gymDescription: "Her seti ağırlığı ve tekrar sayısıyla kaydet. İlerlemen yalnızca girdiğin gerçek sayılara dayanır."
+  });
+  Object.assign(UI_TEXT.en, {
+    healthAssistant: "Miri, your daily guide", assistantDescription: "Write naturally about a meal, workout, or goal, and Miri will suggest one practical next step.", cupsToday: "cups logged today", mealsToday: "meals logged today", minutesToday: "movement minutes today", foodCatalogDescription: "Egyptian, Turkish, and everyday foods with clear reference portions and weights. Values vary with oil, extras, and the actual serving size.", referenceMealNote: "A reference value calculated for a specific recipe and approximate serving; adjust the serving size if yours differs."
+  });
   const PLAN_QUESTIONS_TR = {
     food: [
       { key: "goal", label: "Ana hedefin nedir?", placeholder: "Örnek: Sakin şekilde kilo vermek" },
@@ -246,27 +274,27 @@
       { key: "goal", label: "ما هدفك الأساسي؟", placeholder: "مثال: خسارة وزن بهدوء" },
       { key: "activity", label: "كيف هو نشاطك اليومي؟", placeholder: "مثال: قليل الحركة، أجلس أغلب اليوم" },
       { key: "schedule", label: "كم وجبة تناسب يومك؟", placeholder: "مثال: 3 وجبات ووجبة خفيفة" },
-      { key: "preferences", label: "ما الأكلات التي تحبها أو تتجنبها؟", placeholder: "مثال: بحب الفراخ، ما بحبش السمك" },
+      { key: "preferences", label: "ما الأطعمة التي تحبها أو تتجنبها؟", placeholder: "مثال: أحب الدجاج ولا أحب السمك" },
     ],
     workout: [
       { key: "goal", label: "ما هدفك الأساسي؟", placeholder: "مثال: بناء لياقة عامة" },
       { key: "activity", label: "ما مستواك الحالي؟", placeholder: "مثال: مبتدئ تمامًا" },
       { key: "schedule", label: "كم وقتًا تستطيع تخصيصه أسبوعيًا؟", placeholder: "مثال: 3 أيام، 30 دقيقة" },
-      { key: "preferences", label: "هل لديك معدات أو إصابة يجب مراعاتها؟", placeholder: "مثال: بدون معدات، مافيش إصابات" },
+      { key: "preferences", label: "هل لديك معدات أو إصابة يجب مراعاتها؟", placeholder: "مثال: لا توجد معدات أو إصابات" },
     ],
   };
 
   const PLAN_PERSONALIZATION = {
     ar: {
       food: [
-        { key: "age", label: "عندك كام سنة؟", placeholder: "مثال: 26", hint: "اكتب رقمًا فقط.", type: "number", min: 13, max: 100 },
-        { key: "height_cm", label: "طولك كام سم؟", placeholder: "مثال: 175", hint: "اكتب الطول بالسنتيمتر.", type: "number", min: 120, max: 230 },
-        { key: "weight_kg", label: "وزنك الحالي كام كجم؟", placeholder: "مثال: 82", hint: "اكتب وزنك التقريبي الحالي.", type: "number", min: 30, max: 300, step: "0.1" },
+        { key: "age", label: "كم يبلغ عمرك؟", placeholder: "مثال: 26", hint: "اكتب رقمًا فقط.", type: "number", min: 13, max: 100 },
+        { key: "height_cm", label: "ما طولك بالسنتيمتر؟", placeholder: "مثال: 175", hint: "اكتب طولك بالسنتيمتر.", type: "number", min: 120, max: 230 },
+        { key: "weight_kg", label: "ما وزنك الحالي بالكيلوغرام؟", placeholder: "مثال: 82", hint: "اكتب وزنك التقريبي الحالي.", type: "number", min: 30, max: 300, step: "0.1" },
       ],
-      health: { key: "health_context", label: "هل في حالة صحية أو أكل لازم نراعيه؟", placeholder: "مثال: أقلل اللاكتوز؛ أو اكتب مافيش", hint: "لو في أعراض، دواء، أو حالة خاصة استشر مختص.", optional: true },
+      health: { key: "health_context", label: "هل توجد حالة صحية أو تفضيلات غذائية ينبغي مراعاتها؟", placeholder: "مثال: أقلل اللاكتوز؛ أو اكتب لا يوجد", hint: "إذا كانت لديك أعراض أو أدوية أو حالة خاصة، فاستشر مختصًا.", optional: true },
       ability: [
-        { key: "pushups", label: "بتعرف تعمل كام ضغطة كاملة براحة؟", placeholder: "مثال: 0 أو 5 أو 20", hint: "لو مش بتعرف تعمل ضغطة اكتب 0، وميري هتديك بديل أسهل.", type: "number", min: 0, max: 200 },
-        { key: "squat_ability", label: "بتعرف تعمل سكوات بوزن جسمك براحة؟", placeholder: "مثال: مرتاح / صعب / بيعمل ألم / مش بعرف" },
+        { key: "pushups", label: "كم تمرين ضغط كاملًا تستطيع أداءه براحة؟", placeholder: "مثال: 0 أو 5 أو 20", hint: "إذا لم تستطع أداء تمرين ضغط، فاكتب 0؛ وستقترح ميري بديلًا أسهل.", type: "number", min: 0, max: 200 },
+        { key: "squat_ability", label: "هل تستطيع أداء تمرين القرفصاء بوزن الجسم براحة؟", placeholder: "مثال: مريح / صعب / يسبب ألمًا / لا أستطيع" },
       ],
     },
     tr: {
@@ -306,6 +334,42 @@
   };
   const validMiriStyles = new Set(["supportive", "calm", "energetic"]);
   const normalizeMiriStyle = (value) => validMiriStyles.has(value) ? value : "supportive";
+  const PAGE_META = {
+    ar: {
+      title: "Yoldaş | خطة أكل وتمارين ومتابعة صحية يومية",
+      description: "Yoldaş يساعدك على تنظيم أكلك وتمارينك ومتابعة الوجبات والماء والحركة بخطوات بسيطة وخطة تناسب يومك.",
+      shareTitle: "Yoldaş | ابدأ رحلتك الصحية بخطوات بسيطة",
+      ogLocale: "ar_EG",
+    },
+    tr: {
+      title: "Yoldaş | Kişisel beslenme ve egzersiz planın",
+      description: "Yoldaş ile beslenme ve egzersiz planını oluştur; öğünlerini, suyunu ve hareketini tek yerde takip et.",
+      shareTitle: "Yoldaş | Sağlık yolculuğuna küçük adımlarla başla",
+      ogLocale: "tr_TR",
+    },
+    en: {
+      title: "Yoldaş | Personal food plan, workouts and daily tracking",
+      description: "Build a personal food and workout plan with Yoldaş, track meals, water, and movement, and adapt your plan with Miri.",
+      shareTitle: "Yoldaş | Start your health journey with small steps",
+      ogLocale: "en_US",
+    },
+  };
+
+  function setMetaContent(selector, value) {
+    const tag = document.querySelector(selector);
+    if (tag) tag.setAttribute("content", value);
+  }
+
+  function updatePageMeta() {
+    const meta = PAGE_META[currentLocale] || PAGE_META.ar;
+    document.title = meta.title;
+    setMetaContent('meta[name="description"]', meta.description);
+    setMetaContent('meta[property="og:title"]', meta.shareTitle);
+    setMetaContent('meta[property="og:description"]', meta.description);
+    setMetaContent('meta[property="og:locale"]', meta.ogLocale);
+    setMetaContent('meta[name="twitter:title"]', meta.shareTitle);
+    setMetaContent('meta[name="twitter:description"]', meta.description);
+  }
 
   function renderMiriStyleOptions() {
     document.querySelectorAll(".miri-style-option").forEach((button) => {
@@ -314,43 +378,11 @@
       button.setAttribute("aria-checked", String(active));
     });
   }
-const PAGE_META = {
-  ar: {
-    title: "Yoldaş | خطة أكل وتمارين ومتابعة صحية يومية",
-    description: "Yoldaş يساعدك تنظم أكلك وتمارينك وتتابع الوجبات والماء والحركة بخطوات بسيطة وخطة مناسبة لك.",
-    shareTitle: "Yoldaş | ابدأ رحلتك الصحية بخطوات بسيطة"
-  },
-  tr: {
-    title: "Yoldaş | Kişisel beslenme ve egzersiz planın",
-    description: "Yoldaş ile beslenme ve egzersiz planını oluştur; öğünlerini, suyunu ve hareketini tek yerde takip et.",
-    shareTitle: "Yoldaş | Sağlık yolculuğuna küçük adımlarla başla"
-  },
-  en: {
-    title: "Yoldaş | Personal food plan, workouts and daily tracking",
-    description: "Build a personal food and workout plan with Yoldaş, track meals, water, and movement, and adapt your plan with Miri.",
-    shareTitle: "Yoldaş | Start your health journey with small steps"
-  }
-};
-
-function setMetaContent(selector, value) {
-  const tag = document.querySelector(selector);
-  if (tag) tag.setAttribute("content", value);
-}
-
-function updatePageMeta() {
-  const meta = PAGE_META[currentLocale] || PAGE_META.ar;
-  document.title = meta.title;
-  setMetaContent('meta[name="description"]', meta.description);
-  setMetaContent('meta[property="og:title"]', meta.shareTitle);
-  setMetaContent('meta[property="og:description"]', meta.description);
-  setMetaContent('meta[name="twitter:title"]', meta.shareTitle);
-  setMetaContent('meta[name="twitter:description"]', meta.description);
-}
-
 
   function applyLocale() {
     document.documentElement.lang = currentLocale;
     document.documentElement.dir = currentLocale === "ar" ? "rtl" : "ltr";
+    updatePageMeta();
     document.body.classList.toggle("locale-tr", currentLocale === "tr");
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.dataset.i18n;
@@ -1622,6 +1654,10 @@ function updatePageMeta() {
     const code = String(error?.message || "");
     if (code.includes("FRIEND_LIMIT")) return t("friendLimit");
     if (code.includes("SNAP_DAILY_LIMIT")) return t("snapLimit");
+    if (code.includes("CHALLENGE_CREATE_LIMIT")) return t("challengeCreateLimit");
+    if (code.includes("CHALLENGE_PARTICIPANT_LIMIT")) return t("challengeParticipantLimit");
+    if (code.includes("CHALLENGE_FRIEND_REQUIRED")) return t("challengeFriendRequired");
+    if (/friend_challenges|friend_challenge_participants|claim_friend_challenge_day|award_friend_challenge_win|challenge/i.test(code)) return t("challengeSetupRequired");
     if (/relation|bucket|function|social-service|friendships|streak_snaps/i.test(code)) return t("communitySetupRequired");
     return t("actionFailed");
   }
@@ -1635,7 +1671,7 @@ function updatePageMeta() {
     if (list) list.innerHTML = accepted.length ? accepted.map((friend) => {
       const count = Number(friend.streakCount || 0);
       const streakLabel = count ? `${count} ${t("friendStreakDays")}` : t("friendStreakStart");
-      return `<div class="friend-row friend-row-accepted"><div class="friend-identity"><b>@${escapeHtml(friend.username)}</b><span>${escapeHtml(friend.alias)}</span></div><span class="friend-streak ${count ? "" : "is-empty"}" aria-label="${escapeHtml(streakLabel)}">🔥 <strong>${count || "—"}</strong> <small>${escapeHtml(count ? t("friendStreakDays") : t("friendStreakStart"))}</small></span><div><button data-friend-remove="${escapeHtml(friend.userId)}">${escapeHtml(t("removeFriend"))}</button><button data-friend-block="${escapeHtml(friend.userId)}">${escapeHtml(t("block"))}</button><button data-friend-report="${escapeHtml(friend.userId)}">${escapeHtml(t("report"))}</button></div></div>`;
+      return `<div class="friend-row friend-row-accepted"><div class="friend-identity"><b>@${escapeHtml(friend.username)}</b><span>${escapeHtml(friend.alias)}</span></div><span class="friend-streak friend-streak-level-${myChallengeLevel} ${count ? "" : "is-empty"}" aria-label="${escapeHtml(streakLabel)}">🔥 <strong>${count || "—"}</strong> <small>${escapeHtml(count ? t("friendStreakDays") : t("friendStreakStart"))}</small></span><div><button data-friend-remove="${escapeHtml(friend.userId)}">${escapeHtml(t("removeFriend"))}</button><button data-friend-block="${escapeHtml(friend.userId)}">${escapeHtml(t("block"))}</button><button data-friend-report="${escapeHtml(friend.userId)}">${escapeHtml(t("report"))}</button></div></div>`;
     }).join("") : `<p class="community-empty">${escapeHtml(t("noFriends"))}</p>`;
     const select = $("snap-recipient");
     if (select) {
@@ -1671,18 +1707,101 @@ function updatePageMeta() {
     });
   }
 
+  function interpolate(key, values = {}) {
+    return Object.entries(values).reduce((text, [name, value]) => text.replaceAll(`{${name}}`, String(value)), t(key));
+  }
+
+  function setChallengeStatus(message = "", isError = false) {
+    const box = $("challenge-status");
+    if (!box) return;
+    box.textContent = message;
+    box.hidden = !message;
+    box.classList.toggle("error", Boolean(message && isError));
+  }
+
+  function challengeTemplateName(templateKey) {
+    return t({ pushups: "challengePushups", squats: "challengeSquats", plank: "challengePlank", walk: "challengeWalk", chair_stands: "challengeChairStands" }[templateKey] || "challengeTitle");
+  }
+
+  function renderChallengeForm(friends = []) {
+    const form = $("challenge-form");
+    const options = $("challenge-friends");
+    if (!form || !options) return;
+    if (!friends.length) {
+      form.hidden = true;
+      options.innerHTML = "";
+      return;
+    }
+    form.hidden = false;
+    options.innerHTML = `<legend>${escapeHtml(t("challengeFriends"))}</legend>${friends.map((friend) => `<label class="challenge-friend-option"><input type="checkbox" name="challenge-friend" value="${escapeHtml(friend.userId)}" /><span>@${escapeHtml(friend.username)}</span><small>${escapeHtml(friend.alias || "")}</small></label>`).join("")}`;
+  }
+
+  function renderChallengeLevel(data = {}) {
+    const card = $("challenge-level-card");
+    if (!card) return;
+    const level = Math.max(0, Math.min(8, Number(data.challengeLevel || 0)));
+    const wins = Math.max(0, Number(data.challengeWins || 0));
+    myChallengeLevel = level;
+    card.className = `challenge-level-card challenge-level-${level}`;
+    $("challenge-level-number").textContent = String(level);
+    $("challenge-level-name").textContent = t(`challengeLevel${level}`);
+    $("challenge-wins-count").textContent = String(wins);
+    card.hidden = false;
+  }
+
+  function renderChallenges(data = {}) {
+    const list = $("challenge-list");
+    if (!list) return;
+    renderChallengeLevel(data);
+    const challenges = Array.isArray(data.challenges) ? data.challenges : [];
+    if (!challenges.length) {
+      list.innerHTML = `<p class="community-empty">${escapeHtml(t("challengeEmpty"))}</p>`;
+      return;
+    }
+    list.innerHTML = challenges.map((challenge) => {
+      const members = Array.isArray(challenge.members) ? challenge.members : [];
+      const status = challenge.status === "completed" ? t("challengeCompleted") : challenge.status === "pending" ? t("challengePending") : "";
+      const day = Math.max(1, Number(challenge.currentDay || 1));
+      const mask = Number(challenge.myCompletedMask || 0);
+      const completedToday = Boolean(mask & (1 << (day - 1)));
+      const canRespond = challenge.status === "pending" && !challenge.myAccepted;
+      const canComplete = challenge.status === "active" && challenge.myAccepted && day <= Number(challenge.durationDays || 0) && !completedToday;
+      const actions = canRespond
+        ? `<div class="challenge-card-actions"><button type="button" data-challenge-accept="${escapeHtml(challenge.id)}">${escapeHtml(t("challengeAccept"))}</button><button type="button" data-challenge-decline="${escapeHtml(challenge.id)}">${escapeHtml(t("challengeDecline"))}</button></div>`
+        : canComplete
+          ? `<div class="challenge-card-actions"><button type="button" class="primary-button" data-challenge-complete="${escapeHtml(challenge.id)}">${escapeHtml(t("challengeComplete"))}</button><button type="button" data-challenge-cancel="${escapeHtml(challenge.id)}">${escapeHtml(t("challengeCancel"))}</button></div>`
+          : challenge.status === "active"
+            ? `<p class="challenge-card-status">${escapeHtml(interpolate("challengeProgress", { count: challenge.myCompletedDays || 0, total: challenge.requiredDays || challenge.durationDays || 0 }))}</p><button type="button" class="text-button" data-challenge-cancel="${escapeHtml(challenge.id)}">${escapeHtml(t("challengeCancel"))}</button>`
+            : `<p class="challenge-card-status">${escapeHtml(status)}</p>`;
+      return `<article class="challenge-card challenge-status-${escapeHtml(challenge.status)}"><header><div><p>${escapeHtml(challengeTemplateName(challenge.templateKey))}</p><h3>${escapeHtml(interpolate("challengeDay", { day, total: challenge.durationDays || 0 }))}</h3></div><span>${escapeHtml(status || interpolate("challengeProgress", { count: challenge.myCompletedDays || 0, total: challenge.requiredDays || challenge.durationDays || 0 }))}</span></header><div class="challenge-progress"><i style="--challenge-progress:${Math.min(100, ((Number(challenge.myCompletedDays || 0) / Math.max(1, Number(challenge.requiredDays || challenge.durationDays || 1))) * 100))}%"></i></div><div class="challenge-members"><small>${escapeHtml(t("challengeMembers"))}</small><div>${members.map((member) => `<span class="${member.rewarded ? "is-rewarded" : ""}">@${escapeHtml(member.alias || "")}${member.accepted ? "" : " · …"}</span>`).join("")}</div></div>${actions}</article>`;
+    }).join("");
+  }
+
   async function loadCommunity() {
     if (!currentUser || !supabase) return;
     await refreshMotivationSetupState();
     try {
-      const [friendsData, snapsData] = await Promise.all([socialCall("list_friends"), socialCall("list_snaps")]);
+      const [friendsResult, snapsResult, challengesResult] = await Promise.allSettled([socialCall("list_friends"), socialCall("list_snaps"), socialCall("list_challenges")]);
+      if (friendsResult.status !== "fulfilled" || snapsResult.status !== "fulfilled") throw friendsResult.status === "rejected" ? friendsResult.reason : snapsResult.reason;
+      const friendsData = friendsResult.value;
+      const snapsData = snapsResult.value;
+      if (challengesResult.status === "fulfilled") {
+        renderChallenges(challengesResult.value);
+        setChallengeStatus("");
+      } else {
+        renderChallenges({ challenges: [], challengeWins: 0, challengeLevel: 0 });
+        setChallengeStatus(t("challengeSetupRequired"), true);
+      }
       renderFriendLists(friendsData.friends || []);
+      renderChallengeForm((friendsData.friends || []).filter((friend) => friend.status === "accepted"));
       renderSnaps(snapsData.snaps || []);
       renderCommunitySummary(friendsData.friends || [], snapsData.snaps || []);
       setFriendsStatus(friendsData.streakSetupRequired ? t("streakSetupRequired") : "", Boolean(friendsData.streakSetupRequired));
     } catch (error) {
       console.error("loadFriends failed", error);
       renderFriendLists([]);
+      renderChallengeForm([]);
+      renderChallenges({ challenges: [] });
       renderSnaps([]);
       renderCommunitySummary([], []);
       setFriendsStatus(socialErrorText(error), true);
@@ -1775,6 +1894,33 @@ function updatePageMeta() {
 
   function bindCommunity() {
     $("get-motivation")?.addEventListener("click", showMotivationNote);
+    $("challenge-friends")?.addEventListener("change", (event) => {
+      const changed = event.target;
+      const selected = [...document.querySelectorAll('input[name="challenge-friend"]:checked')];
+      if (selected.length > 4 && changed?.checked) {
+        changed.checked = false;
+        setChallengeStatus(t("challengeParticipantLimit"), true);
+      }
+    });
+    $("challenge-form")?.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const userIds = [...document.querySelectorAll('input[name="challenge-friend"]:checked')].map((input) => input.value);
+      if (!userIds.length) return setChallengeStatus(t("challengeSelectFriends"), true);
+      const submit = event.currentTarget.querySelector('button[type="submit"]');
+      const originalLabel = submit?.textContent || "";
+      try {
+        if (submit) { submit.disabled = true; submit.textContent = t("saving"); }
+        await socialCall("create_challenge", { templateKey: $("challenge-template")?.value, durationDays: Number($("challenge-duration")?.value), userIds });
+        event.currentTarget.reset();
+        setChallengeStatus(t("challengeSaved"));
+        await loadCommunity();
+      } catch (error) {
+        console.error("create challenge failed", error);
+        setChallengeStatus(socialErrorText(error), true);
+      } finally {
+        if (submit) { submit.disabled = false; submit.textContent = originalLabel; }
+      }
+    });
     $("friend-search-form")?.addEventListener("submit", async (e) => {
       e.preventDefault();
       const username = normalizedUsername($("friend-search-input")?.value);
@@ -1799,7 +1945,20 @@ function updatePageMeta() {
       const button = event.target.closest("button");
       if (!button) return;
       try {
-        if (button.dataset.sendRequest) {
+        if (button.dataset.challengeAccept) {
+          await socialCall("respond_challenge", { challengeId: button.dataset.challengeAccept, accept: true });
+          setChallengeStatus("");
+        } else if (button.dataset.challengeDecline) {
+          await socialCall("respond_challenge", { challengeId: button.dataset.challengeDecline, accept: false });
+          setChallengeStatus("");
+        } else if (button.dataset.challengeComplete) {
+          const result = await socialCall("complete_challenge_day", { challengeId: button.dataset.challengeComplete });
+          setChallengeStatus(result.rewardedNow ? t("challengeWin") : t("challengeClaimed"));
+        } else if (button.dataset.challengeCancel) {
+          if (!confirm(t("challengeCancel"))) return;
+          await socialCall("cancel_challenge", { challengeId: button.dataset.challengeCancel });
+          setChallengeStatus("");
+        } else if (button.dataset.sendRequest) {
           await socialCall("send_request", { userId: button.dataset.sendRequest });
           setFriendsStatus(t("requestSent"));
         } else if (button.dataset.friendAccept) {
