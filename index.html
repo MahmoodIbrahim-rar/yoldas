@@ -194,6 +194,7 @@
               <button id="start-button" class="primary-button" data-i18n="startGuest">ابدأ كتجربة ←</button>
               <button id="account-button" class="secondary-button" type="button" data-i18n="accountButton">دخول أو إنشاء حساب</button>
               <a class="secondary-button" href="#how-it-works" data-i18n="discoverHow">اكتشف كيف يعمل Yoldaş</a>
+              <a class="secondary-button" href="#food-library" data-i18n="exploreFoodGuide">استكشف دليل الطعام</a>
             </div>
             <p id="welcome-error" class="form-message" hidden></p>
           </article>
@@ -215,17 +216,29 @@
             <button class="account-mode" type="button" data-account-mode="login" data-i18n="login">تسجيل الدخول</button>
           </div>
           <form id="account-form" class="account-form">
-            <label for="account-username" data-i18n="username">اسم المستخدم</label>
-            <input id="account-username" type="text" autocomplete="username" autocapitalize="none" data-i18n-placeholder="usernamePlaceholder" placeholder="مثال: ahmed.fit" />
-            <small id="username-hint" data-i18n="usernameHint">من 3 إلى 24 حرفًا إنجليزيًا صغيرًا أو رقمًا، مع . أو _ أو - فقط.</small>
-            <label for="account-password" data-i18n="password">كلمة المرور</label>
-            <input id="account-password" type="password" autocomplete="current-password" data-i18n-placeholder="passwordPlaceholder" placeholder="8 أحرف أو أكثر" />
-            <small id="password-hint" data-i18n="passwordHint">احفظها جيدًا: بدون بريد إلكتروني لا تتوفر استعادة تلقائية لكلمة المرور.</small>
+            <div id="account-username-field">
+              <label for="account-username" data-i18n="username">اسم المستخدم</label>
+              <input id="account-username" type="text" autocomplete="username" autocapitalize="none" data-i18n-placeholder="usernamePlaceholder" placeholder="مثال: ahmed.fit" />
+              <small id="username-hint" data-i18n="usernameHint">من 3 إلى 24 حرفًا إنجليزيًا صغيرًا أو رقمًا، مع . أو _ أو - فقط.</small>
+            </div>
+            <div id="account-password-field">
+              <label for="account-password" data-i18n="password">كلمة المرور</label>
+              <input id="account-password" type="password" autocomplete="current-password" data-i18n-placeholder="passwordPlaceholder" placeholder="8 أحرف أو أكثر" />
+              <small id="password-hint" data-i18n="passwordHint">احفظها جيدًا: بدون بريد إلكتروني لا تتوفر استعادة تلقائية لكلمة المرور.</small>
+            </div>
             <div id="recovery-email-field" hidden>
               <label for="account-recovery-email" data-i18n="recoveryEmail">بريد الاسترجاع</label>
               <input id="account-recovery-email" type="email" autocomplete="email" data-i18n-placeholder="recoveryEmailPlaceholder" placeholder="name@example.com" />
               <small data-i18n="recoveryEmailHint">خاص ولا يظهر للناس. يستخدم فقط عند نسيان كلمة السر.</small>
             </div>
+            <fieldset id="account-gender-field" class="account-gender-field" hidden>
+              <legend data-i18n="genderLabel">النوع</legend>
+              <p data-i18n="genderHint">يُستخدم لتحسين صياغة خطتك فقط، ولا يظهر للآخرين.</p>
+              <div class="gender-options">
+                <label><input type="radio" name="account-gender" value="male" /><span data-i18n="genderMale">ذكر</span></label>
+                <label><input type="radio" name="account-gender" value="female" /><span data-i18n="genderFemale">أنثى</span></label>
+              </div>
+            </fieldset>
             <button id="account-submit" class="primary-button" type="submit">إنشاء حسابي</button>
             <button id="forgot-password" class="text-button" type="button" hidden data-i18n="forgotPassword">نسيت كلمة السر؟</button>
             <p id="account-error" class="form-message" hidden></p>
@@ -352,6 +365,29 @@
             </details>
           </div>
         </section>
+        <article id="food-library" class="food-library-card food-library-explore">
+          <div class="section-title"><div><p class="eyebrow" data-i18n="referenceRecipes">وصفات مرجعية محلية</p><h2 data-i18n="foodCatalogTitle">دليل أكل Yoldaş</h2></div><span id="food-catalog-count">36</span></div>
+          <p class="food-library-intro" data-i18n="foodCatalogDescription">وصفات مصرية وتركية ووجبات يومية بحصص متوسطة وأوزان واضحة. القيمة مرجعية وتختلف مع الزيت والإضافات والحجم الفعلي.</p>
+          <div class="food-catalog-tools">
+            <input id="food-catalog-search" autocomplete="off" data-i18n-placeholder="foodSearchPlaceholder" placeholder="ابحث عن كشري أو دونر أو شوربة عدس..." />
+            <div class="food-filter-row" aria-label="تصنيف الوصفات">
+              <button type="button" class="food-filter active" data-food-filter="all" data-i18n="allRecipes">الكل</button>
+              <button type="button" class="food-filter" data-food-filter="EG" data-i18n="egyptRecipes">مصرية</button>
+              <button type="button" class="food-filter" data-food-filter="TR" data-i18n="turkeyRecipes">تركية</button>
+              <button type="button" class="food-filter" data-food-filter="DAILY" data-i18n="dailyRecipes">وجبات يومية</button>
+            </div>
+          </div>
+          <p id="food-catalog-context" class="food-catalog-context" aria-live="polite"></p>
+          <div id="food-catalog-results" class="food-catalog-results" aria-live="polite"></div>
+          <section id="food-catalog-suggestions" class="food-catalog-suggestions" hidden aria-live="polite"></section>
+          <nav id="food-catalog-pagination" class="food-catalog-pagination" aria-label="التنقل بين صفحات دليل الطعام" hidden>
+            <button id="food-page-prev" class="secondary-button" type="button" data-i18n="catalogPrevious">السابق</button>
+            <span id="food-page-status"></span>
+            <button id="food-page-next" class="secondary-button" type="button" data-i18n="catalogNext">التالي</button>
+          </nav>
+          <div id="food-catalog-detail" class="food-catalog-detail" hidden></div>
+          <p id="food-catalog-message" class="food-catalog-message" hidden aria-live="polite"></p>
+        </article>
       </section>
 
       <!-- ============== واجهة التطبيق بعد بدء الرحلة ============== -->
@@ -423,22 +459,6 @@
             </article>
           </div>
 
-          <article id="food-library" class="food-library-card">
-            <div class="section-title"><div><p class="eyebrow" data-i18n="referenceRecipes">وصفات مرجعية محلية</p><h2 data-i18n="foodCatalogTitle">دليل أكل Yoldaş</h2></div><span id="food-catalog-count">36</span></div>
-            <p class="food-library-intro" data-i18n="foodCatalogDescription">وصفات مصرية وتركية بحصص متوسطة وأوزان واضحة. القيمة مرجعية وتختلف مع الزيت والإضافات والحجم الفعلي.</p>
-            <div class="food-catalog-tools">
-              <input id="food-catalog-search" autocomplete="off" data-i18n-placeholder="foodSearchPlaceholder" placeholder="ابحث عن كشري أو دونر أو شوربة عدس..." />
-              <div class="food-filter-row" aria-label="تصنيف الوصفات">
-                <button type="button" class="food-filter active" data-food-filter="all" data-i18n="allRecipes">الكل</button>
-                <button type="button" class="food-filter" data-food-filter="EG" data-i18n="egyptRecipes">مصرية</button>
-                <button type="button" class="food-filter" data-food-filter="TR" data-i18n="turkeyRecipes">تركية</button>
-                <button type="button" class="food-filter" data-food-filter="DAILY" data-i18n="dailyRecipes">وجبات يومية</button>
-              </div>
-            </div>
-            <div id="food-catalog-results" class="food-catalog-results" aria-live="polite"></div>
-            <div id="food-catalog-detail" class="food-catalog-detail" hidden></div>
-            <p id="food-catalog-message" class="food-catalog-message" hidden aria-live="polite"></p>
-          </article>
 
           <article id="gym-mode" class="gym-mode-card">
             <div class="section-title"><div><p class="eyebrow" data-i18n="gymEyebrow">تدريبك الحقيقي</p><h2 data-i18n="gymTitle">وضع الجيم</h2></div><span id="gym-week-volume">—</span></div>

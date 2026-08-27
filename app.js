@@ -30,9 +30,12 @@
   let currentLocale = detectInitialLocale();
   let currentTheme = detectInitialTheme();
   let accountMode = "signup";
+  let profileGenderComplete = false;
   let referenceRecipes = [];
   let selectedRecipeId = null;
   let foodFilter = "all";
+  let catalogPage = 0;
+  const CATALOG_PAGE_SIZE = 10;
   let planTranslationInFlight = false;
   let gymSets = [];
   let miriStyle = "supportive";
@@ -567,12 +570,28 @@
   }
 
   function showDashboard() {
+    if (!hasRegisteredAccount()) {
+      showWelcome();
+      return;
+    }
     hide($("welcome-view"));
     show($("dashboard-view"));
     if (window.matchMedia("(max-width: 720px)").matches) show($("mobile-nav"));
   }
 
+  function hasRegisteredAccount() {
+    return Boolean(currentUser && !currentUser.is_anonymous && profileGenderComplete);
+  }
+
+  function requireRegisteredAccount() {
+    if (hasRegisteredAccount()) return true;
+    setConnectionMessage(t("accountRequired"));
+    openAccountPanel("signup");
+    return false;
+  }
+
   function switchScreen(name) {
+    if (!requireRegisteredAccount()) return;
     document.querySelectorAll(".screen").forEach((s) => hide(s));
     show($(`${name}-screen`));
 
@@ -603,6 +622,7 @@
 
     document.querySelectorAll("[data-go]").forEach((btn) => {
       btn.addEventListener("click", () => {
+        if (!requireRegisteredAccount()) return;
         switchScreen(btn.dataset.go);
         if (btn.dataset.go === "assistant" && btn.dataset.prompt) {
           $("chat-input").value = btn.dataset.prompt;
@@ -615,6 +635,7 @@
       if (!confirm(t("leaveJourneyConfirm"))) return;
       if (supabase) await supabase.auth.signOut();
       currentUser = null;
+      profileGenderComplete = false;
       showWelcome();
     });
 
@@ -657,28 +678,41 @@
 
   function updateAccountPanel() {
     const isSignup = accountMode === "signup";
+    const isGenderCompletion = accountMode === "complete_gender";
     const panel = $("account-panel");
     if (!panel) return;
-    $("account-title").textContent = isSignup ? t("signupTitle") : t("loginTitle");
-    $("account-description").textContent = isSignup ? t("signupDescription") : t("loginDescription");
-    $("account-submit").textContent = isSignup ? t("signupSubmit") : t("loginSubmit");
+    $("account-title").textContent = isGenderCompletion ? t("completeGenderTitle") : (isSignup ? t("signupTitle") : t("loginTitle"));
+    $("account-description").textContent = isGenderCompletion ? t("completeGenderDescription") : (isSignup ? t("signupDescription") : t("loginDescription"));
+    $("account-submit").textContent = isGenderCompletion ? t("saveGender") : (isSignup ? t("signupSubmit") : t("loginSubmit"));
     $("account-password").autocomplete = isSignup ? "new-password" : "current-password";
     $("recovery-email-field").hidden = !isSignup;
-    $("forgot-password").hidden = isSignup;
+    $("account-gender-field").hidden = !(isSignup || isGenderCompletion);
+    $("account-username-field").hidden = isGenderCompletion;
+    $("account-password-field").hidden = isGenderCompletion;
+    $("forgot-password").hidden = isSignup || isGenderCompletion;
+    panel.querySelector(".account-tabs")?.toggleAttribute("hidden", isGenderCompletion);
     document.querySelectorAll(".account-mode").forEach((button) => {
       button.classList.toggle("active", button.dataset.accountMode === accountMode);
     });
   }
 
   function openAccountPanel(mode = "signup") {
-    accountMode = mode;
+    accountMode = mode === "signup" && currentUser && !profileGenderComplete ? "complete_gender" : mode;
     setAccountError("");
     updateAccountPanel();
     show($("account-panel"));
-    $("account-username")?.focus();
+    if (accountMode === "complete_gender") {
+      document.querySelector('input[name="account-gender"]')?.focus();
+    } else {
+      $("account-username")?.focus();
+    }
   }
 
   function closeAccountPanel() {
+    if (accountMode === "complete_gender" && currentUser && !profileGenderComplete) {
+      setAccountError(t("genderRequired"));
+      return;
+    }
     hide($("account-panel"));
     setAccountError("");
     const form = $("account-form");
@@ -696,10 +730,17 @@
   async function completeAccountSession(user, username) {
     currentUser = user;
     await ensureProfile(user.id, username);
+    if (await profileNeedsGender(user.id)) {
+      profileGenderComplete = false;
+      openAccountPanel("complete_gender");
+      return false;
+    }
+    profileGenderComplete = true;
     await retireOwnProgressPhotos();
     closeAccountPanel();
     showDashboard();
     switchScreen("today");
+    return true;
   }
 
   async function retireOwnProgressPhotos() {
@@ -729,8 +770,31 @@
     const username = normalizedUsername($("account-username")?.value);
     const password = String($("account-password")?.value || "");
     const recoveryEmail = String($("account-recovery-email")?.value || "").trim().toLowerCase();
+    const gender = String(document.querySelector('input[name="account-gender"]:checked')?.value || "");
     const submitButton = $("account-submit");
     setAccountError("");
+
+    if (accountMode === "complete_gender") {
+      if (!currentUser || !["male", "female"].includes(gender)) {
+        setAccountError(t("genderRequired"));
+        return;
+      }
+      submitButton.disabled = true;
+      const originalLabel = submitButton.textContent;
+      submitButton.textContent = t("saving");
+      try {
+        const { error } = await supabase.from("profiles").update({ gender, updated_at: new Date().toISOString() }).eq("id", currentUser.id);
+        if (error) throw error;
+        await completeAccountSession(currentUser);
+      } catch (error) {
+        console.error("profile gender completion failed", error);
+        setAccountError(t("settingsSaveError"));
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalLabel;
+      }
+      return;
+    }
 
     if (!isValidUsername(username)) {
       setAccountError(currentLocale === "tr" ? "Geçerli bir kullanıcı adı yaz." : "اكتب اسم مستخدم صالحًا بالشكل الموضح.");
@@ -744,6 +808,10 @@
       setAccountError(currentLocale === "tr" ? "Geçerli bir kurtarma e-postası yaz." : "اكتب بريد استرجاع صحيح.");
       return;
     }
+    if (accountMode === "signup" && !["male", "female"].includes(gender)) {
+      setAccountError(t("genderRequired"));
+      return;
+    }
 
     submitButton.disabled = true;
     const originalLabel = submitButton.textContent;
@@ -752,7 +820,7 @@
     try {
       if (accountMode === "signup") {
         const { data, error } = await supabase.functions.invoke(CONFIG.accountFunction || "account-auth", {
-          body: { mode: "signup", username, password, recoveryEmail },
+          body: { mode: "signup", username, password, recoveryEmail, gender },
         });
         if (error || !data?.ok) throw new Error(data?.code || "signup_failed");
         const { data: sessionData, error: sessionError } = await supabase.auth.setSession({
@@ -790,7 +858,14 @@
   }
 
   function bindAccounts() {
-    $("account-button")?.addEventListener("click", () => openAccountPanel());
+    $("account-button")?.addEventListener("click", () => {
+      if (hasRegisteredAccount()) {
+        showDashboard();
+        switchScreen("today");
+        return;
+      }
+      openAccountPanel();
+    });
     $("account-close")?.addEventListener("click", closeAccountPanel);
     document.querySelectorAll(".account-mode").forEach((button) => {
       button.addEventListener("click", () => {
@@ -888,8 +963,17 @@
     }
   }
 
+  async function profileNeedsGender(userId) {
+    if (!supabase || !userId) return false;
+    const { data, error } = await supabase.from("profiles").select("gender").eq("id", userId).maybeSingle();
+    if (error) {
+      console.warn("profile gender lookup failed", error);
+      return false;
+    }
+    return data?.gender !== "male" && data?.gender !== "female";
+  }
+
   async function startJourney() {
-    const button = $("start-button");
     const errorBox = $("welcome-error");
     hide(errorBox);
 
@@ -898,33 +982,12 @@
       show(errorBox);
       return;
     }
-
-    button.disabled = true;
-    button.textContent = t("journeyPreparing");
-
-    try {
-      const existingSession = await ensureSession();
-      let user = existingSession?.user ?? null;
-
-      if (!user) {
-        const { data, error } = await supabase.auth.signInAnonymously();
-        if (error) throw error;
-        user = data.user;
-      }
-
-      currentUser = user;
-      await ensureProfile(user.id);
-
+    if (hasRegisteredAccount()) {
       showDashboard();
       switchScreen("today");
-    } catch (e) {
-      console.error("startJourney failed", e);
-      errorBox.textContent = friendlyErrorMessage(t("journeyError"));
-      show(errorBox);
-    } finally {
-      button.disabled = false;
-      button.textContent = t("startGuest");
+      return;
     }
+    openAccountPanel("signup");
   }
 
   // ============== شاشة اليوم ==============
@@ -1048,7 +1111,7 @@
   }
 
   async function addWaterCup() {
-    if (!currentUser) return;
+    if (!requireRegisteredAccount() || !supabase) return;
     const button = $("water-button");
     button.disabled = true;
     const originalLabel = button.textContent;
@@ -1114,31 +1177,166 @@
     }
   }
 
-  function renderFoodCatalog() {
-    const resultBox = $("food-catalog-results");
-    if (!resultBox || !referenceRecipes.length) return;
-    const query = normalizeFoodSearch($("food-catalog-search")?.value || "");
-    const recipes = referenceRecipes.filter((recipe) => {
-      const countryMatches = foodFilter === "all" || recipe.country === foodFilter;
-      const aliases = [recipe.name_ar, recipe.name_tr, recipe.name_en, ...(recipe.search_terms || [])].map(normalizeFoodSearch);
-      const searchable = aliases.join(" ");
-      const queryWords = query.split(" ").filter((word) => word.length > 1);
-      const matchesWords = queryWords.length && queryWords.every((word) => searchable.includes(word));
-      return countryMatches && (!query || searchable.includes(query) || matchesWords);
-    });
-    document.querySelectorAll(".food-filter").forEach((button) => button.classList.toggle("active", button.dataset.foodFilter === foodFilter));
-    if (!recipes.length) {
-      resultBox.innerHTML = `<p class="food-catalog-empty">${escapeHtml(t("catalogEmpty"))}</p>`;
-      hide($("food-catalog-detail"));
+  function catalogText(key, values = {}) {
+    return Object.entries(values).reduce((text, [name, value]) => text.replaceAll(`{${name}}`, String(value)), t(key));
+  }
+
+  function catalogCountry(recipe) {
+    return recipe.country === "DAY" ? "DAILY" : recipe.country;
+  }
+
+  function recipeSearchFields(recipe) {
+    const ingredients = (recipe.calculation?.ingredient_sources || []).flatMap((source) => [
+      source.key,
+      source.usda_description,
+      INGREDIENT_LABELS_EN[source.key],
+      INGREDIENT_LABELS[source.key]?.ar,
+      INGREDIENT_LABELS[source.key]?.tr,
+    ]);
+    return [recipe.name_ar, recipe.name_tr, recipe.name_en, recipe.serving_ar, recipe.serving_tr, recipe.serving_en, ...(recipe.search_terms || []), ...ingredients]
+      .filter(Boolean)
+      .map(normalizeFoodSearch);
+  }
+
+  function editDistance(left, right) {
+    if (left === right) return 0;
+    if (!left || !right) return Math.max(left.length, right.length);
+    let previous = Array.from({ length: right.length + 1 }, (_, index) => index);
+    for (let leftIndex = 1; leftIndex <= left.length; leftIndex += 1) {
+      const current = [leftIndex];
+      for (let rightIndex = 1; rightIndex <= right.length; rightIndex += 1) {
+        current[rightIndex] = Math.min(
+          current[rightIndex - 1] + 1,
+          previous[rightIndex] + 1,
+          previous[rightIndex - 1] + (left[leftIndex - 1] === right[rightIndex - 1] ? 0 : 1),
+        );
+      }
+      previous = current;
+    }
+    return previous[right.length];
+  }
+
+  function scoreRecipeSearch(recipe, query) {
+    if (!query) return { score: 0, isDirect: true };
+    const fields = recipeSearchFields(recipe);
+    const names = [recipe.name_ar, recipe.name_tr, recipe.name_en].filter(Boolean).map(normalizeFoodSearch);
+    const words = query.split(" ").filter((word) => word.length > 1);
+    const tokens = fields.flatMap((field) => field.split(" ")).filter((word) => word.length > 1);
+    const directWords = words.every((word) => fields.some((field) => field.includes(word)));
+    let score = 0;
+    if (names.some((name) => name === query)) score += 1000;
+    else if (names.some((name) => name.startsWith(query))) score += 700;
+    else if (fields.some((field) => field.includes(query))) score += 420;
+    for (const word of words) {
+      if (names.some((name) => name.split(" ").includes(word))) score += 120;
+      else if (names.some((name) => name.includes(word))) score += 80;
+      else if (fields.some((field) => field.includes(word))) score += 42;
+      const closest = tokens.reduce((minimum, token) => Math.min(minimum, editDistance(word, token)), Number.POSITIVE_INFINITY);
+      if (closest === 1) score += 18;
+      else if (closest === 2 && word.length >= 5) score += 10;
+    }
+    return { score, isDirect: directWords };
+  }
+
+  function recipeButton(recipe) {
+    return `<button type="button" class="food-recipe-option ${recipe.id === selectedRecipeId ? "selected" : ""}" data-recipe-id="${escapeHtml(recipe.id)}">
+      <span class="recipe-country">${recipe.country === "EG" ? "EG" : (recipe.country === "TR" ? "TR" : "DAY")}</span>
+      <span><b>${escapeHtml(localRecipeName(recipe))}</b><small>${escapeHtml(localRecipeServing(recipe))}</small></span>
+      <strong>${Math.round(recipe.nutrition.kcal)} ${escapeHtml(t("kcal"))}</strong>
+    </button>`;
+  }
+
+  function bindCatalogRecipeButtons(container) {
+    container.querySelectorAll("[data-recipe-id]").forEach((button) => button.addEventListener("click", () => showRecipeDetail(button.dataset.recipeId)));
+  }
+
+  function renderCatalogSuggestions(query, ranked, visibleIds) {
+    const suggestionBox = $("food-catalog-suggestions");
+    if (!suggestionBox) return;
+    const suggestions = ranked.filter((item) => !visibleIds.has(item.recipe.id) && item.score > 0).slice(0, 5).map((item) => item.recipe);
+    if (!query) {
+      suggestionBox.innerHTML = "";
+      hide(suggestionBox);
       return;
     }
-    resultBox.innerHTML = recipes.map((recipe) => `
-      <button type="button" class="food-recipe-option ${recipe.id === selectedRecipeId ? "selected" : ""}" data-recipe-id="${escapeHtml(recipe.id)}">
-        <span class="recipe-country">${recipe.country === "EG" ? "EG" : (recipe.country === "TR" ? "TR" : "DAY")}</span>
-        <span><b>${escapeHtml(localRecipeName(recipe))}</b><small>${escapeHtml(localRecipeServing(recipe))}</small></span>
-        <strong>${Math.round(recipe.nutrition.kcal)} ${escapeHtml(t("kcal"))}</strong>
-      </button>`).join("");
-    resultBox.querySelectorAll("[data-recipe-id]").forEach((button) => button.addEventListener("click", () => showRecipeDetail(button.dataset.recipeId)));
+    const miriButton = currentUser && profileGenderComplete ? `<button type="button" class="text-button catalog-miri-button" data-ask-miri-recipe="${escapeHtml(query)}">${escapeHtml(t("catalogAskMiri"))}</button>` : "";
+    suggestionBox.innerHTML = `<h3>${escapeHtml(t("catalogSimilarTitle"))}</h3><p>${escapeHtml(t("catalogSimilarHint"))}</p>${suggestions.length ? `<div>${suggestions.map((recipe) => `<button type="button" data-recipe-id="${escapeHtml(recipe.id)}">${escapeHtml(localRecipeName(recipe))}</button>`).join("")}</div>` : ""}${miriButton}`;
+    show(suggestionBox);
+    bindCatalogRecipeButtons(suggestionBox);
+    suggestionBox.querySelector("[data-ask-miri-recipe]")?.addEventListener("click", (event) => askMiriAboutRecipe(event.currentTarget.dataset.askMiriRecipe));
+  }
+
+  function askMiriAboutRecipe(query) {
+    if (!requireRegisteredAccount()) return;
+    const input = $("chat-input");
+    if (input) input.value = catalogText("catalogMiriPrompt", { query });
+    showDashboard();
+    switchScreen("assistant");
+    input?.focus();
+  }
+
+  function renderCatalogPagination(pageCount) {
+    const pagination = $("food-catalog-pagination");
+    const previous = $("food-page-prev");
+    const next = $("food-page-next");
+    const status = $("food-page-status");
+    if (!pagination || !previous || !next || !status || pageCount <= 1) {
+      hide(pagination);
+      return;
+    }
+    status.textContent = catalogText("catalogPageStatus", { page: catalogPage + 1, total: pageCount });
+    previous.disabled = catalogPage === 0;
+    next.disabled = catalogPage >= pageCount - 1;
+    show(pagination);
+  }
+
+  function renderFoodCatalog() {
+    const resultBox = $("food-catalog-results");
+    const context = $("food-catalog-context");
+    if (!resultBox || !referenceRecipes.length) return;
+    const query = normalizeFoodSearch($("food-catalog-search")?.value || "");
+    const isGroupedDefault = !query && foodFilter === "all";
+    const ranked = referenceRecipes.map((recipe, index) => ({ recipe, index, ...scoreRecipeSearch(recipe, query) }))
+      .filter((item) => foodFilter === "all" || catalogCountry(item.recipe) === foodFilter);
+    const directMatches = query ? ranked.filter((item) => item.isDirect).sort((left, right) => right.score - left.score || left.index - right.index) : ranked;
+    const recipes = query ? directMatches.map((item) => item.recipe) : ranked.map((item) => item.recipe);
+    document.querySelectorAll(".food-filter").forEach((button) => button.classList.toggle("active", button.dataset.foodFilter === foodFilter));
+
+    if (!recipes.length) {
+      resultBox.innerHTML = `<p class="food-catalog-empty">${escapeHtml(t("catalogEmpty"))}</p>`;
+      if (context) context.textContent = t("catalogNoDirectMatch");
+      hide($("food-catalog-detail"));
+      renderCatalogSuggestions(query, ranked.sort((left, right) => right.score - left.score || left.index - right.index), new Set());
+      renderCatalogPagination(0);
+      return;
+    }
+
+    const defaultGroups = [
+      { country: "EG", title: t("catalogEgyptianGroup") },
+      { country: "TR", title: t("catalogTurkishGroup") },
+      { country: "DAILY", title: t("catalogDailyGroup") },
+    ];
+    const pageCount = isGroupedDefault
+      ? Math.max(1, ...defaultGroups.map((group) => Math.ceil(recipes.filter((recipe) => catalogCountry(recipe) === group.country).length / CATALOG_PAGE_SIZE)))
+      : Math.max(1, Math.ceil(recipes.length / CATALOG_PAGE_SIZE));
+    catalogPage = Math.max(0, Math.min(catalogPage, pageCount - 1));
+    let visibleRecipes = [];
+    if (isGroupedDefault) {
+      resultBox.innerHTML = defaultGroups.map((group) => {
+        const groupRecipes = recipes.filter((recipe) => catalogCountry(recipe) === group.country).slice(catalogPage * CATALOG_PAGE_SIZE, (catalogPage + 1) * CATALOG_PAGE_SIZE);
+        visibleRecipes = visibleRecipes.concat(groupRecipes);
+        return `<section class="food-catalog-group"><h3>${escapeHtml(group.title)}</h3><div>${groupRecipes.map(recipeButton).join("")}</div></section>`;
+      }).join("");
+      if (context) context.textContent = catalogText("catalogGroupedPage", { page: catalogPage + 1, count: visibleRecipes.length });
+    } else {
+      visibleRecipes = recipes.slice(catalogPage * CATALOG_PAGE_SIZE, (catalogPage + 1) * CATALOG_PAGE_SIZE);
+      resultBox.innerHTML = visibleRecipes.map(recipeButton).join("");
+      if (context) context.textContent = catalogText("catalogResultsCount", { count: recipes.length });
+    }
+    bindCatalogRecipeButtons(resultBox);
+    const suggestionThreshold = query && recipes.length < 3;
+    renderCatalogSuggestions(suggestionThreshold ? query : "", ranked.sort((left, right) => right.score - left.score || left.index - right.index), new Set(visibleRecipes.map((recipe) => recipe.id)));
+    renderCatalogPagination(pageCount);
   }
 
   function setFoodCatalogMessage(message = "", isError = false) {
@@ -1179,10 +1377,7 @@
   }
 
   async function saveReferenceRecipe(recipe, factor) {
-    if (!currentUser || !supabase) {
-      setFoodCatalogMessage(t("journeyError"), true);
-      return;
-    }
+    if (!requireRegisteredAccount() || !supabase) return;
     const button = $("save-reference-recipe");
     if (button) { button.disabled = true; button.textContent = t("saving"); }
     setFoodCatalogMessage("");
@@ -1229,8 +1424,10 @@
   }
 
   function bindFoodCatalog() {
-    $("food-catalog-search")?.addEventListener("input", renderFoodCatalog);
-    document.querySelectorAll(".food-filter").forEach((button) => button.addEventListener("click", () => { foodFilter = button.dataset.foodFilter || "all"; renderFoodCatalog(); }));
+    $("food-catalog-search")?.addEventListener("input", () => { catalogPage = 0; selectedRecipeId = null; hide($("food-catalog-detail")); renderFoodCatalog(); });
+    document.querySelectorAll(".food-filter").forEach((button) => button.addEventListener("click", () => { foodFilter = button.dataset.foodFilter || "all"; catalogPage = 0; selectedRecipeId = null; hide($("food-catalog-detail")); renderFoodCatalog(); }));
+    $("food-page-prev")?.addEventListener("click", () => { if (catalogPage > 0) { catalogPage -= 1; selectedRecipeId = null; hide($("food-catalog-detail")); renderFoodCatalog(); } });
+    $("food-page-next")?.addEventListener("click", () => { catalogPage += 1; selectedRecipeId = null; hide($("food-catalog-detail")); renderFoodCatalog(); });
     $("open-food-catalog")?.addEventListener("click", () => $("food-library")?.scrollIntoView({ behavior: "smooth", block: "start" }));
   }
 
@@ -1285,7 +1482,7 @@
 
   async function saveGymSet(event) {
     event.preventDefault();
-    if (!currentUser || !supabase) return;
+    if (!requireRegisteredAccount() || !supabase) return;
     const exerciseName = normalizedGymExercise($("gym-exercise")?.value);
     const setNumber = Number($("gym-set-number")?.value);
     const reps = Number($("gym-reps")?.value);
@@ -1359,7 +1556,7 @@
   }
 
   async function sendChatMessage(message, { isRetry = false } = {}) {
-    if (!currentUser) return;
+    if (!requireRegisteredAccount()) return;
     clearAssistantError();
 
     if (!isRetry) {
@@ -1516,6 +1713,7 @@
   }
 
   async function reviseActivePlan(plan) {
+    if (!requireRegisteredAccount() || !supabase) return;
     const request = $("plan-edit-request")?.value.trim() || "";
     if (!request) { setPlanEditStatus(t("planEditEmpty"), true); return; }
     if (request.length > 600) { setPlanEditStatus(t("planEditTooLong"), true); return; }
@@ -1595,6 +1793,7 @@
   }
 
   async function submitPlan() {
+    if (!requireRegisteredAccount() || !supabase) return;
     const nextButton = $("plan-next");
     nextButton.disabled = true;
     const originalLabel = nextButton.textContent;
@@ -1736,6 +1935,7 @@
   }
 
   async function socialCall(mode, payload = {}) {
+    if (!requireRegisteredAccount() || !supabase) throw new Error("account_required");
     const { data, error } = await supabase.functions.invoke(CONFIG.socialFunction || "social-service", { body: { mode, ...payload } });
     if (error || !data?.ok) {
       let code = data?.code || "";
@@ -1843,8 +2043,9 @@
   function renderSnaps(snaps = []) {
     const list = $("snap-list");
     if (!list) return;
+    const receivedSnaps = snaps.filter((snap) => !snap.fromMe);
     const reactions = [{ key: "fire", icon: "🔥", label: t("reactionFire") }, { key: "clap", icon: "👏", label: t("reactionClap") }, { key: "heart", icon: "🧡", label: t("reactionHeart") }];
-    list.innerHTML = snaps.length ? snaps.map((snap) => {
+    list.innerHTML = receivedSnaps.length ? receivedSnaps.map((snap) => {
       const current = Array.isArray(snap.reactions) ? snap.reactions : [];
       const reactionSummary = current.length ? `<div class="snap-reaction-summary">${current.map((reaction) => reactions.find((item) => item.key === reaction)?.icon || "").join("")}</div>` : "";
       const reactionButtons = snap.canReact ? `<div class="snap-reactions">${reactions.map((reaction) => `<button type="button" class="${snap.myReaction === reaction.key ? "active" : ""}" data-snap-reaction="${reaction.key}" aria-label="${escapeHtml(reaction.label)}" title="${escapeHtml(reaction.label)}">${reaction.icon}</button>`).join("")}</div>` : "";
@@ -1859,7 +2060,7 @@
     const values = {
       "community-friend-count": accepted.length,
       "community-streak-count": activeStreaks.length,
-      "community-snap-count": snaps.length,
+      "community-snap-count": snaps.filter((snap) => !snap.fromMe).length,
     };
     Object.entries(values).forEach(([id, value]) => {
       const target = $(id);
@@ -2036,7 +2237,7 @@
   }
 
   async function saveMotivationSettings() {
-    if (!currentUser || !supabase) return;
+    if (!requireRegisteredAccount() || !supabase) return;
     const message = $("motivation-note-input")?.value.trim() || "";
     const isOptedIn = Boolean($("motivation-opt-in")?.checked);
     if (isOptedIn && message.length < 12) return setMotivationStatus(t("motivationMinLength"), true, "motivation-settings-message");
@@ -2187,7 +2388,7 @@
         }
         $("snap-form").reset();
         setSelectedSnapFile(null);
-        setFriendsStatus(registration.streakCompletedToday ? t("snapStreakCompleted") : t("snapWaitingForFriend"), false, "snap-status");
+        setFriendsStatus(t("snapSentPrivate"), false, "snap-status");
         await loadCommunity();
       } catch (error) {
         console.error("send snap failed", error);
@@ -2233,6 +2434,7 @@
 
   function bindSettings() {
     $("recovery-email-save")?.addEventListener("click", async () => {
+      if (!requireRegisteredAccount() || !supabase) return;
       const email = String($("recovery-email-input")?.value || "").trim().toLowerCase();
       const message = $("recovery-email-message");
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -2256,6 +2458,7 @@
     });
 
     $("miri-style-save")?.addEventListener("click", async () => {
+      if (!requireRegisteredAccount() || !supabase) return;
       try {
         const { data, error: readError } = await supabase.from("profiles").select("preferences").eq("id", currentUser.id).maybeSingle();
         if (readError) throw readError;
@@ -2271,6 +2474,7 @@
     $("motivation-save")?.addEventListener("click", saveMotivationSettings);
 
     $("alias-save")?.addEventListener("click", async () => {
+      if (!requireRegisteredAccount() || !supabase) return;
       const alias = $("alias-input").value.trim();
       if (!alias) return;
       try {
@@ -2283,6 +2487,7 @@
     });
 
     $("goal-save")?.addEventListener("click", async () => {
+      if (!requireRegisteredAccount() || !supabase) return;
       const goal = $("goal-input").value.trim();
       try {
         const { error } = await supabase.from("profiles").update({ goal, updated_at: new Date().toISOString() }).eq("id", currentUser.id);
@@ -2294,6 +2499,10 @@
     });
 
     $("reminder-toggle")?.addEventListener("change", async (e) => {
+      if (!requireRegisteredAccount() || !supabase) {
+        e.target.checked = false;
+        return;
+      }
       const enabled = e.target.checked;
       try {
         const { error } = await supabase
@@ -2308,6 +2517,7 @@
     });
 
     $("export-data")?.addEventListener("click", async () => {
+      if (!requireRegisteredAccount() || !supabase) return;
       try {
         const [{ data: meals }, { data: exercises }, { data: logs }, { data: plans }] = await Promise.all([
           supabase.from("meals").select("*").eq("user_id", currentUser.id),
@@ -2329,6 +2539,7 @@
     });
 
     $("delete-data")?.addEventListener("click", async () => {
+      if (!requireRegisteredAccount() || !supabase) return;
       if (!confirm(t("deleteConfirm"))) return;
       try {
         await Promise.all([
@@ -2348,6 +2559,103 @@
   }
 
   // ============== بدء التشغيل ==============
+
+  Object.assign(UI_TEXT.ar, {
+    startGuest: "أنشئ حسابًا للبدء",
+    guestPrivacy: "استكشف شكل الموقع ودليل الطعام، ثم أنشئ حسابًا لحفظ رحلة تقدمك واستخدام الميزات.",
+    exploreFoodGuide: "استكشف دليل الطعام",
+    snapSentPrivate: "تم إرسال الصورة بشكل خاص. لن تظهر لك مرة أخرى؛ يراها صديقك المستلم فقط.",
+    catalogPrevious: "السابق",
+    catalogNext: "التالي",
+    catalogPageStatus: "صفحة {page} من {total}",
+    catalogGroupedPage: "الصفحة {page}: {count} وصفة موزعة حسب القسم.",
+    catalogResultsCount: "وجدنا {count} نتيجة مرتبة حسب الأقرب لعبارتك.",
+    catalogNoDirectMatch: "لم نجد تطابقًا مباشرًا؛ جرّب الاقتراحات القريبة أدناه.",
+    catalogSimilarTitle: "اقتراحات قريبة",
+    catalogSimilarHint: "نتائج محلية مشابهة في الاسم أو المكوّنات، من دون إرسال بحثك إلى ميري.",
+    catalogAskMiri: "اسأل ميري عن هذه الأكلة",
+    catalogMiriPrompt: "أريد مساعدة بخصوص أكلة أو بحث قريب من: {query}",
+    catalogEgyptianGroup: "أكلات مصرية",
+    catalogTurkishGroup: "أكلات تركية",
+    catalogDailyGroup: "وجبات يومية",
+    faqAnswer11: "أنشئ حسابًا أو سجّل الدخول أولًا، ثم اختر خطة أكل أو تمرين وأجب عن الأسئلة القصيرة. بعد ذلك سجّل خطوة صغيرة مثل وجبة أو كوب ماء أو حركة في يومك.",
+    faqQuestion12: "هل أحتاج حسابًا لاستخدام Yoldaş؟",
+    faqAnswer12: "يمكنك مشاهدة شكل الموقع ودليل الطعام من دون حساب، لكن الحساب مطلوب لتسجيل الوجبات والماء والتمرين والخطط وميري والأصدقاء والتحديات وحفظ تقدمك.",
+    faqAnswer13: "تُحفظ خطة الأكل أو التمرين التي تنشئها أو تعدّلها ميري داخل حسابك في تبويب الخطط، ويمكنك الرجوع إليها بعد تسجيل الدخول.",
+    genderLabel: "النوع",
+    genderHint: "يُستخدم لتحسين صياغة خطتك فقط، ولا يظهر للآخرين.",
+    genderMale: "ذكر",
+    genderFemale: "أنثى",
+    genderRequired: "اختر ذكرًا أو أنثى لإكمال إنشاء الحساب.",
+    completeGenderTitle: "أكمل ملفك الشخصي",
+    completeGenderDescription: "اختر النوع مرة واحدة قبل استخدام ميزات حسابك. يُستخدم فقط لتحسين صياغة الخطة ولا يظهر للآخرين.",
+    saveGender: "حفظ والمتابعة",
+    accountRequired: "أنشئ حسابًا أو سجّل الدخول لاستخدام هذه الميزة وحفظ رحلتك.",
+  });
+  Object.assign(UI_TEXT.tr, {
+    startGuest: "Başlamak için hesap oluştur",
+    guestPrivacy: "Sitenin görünümünü ve yemek rehberini keşfet; ardından yolculuğunu kaydetmek ve özellikleri kullanmak için hesap oluştur.",
+    exploreFoodGuide: "Yemek rehberini keşfet",
+    snapSentPrivate: "Fotoğraf gizli olarak gönderildi. Sana yeniden gösterilmez; yalnızca alıcı arkadaşın görebilir.",
+    catalogPrevious: "Önceki",
+    catalogNext: "Sonraki",
+    catalogPageStatus: "Sayfa {page} / {total}",
+    catalogGroupedPage: "Sayfa {page}: bölümlere dağıtılmış {count} yemek.",
+    catalogResultsCount: "İfadene yakın {count} sonuç sıralandı.",
+    catalogNoDirectMatch: "Doğrudan eşleşme bulunamadı; aşağıdaki yakın önerilere bak.",
+    catalogSimilarTitle: "Yakın öneriler",
+    catalogSimilarHint: "Ad veya içerik bakımından benzer yerel sonuçlar; araman Miri’ye gönderilmez.",
+    catalogAskMiri: "Miri’ye bu yemek hakkında sor",
+    catalogMiriPrompt: "Şu yemek veya yakın arama hakkında yardım istiyorum: {query}",
+    catalogEgyptianGroup: "Mısır yemekleri",
+    catalogTurkishGroup: "Türk yemekleri",
+    catalogDailyGroup: "Günlük öğünler",
+    faqAnswer11: "Önce hesap oluştur veya giriş yap; ardından beslenme ya da antrenman planını seçip kısa soruları yanıtla. Sonra öğün, su veya hareket gibi küçük bir adım kaydet.",
+    faqQuestion12: "Yoldaş’ı kullanmak için hesap gerekli mi?",
+    faqAnswer12: "Sitenin görünümünü ve yemek rehberini hesapsız inceleyebilirsin. Ancak öğün, su, antrenman, planlar, Miri, arkadaşlar, mücadeleler ve ilerlemeyi kaydetmek için hesap gerekir.",
+    faqAnswer13: "Miri’nin oluşturduğu veya düzenlediği beslenme ya da antrenman planı hesabındaki Planlar sekmesinde saklanır; giriş yaptıktan sonra yeniden açabilirsin.",
+    genderLabel: "Cinsiyet",
+    genderHint: "Yalnızca planının dilini iyileştirmek için kullanılır; başkalarına gösterilmez.",
+    genderMale: "Erkek",
+    genderFemale: "Kadın",
+    genderRequired: "Hesap oluşturmayı tamamlamak için erkek veya kadın seç.",
+    completeGenderTitle: "Profilini tamamla",
+    completeGenderDescription: "Hesap özelliklerini kullanmadan önce cinsiyetini bir kez seç. Yalnızca plan dilini iyileştirmek için kullanılır ve başkalarına gösterilmez.",
+    saveGender: "Kaydet ve devam et",
+    accountRequired: "Bu özelliği kullanmak ve yolculuğunu kaydetmek için hesap oluştur veya giriş yap.",
+  });
+  Object.assign(UI_TEXT.en, {
+    startGuest: "Create an account to get started",
+    guestPrivacy: "Explore the site and food guide, then create an account to save your journey and use its features.",
+    exploreFoodGuide: "Explore the food guide",
+    snapSentPrivate: "Your photo was sent privately. It will not be shown to you again; only the receiving friend can view it.",
+    catalogPrevious: "Previous",
+    catalogNext: "Next",
+    catalogPageStatus: "Page {page} of {total}",
+    catalogGroupedPage: "Page {page}: {count} recipes arranged by section.",
+    catalogResultsCount: "{count} results ranked by how closely they match your search.",
+    catalogNoDirectMatch: "No direct match found; see the close suggestions below.",
+    catalogSimilarTitle: "Similar suggestions",
+    catalogSimilarHint: "Local results similar by name or ingredients; your search is not sent to Miri.",
+    catalogAskMiri: "Ask Miri about this food",
+    catalogMiriPrompt: "I want help with a food or close search for: {query}",
+    catalogEgyptianGroup: "Egyptian dishes",
+    catalogTurkishGroup: "Turkish dishes",
+    catalogDailyGroup: "Everyday meals",
+    faqAnswer11: "Create an account or sign in first, then choose a food or workout plan and answer the short questions. After that, log a small step such as a meal, a glass of water, or movement.",
+    faqQuestion12: "Do I need an account to use Yoldaş?",
+    faqAnswer12: "You can view the site and food guide without an account. An account is required to log meals, water, workouts, plans, Miri, friends, challenges, and your progress.",
+    faqAnswer13: "Food and workout plans created or revised by Miri are saved in your account under Plans and remain available after you sign in.",
+    genderLabel: "Gender",
+    genderHint: "Used only to improve your plan’s wording and never shown to others.",
+    genderMale: "Male",
+    genderFemale: "Female",
+    genderRequired: "Choose male or female to complete account creation.",
+    completeGenderTitle: "Complete your profile",
+    completeGenderDescription: "Choose your gender once before using account features. It is used only to improve plan wording and is never shown to others.",
+    saveGender: "Save and continue",
+    accountRequired: "Create an account or sign in to use this feature and save your journey.",
+  });
 
   async function init() {
     supabase = initSupabase();
@@ -2378,13 +2686,10 @@
 
     try {
       const session = await ensureSession();
-      if (session?.user) {
-        currentUser = session.user;
-        await ensureProfile(currentUser.id);
-        await retireOwnProgressPhotos();
-        showDashboard();
-        switchScreen("today");
+      if (session?.user && !session.user.is_anonymous) {
+        await completeAccountSession(session.user);
       } else {
+        currentUser = null;
         showWelcome();
       }
     } catch (e) {

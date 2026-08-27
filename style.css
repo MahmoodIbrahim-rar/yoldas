@@ -416,6 +416,13 @@ html[data-theme="dark"] .theme-icon-moon { display: block; }
 .account-form input:focus { outline: 2px solid var(--color-primary-light); outline-offset: 1px; }
 .account-form small { margin-bottom: 8px; color: var(--color-text-soft); font-size: 12px; line-height: 1.7; }
 .account-form .primary-button { justify-self: start; margin-top: 4px; }
+.account-gender-field { margin: 6px 0 0; padding: 12px; border: 1px solid rgba(240, 79, 33, 0.18); border-radius: 12px; background: color-mix(in srgb, var(--color-surface) 88%, var(--color-primary) 4%); }
+.account-gender-field legend { padding: 0 4px; color: var(--color-text); font-size: 14px; font-weight: 800; }
+.account-gender-field p { margin: 0 0 9px; color: var(--color-text-soft); font-size: 12px; line-height: 1.6; }
+.gender-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.gender-options label { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; margin: 0; padding: 9px 10px; color: var(--color-text); border: 1px solid rgba(42, 33, 30, 0.14); border-radius: 9px; background: var(--color-surface); cursor: pointer; }
+.gender-options input { width: auto; margin: 0; padding: 0; accent-color: var(--color-primary); }
+.gender-options label:has(input:checked) { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(240, 79, 33, 0.12); }
 .locale-tr { font-family: "Manrope", sans-serif; letter-spacing: -0.012em; }
 .locale-tr .hero-card h1, .locale-tr .intro-card h2, .locale-tr .dashboard-heading h1 { letter-spacing: -0.035em; }
 .locale-tr .topbar, .locale-tr .step-meta, .locale-tr .section-title, .locale-tr .settings-row { direction: ltr; }
@@ -598,7 +605,12 @@ html[data-theme="dark"] .theme-icon-moon { display: block; }
 .food-filter-row { display: flex; gap: 5px; }
 .food-filter, .portion-choice button { border: 1px solid rgba(240, 79, 33, 0.18); border-radius: 5px; background: transparent; color: var(--color-text-soft); padding: 8px 10px; font: inherit; cursor: pointer; }
 .food-filter.active, .portion-choice button.active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+.food-catalog-context { min-height: 1.4em; margin: 14px 0 0; color: var(--color-text-soft); font-size: 12.5px; font-weight: 700; }
 .food-catalog-results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 14px; }
+.food-catalog-group { grid-column: 1 / -1; }
+.food-catalog-group + .food-catalog-group { margin-top: 16px; }
+.food-catalog-group h3 { margin: 0 0 8px; padding-inline-start: 10px; border-inline-start: 3px solid var(--color-primary); color: var(--color-text); font-size: 14px; }
+.food-catalog-group > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .food-recipe-option { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: center; text-align: inherit; border: 1px solid rgba(32, 27, 23, 0.08); border-inline-start: 3px solid rgba(240, 79, 33, 0.28); border-radius: 6px 11px 6px 11px; background: var(--color-bg); padding: 11px; cursor: pointer; font: inherit; color: var(--color-text); }
 .food-recipe-option.selected { border-color: var(--color-primary); background: rgba(240, 79, 33, 0.05); }
 .food-recipe-option b, .food-recipe-option small { display: block; }
@@ -606,6 +618,16 @@ html[data-theme="dark"] .theme-icon-moon { display: block; }
 .food-recipe-option strong { color: var(--color-primary-dark); white-space: nowrap; font-size: 13px; }
 .recipe-country { color: var(--color-primary); font-weight: 900; font-size: 11px; letter-spacing: 0.08em; }
 .food-catalog-empty { margin: 14px 0 0; color: var(--color-text-soft); }
+.food-catalog-suggestions { margin-top: 16px; padding: 15px; border: 1px dashed rgba(240, 79, 33, 0.38); border-radius: 8px 16px 8px 16px; background: rgba(240, 79, 33, 0.045); }
+.food-catalog-suggestions h3 { margin: 0; font-size: 14px; color: var(--color-text); }
+.food-catalog-suggestions p { margin: 5px 0 10px; color: var(--color-text-soft); font-size: 12px; line-height: 1.6; }
+.food-catalog-suggestions > div { display: flex; flex-wrap: wrap; gap: 7px; }
+.food-catalog-suggestions button { border: 1px solid rgba(240, 79, 33, 0.28); border-radius: 999px; background: var(--color-surface); color: var(--color-primary-dark); padding: 7px 10px; cursor: pointer; font: inherit; font-size: 12px; font-weight: 750; }
+.food-catalog-suggestions .catalog-miri-button { display: inline-flex; margin-top: 12px; border-radius: 7px 3px 7px 3px; background: transparent; font-size: 12px; }
+.food-catalog-pagination { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 18px; }
+.food-catalog-pagination .secondary-button { min-width: 92px; padding: 9px 13px; }
+.food-catalog-pagination .secondary-button:disabled { opacity: 0.45; cursor: not-allowed; }
+.food-catalog-pagination span { min-width: 110px; color: var(--color-text-soft); font-size: 12px; font-weight: 800; text-align: center; }
 .food-catalog-detail { margin-top: 14px; padding: 16px; background: linear-gradient(135deg, rgba(240, 79, 33, 0.09), rgba(255, 248, 239, 0.75)); border-radius: 8px 16px 8px 16px; border-inline-start: 4px solid var(--color-primary); }
 .food-catalog-message { margin: 14px 0 0; padding: 10px 12px; border-radius: 5px 11px 5px 11px; background: rgba(46, 125, 50, 0.08); color: var(--color-success); font-size: 13px; font-weight: 700; }
 .food-catalog-message.error { background: rgba(199, 62, 25, 0.08); color: var(--color-danger); }
@@ -1118,6 +1140,10 @@ html[data-theme="dark"] .theme-icon-moon { display: block; }
   .ad-slot-section { margin: 26px 0; }
   .food-catalog-tools { grid-template-columns: 1fr; }
   .food-catalog-results { grid-template-columns: 1fr; }
+  .food-catalog-group > div { grid-template-columns: 1fr; }
+  .food-catalog-pagination { gap: 8px; }
+  .food-catalog-pagination .secondary-button { min-width: 76px; padding-inline: 9px; }
+  .food-catalog-pagination span { min-width: 0; }
   .food-library-card { padding: 18px; }
   .dashboard-nav .nav-tabs { display: none; }
   .mobile-nav { display: flex; }
