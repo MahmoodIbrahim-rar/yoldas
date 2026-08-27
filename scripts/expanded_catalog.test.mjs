@@ -5,12 +5,15 @@ import test from "node:test";
 const root = new URL("../", import.meta.url);
 const read = (path) => readFile(new URL(path, root), "utf8");
 
-test("expanded catalog keeps 71 transparent reference meals with natural English names", async () => {
+test("expanded catalog keeps 100 transparent reference meals with natural English names", async () => {
   const recipes = JSON.parse(await read("data/reference_recipes.json"));
-  assert.equal(recipes.length, 71);
+  assert.equal(recipes.length, 100);
   assert.ok(recipes.filter((recipe) => recipe.country === "EG").length >= 29);
   assert.ok(recipes.filter((recipe) => recipe.country === "TR").length >= 29);
-  assert.equal(recipes.filter((recipe) => recipe.country === "DAILY").length, 12);
+  assert.ok(recipes.filter((recipe) => ["DAILY", "DAY"].includes(recipe.country)).length >= 41);
+  for (const id of ["daily-french-fries", "daily-fried-eggs", "daily-potato-chips", "daily-milk-chocolate", "daily-glazed-doughnut", "daily-tahini-halva"]) {
+    assert.ok(recipes.some((recipe) => recipe.id === id), `${id} is present`);
+  }
   for (const recipe of recipes) {
     assert.ok(recipe.calculation?.ingredient_sources?.length, `${recipe.id} has ingredient sources`);
     assert.ok(recipe.serving_weight_g > 0, `${recipe.id} has a serving weight`);

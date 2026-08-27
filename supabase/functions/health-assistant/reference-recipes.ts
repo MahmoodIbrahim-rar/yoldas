@@ -1859,5 +1859,776 @@ export const REFERENCE_RECIPES = [
     "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
     "source_url": "https://fdc.nal.usda.gov/",
     "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-french-fries",
+    "country": "DAY",
+    "name_ar": "بطاطس مقلية",
+    "name_tr": "Patates kızartması",
+    "name_en": "French Fries",
+    "search_terms": [
+      "بطاطس مقلية",
+      "بطاطس فرايز",
+      "french fries",
+      "patates kızartması"
+    ],
+    "serving_ar": "طبق جانبي متوسط — نحو 150 غرام",
+    "serving_tr": "Orta boy yan porsiyon — yaklaşık 150 g",
+    "serving_en": "Average side portion — approx. 150 g",
+    "serving_weight_g": 150,
+    "nutrition": {
+      "kcal": 468,
+      "protein": 5.1,
+      "carbs": 62.1,
+      "fat": 22.1
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-fried-eggs",
+    "country": "DAY",
+    "name_ar": "بيض مقلي",
+    "name_tr": "Yumurtalı tava",
+    "name_en": "Fried Eggs",
+    "search_terms": [
+      "بيض مقلي",
+      "fried eggs",
+      "fried egg",
+      "sahanda yumurta",
+      "yumurta tava"
+    ],
+    "serving_ar": "بيضتان مقليتان متوسطتان — نحو 100 غرام",
+    "serving_tr": "2 orta boy kızarmış yumurta — yaklaşık 100 g",
+    "serving_en": "2 average fried eggs — approx. 100 g",
+    "serving_weight_g": 100,
+    "nutrition": {
+      "kcal": 196,
+      "protein": 13.6,
+      "carbs": 0.8,
+      "fat": 14.8
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-fried-eggs-fries",
+    "country": "DAY",
+    "name_ar": "بيض مقلي وبطاطس",
+    "name_tr": "Yumurtalı patates kızartması",
+    "name_en": "Fried Eggs and Fries",
+    "search_terms": [
+      "بيض بطاطس",
+      "بيض مقلي بطاطس",
+      "fried eggs and fries",
+      "yumurtalı patates"
+    ],
+    "serving_ar": "بيضتان مقليتان مع بطاطس — نحو 250 غرام",
+    "serving_tr": "2 yumurta ve patates kızartması — yaklaşık 250 g",
+    "serving_en": "2 fried eggs with fries — approx. 250 g",
+    "serving_weight_g": 250,
+    "nutrition": {
+      "kcal": 664,
+      "protein": 18.7,
+      "carbs": 62.9,
+      "fat": 36.9
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-potato-chips",
+    "country": "DAY",
+    "name_ar": "شيبس بطاطس",
+    "name_tr": "Patates cipsi",
+    "name_en": "Potato Chips",
+    "search_terms": [
+      "شيبس",
+      "شيبسي",
+      "شيبس بطاطس",
+      "potato chips",
+      "chips",
+      "patates cipsi"
+    ],
+    "serving_ar": "كيس صغير أو حفنة — نحو 30 غرام",
+    "serving_tr": "Küçük paket veya bir avuç — yaklaşık 30 g",
+    "serving_en": "Small pack or one handful — approx. 30 g",
+    "serving_weight_g": 30,
+    "nutrition": {
+      "kcal": 159.6,
+      "protein": 1.9,
+      "carbs": 16.1,
+      "fat": 10.2
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-air-popped-popcorn",
+    "country": "DAY",
+    "name_ar": "فشار بدون زيت",
+    "name_tr": "Yağsız patlamış mısır",
+    "name_en": "Air-Popped Popcorn",
+    "search_terms": [
+      "فشار",
+      "بوب كورن",
+      "popcorn",
+      "air popped popcorn",
+      "patlamış mısır"
+    ],
+    "serving_ar": "وعاء كبير خفيف — نحو 25 غرام",
+    "serving_tr": "Büyük hafif kase — yaklaşık 25 g",
+    "serving_en": "Large light bowl — approx. 25 g",
+    "serving_weight_g": 25,
+    "nutrition": {
+      "kcal": 95.5,
+      "protein": 3,
+      "carbs": 19.5,
+      "fat": 1.1
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-oil-popped-popcorn",
+    "country": "DAY",
+    "name_ar": "فشار بالزيت",
+    "name_tr": "Yağda patlamış mısır",
+    "name_en": "Oil-Popped Popcorn",
+    "search_terms": [
+      "فشار بالزيت",
+      "بوب كورن بالزيت",
+      "oil popped popcorn",
+      "patlamış mısır yağlı"
+    ],
+    "serving_ar": "وعاء صغير مُحضّر بالزيت — نحو 30 غرام",
+    "serving_tr": "Yağda hazırlanmış küçük kase — yaklaşık 30 g",
+    "serving_en": "Small oil-popped bowl — approx. 30 g",
+    "serving_weight_g": 30,
+    "nutrition": {
+      "kcal": 150,
+      "protein": 2.7,
+      "carbs": 17.4,
+      "fat": 8.4
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-milk-chocolate",
+    "country": "DAY",
+    "name_ar": "شوكولاتة لبن",
+    "name_tr": "Sütlü çikolata",
+    "name_en": "Milk Chocolate",
+    "search_terms": [
+      "شوكولاتة",
+      "شوكولاتة لبن",
+      "milk chocolate",
+      "sütlü çikolata"
+    ],
+    "serving_ar": "4 إلى 5 مربعات صغيرة — نحو 25 غرام",
+    "serving_tr": "4–5 küçük kare — yaklaşık 25 g",
+    "serving_en": "4–5 small squares — approx. 25 g",
+    "serving_weight_g": 25,
+    "nutrition": {
+      "kcal": 133.8,
+      "protein": 1.9,
+      "carbs": 14.9,
+      "fat": 7.4
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-dark-chocolate",
+    "country": "DAY",
+    "name_ar": "شوكولاتة داكنة",
+    "name_tr": "Bitter çikolata",
+    "name_en": "Dark Chocolate",
+    "search_terms": [
+      "شوكولاتة دارك",
+      "شوكولاتة داكنة",
+      "dark chocolate",
+      "bitter çikolata"
+    ],
+    "serving_ar": "4 إلى 5 مربعات صغيرة — نحو 25 غرام",
+    "serving_tr": "4–5 küçük kare — yaklaşık 25 g",
+    "serving_en": "4–5 small squares — approx. 25 g",
+    "serving_weight_g": 25,
+    "nutrition": {
+      "kcal": 136.5,
+      "protein": 1.2,
+      "carbs": 15.3,
+      "fat": 7.8
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-vanilla-ice-cream",
+    "country": "DAY",
+    "name_ar": "آيس كريم فانيليا",
+    "name_tr": "Vanilyalı dondurma",
+    "name_en": "Vanilla Ice Cream",
+    "search_terms": [
+      "ايس كريم",
+      "آيس كريم",
+      "ايس كريم فانيليا",
+      "vanilla ice cream",
+      "vanilyalı dondurma"
+    ],
+    "serving_ar": "كوب صغير — نحو 100 غرام",
+    "serving_tr": "Küçük bir kase — yaklaşık 100 g",
+    "serving_en": "Small bowl — approx. 100 g",
+    "serving_weight_g": 100,
+    "nutrition": {
+      "kcal": 207,
+      "protein": 3.5,
+      "carbs": 23.6,
+      "fat": 11
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-chocolate-chip-cookies",
+    "country": "DAY",
+    "name_ar": "بسكويت شوكولاتة",
+    "name_tr": "Çikolata parçacıklı kurabiye",
+    "name_en": "Chocolate Chip Cookies",
+    "search_terms": [
+      "بسكويت شوكولاتة",
+      "كوكيز",
+      "chocolate cookies",
+      "chocolate chip cookies",
+      "çikolatalı kurabiye"
+    ],
+    "serving_ar": "قطعتان صغيرتان — نحو 30 غرام",
+    "serving_tr": "2 küçük kurabiye — yaklaşık 30 g",
+    "serving_en": "2 small cookies — approx. 30 g",
+    "serving_weight_g": 30,
+    "nutrition": {
+      "kcal": 147.6,
+      "protein": 1.5,
+      "carbs": 19.6,
+      "fat": 7.4
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-oatmeal-cookies",
+    "country": "DAY",
+    "name_ar": "بسكويت شوفان",
+    "name_tr": "Yulaflı kurabiye",
+    "name_en": "Oatmeal Cookies",
+    "search_terms": [
+      "بسكويت شوفان",
+      "كوكيز شوفان",
+      "oatmeal cookies",
+      "oat cookies",
+      "yulaflı kurabiye"
+    ],
+    "serving_ar": "قطعتان صغيرتان — نحو 30 غرام",
+    "serving_tr": "2 küçük kurabiye — yaklaşık 30 g",
+    "serving_en": "2 small cookies — approx. 30 g",
+    "serving_weight_g": 30,
+    "nutrition": {
+      "kcal": 135,
+      "protein": 1.9,
+      "carbs": 20.6,
+      "fat": 5.4
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-glazed-doughnut",
+    "country": "DAY",
+    "name_ar": "دونات سادة مغطاة",
+    "name_tr": "Şeker kaplı donut",
+    "name_en": "Glazed Doughnut",
+    "search_terms": [
+      "دونات",
+      "دونتس",
+      "glazed doughnut",
+      "donut",
+      "şeker kaplı donut"
+    ],
+    "serving_ar": "قطعة متوسطة — نحو 60 غرام",
+    "serving_tr": "1 orta boy donut — yaklaşık 60 g",
+    "serving_en": "1 average doughnut — approx. 60 g",
+    "serving_weight_g": 60,
+    "nutrition": {
+      "kcal": 252.6,
+      "protein": 3.7,
+      "carbs": 28.7,
+      "fat": 13.6
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-sponge-cake",
+    "country": "DAY",
+    "name_ar": "كيكة سادة",
+    "name_tr": "Sade kek",
+    "name_en": "Plain Sponge Cake",
+    "search_terms": [
+      "كيك",
+      "كيكة",
+      "كيكة سادة",
+      "sponge cake",
+      "plain cake",
+      "sade kek"
+    ],
+    "serving_ar": "شريحة متوسطة بدون تغطية — نحو 80 غرام",
+    "serving_tr": "Kremasız orta bir dilim — yaklaşık 80 g",
+    "serving_en": "Average unfrosted slice — approx. 80 g",
+    "serving_weight_g": 80,
+    "nutrition": {
+      "kcal": 288.8,
+      "protein": 4.2,
+      "carbs": 42.4,
+      "fat": 11.7
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-brownie",
+    "country": "DAY",
+    "name_ar": "براونيز",
+    "name_tr": "Brownie",
+    "name_en": "Brownie",
+    "search_terms": [
+      "براونيز",
+      "brownie",
+      "برواني"
+    ],
+    "serving_ar": "قطعة صغيرة — نحو 50 غرام",
+    "serving_tr": "Küçük bir parça — yaklaşık 50 g",
+    "serving_en": "Small piece — approx. 50 g",
+    "serving_weight_g": 50,
+    "nutrition": {
+      "kcal": 202.5,
+      "protein": 2.4,
+      "carbs": 32,
+      "fat": 8.2
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-hard-candy",
+    "country": "DAY",
+    "name_ar": "حلوى صلبة",
+    "name_tr": "Sert şeker",
+    "name_en": "Hard Candy",
+    "search_terms": [
+      "حلوى",
+      "سكاكر",
+      "حلوى صلبة",
+      "hard candy",
+      "sert şeker"
+    ],
+    "serving_ar": "4 قطع صغيرة تقريبًا — نحو 20 غرام",
+    "serving_tr": "Yaklaşık 4 küçük şeker — 20 g",
+    "serving_en": "About 4 small candies — approx. 20 g",
+    "serving_weight_g": 20,
+    "nutrition": {
+      "kcal": 78.8,
+      "protein": 0,
+      "carbs": 19.6,
+      "fat": 0
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-tahini-halva",
+    "country": "DAY",
+    "name_ar": "حلاوة طحينية",
+    "name_tr": "Tahin helvası",
+    "name_en": "Tahini Halva",
+    "search_terms": [
+      "حلاوة",
+      "حلاوة طحينية",
+      "halva",
+      "tahini halva",
+      "tahin helvası"
+    ],
+    "serving_ar": "شريحة صغيرة — نحو 35 غرام",
+    "serving_tr": "Küçük bir dilim — yaklaşık 35 g",
+    "serving_en": "Small slice — approx. 35 g",
+    "serving_weight_g": 35,
+    "nutrition": {
+      "kcal": 164.2,
+      "protein": 4.4,
+      "carbs": 21.2,
+      "fat": 7.5
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-saltine-crackers",
+    "country": "DAY",
+    "name_ar": "بسكويت مالح",
+    "name_tr": "Tuzlu kraker",
+    "name_en": "Saltine Crackers",
+    "search_terms": [
+      "بسكويت مالح",
+      "كراكرز",
+      "saltine crackers",
+      "crackers",
+      "tuzlu kraker"
+    ],
+    "serving_ar": "6 إلى 8 قطع تقريبًا — نحو 30 غرام",
+    "serving_tr": "Yaklaşık 6–8 kraker — 30 g",
+    "serving_en": "About 6–8 crackers — approx. 30 g",
+    "serving_weight_g": 30,
+    "nutrition": {
+      "kcal": 125.4,
+      "protein": 2.8,
+      "carbs": 22.2,
+      "fat": 2.6
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-butter-croissant",
+    "country": "DAY",
+    "name_ar": "كرواسون زبدة",
+    "name_tr": "Tereyağlı kruvasan",
+    "name_en": "Butter Croissant",
+    "search_terms": [
+      "كرواسون",
+      "كرواسون زبدة",
+      "butter croissant",
+      "croissant",
+      "tereyağlı kruvasan"
+    ],
+    "serving_ar": "قطعة متوسطة — نحو 60 غرام",
+    "serving_tr": "Orta boy bir adet — yaklaşık 60 g",
+    "serving_en": "1 average croissant — approx. 60 g",
+    "serving_weight_g": 60,
+    "nutrition": {
+      "kcal": 243.6,
+      "protein": 4.9,
+      "carbs": 27.5,
+      "fat": 12.6
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-cheese-croissant",
+    "country": "DAY",
+    "name_ar": "كرواسون جبنة",
+    "name_tr": "Peynirli kruvasan",
+    "name_en": "Cheese Croissant",
+    "search_terms": [
+      "كرواسون جبنة",
+      "cheese croissant",
+      "peynirli kruvasan"
+    ],
+    "serving_ar": "قطعة متوسطة — نحو 70 غرام",
+    "serving_tr": "Orta boy bir adet — yaklaşık 70 g",
+    "serving_en": "1 average croissant — approx. 70 g",
+    "serving_weight_g": 70,
+    "nutrition": {
+      "kcal": 289.8,
+      "protein": 6.4,
+      "carbs": 32.9,
+      "fat": 14.6
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-pretzels",
+    "country": "DAY",
+    "name_ar": "بريتزل مالح",
+    "name_tr": "Tuzlu pretzel",
+    "name_en": "Salted Pretzels",
+    "search_terms": [
+      "بريتزل",
+      "pretzels",
+      "pretzel",
+      "tuzlu pretzel"
+    ],
+    "serving_ar": "حفنة صغيرة — نحو 35 غرام",
+    "serving_tr": "Küçük bir avuç — yaklaşık 35 g",
+    "serving_en": "Small handful — approx. 35 g",
+    "serving_weight_g": 35,
+    "nutrition": {
+      "kcal": 134.4,
+      "protein": 3.5,
+      "carbs": 28.1,
+      "fat": 1
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-roasted-almonds",
+    "country": "DAY",
+    "name_ar": "لوز محمص",
+    "name_tr": "Kavrulmuş badem",
+    "name_en": "Roasted Almonds",
+    "search_terms": [
+      "لوز",
+      "لوز محمص",
+      "roasted almonds",
+      "almonds",
+      "kavrulmuş badem"
+    ],
+    "serving_ar": "حفنة صغيرة — نحو 30 غرام",
+    "serving_tr": "Küçük bir avuç — yaklaşık 30 g",
+    "serving_en": "Small handful — approx. 30 g",
+    "serving_weight_g": 30,
+    "nutrition": {
+      "kcal": 179.4,
+      "protein": 6.3,
+      "carbs": 6.3,
+      "fat": 15.8
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-rice-cakes",
+    "country": "DAY",
+    "name_ar": "كعك أرز",
+    "name_tr": "Pirinç patlağı",
+    "name_en": "Plain Rice Cakes",
+    "search_terms": [
+      "كعك أرز",
+      "رايس كيك",
+      "rice cakes",
+      "rice cake",
+      "pirinç patlağı"
+    ],
+    "serving_ar": "3 قطع صغيرة تقريبًا — نحو 25 غرام",
+    "serving_tr": "Yaklaşık 3 küçük parça — 25 g",
+    "serving_en": "About 3 small cakes — approx. 25 g",
+    "serving_weight_g": 25,
+    "nutrition": {
+      "kcal": 96.8,
+      "protein": 2.1,
+      "carbs": 20.4,
+      "fat": 0.7
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-tortilla-chips",
+    "country": "DAY",
+    "name_ar": "شيبس ذرة",
+    "name_tr": "Mısır cipsi",
+    "name_en": "Tortilla Chips",
+    "search_terms": [
+      "شيبس ذرة",
+      "ناشوز",
+      "tortilla chips",
+      "corn chips",
+      "mısır cipsi"
+    ],
+    "serving_ar": "حفنة أو طبق صغير — نحو 30 غرام",
+    "serving_tr": "Bir avuç veya küçük kase — yaklaşık 30 g",
+    "serving_en": "One handful or small bowl — approx. 30 g",
+    "serving_weight_g": 30,
+    "nutrition": {
+      "kcal": 141.6,
+      "protein": 2.1,
+      "carbs": 20.3,
+      "fat": 6.2
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-chocolate-wafer",
+    "country": "DAY",
+    "name_ar": "ويفر شوكولاتة",
+    "name_tr": "Çikolatalı gofret",
+    "name_en": "Chocolate Wafer",
+    "search_terms": [
+      "ويفر",
+      "ويفر شوكولاتة",
+      "chocolate wafer",
+      "wafer",
+      "çikolatalı gofret"
+    ],
+    "serving_ar": "قطعتان صغيرتان — نحو 30 غرام",
+    "serving_tr": "2 küçük gofret — yaklaşık 30 g",
+    "serving_en": "2 small wafers — approx. 30 g",
+    "serving_weight_g": 30,
+    "nutrition": {
+      "kcal": 157.8,
+      "protein": 1,
+      "carbs": 19.8,
+      "fat": 8.3
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-marshmallows",
+    "country": "DAY",
+    "name_ar": "مارشميلو",
+    "name_tr": "Marşmelov",
+    "name_en": "Marshmallows",
+    "search_terms": [
+      "مارشميلو",
+      "marshmallows",
+      "marshmallow",
+      "marşmelov"
+    ],
+    "serving_ar": "6 قطع صغيرة تقريبًا — نحو 30 غرام",
+    "serving_tr": "Yaklaşık 6 küçük parça — 30 g",
+    "serving_en": "About 6 small pieces — approx. 30 g",
+    "serving_weight_g": 30,
+    "nutrition": {
+      "kcal": 95.4,
+      "protein": 0.5,
+      "carbs": 24.4,
+      "fat": 0.1
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-jelly-dessert",
+    "country": "DAY",
+    "name_ar": "جيلي",
+    "name_tr": "Jöle",
+    "name_en": "Jelly Dessert",
+    "search_terms": [
+      "جيلي",
+      "جيلاتين",
+      "jelly dessert",
+      "jelly",
+      "jöle"
+    ],
+    "serving_ar": "وعاء صغير مُحضّر بالماء — نحو 150 غرام",
+    "serving_tr": "Suyla hazırlanmış küçük kase — yaklaşık 150 g",
+    "serving_en": "Small water-prepared bowl — approx. 150 g",
+    "serving_weight_g": 150,
+    "nutrition": {
+      "kcal": 90,
+      "protein": 1.8,
+      "carbs": 21.3,
+      "fat": 0
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-cheese-and-crackers",
+    "country": "DAY",
+    "name_ar": "جبنة وبسكويت مالح",
+    "name_tr": "Peynirli kraker",
+    "name_en": "Cheese and Crackers",
+    "search_terms": [
+      "جبنة وبسكويت",
+      "جبنة كراكرز",
+      "cheese crackers",
+      "peynirli kraker"
+    ],
+    "serving_ar": "6 قطع بسكويت مع جبنة — نحو 60 غرام",
+    "serving_tr": "Kraker ve peynir — yaklaşık 60 g",
+    "serving_en": "Crackers with cheese — approx. 60 g",
+    "serving_weight_g": 60,
+    "nutrition": {
+      "kcal": 204.9,
+      "protein": 7.1,
+      "carbs": 23.4,
+      "fat": 9
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-fried-egg-pita",
+    "country": "DAY",
+    "name_ar": "بيض مقلي وخبز",
+    "name_tr": "Yumurtalı pide",
+    "name_en": "Fried Egg and Pita",
+    "search_terms": [
+      "بيض مقلي وخبز",
+      "بيض عيش",
+      "fried egg pita",
+      "yumurtalı pide"
+    ],
+    "serving_ar": "بيضتان مقليتان مع خبز — نحو 165 غرام",
+    "serving_tr": "2 kızarmış yumurta ve pide — yaklaşık 165 g",
+    "serving_en": "2 fried eggs with pita — approx. 165 g",
+    "serving_weight_g": 165,
+    "nutrition": {
+      "kcal": 374.8,
+      "protein": 19.5,
+      "carbs": 37,
+      "fat": 15.6
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
+  },
+  {
+    "id": "daily-fries-pita",
+    "country": "DAY",
+    "name_ar": "بطاطس مقلية وخبز",
+    "name_tr": "Patates kızartması ve pide",
+    "name_en": "Fries and Pita",
+    "search_terms": [
+      "بطاطس مقلية وخبز",
+      "بطاطس عيش",
+      "fries pita",
+      "patates pide"
+    ],
+    "serving_ar": "طبق بطاطس صغير مع خبز — نحو 210 غرام",
+    "serving_tr": "Küçük patates ve pide porsiyonu — yaklaşık 210 g",
+    "serving_en": "Small fries portion with pita — approx. 210 g",
+    "serving_weight_g": 210,
+    "nutrition": {
+      "kcal": 633,
+      "protein": 10.6,
+      "carbs": 95.5,
+      "fat": 22.8
+    },
+    "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+    "source_url": "https://fdc.nal.usda.gov/",
+    "review_date": "2026-08-27"
   }
 ] as const;

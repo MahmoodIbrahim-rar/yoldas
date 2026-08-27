@@ -2,7 +2,9 @@ import { readFile, writeFile } from "node:fs/promises";
 
 const root = process.cwd();
 const current = JSON.parse(await readFile(`${root}/data/reference_recipes.json`, "utf8"));
-const extras = JSON.parse(await readFile(`${root}/data/popular_recipe_expansion_inputs.json`, "utf8"));
+const popularExtras = JSON.parse(await readFile(`${root}/data/popular_recipe_expansion_inputs.json`, "utf8"));
+const snackSweetExtras = JSON.parse(await readFile(`${root}/data/snack_sweet_expansion_inputs.json`, "utf8"));
+const extras = [...popularExtras, ...snackSweetExtras];
 const ingredients = JSON.parse(await readFile("/home/ubuntu/yoldas_food_sources/usda_selected_ingredients.json", "utf8"));
 const ingredientByKey = Object.fromEntries(ingredients.map((item) => [item.key, item]));
 const nutrients = [["kcal", "kcal_per_100g"], ["protein", "protein_per_100g"], ["carbs", "carbs_per_100g"], ["fat", "fat_per_100g"]];
