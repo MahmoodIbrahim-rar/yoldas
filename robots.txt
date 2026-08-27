@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yoldas-beta.vercel.app/sitemap.xml

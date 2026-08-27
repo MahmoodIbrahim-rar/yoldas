@@ -14,6 +14,30 @@ function reply(body: unknown, status = 200) {
 }
 function fail(code: string, status = 400) { return reply({ ok: false, code }, status); }
 function isoNow() { return new Date().toISOString(); }
+function utcDayNow() { return new Date().toISOString().slice(0, 10); }
+function previousUtcDay(day: string) {
+  const date = new Date(`${day}T00:00:00.000Z`);
+  date.setUTCDate(date.getUTCDate() - 1);
+  return date.toISOString().slice(0, 10);
+}
+function visibleStreakCount(streak: { streak_count?: number; last_completed_day?: string | null } | undefined, today: string) {
+  if (!streak?.last_completed_day) return 0;
+  return [today, previousUtcDay(today)].includes(streak.last_completed_day) ? Number(streak.streak_count || 0) : 0;
+}
+
+async function cleanupExpiredSnaps(admin: ReturnType<typeof createClient>) {
+  const { data: expired, error } = await admin
+    .from("streak_snaps")
+    .select("id, storage_path")
+    .lt("expires_at", isoNow())
+    .limit(500);
+  if (error || !expired?.length) return;
+  const paths = expired.map((item) => item.storage_path);
+  const ids = expired.map((item) => item.id);
+  const { error: storageError } = await admin.storage.from(SNAP_BUCKET).remove(paths);
+  if (storageError) return;
+  await admin.from("streak_snaps").delete().in("id", ids);
+}
 
 serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: CORS_HEADERS });
@@ -29,29 +53,13 @@ serve(async (req) => {
   const mode = String(body.mode || "");
   const admin = createClient(SUPABASE_URL, SERVICE_ROLE);
 
-  if (mode === "cleanup_expired") {
-    const { data: expired, error } = await admin
-      .from("streak_snaps")
-      .select("id, storage_path")
-      .lt("expires_at", isoNow())
-      .limit(500);
-    if (error) return fail("CLEANUP_QUERY_FAILED", 500);
-    if (!expired?.length) return reply({ ok: true, removed: 0 });
-    const paths = expired.map((item) => item.storage_path);
-    const ids = expired.map((item) => item.id);
-    const { error: storageError } = await admin.storage.from(SNAP_BUCKET).remove(paths);
-    if (storageError) return fail("CLEANUP_STORAGE_FAILED", 500);
-    const { error: rowError } = await admin.from("streak_snaps").delete().in("id", ids);
-    if (rowError) return fail("CLEANUP_ROWS_FAILED", 500);
-    return reply({ ok: true, removed: ids.length });
-  }
-
   const authHeader = req.headers.get("Authorization");
   if (!authHeader) return fail("AUTH_REQUIRED", 401);
   const userClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, { global: { headers: { Authorization: authHeader } } });
   const { data: authData, error: authError } = await userClient.auth.getUser();
   if (authError || !authData.user) return fail("AUTH_REQUIRED", 401);
   const userId = authData.user.id;
+  await cleanupExpiredSnaps(admin);
 
   const targetId = () => String(body.userId || "").trim();
   const isBlocked = async (otherId: string) => {
@@ -83,13 +91,20 @@ serve(async (req) => {
     if (error) return fail("FRIENDS_READ_FAILED", 500);
     const otherIds = (rows || []).map((row) => row.requester_user_id === userId ? row.addressee_user_id : row.requester_user_id);
     const { data: profiles } = otherIds.length ? await admin.from("profiles").select("id, username, alias").in("id", otherIds) : { data: [] };
+    const acceptedIds = (rows || []).filter((row) => row.status === "accepted").map((row) => row.id);
+    const { data: streakRows, error: streakError } = acceptedIds.length
+      ? await admin.from("friend_streaks").select("friendship_id, streak_count, last_completed_day").in("friendship_id", acceptedIds)
+      : { data: [], error: null };
     const byId = new Map((profiles || []).map((profile) => [profile.id, profile]));
+    const streakByFriendship = new Map((streakRows || []).map((streak) => [streak.friendship_id, streak]));
+    const today = utcDayNow();
     const friends = (rows || []).map((row) => {
       const otherId = row.requester_user_id === userId ? row.addressee_user_id : row.requester_user_id;
       const profile = byId.get(otherId);
-      return { id: row.id, userId: otherId, username: profile?.username || "", alias: profile?.alias || profile?.username || "", status: row.status, direction: row.requester_user_id === userId ? "sent" : "received" };
+      const streakCount = row.status === "accepted" ? visibleStreakCount(streakByFriendship.get(row.id), today) : 0;
+      return { id: row.id, userId: otherId, username: profile?.username || "", alias: profile?.alias || profile?.username || "", status: row.status, direction: row.requester_user_id === userId ? "sent" : "received", streakCount };
     }).filter((friend) => friend.username);
-    return reply({ ok: true, data: { friends } });
+    return reply({ ok: true, data: { friends, streakSetupRequired: Boolean(streakError) } });
   }
 
   if (mode === "send_request") {
@@ -153,7 +168,18 @@ serve(async (req) => {
     const { error } = await admin.from("streak_snaps").insert({ sender_user_id: userId, recipient_user_id: otherId, storage_path: storagePath, caption });
     if (error?.code === "23505") return fail("SNAP_DAILY_LIMIT", 409);
     if (error) return fail("SNAP_REGISTER_FAILED", 500);
-    return reply({ ok: true });
+    const friendship = await relation(otherId);
+    const today = utcDayNow();
+    const { data: reciprocal } = await admin.from("streak_snaps").select("id")
+      .eq("sender_user_id", otherId).eq("recipient_user_id", userId).eq("sent_day", today).maybeSingle();
+    if (!friendship?.id || !reciprocal) return reply({ ok: true, data: { streakCompletedToday: false } });
+    const { data: currentStreak, error: streakReadError } = await admin.from("friend_streaks")
+      .select("streak_count, last_completed_day").eq("friendship_id", friendship.id).maybeSingle();
+    if (streakReadError) return reply({ ok: true, data: { streakSetupRequired: true, streakCompletedToday: true } });
+    const nextCount = currentStreak?.last_completed_day === previousUtcDay(today) ? Number(currentStreak.streak_count || 0) + 1 : 1;
+    const { error: streakSaveError } = await admin.from("friend_streaks").upsert({ friendship_id: friendship.id, streak_count: nextCount, last_completed_day: today, updated_at: isoNow() });
+    if (streakSaveError) return reply({ ok: true, data: { streakSetupRequired: true, streakCompletedToday: true } });
+    return reply({ ok: true, data: { streakCompletedToday: true, streakCount: nextCount } });
   }
 
   if (mode === "list_snaps") {

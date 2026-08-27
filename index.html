@@ -3,7 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Yoldaş — رفيقك اليومي للأكل والحركة والمتابعة الصحية." />
+    <meta name="description" content="Yoldaş يساعدك على تحسين لياقتك بخطة أكل وخطة تمرين شخصية، ومتابعة يومية للماء والوجبات والحركة، مع ميري لمساندة عاداتك الصحية بإرشادات تناسب يومك خطوة بخطوة." />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="canonical" href="https://yoldas-beta.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ar_EG" />
+    <meta property="og:site_name" content="Yoldaş" />
+    <meta property="og:title" content="Yoldaş | خطة أكل وتمارين ومتابعة صحية يومية" />
+    <meta property="og:description" content="خطة أكل وتمارين شخصية، متابعة يومية، وميري لمساندة عاداتك الصحية خطوة بخطوة." />
+    <meta property="og:url" content="https://yoldas-beta.vercel.app/" />
+    <meta property="og:image" content="https://yoldas-beta.vercel.app/assets/Yoldas_logo_enhanced.jpg" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Yoldaş | خطة أكل وتمارين ومتابعة صحية يومية" />
+    <meta name="twitter:description" content="خطة أكل وتمارين شخصية، متابعة يومية، وميري لمساندة عاداتك الصحية خطوة بخطوة." />
+    <meta name="theme-color" content="#f04f21" />
     <!-- Google Analytics: basic visitor measurement only; no account, meal, plan, or chat data is sent. -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QVQTEFBJE"></script>
     <script>
@@ -17,7 +30,7 @@
     </script>
     <!-- Google AdSense: supplied by the owner; ads appear only after Google approves the site and the owner enables placements. -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3016603922174948" crossorigin="anonymous"></script>
-    <title>Yoldaş — رفيقك اليومي</title>
+    <title>Yoldaş | خطة أكل وتمارين ومتابعة صحية يومية</title>
     <link rel="icon" type="image/jpeg" href="assets/Yoldas_logo_enhanced.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +39,39 @@
     <script src="config.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script defer src="app.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "ما هو Yoldaş؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yoldaş منصة تساعدك على تنظيم الأكل والحركة بخطة شخصية ومتابعة يومية بسيطة." }
+          },
+          {
+            "@type": "Question",
+            "name": "هل يقدم Yoldaş خطة أكل وتمارين شخصية؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "نعم. تجيب على أسئلة عن هدفك ووقتك ومستواك، ثم تنشئ ميري بداية عملية لخطة أكل أو تمرين قابلة للتعديل." }
+          },
+          {
+            "@type": "Question",
+            "name": "كيف أسجل وجباتي وحركتي في Yoldaş؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "يمكنك تسجيل الماء والوجبات والتمرين من المتابعة اليومية، أو اختيار وصفة من دليل الأكل المرجعي." }
+          },
+          {
+            "@type": "Question",
+            "name": "هل أحتاج إلى حساب لاستخدام Yoldaş؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "لا. يمكنك البدء كتجربة، لكن إنشاء حساب يساعدك على حفظ خططك وسجل متابعتك." }
+          },
+          {
+            "@type": "Question",
+            "name": "هل ميري بديل للطبيب أو أخصائي التغذية؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "لا. ميري تقدم إرشادات عامة داعمة، وليست تشخيصًا أو بديلًا للطبيب أو المختص عند وجود حالة صحية خاصة." }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <main id="app">
@@ -166,6 +212,36 @@
             <span data-i18n="adSlotLabel">مساحة إعلانية</span>
             <small data-i18n="adSlotHint">مهيّأة لإعلان Google لاحقًا</small>
           </aside>
+        </section>
+
+        <section id="faq" class="faq-section" aria-labelledby="faq-title">
+          <header class="faq-heading">
+            <p class="eyebrow" data-i18n="faqEyebrow">أسئلة سريعة</p>
+            <h2 id="faq-title" data-i18n="faqTitle">أسئلة شائعة عن Yoldaş</h2>
+            <p data-i18n="faqIntro">إجابات مباشرة عن التخطيط والمتابعة وميري.</p>
+          </header>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary data-i18n="faqQuestion1">ما هو Yoldaş؟</summary>
+              <p data-i18n="faqAnswer1">Yoldaş منصة تساعدك على تنظيم الأكل والحركة بخطة شخصية ومتابعة يومية بسيطة.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion2">هل يقدم Yoldaş خطة أكل وتمارين شخصية؟</summary>
+              <p data-i18n="faqAnswer2">نعم. تجيب على أسئلة عن هدفك ووقتك ومستواك، ثم تنشئ ميري بداية عملية لخطة أكل أو تمرين قابلة للتعديل.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion3">كيف أسجل وجباتي وحركتي في Yoldaş؟</summary>
+              <p data-i18n="faqAnswer3">يمكنك تسجيل الماء والوجبات والتمرين من المتابعة اليومية، أو اختيار وصفة من دليل الأكل المرجعي.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion4">هل أحتاج إلى حساب لاستخدام Yoldaş؟</summary>
+              <p data-i18n="faqAnswer4">لا. يمكنك البدء كتجربة، لكن إنشاء حساب يساعدك على حفظ خططك وسجل متابعتك.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion5">هل ميري بديل للطبيب أو أخصائي التغذية؟</summary>
+              <p data-i18n="faqAnswer5">لا. ميري تقدم إرشادات عامة داعمة، وليست تشخيصًا أو بديلًا للطبيب أو المختص عند وجود حالة صحية خاصة.</p>
+            </details>
+          </div>
         </section>
       </section>
 

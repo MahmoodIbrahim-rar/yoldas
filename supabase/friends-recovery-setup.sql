@@ -127,28 +127,6 @@ create policy "streak_snap_delete_own_folder" on storage.objects
     and (storage.foldername(name))[1] = auth.uid()::text
   );
 
--- لا توجد سياسة select مباشرة: الروابط الموقعة تصدر فقط من social-service
--- بعد نشر social-service بخيار no-verify-jwt، شغّل هذا الجدول لتشغيل تنظيف منتهي الصلاحية كل ساعة.
-create extension if not exists pg_cron with schema extensions;
-create extension if not exists pg_net with schema extensions;
-
-do $$
-declare
-  existing_job bigint;
-begin
-  select jobid into existing_job from cron.job where jobname = 'yoldas-clean-expired-streak-snaps';
-  if existing_job is not null then
-    perform cron.unschedule(existing_job);
-  end if;
-  perform cron.schedule(
-    'yoldas-clean-expired-streak-snaps',
-    '15 * * * *',
-    $job$
-      select net.http_post(
-        url := 'https://imzlviynwgnzsfwbvaqj.supabase.co/functions/v1/social-service',
-        headers := '{"Content-Type":"application/json"}'::jsonb,
-        body := '{"mode":"cleanup_expired"}'::jsonb
-      );
-    $job$
-  );
-end $$;
+-- لا توجد سياسة select مباشرة: الروابط الموقعة تصدر فقط من social-service.
+-- تحذف الدالة نفسها الصور والسجلات المنتهية أثناء أي طلب مجتمع موثّق.
+-- لا يوجد Cron عام أو رابط تنظيف يمكن استدعاؤه بلا تسجيل دخول.
