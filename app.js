@@ -564,9 +564,30 @@
   // ============== التنقل بين الواجهتين (ترحيب / لوحة) ==============
 
   function showWelcome() {
+    placeFoodGuideForCurrentView();
     show($("welcome-view"));
     hide($("dashboard-view"));
     hide($("mobile-nav"));
+  }
+
+  function openFoodGuide() {
+    if (hasRegisteredAccount()) {
+      showDashboard();
+      switchScreen("today");
+    } else {
+      showWelcome();
+    }
+    window.setTimeout(() => $("food-library")?.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
+  }
+
+  function placeFoodGuideForCurrentView() {
+    const guide = $("food-library");
+    if (!guide) return;
+    if (hasRegisteredAccount()) {
+      $("gym-mode")?.insertAdjacentElement("afterend", guide);
+      return;
+    }
+    $("faq")?.insertAdjacentElement("afterend", guide);
   }
 
   function showDashboard() {
@@ -574,6 +595,7 @@
       showWelcome();
       return;
     }
+    placeFoodGuideForCurrentView();
     hide($("welcome-view"));
     show($("dashboard-view"));
     if (window.matchMedia("(max-width: 720px)").matches) show($("mobile-nav"));
@@ -616,8 +638,12 @@
       });
     });
 
-    document.querySelectorAll(".tab, .mobile-tab").forEach((btn) => {
+    document.querySelectorAll(".tab[data-screen], .mobile-tab[data-screen]").forEach((btn) => {
       btn.addEventListener("click", () => switchScreen(btn.dataset.screen));
+    });
+
+    document.querySelectorAll("[data-open-food-guide]").forEach((btn) => {
+      btn.addEventListener("click", openFoodGuide);
     });
 
     document.querySelectorAll("[data-go]").forEach((btn) => {
@@ -1428,7 +1454,7 @@
     document.querySelectorAll(".food-filter").forEach((button) => button.addEventListener("click", () => { foodFilter = button.dataset.foodFilter || "all"; catalogPage = 0; selectedRecipeId = null; hide($("food-catalog-detail")); renderFoodCatalog(); }));
     $("food-page-prev")?.addEventListener("click", () => { if (catalogPage > 0) { catalogPage -= 1; selectedRecipeId = null; hide($("food-catalog-detail")); renderFoodCatalog(); } });
     $("food-page-next")?.addEventListener("click", () => { catalogPage += 1; selectedRecipeId = null; hide($("food-catalog-detail")); renderFoodCatalog(); });
-    $("open-food-catalog")?.addEventListener("click", () => $("food-library")?.scrollIntoView({ behavior: "smooth", block: "start" }));
+    $("open-food-catalog")?.addEventListener("click", openFoodGuide);
   }
 
   // ============== وضع الجيم ==============
@@ -2578,6 +2604,7 @@
     catalogEgyptianGroup: "أكلات مصرية",
     catalogTurkishGroup: "أكلات تركية",
     catalogDailyGroup: "وجبات يومية",
+    navFoodGuide: "دليل الطعام",
     faqAnswer11: "أنشئ حسابًا أو سجّل الدخول أولًا، ثم اختر خطة أكل أو تمرين وأجب عن الأسئلة القصيرة. بعد ذلك سجّل خطوة صغيرة مثل وجبة أو كوب ماء أو حركة في يومك.",
     faqQuestion12: "هل أحتاج حسابًا لاستخدام Yoldaş؟",
     faqAnswer12: "يمكنك مشاهدة شكل الموقع ودليل الطعام من دون حساب، لكن الحساب مطلوب لتسجيل الوجبات والماء والتمرين والخطط وميري والأصدقاء والتحديات وحفظ تقدمك.",
@@ -2610,6 +2637,7 @@
     catalogEgyptianGroup: "Mısır yemekleri",
     catalogTurkishGroup: "Türk yemekleri",
     catalogDailyGroup: "Günlük öğünler",
+    navFoodGuide: "Yemek rehberi",
     faqAnswer11: "Önce hesap oluştur veya giriş yap; ardından beslenme ya da antrenman planını seçip kısa soruları yanıtla. Sonra öğün, su veya hareket gibi küçük bir adım kaydet.",
     faqQuestion12: "Yoldaş’ı kullanmak için hesap gerekli mi?",
     faqAnswer12: "Sitenin görünümünü ve yemek rehberini hesapsız inceleyebilirsin. Ancak öğün, su, antrenman, planlar, Miri, arkadaşlar, mücadeleler ve ilerlemeyi kaydetmek için hesap gerekir.",
@@ -2642,6 +2670,7 @@
     catalogEgyptianGroup: "Egyptian dishes",
     catalogTurkishGroup: "Turkish dishes",
     catalogDailyGroup: "Everyday meals",
+    navFoodGuide: "Food guide",
     faqAnswer11: "Create an account or sign in first, then choose a food or workout plan and answer the short questions. After that, log a small step such as a meal, a glass of water, or movement.",
     faqQuestion12: "Do I need an account to use Yoldaş?",
     faqAnswer12: "You can view the site and food guide without an account. An account is required to log meals, water, workouts, plans, Miri, friends, challenges, and your progress.",
