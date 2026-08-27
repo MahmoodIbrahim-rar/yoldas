@@ -1395,3 +1395,37 @@ html[data-theme="dark"] .ad-slot span { color: #f0844d; }
   html[data-theme="dark"] .mobile-tab.active { color: #ffad7e; background: rgba(231,102,50,.14); }
   html[data-theme="dark"] .mobile-tab.active::before { background: #e76632; }
 }
+
+/* تحديات الأصدقاء: سطح داكن مريح بدل البطاقة البيضاء في الوضع الداكن. */
+.challenge-create-hint { grid-column: 1 / -1; margin: 0 0 2px; color: var(--color-text-soft); font-size: 12px; line-height: 1.65; }
+.challenge-start-guide { display: grid; gap: 11px; padding: 15px; color: var(--color-text); background: rgba(255,255,255,.6); border: 1px dashed rgba(240,79,33,.22); border-radius: 8px 15px 8px 15px; }
+.challenge-start-guide p { margin: 0; color: var(--color-text-soft); line-height: 1.75; }
+.challenge-start-guide .secondary-button { justify-self: start; }
+html[data-theme="dark"] .friend-challenges-section { background: linear-gradient(145deg, #18130f 0%, #120f0d 100%); border-color: rgba(231,102,50,.24); box-shadow: 0 14px 30px rgba(0,0,0,.2); }
+html[data-theme="dark"] .friend-challenges-section .community-section-header h2 { color: #f3ebe6; }
+html[data-theme="dark"] .friend-challenges-section .community-section-header > div > p { color: #bdaea4; }
+html[data-theme="dark"] .challenge-level-card { color: #f0e8e2; background: linear-gradient(135deg, #1c1511, #14100e); border-color: rgba(231,102,50,.23); box-shadow: 0 8px 20px rgba(0,0,0,.18); }
+html[data-theme="dark"] .challenge-level-card small { color: #b7a89f; }
+html[data-theme="dark"] .challenge-level-card p { color: #d1c2b8; }
+html[data-theme="dark"] .challenge-level-orbit { background: #221611; }
+html[data-theme="dark"] .challenge-level-0 { --level-main: #ff9566; --level-glow: rgba(231,102,50,.16); }
+html[data-theme="dark"] .challenge-level-1 { --level-main: #86baf1; --level-glow: rgba(134,186,241,.16); }
+html[data-theme="dark"] .challenge-level-2 { --level-main: #f4b662; --level-glow: rgba(244,182,98,.16); }
+html[data-theme="dark"] .challenge-level-3 { --level-main: #78c4b8; --level-glow: rgba(120,196,184,.15); }
+html[data-theme="dark"] .challenge-level-4 { --level-main: #b8a4eb; --level-glow: rgba(184,164,235,.16); }
+html[data-theme="dark"] .challenge-level-5 { --level-main: #e3c477; --level-glow: rgba(227,196,119,.16); }
+html[data-theme="dark"] .challenge-level-6 { --level-main: #ef9aae; --level-glow: rgba(239,154,174,.16); }
+html[data-theme="dark"] .challenge-level-7 { --level-main: #9ab7ea; --level-glow: rgba(154,183,234,.16); }
+html[data-theme="dark"] .challenge-level-8 { --level-main: #9dceca; --level-glow: rgba(157,206,202,.16); }
+html[data-theme="dark"] .challenge-form { background: rgba(25,19,15,.88); border-color: rgba(231,102,50,.2); }
+html[data-theme="dark"] .challenge-form select { color: #f3ebe6; background: #110e0c; border-color: rgba(231,102,50,.3); }
+html[data-theme="dark"] .challenge-card { color: #f1e8e2; background: #1a1411; border-color: rgba(231,102,50,.18); box-shadow: 0 7px 16px rgba(0,0,0,.18); }
+html[data-theme="dark"] .challenge-card h3 { color: #f1e8e2; }
+html[data-theme="dark"] .challenge-progress { background: #30241e; }
+html[data-theme="dark"] .challenge-progress i { background: linear-gradient(90deg, #c9562d, #ef8755); }
+html[data-theme="dark"] .challenge-members span { color: #ead7ca; background: #271b15; }
+html[data-theme="dark"] .challenge-members span.is-rewarded { color: #a6ddd4; background: rgba(53,117,107,.2); }
+html[data-theme="dark"] .challenge-card-actions button:not(.primary-button),
+html[data-theme="dark"] .challenge-card > .text-button { color: #ffad7e; background: #1f1511; border-color: rgba(231,102,50,.3); }
+html[data-theme="dark"] .challenge-start-guide { background: #17120f; border-color: rgba(231,102,50,.3); }
+html[data-theme="dark"] .challenge-start-guide p { color: #c6b6ac; }

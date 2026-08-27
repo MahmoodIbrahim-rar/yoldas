@@ -43,10 +43,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=20260827-dark-copper-mobile-nav" />
+    <link rel="stylesheet" href="style.css?v=20260827-dark-copper-challenges-locale" />
     <script src="config.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script defer src="app.js?v=20260827-social-error-code"></script>
+    <script defer src="app.js?v=20260827-challenges-natural-locale"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -586,6 +586,7 @@
                 <div><small data-i18n="challengeLevel">مستوى سلسلة الإنجاز</small><h3 id="challenge-level-name">بداية الطريق</h3><p><strong id="challenge-wins-count">0</strong> <span data-i18n="challengeWins">تحديات مكتملة</span></p></div>
               </div>
               <form id="challenge-form" class="challenge-form" hidden>
+                <p class="challenge-create-hint" data-i18n="challengeCreateHint">اختر التحدي والمدة والأصدقاء؛ يبدأ بعد موافقة جميع المدعوين.</p>
                 <label><span data-i18n="challengeTemplate">نوع التحدي</span><select id="challenge-template" required>
                   <option value="pushups" data-i18n="challengePushups">ضغط اليوم</option>
                   <option value="squats" data-i18n="challengeSquats">سكوات ثابت</option>
@@ -600,6 +601,10 @@
                 <fieldset id="challenge-friends" class="challenge-friends"><legend data-i18n="challengeFriends">اختر الأصدقاء</legend></fieldset>
                 <button class="primary-button" type="submit" data-i18n="challengeCreate">إنشاء تحدٍ</button>
               </form>
+              <div id="challenge-start-guide" class="challenge-start-guide" hidden>
+                <p data-i18n="challengeNoFriends">أضف أصدقاء مقبولين أولًا لإنشاء تحدٍ.</p>
+                <button id="challenge-find-friends" class="secondary-button" type="button" data-i18n="challengeFindFriends">ابحث عن صديق أولًا</button>
+              </div>
               <p id="challenge-status" class="settings-hint" hidden></p>
               <div id="challenge-list" class="challenge-list"></div>
             </section>

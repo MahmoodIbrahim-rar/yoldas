@@ -268,6 +268,9 @@
   Object.assign(UI_TEXT.ar, { languageMenuLabel: "اختيار اللغة", themeEnableDark: "تفعيل الوضع الداكن", themeEnableLight: "تفعيل الوضع الفاتح" });
   Object.assign(UI_TEXT.tr, { languageMenuLabel: "Dil seç", themeEnableDark: "Koyu temayı aç", themeEnableLight: "Açık temayı aç" });
   Object.assign(UI_TEXT.en, { languageMenuLabel: "Choose language", themeEnableDark: "Enable dark theme", themeEnableLight: "Enable light theme" });
+  Object.assign(EXTRA_UI_TEXT.ar, { challengeCreateHint: "اختر التحدي والمدة والأصدقاء؛ يبدأ بعد موافقة جميع المدعوين.", challengeFindFriends: "ابحث عن صديق أولًا" });
+  Object.assign(EXTRA_UI_TEXT.tr, { challengeCreateHint: "Türü, süreyi ve arkadaşlarını seç; meydan okuma herkes kabul edince başlar.", challengeFindFriends: "Önce bir arkadaş ara" });
+  Object.assign(EXTRA_UI_TEXT.en, { challengeCreateHint: "Choose the activity, duration, and friends; it starts once everyone accepts.", challengeFindFriends: "Find a friend first" });
   const PLAN_QUESTIONS_TR = {
     food: [
       { key: "goal", label: "Ana hedefin nedir?", placeholder: "Örnek: Sakin şekilde kilo vermek" },
@@ -463,6 +466,11 @@
       button.classList.toggle("active", active);
       button.setAttribute("aria-checked", String(active));
     });
+    const resetJourney = $("reset-journey");
+    if (resetJourney) {
+      resetJourney.setAttribute("aria-label", t("startOver"));
+      resetJourney.setAttribute("title", t("startOver"));
+    }
     applyTheme();
     const chatInput = $("chat-input");
     if (chatInput) chatInput.placeholder = t("chatPlaceholder");
@@ -1878,13 +1886,16 @@
   function renderChallengeForm(friends = []) {
     const form = $("challenge-form");
     const options = $("challenge-friends");
+    const startGuide = $("challenge-start-guide");
     if (!form || !options) return;
     if (!friends.length) {
       form.hidden = true;
+      if (startGuide) startGuide.hidden = false;
       options.innerHTML = "";
       return;
     }
     form.hidden = false;
+    if (startGuide) startGuide.hidden = true;
     options.innerHTML = `<legend>${escapeHtml(t("challengeFriends"))}</legend>${friends.map((friend) => `<label class="challenge-friend-option"><input type="checkbox" name="challenge-friend" value="${escapeHtml(friend.userId)}" /><span>@${escapeHtml(friend.username)}</span><small>${escapeHtml(friend.alias || "")}</small></label>`).join("")}`;
   }
 
@@ -2046,6 +2057,10 @@
 
   function bindCommunity() {
     $("get-motivation")?.addEventListener("click", showMotivationNote);
+    $("challenge-find-friends")?.addEventListener("click", () => {
+      $("friend-search-form")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      window.setTimeout(() => $("friend-search-input")?.focus(), 260);
+    });
     $("challenge-friends")?.addEventListener("change", (event) => {
       const changed = event.target;
       const selected = [...document.querySelectorAll('input[name="challenge-friend"]:checked')];
