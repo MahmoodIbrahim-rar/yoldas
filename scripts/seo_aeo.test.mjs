@@ -28,6 +28,10 @@ test("visible FAQ content matches valid FAQPage JSON-LD", async () => {
   assert.equal(data["@type"], "FAQPage");
   assert.equal(data.mainEntity.length, 10);
   assert.equal((html.match(/class="faq-item"/g) || []).length, 10);
+  assert.match(html, /كيف أحسب احتياجي من السعرات؟/);
+  assert.match(html, /كم بروتين أحتاج يوميًا؟/);
+  assert.match(html, /هل يمكنني أكل كشري أو شاورما وأنا أخس؟/);
+  assert.doesNotMatch(html, /<summary data-i18n="faqQuestion1">ما هو Yoldaş؟/);
   assert.match(html, /data-i18n="faqQuestion1"/);
   assert.match(html, /data-i18n="faqQuestion10"/);
   assert.match(app, /faqQuestion1:/);

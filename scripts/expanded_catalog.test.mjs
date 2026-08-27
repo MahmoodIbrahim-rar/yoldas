@@ -5,15 +5,18 @@ import test from "node:test";
 const root = new URL("../", import.meta.url);
 const read = (path) => readFile(new URL(path, root), "utf8");
 
-test("expanded catalog keeps 60 transparent reference meals", async () => {
+test("expanded catalog keeps 71 transparent reference meals with natural English names", async () => {
   const recipes = JSON.parse(await read("data/reference_recipes.json"));
-  assert.equal(recipes.length, 60);
-  assert.equal(recipes.filter((recipe) => recipe.country === "EG").length, 24);
-  assert.equal(recipes.filter((recipe) => recipe.country === "TR").length, 24);
+  assert.equal(recipes.length, 71);
+  assert.ok(recipes.filter((recipe) => recipe.country === "EG").length >= 29);
+  assert.ok(recipes.filter((recipe) => recipe.country === "TR").length >= 29);
   assert.equal(recipes.filter((recipe) => recipe.country === "DAILY").length, 12);
   for (const recipe of recipes) {
     assert.ok(recipe.calculation?.ingredient_sources?.length, `${recipe.id} has ingredient sources`);
     assert.ok(recipe.serving_weight_g > 0, `${recipe.id} has a serving weight`);
+    assert.ok(recipe.name_en && recipe.serving_en, `${recipe.id} has natural English display copy`);
+    assert.doesNotMatch(recipe.name_ar, /Yoldaş\s+المرجعي/);
+    assert.doesNotMatch(recipe.name_tr, /^Yoldaş\s+referans/i);
   }
 });
 
@@ -24,6 +27,8 @@ test("catalog UI saves selected servings with a clear result and compatibility f
   assert.match(html, /id="food-catalog-message"/);
   assert.match(app, /recipe-ingredients/);
   assert.match(app, /recipe\.calculation\.ingredient_sources\.map/);
+  assert.match(app, /recipe\.name_en/);
+  assert.match(app, /INGREDIENT_LABELS_EN/);
   assert.match(app, /dailyRecipes/);
   assert.match(app, /function saveReferenceRecipe/);
   assert.match(app, /legacyBase = \{ \.\.\.baseMeal, calories, eaten_at:/);

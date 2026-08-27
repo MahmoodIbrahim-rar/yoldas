@@ -156,6 +156,46 @@
     faqQuestion10: "How do friendships and streak photos work?", faqAnswer10: "You find a friend by their exact username and need their approval. Streak photos are private between the two friends and expire within 24 hours."
   });
 
+  Object.assign(UI_TEXT.ar, {
+    faqEyebrow: "إجابات عملية", faqTitle: "أسئلة عن السعرات والأكل والتمرين", faqIntro: "إجابات مباشرة للأسئلة التي تساعدك تبدأ بشكل أبسط.",
+    faqQuestion1: "كيف أحسب احتياجي من السعرات؟", faqAnswer1: "احتياجك يتأثر بالعمر والطول والوزن والنشاط والهدف. استخدم الخطة كبداية تقديرية ثم راقب تقدمك وعدّل تدريجيًا بدل الاعتماد على رقم ثابت للجميع.",
+    faqQuestion2: "كم بروتين أحتاج يوميًا؟", faqAnswer2: "احتياج البروتين يختلف حسب الوزن والنشاط والهدف. الخطة الشخصية تساعدك على توزيعه على وجباتك، وإذا كان لديك مرض كلوي أو حالة صحية خاصة فاستشر مختصًا أولًا.",
+    faqQuestion3: "كيف أخس من غير حرمان؟", faqAnswer3: "ابدأ بتغيير صغير يمكن الالتزام به: وجبات مشبعة، كميات أوضح، وحركة منتظمة. لا تحتاج منع أكل تحبه؛ الأهم هو الكمية وتكرارها ضمن يومك كله.",
+    faqQuestion4: "كيف أبدأ تمرين في البيت؟", faqAnswer4: "ابدأ بوقت قصير ومستوى يناسبك، مثل المشي وتمارين وزن الجسم البسيطة. أخبر ميري بما تستطيع فعله فعلًا لتقترح بداية متدرجة وبدائل مناسبة.",
+    faqQuestion5: "هل لازم أوزن الأكل؟", faqAnswer5: "ليس دائمًا. وزن الأكل لفترة قصيرة قد يساعدك على فهم الحصص، لكن يمكنك أيضًا استخدام حصص تقريبية واضحة ثم التدرج حسب ما يناسب حياتك.",
+    faqQuestion6: "هل سعرات الأكل في الدليل ثابتة؟", faqAnswer6: "لا. القيم في الدليل محسوبة لحصة مرجعية ومكونات محددة، وقد تزيد أو تقل مع الزيت والصلصات والإضافات وحجم طبقك الفعلي.",
+    faqQuestion7: "هل يمكنني أكل كشري أو شاورما وأنا أخس؟", faqAnswer7: "نعم، يمكن أن تدخل الأكلات التي تحبها في يومك. اختر حصة مناسبة وسجّلها، ثم وازن بقية اليوم بدل اعتبار وجبة واحدة فشلًا للخطة.",
+    faqQuestion8: "أبدأ بخطة أكل أم خطة تمرين؟", faqAnswer8: "ابدأ بالخطوة الأسهل عليك الآن. إذا كان تنظيم الوجبات هو التحدي الأكبر فابدأ بخطة أكل، وإذا كنت تحتاج روتين حركة فابدأ بخطة تمرين؛ ويمكن الجمع بينهما بالتدريج.",
+    faqQuestion9: "آكل قبل التمرين أم بعده؟", faqAnswer9: "الوجبة الخفيفة قبل التمرين قد تساعد بعض الناس على الطاقة، وبعده وجبة عادية فيها بروتين وكربوهيدرات مناسبة قد تدعم التعافي. اختَر التوقيت الذي تشعر معه براحة ولا تتدرب فوق ألم أو دوخة.",
+    faqQuestion10: "متى أحتاج لطبيب أو أخصائي تغذية؟", faqAnswer10: "اطلب مساعدة مختص إذا لديك حالة صحية، ألم مستمر، حمل، اضطراب أكل، أو هدف علاجي محدد. ميري تقدم إرشادات عامة وليست تشخيصًا أو علاجًا."
+  });
+  Object.assign(UI_TEXT.tr, {
+    faqEyebrow: "Pratik yanıtlar", faqTitle: "Kalori, beslenme ve egzersiz hakkında sorular", faqIntro: "Başlamanı kolaylaştıracak yaygın sorulara doğrudan yanıtlar.",
+    faqQuestion1: "Günlük kalori ihtiyacımı nasıl hesaplarım?", faqAnswer1: "İhtiyacın yaşına, boyuna, kilona, hareketine ve hedeflerine göre değişir. Kişisel planı başlangıç tahmini olarak kullan; herkes için tek bir sayıya güvenmek yerine ilerlemeni izleyip kademeli ayarla.",
+    faqQuestion2: "Günde ne kadar proteine ihtiyacım var?", faqAnswer2: "Protein ihtiyacı kilona, aktivite düzeyine ve hedeflerine göre değişir. Kişisel plan bunu öğünlerine dağıtmana yardımcı olur; böbrek hastalığın veya özel bir durumun varsa önce bir uzmana danış.",
+    faqQuestion3: "Kendimi mahrum bırakmadan nasıl kilo verebilirim?", faqAnswer3: "Sürdürebileceğin küçük bir değişiklikle başla: doyurucu öğünler, daha net porsiyonlar ve düzenli hareket. Sevdiğin yiyecekleri tamamen kesmen gerekmez; önemli olan miktar ve günün geneli içindeki sıklığıdır.",
+    faqQuestion4: "Evde egzersize nasıl başlarım?", faqAnswer4: "Yürüyüş ve temel vücut ağırlığı egzersizleri gibi kısa ve sana uygun bir başlangıç seç. Miri'ye gerçekten neleri yapabildiğini söyle; sana kademeli bir başlangıç ve uygun alternatifler önersin.",
+    faqQuestion5: "Yemeğimi tartmak zorunda mıyım?", faqAnswer5: "Her zaman değil. Kısa bir süre yemek tartmak porsiyonları anlamana yardımcı olabilir; sonrasında hayatına uygun net yaklaşık porsiyonlar kullanabilirsin.",
+    faqQuestion6: "Yemek rehberindeki kalori değerleri sabit mi?", faqAnswer6: "Hayır. Değerler belirli malzemeler ve referans bir porsiyon için hesaplanır; yağ, sos, ek malzeme ve gerçek tabağının boyutuyla değişebilir.",
+    faqQuestion7: "Kilo verirken koshari veya döner yiyebilir miyim?", faqAnswer7: "Evet, sevdiğin yemekler gününe dahil olabilir. Uygun bir porsiyon seç, kaydet ve tek bir öğünü planın bozuldu diye görmeden günün kalanını dengele.",
+    faqQuestion8: "Beslenme planıyla mı yoksa egzersiz planıyla mı başlamalıyım?", faqAnswer8: "Şu anda senin için daha kolay olan adımla başla. Öğünleri düzenlemek daha büyük zorluksa beslenmeyle, hareket rutini ihtiyacın daha fazlaysa egzersizle başla; ikisini zamanla birleştirebilirsin.",
+    faqQuestion9: "Egzersizden önce mi sonra mı yemeliyim?", faqAnswer9: "Antrenmandan önce hafif bir öğün bazı kişilere enerji verebilir; sonrasında uygun protein ve karbonhidrat içeren normal bir öğün toparlanmaya destek olabilir. Kendini rahat hissettiğin zamanı seç ve ağrı ya da baş dönmesiyle antrenman yapma.",
+    faqQuestion10: "Ne zaman doktora veya diyetisyene danışmalıyım?", faqAnswer10: "Sağlık durumun, sürekli ağrın, hamileliğin, yeme bozukluğun veya tedavi hedefin varsa bir uzmandan destek al. Miri genel rehberlik sunar; tanı veya tedavi değildir."
+  });
+  Object.assign(UI_TEXT.en, {
+    faqEyebrow: "Practical answers", faqTitle: "Questions about calories, food, and training", faqIntro: "Clear answers to common questions that can make getting started easier.",
+    faqQuestion1: "How do I calculate my calorie needs?", faqAnswer1: "Your needs depend on your age, height, weight, activity, and goal. Use a personal plan as a starting estimate, then track your progress and adjust gradually instead of relying on one fixed number for everyone.",
+    faqQuestion2: "How much protein do I need each day?", faqAnswer2: "Protein needs vary with your weight, activity, and goal. A personal plan can help spread it across your meals; if you have kidney disease or a health condition, ask a qualified professional first.",
+    faqQuestion3: "How can I lose weight without giving up all the foods I enjoy?", faqAnswer3: "Start with a change you can maintain: filling meals, clearer portions, and regular movement. You do not need to ban foods you enjoy; their amount and frequency across the day matter most.",
+    faqQuestion4: "How do I start working out at home?", faqAnswer4: "Begin with a short routine that fits your current ability, such as walking and simple bodyweight exercises. Tell Miri what you can genuinely do so it can suggest a gradual start and suitable alternatives.",
+    faqQuestion5: "Do I have to weigh my food?", faqAnswer5: "Not always. Weighing food for a short time can help you understand portions, then you can use clear approximate portions that fit your daily life.",
+    faqQuestion6: "Are the food-guide calorie values fixed?", faqAnswer6: "No. Each value is calculated for a reference serving and specific ingredients. Oil, sauces, extras, and your actual plate size can make it higher or lower.",
+    faqQuestion7: "Can I eat koshari or shawarma while losing weight?", faqAnswer7: "Yes. Foods you enjoy can fit into your day. Choose a reasonable serving, log it, and balance the rest of the day instead of treating one meal as a failed plan.",
+    faqQuestion8: "Should I start with a food plan or a workout plan?", faqAnswer8: "Start with the step that feels more manageable right now. Begin with food if meal structure is your main challenge, or training if you need a movement routine; you can combine both gradually.",
+    faqQuestion9: "Should I eat before or after a workout?", faqAnswer9: "A light meal before training can help some people feel energized, while a normal post-workout meal with suitable protein and carbohydrates can support recovery. Choose the timing that feels comfortable and do not train through pain or dizziness.",
+    faqQuestion10: "When should I see a doctor or dietitian?", faqAnswer10: "Seek qualified help if you have a health condition, persistent pain, pregnancy, an eating disorder, or a treatment-related goal. Miri provides general guidance, not diagnosis or treatment."
+  });
+
   const PLAN_QUESTIONS_TR = {
     food: [
       { key: "goal", label: "Ana hedefin nedir?", placeholder: "Örnek: Sakin şekilde kilo vermek" },
@@ -875,12 +915,15 @@
 
   // ============== دليل الأكل المرجعي ==============
 
-  const localRecipeName = (recipe) => currentLocale === "ar" ? recipe.name_ar : recipe.name_tr;
-  const localRecipeServing = (recipe) => currentLocale === "ar" ? recipe.serving_ar : recipe.serving_tr;
+  const localRecipeName = (recipe) => recipe[`name_${currentLocale}`] || recipe.name_en || recipe.name_ar;
+  const localRecipeServing = (recipe) => recipe[`serving_${currentLocale}`] || recipe.serving_en || recipe.serving_ar;
   const INGREDIENT_LABELS = {
     cooked_white_rice: { ar: "أرز أبيض مطبوخ", tr: "pişmiş beyaz pirinç" }, cooked_lentils: { ar: "عدس مطبوخ", tr: "pişmiş mercimek" }, cooked_chickpeas: { ar: "حمص مطبوخ", tr: "pişmiş nohut" }, cooked_pasta: { ar: "مكرونة مطبوخة", tr: "pişmiş makarna" }, cooked_fava_beans: { ar: "فول مطبوخ", tr: "pişmiş bakla" }, home_prepared_falafel: { ar: "فلافل منزلية", tr: "ev yapımı falafel" }, white_pita: { ar: "خبز أبيض", tr: "pide ekmeği" }, lean_ground_beef: { ar: "لحم بقري قليل الدهن", tr: "az yağlı kıyma" }, roasted_chicken_breast: { ar: "صدر دجاج مشوي", tr: "kavrulmuş tavuk göğsü" }, cooked_egg: { ar: "بيض مطهو", tr: "pişmiş yumurta" }, plain_yogurt: { ar: "زبادي سادة", tr: "sade yoğurt" }, whole_milk: { ar: "لبن كامل", tr: "tam yağlı süt" }, cooked_potato: { ar: "بطاطس مطبوخة", tr: "pişmiş patates" }, cooked_bulgur: { ar: "برغل مطبوخ", tr: "pişmiş bulgur" }, raw_onion: { ar: "بصل", tr: "soğan" }, raw_tomato: { ar: "طماطم", tr: "domates" }, raw_cucumber: { ar: "خيار", tr: "salatalık" }, olive_oil: { ar: "زيت زيتون", tr: "zeytinyağı" }, all_purpose_flour: { ar: "دقيق أبيض", tr: "beyaz un" }, cooked_eggplant: { ar: "باذنجان مطبوخ", tr: "pişmiş patlıcan" }, cooked_jute_leaves: { ar: "ملوخية مطبوخة", tr: "pişmiş molohiya" }, cooked_okra: { ar: "بامية مطبوخة", tr: "pişmiş bamya" }, cooked_zucchini: { ar: "كوسة مطبوخة", tr: "pişmiş kabak" }, feta_cheese: { ar: "جبنة فيتا", tr: "beyaz peynir" }, walnuts: { ar: "عين جمل", tr: "ceviz" }, granulated_sugar: { ar: "سكر", tr: "toz şeker" }, butter_salted: { ar: "زبدة مملحة", tr: "tuzlu tereyağı" }, phyllo_dough: { ar: "عجينة فيلو", tr: "yufka hamuru" }, sesame_seeds: { ar: "سمسم", tr: "susam" }
   };
-  const localIngredientName = (source) => INGREDIENT_LABELS[source.key]?.[currentLocale] || source.usda_description;
+  const INGREDIENT_LABELS_EN = {
+    cooked_white_rice: "Cooked white rice", cooked_lentils: "Cooked lentils", cooked_chickpeas: "Cooked chickpeas", cooked_pasta: "Cooked pasta", cooked_fava_beans: "Cooked fava beans", home_prepared_falafel: "Homemade falafel", white_pita: "White pita bread", lean_ground_beef: "Lean ground beef", roasted_chicken_breast: "Roasted chicken breast", cooked_egg: "Cooked egg", plain_yogurt: "Plain yogurt", whole_milk: "Whole milk", cooked_potato: "Cooked potato", cooked_bulgur: "Cooked bulgur", raw_onion: "Onion", raw_tomato: "Tomato", raw_cucumber: "Cucumber", olive_oil: "Olive oil", all_purpose_flour: "All-purpose flour", cooked_eggplant: "Cooked eggplant", cooked_jute_leaves: "Cooked jute leaves", cooked_okra: "Cooked okra", cooked_zucchini: "Cooked zucchini", feta_cheese: "Feta cheese", walnuts: "Walnuts", granulated_sugar: "Granulated sugar", butter_salted: "Salted butter", phyllo_dough: "Phyllo dough", sesame_seeds: "Sesame seeds"
+  };
+  const localIngredientName = (source) => currentLocale === "en" ? (INGREDIENT_LABELS_EN[source.key] || source.usda_description) : (INGREDIENT_LABELS[source.key]?.[currentLocale] || source.usda_description);
 
   async function loadReferenceRecipes() {
     if (referenceRecipes.length) return referenceRecipes;
@@ -906,7 +949,7 @@
     const query = normalizeFoodSearch($("food-catalog-search")?.value || "");
     const recipes = referenceRecipes.filter((recipe) => {
       const countryMatches = foodFilter === "all" || recipe.country === foodFilter;
-      const aliases = [recipe.name_ar, recipe.name_tr, ...(recipe.search_terms || [])].map(normalizeFoodSearch);
+      const aliases = [recipe.name_ar, recipe.name_tr, recipe.name_en, ...(recipe.search_terms || [])].map(normalizeFoodSearch);
       const searchable = aliases.join(" ");
       const queryWords = query.split(" ").filter((word) => word.length > 1);
       const matchesWords = queryWords.length && queryWords.every((word) => searchable.includes(word));
@@ -1116,13 +1159,13 @@
     const normalizedMessage = normalizeFoodSearch(message);
     return referenceRecipes
       .map((recipe) => {
-        const aliases = [recipe.name_ar, recipe.name_tr, ...(recipe.search_terms || [])].map(normalizeFoodSearch);
+        const aliases = [recipe.name_ar, recipe.name_tr, recipe.name_en, ...(recipe.search_terms || [])].map(normalizeFoodSearch);
         const matchedAlias = aliases.filter((alias) => alias.length > 2 && normalizedMessage.includes(alias)).sort((a, b) => b.length - a.length)[0];
         return matchedAlias ? recipe : null;
       })
       .filter(Boolean)
       .slice(0, 2)
-      .map((recipe) => ({ id: recipe.id, name_ar: recipe.name_ar, name_tr: recipe.name_tr }));
+      .map((recipe) => ({ id: recipe.id, name_ar: recipe.name_ar, name_tr: recipe.name_tr, name_en: recipe.name_en }));
   }
 
   // ============== المساعد (المحادثة) ==============

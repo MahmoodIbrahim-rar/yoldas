@@ -110,7 +110,7 @@ function normalizeFoodText(value: string) {
 function matchingReferenceRecipes(message: string) {
   const normalizedMessage = normalizeFoodText(message);
   return REFERENCE_RECIPES.filter((recipe) => {
-    const aliases = [recipe.name_ar, recipe.name_tr, ...recipe.search_terms].map(normalizeFoodText);
+    const aliases = [recipe.name_ar, recipe.name_tr, recipe.name_en, ...recipe.search_terms].map(normalizeFoodText);
     return aliases.some((alias) => alias.length > 2 && normalizedMessage.includes(alias));
   }).slice(0, 2);
 }
@@ -119,8 +119,8 @@ function catalogContext(message: string, locale: Locale) {
   const matches = matchingReferenceRecipes(message);
   if (!matches.length) return "";
   const rows = matches.map((recipe) => {
-    const name = locale === "ar" ? recipe.name_ar : recipe.name_tr;
-    const serving = locale === "ar" ? recipe.serving_ar : recipe.serving_tr;
+    const name = locale === "ar" ? recipe.name_ar : (locale === "en" ? recipe.name_en : recipe.name_tr);
+    const serving = locale === "ar" ? recipe.serving_ar : (locale === "en" ? recipe.serving_en : recipe.serving_tr);
     return `- ${name}: ${serving}; ${Math.round(recipe.nutrition.kcal)} kcal; ${recipe.serving_weight_g} g; protein ${Math.round(recipe.nutrition.protein)} g; source ${recipe.source}.`;
   }).join("\n");
   return locale === "tr"

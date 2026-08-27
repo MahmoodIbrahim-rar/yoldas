@@ -2,11 +2,12 @@
   {
     "id": "eg-koshari",
     "country": "EG",
-    "name_ar": "كشري Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans koshari",
+    "name_ar": "كشري",
+    "name_tr": "koshari",
     "search_terms": [
       "كشري",
-      "koshari"
+      "koshari",
+      "Koshari"
     ],
     "serving_weight_g": 350,
     "serving_ar": "طبق متوسط — نحو 350 غرام",
@@ -97,19 +98,23 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Koshari",
+    "serving_en": "Approx. 350 g serving"
   },
   {
     "id": "eg-ful-medames",
     "country": "EG",
-    "name_ar": "فول مدمس Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans ful medames",
+    "name_ar": "فول مدمس",
+    "name_tr": "ful medames",
     "search_terms": [
       "فول",
       "فول مدمس",
-      "ful medames"
+      "ful medames",
+      "Ful Medames"
     ],
     "serving_weight_g": 355,
     "serving_ar": "طبق فول متوسط مع رغيف صغير — نحو 355 غرام",
@@ -180,20 +185,24 @@
           "usda_description": "Bread, pita, white, unenriched"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Ful Medames",
+    "serving_en": "Approx. 355 g serving"
   },
   {
     "id": "eg-taameya",
     "country": "EG",
-    "name_ar": "طعمية Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans taamiya",
+    "name_ar": "طعمية",
+    "name_tr": "taamiya",
     "search_terms": [
       "طعمية",
       "فلافل",
       "taameya",
-      "falafel"
+      "falafel",
+      "Taameya (Egyptian Falafel)"
     ],
     "serving_weight_g": 245,
     "serving_ar": "3 قطع متوسطة مع خبز وسلطة — نحو 245 غرام",
@@ -254,18 +263,22 @@
           "usda_description": "Cucumber, with peel, raw"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Taameya (Egyptian Falafel)",
+    "serving_en": "Approx. 245 g serving"
   },
   {
     "id": "eg-lentil-soup",
     "country": "EG",
-    "name_ar": "شوربة عدس Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans mercimek çorbası (Mısır)",
+    "name_ar": "شوربة عدس",
+    "name_tr": "mercimek çorbası (Mısır)",
     "search_terms": [
       "شوربة عدس",
-      "lentil soup"
+      "lentil soup",
+      "Egyptian Lentil Soup"
     ],
     "serving_weight_g": 320,
     "serving_ar": "طبق شوربة متوسط — نحو 320 غرام",
@@ -336,51 +349,56 @@
           "usda_description": "Tomatoes, red, ripe, raw, year round average"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Egyptian Lentil Soup",
+    "serving_en": "Approx. 320 g serving"
   },
   {
     "id": "eg-molokhia-rice",
     "country": "EG",
-    "name_ar": "ملوخية بالأرز Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans pirinçli molohiya",
+    "name_ar": "ملوخية وأرز",
+    "name_tr": "molohiya ve pilav",
     "search_terms": [
-      "ملوخية",
-      "molokhia",
-      "molohiya"
+      "ملوخية وأرز",
+      "ملوخية رز",
+      "molokhia rice",
+      "molohiya pilav",
+      "Molokhia with Rice"
     ],
-    "serving_weight_g": 370,
-    "serving_ar": "طبق متوسط مع أرز وقطع دجاج — نحو 370 غرام",
-    "serving_tr": "Pirinç ve tavukla orta porsiyon — yaklaşık 370 g",
+    "serving_weight_g": 428,
+    "serving_ar": "طبق ملوخية وأرز متوسط — نحو 428 غرام",
+    "serving_tr": "Orta molohiya ve pilav tabağı — yaklaşık 428 g",
     "ingredients": [
       [
         "cooked_jute_leaves",
-        150
+        180
       ],
       [
         "cooked_white_rice",
-        120
+        160
       ],
       [
-        "roasted_chicken_breast",
-        80
+        "raw_tomato",
+        50
+      ],
+      [
+        "raw_onion",
+        30
       ],
       [
         "olive_oil",
         8
-      ],
-      [
-        "raw_onion",
-        12
       ]
     ],
-    "ingredient_weight_g": 370,
+    "ingredient_weight_g": 428,
     "nutrition": {
-      "kcal": 419,
-      "protein": 33.7,
-      "carbs": 45.9,
-      "fat": 11.5
+      "kcal": 366.3,
+      "protein": 11.7,
+      "carbs": 63,
+      "fat": 8.9
     },
     "calculation": {
       "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
@@ -390,49 +408,53 @@
       "ingredient_sources": [
         {
           "key": "cooked_jute_leaves",
-          "grams": 150,
+          "grams": 180,
           "usda_fdc_id": 168420,
           "usda_description": "Jute, potherb, cooked, boiled, drained, without salt"
         },
         {
           "key": "cooked_white_rice",
-          "grams": 120,
+          "grams": 160,
           "usda_fdc_id": 168878,
           "usda_description": "Rice, white, long-grain, regular, enriched, cooked"
         },
         {
-          "key": "roasted_chicken_breast",
-          "grams": 80,
-          "usda_fdc_id": 171477,
-          "usda_description": "Chicken, broilers or fryers, breast, meat only, cooked, roasted"
+          "key": "raw_tomato",
+          "grams": 50,
+          "usda_fdc_id": 170457,
+          "usda_description": "Tomatoes, red, ripe, raw, year round average"
+        },
+        {
+          "key": "raw_onion",
+          "grams": 30,
+          "usda_fdc_id": 170000,
+          "usda_description": "Onions, raw"
         },
         {
           "key": "olive_oil",
           "grams": 8,
           "usda_fdc_id": 171413,
           "usda_description": "Oil, olive, salad or cooking"
-        },
-        {
-          "key": "raw_onion",
-          "grams": 12,
-          "usda_fdc_id": 170000,
-          "usda_description": "Onions, raw"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Molokhia with Rice",
+    "serving_en": "Approx. 428 g serving"
   },
   {
     "id": "eg-mahshi",
     "country": "EG",
-    "name_ar": "محشي كوسة Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans kabak dolması",
+    "name_ar": "محشي كوسة",
+    "name_tr": "kabak dolması",
     "search_terms": [
       "محشي",
       "محشي كوسة",
       "mahshi",
-      "dolma"
+      "dolma",
+      "Stuffed Zucchini (Mahshi)"
     ],
     "serving_weight_g": 340,
     "serving_ar": "4 قطع متوسطة — نحو 340 غرام",
@@ -513,18 +535,22 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Stuffed Zucchini (Mahshi)",
+    "serving_en": "Approx. 340 g serving"
   },
   {
     "id": "eg-macarona-bechamel",
     "country": "EG",
-    "name_ar": "مكرونة بشاميل Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans beşamel makarna",
+    "name_ar": "مكرونة بشاميل",
+    "name_tr": "beşamel makarna",
     "search_terms": [
       "مكرونة بشاميل",
-      "macarona bechamel"
+      "macarona bechamel",
+      "Egyptian Béchamel Pasta"
     ],
     "serving_weight_g": 330,
     "serving_ar": "قطعة متوسطة — نحو 330 غرام",
@@ -605,19 +631,23 @@
           "usda_description": "Egg, whole, cooked, omelet"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Egyptian Béchamel Pasta",
+    "serving_en": "Approx. 330 g serving"
   },
   {
     "id": "eg-chicken-shawarma",
     "country": "EG",
-    "name_ar": "شاورما فراخ Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans tavuk şavurma",
+    "name_ar": "شاورما فراخ",
+    "name_tr": "tavuk şavurma",
     "search_terms": [
       "شاورما فراخ",
       "شاورما",
-      "chicken shawarma"
+      "chicken shawarma",
+      "Chicken Shawarma Wrap"
     ],
     "serving_weight_g": 305,
     "serving_ar": "سندوتش متوسط — نحو 305 غرام",
@@ -698,18 +728,22 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Chicken Shawarma Wrap",
+    "serving_en": "Approx. 305 g serving"
   },
   {
     "id": "eg-rice-pudding",
     "country": "EG",
-    "name_ar": "رز بلبن Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans sütlaç (Mısır)",
+    "name_ar": "رز بلبن",
+    "name_tr": "sütlaç (Mısır)",
     "search_terms": [
       "رز بلبن",
-      "rice pudding"
+      "rice pudding",
+      "Egyptian Rice Pudding"
     ],
     "serving_weight_g": 220,
     "serving_ar": "كوب متوسط — نحو 220 غرام",
@@ -760,19 +794,23 @@
           "usda_description": "Sugars, granulated"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Egyptian Rice Pudding",
+    "serving_en": "Approx. 220 g serving"
   },
   {
     "id": "eg-fatta-beef",
     "country": "EG",
-    "name_ar": "فتة باللحم Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans etli fetteh",
+    "name_ar": "فتة باللحم",
+    "name_tr": "etli fetteh",
     "search_terms": [
       "فتة",
       "فتة لحمة",
-      "fatta"
+      "fatta",
+      "Beef Fatta"
     ],
     "serving_weight_g": 365,
     "serving_ar": "طبق متوسط — نحو 365 غرام",
@@ -853,19 +891,23 @@
           "usda_description": "Onions, raw"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Beef Fatta",
+    "serving_en": "Approx. 365 g serving"
   },
   {
     "id": "eg-chicken-kabsa",
     "country": "EG",
-    "name_ar": "كبسة دجاج Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans tavuk kabsa",
+    "name_ar": "كبسة دجاج",
+    "name_tr": "tavuk kabsa",
     "search_terms": [
       "كبسة",
       "كبسة فراخ",
-      "chicken kabsa"
+      "chicken kabsa",
+      "Chicken Kabsa"
     ],
     "serving_weight_g": 410,
     "serving_ar": "طبق متوسط — نحو 410 غرام",
@@ -946,19 +988,23 @@
           "usda_description": "Cucumber, with peel, raw"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Chicken Kabsa",
+    "serving_en": "Approx. 410 g serving"
   },
   {
     "id": "eg-okra-beef",
     "country": "EG",
-    "name_ar": "بامية باللحم Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans etli bamya",
+    "name_ar": "بامية باللحم",
+    "name_tr": "etli bamya",
     "search_terms": [
       "بامية",
       "بامية لحمة",
-      "okra beef"
+      "okra beef",
+      "Okra and Beef with Rice"
     ],
     "serving_weight_g": 385,
     "serving_ar": "طبق بامية مع أرز — نحو 385 غرام",
@@ -1039,18 +1085,22 @@
           "usda_description": "Rice, white, long-grain, regular, enriched, cooked"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Okra and Beef with Rice",
+    "serving_en": "Approx. 385 g serving"
   },
   {
     "id": "tr-menemen",
     "country": "TR",
-    "name_ar": "منمن Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans menemen",
+    "name_ar": "منمن",
+    "name_tr": "menemen",
     "search_terms": [
       "منمن",
-      "menemen"
+      "menemen",
+      "Menemen"
     ],
     "serving_weight_g": 265,
     "serving_ar": "طبق متوسط مع خبز — نحو 265 غرام",
@@ -1121,18 +1171,22 @@
           "usda_description": "Bread, pita, white, unenriched"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Menemen",
+    "serving_en": "Approx. 265 g serving"
   },
   {
     "id": "tr-mercimek-corbasi",
     "country": "TR",
-    "name_ar": "شوربة عدس تركية Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans mercimek çorbası",
+    "name_ar": "شوربة عدس تركية",
+    "name_tr": "mercimek çorbası",
     "search_terms": [
       "شوربة عدس تركية",
-      "mercimek çorbası"
+      "mercimek çorbası",
+      "Turkish Lentil Soup"
     ],
     "serving_weight_g": 320,
     "serving_ar": "طبق شوربة متوسط — نحو 320 غرام",
@@ -1203,19 +1257,23 @@
           "usda_description": "Tomatoes, red, ripe, raw, year round average"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Turkish Lentil Soup",
+    "serving_en": "Approx. 320 g serving"
   },
   {
     "id": "tr-doner-durum",
     "country": "TR",
-    "name_ar": "دونر دوروم Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans döner dürüm",
+    "name_ar": "دونر دوروم",
+    "name_tr": "döner dürüm",
     "search_terms": [
       "دونر",
       "دونر دوروم",
-      "döner dürüm"
+      "döner dürüm",
+      "Döner Dürüm"
     ],
     "serving_weight_g": 305,
     "serving_ar": "رول متوسط — نحو 305 غرام",
@@ -1296,19 +1354,23 @@
           "usda_description": "Cucumber, with peel, raw"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Döner Dürüm",
+    "serving_en": "Approx. 305 g serving"
   },
   {
     "id": "tr-chicken-sis-pilav",
     "country": "TR",
-    "name_ar": "شيش دجاج مع أرز Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans tavuk şiş ve pilav",
+    "name_ar": "شيش دجاج مع أرز",
+    "name_tr": "tavuk şiş ve pilav",
     "search_terms": [
       "شيش دجاج",
       "tavuk şiş",
-      "pilav"
+      "pilav",
+      "Chicken Shish with Rice"
     ],
     "serving_weight_g": 360,
     "serving_ar": "طبق متوسط — نحو 360 غرام",
@@ -1379,19 +1441,23 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Chicken Shish with Rice",
+    "serving_en": "Approx. 360 g serving"
   },
   {
     "id": "tr-kofte-bulgur",
     "country": "TR",
-    "name_ar": "كفتة تركية مع برغل Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans köfte ve bulgur",
+    "name_ar": "كفتة تركية مع برغل",
+    "name_tr": "köfte ve bulgur",
     "search_terms": [
       "كفتة تركية",
       "köfte",
-      "bulgur"
+      "bulgur",
+      "Turkish Köfte with Bulgur"
     ],
     "serving_weight_g": 335,
     "serving_ar": "طبق متوسط — نحو 335 غرام",
@@ -1472,18 +1538,22 @@
           "usda_description": "Cucumber, with peel, raw"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Turkish Köfte with Bulgur",
+    "serving_en": "Approx. 335 g serving"
   },
   {
     "id": "tr-lahmacun",
     "country": "TR",
-    "name_ar": "لحم بعجين Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans lahmacun",
+    "name_ar": "لحم بعجين",
+    "name_tr": "lahmacun",
     "search_terms": [
       "لحم بعجين",
-      "lahmacun"
+      "lahmacun",
+      "Lahmacun"
     ],
     "serving_weight_g": 220,
     "serving_ar": "قطعة متوسطة — نحو 220 غرام",
@@ -1564,18 +1634,22 @@
           "usda_description": "Cucumber, with peel, raw"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Lahmacun",
+    "serving_en": "Approx. 220 g serving"
   },
   {
     "id": "tr-pide",
     "country": "TR",
-    "name_ar": "بيدا باللحم Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans kıymalı pide",
+    "name_ar": "بيدا باللحم",
+    "name_tr": "kıymalı pide",
     "search_terms": [
       "بيدا",
-      "pide"
+      "pide",
+      "Minced Meat Pide"
     ],
     "serving_weight_g": 245,
     "serving_ar": "نصف بيدا متوسطة — نحو 245 غرام",
@@ -1666,18 +1740,22 @@
           "usda_description": "Cucumber, with peel, raw"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Minced Meat Pide",
+    "serving_en": "Approx. 245 g serving"
   },
   {
     "id": "tr-pilav",
     "country": "TR",
-    "name_ar": "أرز تركي Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans Türk pilavı",
+    "name_ar": "أرز تركي",
+    "name_tr": "Türk pilavı",
     "search_terms": [
       "أرز تركي",
-      "pilav"
+      "pilav",
+      "Turkish Rice Pilaf"
     ],
     "serving_weight_g": 220,
     "serving_ar": "طبق جانبي متوسط — نحو 220 غرام",
@@ -1728,18 +1806,22 @@
           "usda_description": "Onions, raw"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Turkish Rice Pilaf",
+    "serving_en": "Approx. 220 g serving"
   },
   {
     "id": "tr-simit",
     "country": "TR",
-    "name_ar": "سميت Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans simit",
+    "name_ar": "سميت",
+    "name_tr": "simit",
     "search_terms": [
       "سميت",
-      "simit"
+      "simit",
+      "Simit"
     ],
     "serving_weight_g": 95,
     "serving_ar": "قطعة متوسطة — نحو 95 غرام",
@@ -1810,18 +1892,22 @@
           "usda_description": "Tomatoes, red, ripe, raw, year round average"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Simit",
+    "serving_en": "Approx. 95 g serving"
   },
   {
     "id": "tr-imam-bayildi",
     "country": "TR",
-    "name_ar": "إمام بايلدي Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans imam bayıldı",
+    "name_ar": "إمام بايلدي",
+    "name_tr": "imam bayıldı",
     "search_terms": [
       "إمام بايلدي",
-      "imam bayıldı"
+      "imam bayıldı",
+      "Imam Bayildi"
     ],
     "serving_weight_g": 310,
     "serving_ar": "حبة متوسطة مع خبز — نحو 310 غرام",
@@ -1892,19 +1978,23 @@
           "usda_description": "Bread, pita, white, unenriched"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Imam Bayildi",
+    "serving_en": "Approx. 310 g serving"
   },
   {
     "id": "tr-borek",
     "country": "TR",
-    "name_ar": "بورك جبنة Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans peynirli börek",
+    "name_ar": "بورك جبنة",
+    "name_tr": "peynirli börek",
     "search_terms": [
       "بورك",
       "بوريك",
-      "börek"
+      "börek",
+      "Cheese Börek"
     ],
     "serving_weight_g": 190,
     "serving_ar": "قطعتان متوسطتان — نحو 190 غرام",
@@ -1975,18 +2065,22 @@
           "usda_description": "Tomatoes, red, ripe, raw, year round average"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Cheese Börek",
+    "serving_en": "Approx. 190 g serving"
   },
   {
     "id": "tr-baklava",
     "country": "TR",
-    "name_ar": "بقلاوة Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans baklava",
+    "name_ar": "بقلاوة",
+    "name_tr": "baklava",
     "search_terms": [
       "بقلاوة",
-      "baklava"
+      "baklava",
+      "Baklava"
     ],
     "serving_weight_g": 85,
     "serving_ar": "قطعتان صغيرتان — نحو 85 غرام",
@@ -2047,20 +2141,24 @@
           "usda_description": "Sugars, granulated"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Baklava",
+    "serving_en": "Approx. 85 g serving"
   },
   {
     "id": "daily-egg-pita",
     "country": "DAILY",
-    "name_ar": "بيض وخبز Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans yumurta ve ekmek",
+    "name_ar": "بيض وخبز",
+    "name_tr": "yumurta ve ekmek",
     "search_terms": [
       "بيض وخبز",
       "بيض",
       "egg pita",
-      "yumurta ekmek"
+      "yumurta ekmek",
+      "Eggs and Pita"
     ],
     "serving_weight_g": 295,
     "serving_ar": "بيضتان مع خبز وخضار — نحو 295 غرام",
@@ -2131,20 +2229,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Eggs and Pita",
+    "serving_en": "Approx. 295 g serving"
   },
   {
     "id": "daily-chicken-rice",
     "country": "DAILY",
-    "name_ar": "دجاج وأرز يومي Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans tavuk ve pilav",
+    "name_ar": "دجاج وأرز يومي",
+    "name_tr": "tavuk ve pilav",
     "search_terms": [
       "دجاج وأرز",
       "فراخ ورز",
       "chicken rice",
-      "tavuk pilav"
+      "tavuk pilav",
+      "Chicken and Rice"
     ],
     "serving_weight_g": 405,
     "serving_ar": "طبق دجاج وأرز متوسط — نحو 405 غرام",
@@ -2215,20 +2317,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Chicken and Rice",
+    "serving_en": "Approx. 405 g serving"
   },
   {
     "id": "daily-pasta-tomato",
     "country": "DAILY",
-    "name_ar": "مكرونة بصلصة طماطم Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans domatesli makarna",
+    "name_ar": "مكرونة بصلصة طماطم",
+    "name_tr": "domatesli makarna",
     "search_terms": [
       "مكرونة بصلصة",
       "مكرونة طماطم",
       "pasta tomato",
-      "domatesli makarna"
+      "domatesli makarna",
+      "Tomato Pasta"
     ],
     "serving_weight_g": 370,
     "serving_ar": "طبق مكرونة متوسط — نحو 370 غرام",
@@ -2299,20 +2405,24 @@
           "usda_description": "Cheese, feta"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Tomato Pasta",
+    "serving_en": "Approx. 370 g serving"
   },
   {
     "id": "daily-lentil-rice",
     "country": "DAILY",
-    "name_ar": "عدس وأرز Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans mercimek ve pilav",
+    "name_ar": "عدس وأرز",
+    "name_tr": "mercimek ve pilav",
     "search_terms": [
       "عدس وأرز",
       "عدس رز",
       "lentils rice",
-      "mercimek pilav"
+      "mercimek pilav",
+      "Lentils and Rice"
     ],
     "serving_weight_g": 395,
     "serving_ar": "طبق عدس وأرز متوسط — نحو 395 غرام",
@@ -2383,20 +2493,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Lentils and Rice",
+    "serving_en": "Approx. 395 g serving"
   },
   {
     "id": "daily-beef-potato",
     "country": "DAILY",
-    "name_ar": "لحم وبطاطس يومي Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans et ve patates",
+    "name_ar": "لحم وبطاطس يومي",
+    "name_tr": "et ve patates",
     "search_terms": [
       "لحم وبطاطس",
       "لحمة بطاطس",
       "beef potato",
-      "et patates"
+      "et patates",
+      "Beef and Potatoes"
     ],
     "serving_weight_g": 435,
     "serving_ar": "طبق لحم وبطاطس متوسط — نحو 435 غرام",
@@ -2467,19 +2581,23 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Beef and Potatoes",
+    "serving_en": "Approx. 435 g serving"
   },
   {
     "id": "daily-bulgur-chicken",
     "country": "DAILY",
-    "name_ar": "برغل ودجاج Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans bulgur ve tavuk",
+    "name_ar": "برغل ودجاج",
+    "name_tr": "bulgur ve tavuk",
     "search_terms": [
       "برغل ودجاج",
       "bulgur chicken",
-      "bulgur tavuk"
+      "bulgur tavuk",
+      "Bulgur and Chicken"
     ],
     "serving_weight_g": 398,
     "serving_ar": "طبق برغل ودجاج متوسط — نحو 398 غرام",
@@ -2550,20 +2668,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Bulgur and Chicken",
+    "serving_en": "Approx. 398 g serving"
   },
   {
     "id": "daily-yogurt-pita",
     "country": "DAILY",
-    "name_ar": "زبادي وخبز وخضار Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans yoğurt, ekmek ve sebze",
+    "name_ar": "زبادي وخبز وخضار",
+    "name_tr": "yoğurt, ekmek ve sebze",
     "search_terms": [
       "زبادي وخبز",
       "زبادي",
       "yogurt pita",
-      "yoğurt ekmek"
+      "yoğurt ekmek",
+      "Yogurt, Pita and Vegetables"
     ],
     "serving_weight_g": 407,
     "serving_ar": "طبق زبادي وخبز وخضار — نحو 407 غرام",
@@ -2634,20 +2756,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Yogurt, Pita and Vegetables",
+    "serving_en": "Approx. 407 g serving"
   },
   {
     "id": "daily-falafel-plate",
     "country": "DAILY",
-    "name_ar": "طبق فلافل يومي Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans falafel tabağı",
+    "name_ar": "طبق فلافل يومي",
+    "name_tr": "falafel tabağı",
     "search_terms": [
       "طبق فلافل",
       "فلافل",
       "falafel plate",
-      "falafel tabağı"
+      "falafel tabağı",
+      "Falafel Plate"
     ],
     "serving_weight_g": 340,
     "serving_ar": "3 قطع فلافل مع خبز وخضار — نحو 340 غرام",
@@ -2718,19 +2844,23 @@
           "usda_description": "Yogurt, plain, whole milk"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Falafel Plate",
+    "serving_en": "Approx. 340 g serving"
   },
   {
     "id": "daily-eggplant-pita",
     "country": "DAILY",
-    "name_ar": "باذنجان وخبز Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans patlıcan ve ekmek",
+    "name_ar": "باذنجان وخبز",
+    "name_tr": "patlıcan ve ekmek",
     "search_terms": [
       "باذنجان وخبز",
       "eggplant pita",
-      "patlıcan ekmek"
+      "patlıcan ekmek",
+      "Eggplant and Pita"
     ],
     "serving_weight_g": 380,
     "serving_ar": "طبق باذنجان وخبز متوسط — نحو 380 غرام",
@@ -2811,20 +2941,24 @@
           "usda_description": "Cheese, feta"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Eggplant and Pita",
+    "serving_en": "Approx. 380 g serving"
   },
   {
     "id": "daily-chickpea-salad",
     "country": "DAILY",
-    "name_ar": "سلطة حمص مشبعة Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans nohut salatası",
+    "name_ar": "سلطة حمص مشبعة",
+    "name_tr": "nohut salatası",
     "search_terms": [
       "سلطة حمص",
       "حمص",
       "chickpea salad",
-      "nohut salatası"
+      "nohut salatası",
+      "Hearty Chickpea Salad"
     ],
     "serving_weight_g": 460,
     "serving_ar": "سلطة حمص مع خبز — نحو 460 غرام",
@@ -2905,20 +3039,24 @@
           "usda_description": "Bread, pita, white, unenriched"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Hearty Chickpea Salad",
+    "serving_en": "Approx. 460 g serving"
   },
   {
     "id": "daily-fava-sandwich",
     "country": "DAILY",
-    "name_ar": "سندوتش فول يومي Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans bakla sandviçi",
+    "name_ar": "سندوتش فول يومي",
+    "name_tr": "bakla sandviçi",
     "search_terms": [
       "سندوتش فول",
       "فول وخبز",
       "fava sandwich",
-      "bakla sandviç"
+      "bakla sandviç",
+      "Ful Medames Sandwich"
     ],
     "serving_weight_g": 323,
     "serving_ar": "فول مع خبز وخضار — نحو 323 غرام",
@@ -2989,19 +3127,23 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Ful Medames Sandwich",
+    "serving_en": "Approx. 323 g serving"
   },
   {
     "id": "daily-omelet-potato",
     "country": "DAILY",
-    "name_ar": "بيض وبطاطس Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans yumurta ve patates",
+    "name_ar": "بيض وبطاطس",
+    "name_tr": "yumurta ve patates",
     "search_terms": [
       "بيض وبطاطس",
       "egg potato",
-      "yumurta patates"
+      "yumurta patates",
+      "Eggs and Potatoes"
     ],
     "serving_weight_g": 423,
     "serving_ar": "بيض وبطاطس مع خبز — نحو 423 غرام",
@@ -3082,20 +3224,24 @@
           "usda_description": "Bread, pita, white, unenriched"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Eggs and Potatoes",
+    "serving_en": "Approx. 423 g serving"
   },
   {
     "id": "eg-macarona-salsa",
     "country": "EG",
-    "name_ar": "مكرونة بالصلصة Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans Mısır usulü domatesli makarna",
+    "name_ar": "مكرونة بالصلصة",
+    "name_tr": "Mısır usulü domatesli makarna",
     "search_terms": [
       "مكرونة بالصلصة",
       "مكرونة طماطم مصرية",
       "Egyptian pasta sauce",
-      "mısır makarna"
+      "mısır makarna",
+      "Egyptian Tomato Pasta"
     ],
     "serving_weight_g": 370,
     "serving_ar": "طبق متوسط من المكرونة بالصلصة — نحو 370 غرام",
@@ -3156,20 +3302,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Egyptian Tomato Pasta",
+    "serving_en": "Approx. 370 g serving"
   },
   {
     "id": "eg-shakshuka",
     "country": "EG",
-    "name_ar": "شكشوكة Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans Mısır usulü şakşuka",
+    "name_ar": "شكشوكة",
+    "name_tr": "Mısır usulü şakşuka",
     "search_terms": [
       "شكشوكة",
       "بيض بالطماطم",
       "shakshuka",
-      "şakşuka"
+      "şakşuka",
+      "Shakshuka"
     ],
     "serving_weight_g": 350,
     "serving_ar": "بيضتان بالصلصة مع خبز — نحو 350 غرام",
@@ -3240,20 +3390,24 @@
           "usda_description": "Bread, pita, white, unenriched"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Shakshuka",
+    "serving_en": "Approx. 350 g serving"
   },
   {
     "id": "eg-moussaka",
     "country": "EG",
-    "name_ar": "مسقعة باذنجان Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans Mısır usulü patlıcan musakka",
+    "name_ar": "مسقعة باذنجان",
+    "name_tr": "Mısır usulü patlıcan musakka",
     "search_terms": [
       "مسقعة",
       "مسقعة باذنجان",
       "eggplant moussaka",
-      "mısır musakka"
+      "mısır musakka",
+      "Egyptian Eggplant Moussaka"
     ],
     "serving_weight_g": 380,
     "serving_ar": "باذنجان بالصلصة مع خبز — نحو 380 غرام",
@@ -3324,20 +3478,24 @@
           "usda_description": "Bread, pita, white, unenriched"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Egyptian Eggplant Moussaka",
+    "serving_en": "Approx. 380 g serving"
   },
   {
     "id": "eg-potato-tomato",
     "country": "EG",
-    "name_ar": "بطاطس بالصلصة Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans Mısır usulü domatesli patates",
+    "name_ar": "بطاطس بالصلصة",
+    "name_tr": "Mısır usulü domatesli patates",
     "search_terms": [
       "بطاطس بالصلصة",
       "بطاطس طماطم",
       "potato tomato egypt",
-      "domatesli patates mısır"
+      "domatesli patates mısır",
+      "Potatoes in Tomato Sauce"
     ],
     "serving_weight_g": 438,
     "serving_ar": "بطاطس بالصلصة مع خبز — نحو 438 غرام",
@@ -3408,20 +3566,24 @@
           "usda_description": "Bread, pita, white, unenriched"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Potatoes in Tomato Sauce",
+    "serving_en": "Approx. 438 g serving"
   },
   {
     "id": "eg-zucchini-tomato-rice",
     "country": "EG",
-    "name_ar": "كوسة بالصلصة والأرز Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans domatesli kabak ve pilav",
+    "name_ar": "كوسة بالصلصة والأرز",
+    "name_tr": "domatesli kabak ve pilav",
     "search_terms": [
       "كوسة بالصلصة",
       "كوسة وأرز",
       "zucchini rice egypt",
-      "kabak pilav"
+      "kabak pilav",
+      "Zucchini in Tomato Sauce with Rice"
     ],
     "serving_weight_g": 500,
     "serving_ar": "كوسة بالصلصة مع أرز — نحو 500 غرام",
@@ -3492,20 +3654,24 @@
           "usda_description": "Rice, white, long-grain, regular, enriched, cooked"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Zucchini in Tomato Sauce with Rice",
+    "serving_en": "Approx. 500 g serving"
   },
   {
     "id": "eg-bamia-chicken-rice",
     "country": "EG",
-    "name_ar": "بامية بالدجاج والأرز Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans tavuklu bamya ve pilav",
+    "name_ar": "بامية بالدجاج والأرز",
+    "name_tr": "tavuklu bamya ve pilav",
     "search_terms": [
       "بامية دجاج أرز",
       "بامية بالفراخ",
       "chicken okra rice",
-      "tavuklu bamya"
+      "tavuklu bamya",
+      "Chicken Okra with Rice"
     ],
     "serving_weight_g": 528,
     "serving_ar": "بامية بالدجاج مع أرز — نحو 528 غرام",
@@ -3586,104 +3752,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
-  },
-  {
-    "id": "eg-molokhia-rice",
-    "country": "EG",
-    "name_ar": "ملوخية وأرز Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans molohiya ve pilav",
-    "search_terms": [
-      "ملوخية وأرز",
-      "ملوخية رز",
-      "molokhia rice",
-      "molohiya pilav"
-    ],
-    "serving_weight_g": 428,
-    "serving_ar": "طبق ملوخية وأرز متوسط — نحو 428 غرام",
-    "serving_tr": "Orta molohiya ve pilav tabağı — yaklaşık 428 g",
-    "ingredients": [
-      [
-        "cooked_jute_leaves",
-        180
-      ],
-      [
-        "cooked_white_rice",
-        160
-      ],
-      [
-        "raw_tomato",
-        50
-      ],
-      [
-        "raw_onion",
-        30
-      ],
-      [
-        "olive_oil",
-        8
-      ]
-    ],
-    "ingredient_weight_g": 428,
-    "nutrition": {
-      "kcal": 366.3,
-      "protein": 11.7,
-      "carbs": 63,
-      "fat": 8.9
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     },
-    "calculation": {
-      "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
-      "source_url": "https://fdc.nal.usda.gov/",
-      "license": "CC0 1.0 Universal",
-      "review_date": "2026-08-25",
-      "ingredient_sources": [
-        {
-          "key": "cooked_jute_leaves",
-          "grams": 180,
-          "usda_fdc_id": 168420,
-          "usda_description": "Jute, potherb, cooked, boiled, drained, without salt"
-        },
-        {
-          "key": "cooked_white_rice",
-          "grams": 160,
-          "usda_fdc_id": 168878,
-          "usda_description": "Rice, white, long-grain, regular, enriched, cooked"
-        },
-        {
-          "key": "raw_tomato",
-          "grams": 50,
-          "usda_fdc_id": 170457,
-          "usda_description": "Tomatoes, red, ripe, raw, year round average"
-        },
-        {
-          "key": "raw_onion",
-          "grams": 30,
-          "usda_fdc_id": 170000,
-          "usda_description": "Onions, raw"
-        },
-        {
-          "key": "olive_oil",
-          "grams": 8,
-          "usda_fdc_id": 171413,
-          "usda_description": "Oil, olive, salad or cooking"
-        }
-      ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+    "name_en": "Chicken Okra with Rice",
+    "serving_en": "Approx. 528 g serving"
   },
   {
     "id": "eg-ful-salad",
     "country": "EG",
-    "name_ar": "سلطة فول Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans Mısır usulü bakla salatası",
+    "name_ar": "سلطة فول",
+    "name_tr": "Mısır usulü bakla salatası",
     "search_terms": [
       "سلطة فول",
       "فول سلطة",
       "ful salad",
-      "bakla salatası mısır"
+      "bakla salatası mısır",
+      "Ful Medames Salad"
     ],
     "serving_weight_g": 460,
     "serving_ar": "سلطة فول مع خبز — نحو 460 غرام",
@@ -3764,20 +3850,24 @@
           "usda_description": "Bread, pita, white, unenriched"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Ful Medames Salad",
+    "serving_en": "Approx. 460 g serving"
   },
   {
     "id": "eg-taameya-sandwich",
     "country": "EG",
-    "name_ar": "سندوتش طعمية Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans Mısır falafel sandviçi",
+    "name_ar": "سندوتش طعمية",
+    "name_tr": "Mısır falafel sandviçi",
     "search_terms": [
       "سندوتش طعمية",
       "ساندويتش فلافل",
       "taameya sandwich",
-      "mısır falafel sandviç"
+      "mısır falafel sandviç",
+      "Taameya Sandwich"
     ],
     "serving_weight_g": 330,
     "serving_ar": "3 قطع طعمية مع خبز وخضار — نحو 330 غرام",
@@ -3848,20 +3938,24 @@
           "usda_description": "Yogurt, plain, whole milk"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Taameya Sandwich",
+    "serving_en": "Approx. 330 g serving"
   },
   {
     "id": "eg-egg-ful-breakfast",
     "country": "EG",
-    "name_ar": "بيض وفول Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans yumurta ve bakla kahvaltısı",
+    "name_ar": "بيض وفول",
+    "name_tr": "yumurta ve bakla kahvaltısı",
     "search_terms": [
       "بيض وفول",
       "فول بيض",
       "egg ful breakfast",
-      "yumurta bakla"
+      "yumurta bakla",
+      "Egg and Ful Breakfast"
     ],
     "serving_weight_g": 368,
     "serving_ar": "بيض وفول مع خبز — نحو 368 غرام",
@@ -3932,20 +4026,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Egg and Ful Breakfast",
+    "serving_en": "Approx. 368 g serving"
   },
   {
     "id": "eg-chicken-rice-tomato",
     "country": "EG",
-    "name_ar": "دجاج وأرز بالصلصة Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans domatesli tavuk ve pilav",
+    "name_ar": "دجاج وأرز بالصلصة",
+    "name_tr": "domatesli tavuk ve pilav",
     "search_terms": [
       "دجاج وأرز بالصلصة",
       "فراخ رز طماطم",
       "chicken rice tomato egypt",
-      "domatesli tavuk pilav mısır"
+      "domatesli tavuk pilav mısır",
+      "Chicken and Rice with Tomato Sauce"
     ],
     "serving_weight_g": 398,
     "serving_ar": "دجاج وأرز بالصلصة — نحو 398 غرام",
@@ -4016,20 +4114,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Chicken and Rice with Tomato Sauce",
+    "serving_en": "Approx. 398 g serving"
   },
   {
     "id": "eg-beef-rice-tomato",
     "country": "EG",
-    "name_ar": "لحم وأرز بالصلصة Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans domatesli et ve pilav",
+    "name_ar": "لحم وأرز بالصلصة",
+    "name_tr": "domatesli et ve pilav",
     "search_terms": [
       "لحم وأرز بالصلصة",
       "لحمة رز طماطم",
       "beef rice tomato egypt",
-      "domatesli et pilav mısır"
+      "domatesli et pilav mısır",
+      "Beef and Rice with Tomato Sauce"
     ],
     "serving_weight_g": 368,
     "serving_ar": "لحم وأرز بالصلصة — نحو 368 غرام",
@@ -4100,20 +4202,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Beef and Rice with Tomato Sauce",
+    "serving_en": "Approx. 368 g serving"
   },
   {
     "id": "tr-ezogelin",
     "country": "TR",
-    "name_ar": "شوربة إزوجلين Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans ezogelin çorbası",
+    "name_ar": "شوربة إزوجلين",
+    "name_tr": "ezogelin çorbası",
     "search_terms": [
       "شوربة إزوجلين",
       "ايزوجلين",
       "ezogelin",
-      "ezogelin çorbası"
+      "ezogelin çorbası",
+      "Ezogelin Soup"
     ],
     "serving_weight_g": 338,
     "serving_ar": "طبق شوربة إزوجلين متوسط — نحو 338 غرام",
@@ -4194,20 +4300,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Ezogelin Soup",
+    "serving_en": "Approx. 338 g serving"
   },
   {
     "id": "tr-bulgur-pilav",
     "country": "TR",
-    "name_ar": "برغل تركي Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans bulgur pilavı",
+    "name_ar": "برغل تركي",
+    "name_tr": "bulgur pilavı",
     "search_terms": [
       "برغل تركي",
       "برغل بالطماطم",
       "bulgur pilav",
-      "bulgur pilavı"
+      "bulgur pilavı",
+      "Tomato Bulgur Pilaf"
     ],
     "serving_weight_g": 340,
     "serving_ar": "طبق برغل بالطماطم متوسط — نحو 340 غرام",
@@ -4268,20 +4378,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Tomato Bulgur Pilaf",
+    "serving_en": "Approx. 340 g serving"
   },
   {
     "id": "tr-nohut-pilav",
     "country": "TR",
-    "name_ar": "أرز بالحمص التركي Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans nohutlu pilav",
+    "name_ar": "أرز بالحمص التركي",
+    "name_tr": "nohutlu pilav",
     "search_terms": [
       "أرز بالحمص",
       "رز حمص تركي",
       "nohut pilav",
-      "nohutlu pilav"
+      "nohutlu pilav",
+      "Chickpea Rice Pilaf"
     ],
     "serving_weight_g": 320,
     "serving_ar": "أرز بالحمص متوسط — نحو 320 غرام",
@@ -4342,20 +4456,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Chickpea Rice Pilaf",
+    "serving_en": "Approx. 320 g serving"
   },
   {
     "id": "tr-sebzeli-bulgur",
     "country": "TR",
-    "name_ar": "برغل بالخضار Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans sebzeli bulgur",
+    "name_ar": "برغل بالخضار",
+    "name_tr": "sebzeli bulgur",
     "search_terms": [
       "برغل بالخضار",
       "برغل كوسة",
       "sebzeli bulgur",
-      "bulgur sebze"
+      "bulgur sebze",
+      "Vegetable Bulgur Pilaf"
     ],
     "serving_weight_g": 380,
     "serving_ar": "برغل بالخضار متوسط — نحو 380 غرام",
@@ -4426,20 +4544,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Vegetable Bulgur Pilaf",
+    "serving_en": "Approx. 380 g serving"
   },
   {
     "id": "tr-patlican-musakka",
     "country": "TR",
-    "name_ar": "مسقعة تركية Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans patlıcan musakka",
+    "name_ar": "مسقعة تركية",
+    "name_tr": "patlıcan musakka",
     "search_terms": [
       "مسقعة تركية",
       "باذنجان باللحم",
       "patlıcan musakka",
-      "türk musakka"
+      "türk musakka",
+      "Turkish Eggplant Moussaka"
     ],
     "serving_weight_g": 420,
     "serving_ar": "باذنجان باللحم والصلصة — نحو 420 غرام",
@@ -4510,20 +4632,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Turkish Eggplant Moussaka",
+    "serving_en": "Approx. 420 g serving"
   },
   {
     "id": "tr-turlu",
     "country": "TR",
-    "name_ar": "خضار تركي مشكل Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans türlü",
+    "name_ar": "خضار تركي مشكل",
+    "name_tr": "türlü",
     "search_terms": [
       "خضار تركي مشكل",
       "ترلو",
       "turlu",
-      "türlü"
+      "türlü",
+      "Turkish Vegetable Stew"
     ],
     "serving_weight_g": 470,
     "serving_ar": "طبق خضار تركي مشكل متوسط — نحو 470 غرام",
@@ -4604,20 +4730,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Turkish Vegetable Stew",
+    "serving_en": "Approx. 470 g serving"
   },
   {
     "id": "tr-mucver",
     "country": "TR",
-    "name_ar": "مجفر كوسة Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans mücver",
+    "name_ar": "مجفر كوسة",
+    "name_tr": "mücver",
     "search_terms": [
       "مجفر كوسة",
       "موجفر",
       "mucver",
-      "mücver"
+      "mücver",
+      "Zucchini Fritters (Mücver)"
     ],
     "serving_weight_g": 355,
     "serving_ar": "مجفر كوسة متوسط — نحو 355 غرام",
@@ -4688,20 +4818,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Zucchini Fritters (Mücver)",
+    "serving_en": "Approx. 355 g serving"
   },
   {
     "id": "tr-sigara-borek",
     "country": "TR",
-    "name_ar": "بورك سيجار Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans sigara böreği",
+    "name_ar": "بورك سيجار",
+    "name_tr": "sigara böreği",
     "search_terms": [
       "بورك سيجار",
       "بوريك جبنة",
       "sigara boregi",
-      "sigara böreği"
+      "sigara böreği",
+      "Cheese Cigars (Sigara Börek)"
     ],
     "serving_weight_g": 138,
     "serving_ar": "5 قطع بورك سيجار بالجبنة — نحو 138 غرام",
@@ -4752,20 +4886,24 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Cheese Cigars (Sigara Börek)",
+    "serving_en": "Approx. 138 g serving"
   },
   {
     "id": "tr-coban-salata",
     "country": "TR",
-    "name_ar": "سلطة الراعي Yoldaş المرجعية",
-    "name_tr": "Yoldaş referans çoban salatası",
+    "name_ar": "سلطة الراعي",
+    "name_tr": "çoban salatası",
     "search_terms": [
       "سلطة الراعي",
       "سلطة تركية",
       "coban salata",
-      "çoban salatası"
+      "çoban salatası",
+      "Shepherd's Salad"
     ],
     "serving_weight_g": 450,
     "serving_ar": "سلطة الراعي مع خبز — نحو 450 غرام",
@@ -4846,20 +4984,24 @@
           "usda_description": "Bread, pita, white, unenriched"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Shepherd's Salad",
+    "serving_en": "Approx. 450 g serving"
   },
   {
     "id": "tr-sahanda-yumurta",
     "country": "TR",
-    "name_ar": "بيض تركي في الطاسة Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans sahanda yumurta",
+    "name_ar": "بيض تركي في الطاسة",
+    "name_tr": "sahanda yumurta",
     "search_terms": [
       "بيض تركي",
       "بيض في الطاسة",
       "sahanda yumurta",
-      "turkish fried egg"
+      "turkish fried egg",
+      "Turkish Fried Eggs with Cheese"
     ],
     "serving_weight_g": 278,
     "serving_ar": "بيض بالجبنة والطماطم مع خبز — نحو 278 غرام",
@@ -4930,20 +5072,24 @@
           "usda_description": "Bread, pita, white, unenriched"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Turkish Fried Eggs with Cheese",
+    "serving_en": "Approx. 278 g serving"
   },
   {
     "id": "tr-yogurtlu-nohut",
     "country": "TR",
-    "name_ar": "حمص بالزبادي Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans yoğurtlu nohut",
+    "name_ar": "حمص بالزبادي",
+    "name_tr": "yoğurtlu nohut",
     "search_terms": [
       "حمص بالزبادي",
       "زبادي حمص",
       "yogurt chickpeas",
-      "yoğurtlu nohut"
+      "yoğurtlu nohut",
+      "Chickpeas with Yogurt"
     ],
     "serving_weight_g": 448,
     "serving_ar": "حمص بالزبادي مع خبز — نحو 448 غرام",
@@ -5014,20 +5160,24 @@
           "usda_description": "Bread, pita, white, unenriched"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
-    }
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Chickpeas with Yogurt",
+    "serving_en": "Approx. 448 g serving"
   },
   {
     "id": "tr-patatesli-borek",
     "country": "TR",
-    "name_ar": "بورك بالبطاطس Yoldaş المرجعي",
-    "name_tr": "Yoldaş referans patatesli börek",
+    "name_ar": "بورك بالبطاطس",
+    "name_tr": "patatesli börek",
     "search_terms": [
       "بورك بطاطس",
       "بوريك بطاطس",
       "potato borek",
-      "patatesli börek"
+      "patatesli börek",
+      "Potato Börek"
     ],
     "serving_weight_g": 273,
     "serving_ar": "بورك بالبطاطس والجبنة — نحو 273 غرام",
@@ -5088,8 +5238,1066 @@
           "usda_description": "Oil, olive, salad or cooking"
         }
       ],
-      "user_disclaimer_ar": "قيمة مرجعية محسوبة لوصفة Yoldaş وحصة تقريبية؛ قد تختلف مع الزيت والإضافات والحجم الفعلي.",
-      "user_disclaimer_tr": "Yoldaş referans tarifine ve yaklaşık porsiyona göre hesaplanmış değerdir; yağ, ek malzemeler ve gerçek porsiyonla değişebilir."
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    },
+    "name_en": "Potato Börek",
+    "serving_en": "Approx. 273 g serving"
+  },
+  {
+    "id": "eg-ful-taameya-breakfast",
+    "country": "EG",
+    "name_ar": "فول وطعمية",
+    "name_tr": "Ful ve taamiya kahvaltısı",
+    "name_en": "Ful and Taameya Breakfast",
+    "search_terms": [
+      "فول وطعمية",
+      "فطار فول طعمية",
+      "ful taameya",
+      "egyptian breakfast"
+    ],
+    "serving_weight_g": 365,
+    "serving_ar": "فول وطعمية وخبز وسلطة — نحو 365 غرام",
+    "serving_tr": "Ful, taamiya, ekmek ve salata — yaklaşık 365 g",
+    "serving_en": "Ful, taameya, pita, and salad — approx. 365 g",
+    "ingredients": [
+      [
+        "cooked_fava_beans",
+        150
+      ],
+      [
+        "home_prepared_falafel",
+        60
+      ],
+      [
+        "white_pita",
+        70
+      ],
+      [
+        "raw_tomato",
+        45
+      ],
+      [
+        "raw_cucumber",
+        40
+      ]
+    ],
+    "ingredient_weight_g": 365,
+    "nutrition": {
+      "kcal": 571.4,
+      "protein": 26.4,
+      "carbs": 90.7,
+      "fat": 12.3
+    },
+    "calculation": {
+      "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+      "source_url": "https://fdc.nal.usda.gov/",
+      "license": "CC0 1.0 Universal",
+      "review_date": "2026-08-27",
+      "ingredient_sources": [
+        {
+          "key": "cooked_fava_beans",
+          "grams": 150,
+          "usda_fdc_id": 173753,
+          "usda_description": "Broadbeans (fava beans), mature seeds, cooked, boiled, without salt"
+        },
+        {
+          "key": "home_prepared_falafel",
+          "grams": 60,
+          "usda_fdc_id": 172455,
+          "usda_description": "Falafel, home-prepared"
+        },
+        {
+          "key": "white_pita",
+          "grams": 70,
+          "usda_fdc_id": 172816,
+          "usda_description": "Bread, pita, white, unenriched"
+        },
+        {
+          "key": "raw_tomato",
+          "grams": 45,
+          "usda_fdc_id": 170457,
+          "usda_description": "Tomatoes, red, ripe, raw, year round average"
+        },
+        {
+          "key": "raw_cucumber",
+          "grams": 40,
+          "usda_fdc_id": 168409,
+          "usda_description": "Cucumber, with peel, raw"
+        }
+      ],
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    }
+  },
+  {
+    "id": "eg-chicken-pasta",
+    "country": "EG",
+    "name_ar": "مكرونة بالدجاج",
+    "name_tr": "Tavuklu makarna",
+    "name_en": "Chicken Pasta",
+    "search_terms": [
+      "مكرونة فراخ",
+      "مكرونة بالدجاج",
+      "chicken pasta",
+      "tavuklu makarna"
+    ],
+    "serving_weight_g": 420,
+    "serving_ar": "مكرونة بالدجاج والصلصة — نحو 420 غرام",
+    "serving_tr": "Tavuklu domatesli makarna — yaklaşık 420 g",
+    "serving_en": "Chicken pasta with tomato sauce — approx. 420 g",
+    "ingredients": [
+      [
+        "cooked_pasta",
+        210
+      ],
+      [
+        "roasted_chicken_breast",
+        110
+      ],
+      [
+        "raw_tomato",
+        70
+      ],
+      [
+        "raw_onion",
+        25
+      ],
+      [
+        "olive_oil",
+        8
+      ]
+    ],
+    "ingredient_weight_g": 423,
+    "nutrition": {
+      "kcal": 606.6,
+      "protein": 47.2,
+      "carbs": 69.9,
+      "fat": 14
+    },
+    "calculation": {
+      "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+      "source_url": "https://fdc.nal.usda.gov/",
+      "license": "CC0 1.0 Universal",
+      "review_date": "2026-08-27",
+      "ingredient_sources": [
+        {
+          "key": "cooked_pasta",
+          "grams": 210,
+          "usda_fdc_id": 168928,
+          "usda_description": "Pasta, cooked, unenriched, without added salt"
+        },
+        {
+          "key": "roasted_chicken_breast",
+          "grams": 110,
+          "usda_fdc_id": 171477,
+          "usda_description": "Chicken, broilers or fryers, breast, meat only, cooked, roasted"
+        },
+        {
+          "key": "raw_tomato",
+          "grams": 70,
+          "usda_fdc_id": 170457,
+          "usda_description": "Tomatoes, red, ripe, raw, year round average"
+        },
+        {
+          "key": "raw_onion",
+          "grams": 25,
+          "usda_fdc_id": 170000,
+          "usda_description": "Onions, raw"
+        },
+        {
+          "key": "olive_oil",
+          "grams": 8,
+          "usda_fdc_id": 171413,
+          "usda_description": "Oil, olive, salad or cooking"
+        }
+      ],
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    }
+  },
+  {
+    "id": "eg-chicken-potato-rice",
+    "country": "EG",
+    "name_ar": "فراخ وأرز وبطاطس",
+    "name_tr": "Tavuk, pilav ve patates",
+    "name_en": "Chicken, Rice and Potatoes",
+    "search_terms": [
+      "فراخ رز بطاطس",
+      "دجاج ارز بطاطس",
+      "chicken rice potatoes",
+      "tavuk pilav patates"
+    ],
+    "serving_weight_g": 440,
+    "serving_ar": "دجاج مشوي مع أرز وبطاطس — نحو 440 غرام",
+    "serving_tr": "Tavuk, pilav ve patates — yaklaşık 440 g",
+    "serving_en": "Roasted chicken with rice and potatoes — approx. 440 g",
+    "ingredients": [
+      [
+        "roasted_chicken_breast",
+        120
+      ],
+      [
+        "cooked_white_rice",
+        150
+      ],
+      [
+        "cooked_potato",
+        120
+      ],
+      [
+        "raw_tomato",
+        35
+      ],
+      [
+        "olive_oil",
+        8
+      ]
+    ],
+    "ingredient_weight_g": 433,
+    "nutrition": {
+      "kcal": 573.2,
+      "protein": 43.6,
+      "carbs": 67.7,
+      "fat": 12.9
+    },
+    "calculation": {
+      "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+      "source_url": "https://fdc.nal.usda.gov/",
+      "license": "CC0 1.0 Universal",
+      "review_date": "2026-08-27",
+      "ingredient_sources": [
+        {
+          "key": "roasted_chicken_breast",
+          "grams": 120,
+          "usda_fdc_id": 171477,
+          "usda_description": "Chicken, broilers or fryers, breast, meat only, cooked, roasted"
+        },
+        {
+          "key": "cooked_white_rice",
+          "grams": 150,
+          "usda_fdc_id": 168878,
+          "usda_description": "Rice, white, long-grain, regular, enriched, cooked"
+        },
+        {
+          "key": "cooked_potato",
+          "grams": 120,
+          "usda_fdc_id": 170440,
+          "usda_description": "Potatoes, boiled, cooked without skin, flesh, without salt"
+        },
+        {
+          "key": "raw_tomato",
+          "grams": 35,
+          "usda_fdc_id": 170457,
+          "usda_description": "Tomatoes, red, ripe, raw, year round average"
+        },
+        {
+          "key": "olive_oil",
+          "grams": 8,
+          "usda_fdc_id": 171413,
+          "usda_description": "Oil, olive, salad or cooking"
+        }
+      ],
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    }
+  },
+  {
+    "id": "eg-lentil-rice-chicken",
+    "country": "EG",
+    "name_ar": "عدس وأرز وفراخ",
+    "name_tr": "Mercimek, pilav ve tavuk",
+    "name_en": "Lentils, Rice and Chicken",
+    "search_terms": [
+      "عدس رز فراخ",
+      "lentils rice chicken",
+      "mercimek pilav tavuk"
+    ],
+    "serving_weight_g": 400,
+    "serving_ar": "عدس وأرز مع دجاج — نحو 400 غرام",
+    "serving_tr": "Mercimek, pilav ve tavuk — yaklaşık 400 g",
+    "serving_en": "Lentils and rice with chicken — approx. 400 g",
+    "ingredients": [
+      [
+        "cooked_lentils",
+        130
+      ],
+      [
+        "cooked_white_rice",
+        130
+      ],
+      [
+        "roasted_chicken_breast",
+        95
+      ],
+      [
+        "raw_tomato",
+        35
+      ],
+      [
+        "raw_onion",
+        20
+      ],
+      [
+        "olive_oil",
+        8
+      ]
+    ],
+    "ingredient_weight_g": 418,
+    "nutrition": {
+      "kcal": 561.6,
+      "protein": 45.2,
+      "carbs": 66,
+      "fat": 12.3
+    },
+    "calculation": {
+      "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+      "source_url": "https://fdc.nal.usda.gov/",
+      "license": "CC0 1.0 Universal",
+      "review_date": "2026-08-27",
+      "ingredient_sources": [
+        {
+          "key": "cooked_lentils",
+          "grams": 130,
+          "usda_fdc_id": 172421,
+          "usda_description": "Lentils, mature seeds, cooked, boiled, without salt"
+        },
+        {
+          "key": "cooked_white_rice",
+          "grams": 130,
+          "usda_fdc_id": 168878,
+          "usda_description": "Rice, white, long-grain, regular, enriched, cooked"
+        },
+        {
+          "key": "roasted_chicken_breast",
+          "grams": 95,
+          "usda_fdc_id": 171477,
+          "usda_description": "Chicken, broilers or fryers, breast, meat only, cooked, roasted"
+        },
+        {
+          "key": "raw_tomato",
+          "grams": 35,
+          "usda_fdc_id": 170457,
+          "usda_description": "Tomatoes, red, ripe, raw, year round average"
+        },
+        {
+          "key": "raw_onion",
+          "grams": 20,
+          "usda_fdc_id": 170000,
+          "usda_description": "Onions, raw"
+        },
+        {
+          "key": "olive_oil",
+          "grams": 8,
+          "usda_fdc_id": 171413,
+          "usda_description": "Oil, olive, salad or cooking"
+        }
+      ],
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    }
+  },
+  {
+    "id": "eg-eggplant-rice-chicken",
+    "country": "EG",
+    "name_ar": "باذنجان وأرز وفراخ",
+    "name_tr": "Patlıcan, pilav ve tavuk",
+    "name_en": "Eggplant, Rice and Chicken",
+    "search_terms": [
+      "باذنجان رز فراخ",
+      "eggplant rice chicken",
+      "patlican pilav tavuk"
+    ],
+    "serving_weight_g": 460,
+    "serving_ar": "باذنجان بالصلصة مع أرز ودجاج — نحو 460 غرام",
+    "serving_tr": "Soslu patlıcan, pilav ve tavuk — yaklaşık 460 g",
+    "serving_en": "Eggplant in tomato sauce with rice and chicken — approx. 460 g",
+    "ingredients": [
+      [
+        "cooked_eggplant",
+        180
+      ],
+      [
+        "cooked_white_rice",
+        130
+      ],
+      [
+        "roasted_chicken_breast",
+        95
+      ],
+      [
+        "raw_tomato",
+        55
+      ],
+      [
+        "raw_onion",
+        25
+      ],
+      [
+        "olive_oil",
+        8
+      ]
+    ],
+    "ingredient_weight_g": 493,
+    "nutrition": {
+      "kcal": 479.4,
+      "protein": 35.2,
+      "carbs": 56.8,
+      "fat": 12.3
+    },
+    "calculation": {
+      "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+      "source_url": "https://fdc.nal.usda.gov/",
+      "license": "CC0 1.0 Universal",
+      "review_date": "2026-08-27",
+      "ingredient_sources": [
+        {
+          "key": "cooked_eggplant",
+          "grams": 180,
+          "usda_fdc_id": 169229,
+          "usda_description": "Eggplant, cooked, boiled, drained, without salt"
+        },
+        {
+          "key": "cooked_white_rice",
+          "grams": 130,
+          "usda_fdc_id": 168878,
+          "usda_description": "Rice, white, long-grain, regular, enriched, cooked"
+        },
+        {
+          "key": "roasted_chicken_breast",
+          "grams": 95,
+          "usda_fdc_id": 171477,
+          "usda_description": "Chicken, broilers or fryers, breast, meat only, cooked, roasted"
+        },
+        {
+          "key": "raw_tomato",
+          "grams": 55,
+          "usda_fdc_id": 170457,
+          "usda_description": "Tomatoes, red, ripe, raw, year round average"
+        },
+        {
+          "key": "raw_onion",
+          "grams": 25,
+          "usda_fdc_id": 170000,
+          "usda_description": "Onions, raw"
+        },
+        {
+          "key": "olive_oil",
+          "grams": 8,
+          "usda_fdc_id": 171413,
+          "usda_description": "Oil, olive, salad or cooking"
+        }
+      ],
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    }
+  },
+  {
+    "id": "eg-chickpea-rice-salad",
+    "country": "EG",
+    "name_ar": "أرز وحمص وسلطة",
+    "name_tr": "Pirinç, nohut ve salata",
+    "name_en": "Chickpea Rice Salad",
+    "search_terms": [
+      "رز حمص سلطة",
+      "chickpea rice salad",
+      "nohutlu pirinc salata"
+    ],
+    "serving_weight_g": 410,
+    "serving_ar": "أرز وحمص مع سلطة وخبز — نحو 410 غرام",
+    "serving_tr": "Pirinç, nohut, salata ve ekmek — yaklaşık 410 g",
+    "serving_en": "Rice and chickpeas with salad and pita — approx. 410 g",
+    "ingredients": [
+      [
+        "cooked_white_rice",
+        140
+      ],
+      [
+        "cooked_chickpeas",
+        120
+      ],
+      [
+        "raw_tomato",
+        65
+      ],
+      [
+        "raw_cucumber",
+        65
+      ],
+      [
+        "raw_onion",
+        20
+      ]
+    ],
+    "ingredient_weight_g": 410,
+    "nutrition": {
+      "kcal": 408.3,
+      "protein": 15.6,
+      "carbs": 79.1,
+      "fat": 3.7
+    },
+    "calculation": {
+      "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+      "source_url": "https://fdc.nal.usda.gov/",
+      "license": "CC0 1.0 Universal",
+      "review_date": "2026-08-27",
+      "ingredient_sources": [
+        {
+          "key": "cooked_white_rice",
+          "grams": 140,
+          "usda_fdc_id": 168878,
+          "usda_description": "Rice, white, long-grain, regular, enriched, cooked"
+        },
+        {
+          "key": "cooked_chickpeas",
+          "grams": 120,
+          "usda_fdc_id": 173757,
+          "usda_description": "Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt"
+        },
+        {
+          "key": "raw_tomato",
+          "grams": 65,
+          "usda_fdc_id": 170457,
+          "usda_description": "Tomatoes, red, ripe, raw, year round average"
+        },
+        {
+          "key": "raw_cucumber",
+          "grams": 65,
+          "usda_fdc_id": 168409,
+          "usda_description": "Cucumber, with peel, raw"
+        },
+        {
+          "key": "raw_onion",
+          "grams": 20,
+          "usda_fdc_id": 170000,
+          "usda_description": "Onions, raw"
+        }
+      ],
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    }
+  },
+  {
+    "id": "tr-tavuk-sote-pilav",
+    "country": "TR",
+    "name_ar": "تافوك سوتيه وأرز",
+    "name_tr": "Tavuk sote ve pilav",
+    "name_en": "Chicken Sauté with Rice",
+    "search_terms": [
+      "تافوك سوتيه",
+      "tavuk sote",
+      "chicken saute rice"
+    ],
+    "serving_weight_g": 430,
+    "serving_ar": "دجاج سوتيه مع أرز — نحو 430 غرام",
+    "serving_tr": "Tavuk sote ve pilav — yaklaşık 430 g",
+    "serving_en": "Chicken sauté with rice — approx. 430 g",
+    "ingredients": [
+      [
+        "roasted_chicken_breast",
+        130
+      ],
+      [
+        "cooked_white_rice",
+        160
+      ],
+      [
+        "raw_tomato",
+        70
+      ],
+      [
+        "raw_onion",
+        35
+      ],
+      [
+        "cooked_zucchini",
+        35
+      ]
+    ],
+    "ingredient_weight_g": 430,
+    "nutrition": {
+      "kcal": 454.4,
+      "protein": 46,
+      "carbs": 52.1,
+      "fat": 5.4
+    },
+    "calculation": {
+      "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+      "source_url": "https://fdc.nal.usda.gov/",
+      "license": "CC0 1.0 Universal",
+      "review_date": "2026-08-27",
+      "ingredient_sources": [
+        {
+          "key": "roasted_chicken_breast",
+          "grams": 130,
+          "usda_fdc_id": 171477,
+          "usda_description": "Chicken, broilers or fryers, breast, meat only, cooked, roasted"
+        },
+        {
+          "key": "cooked_white_rice",
+          "grams": 160,
+          "usda_fdc_id": 168878,
+          "usda_description": "Rice, white, long-grain, regular, enriched, cooked"
+        },
+        {
+          "key": "raw_tomato",
+          "grams": 70,
+          "usda_fdc_id": 170457,
+          "usda_description": "Tomatoes, red, ripe, raw, year round average"
+        },
+        {
+          "key": "raw_onion",
+          "grams": 35,
+          "usda_fdc_id": 170000,
+          "usda_description": "Onions, raw"
+        },
+        {
+          "key": "cooked_zucchini",
+          "grams": 35,
+          "usda_fdc_id": 169292,
+          "usda_description": "Squash, summer, zucchini, includes skin, cooked, boiled, drained, without salt"
+        }
+      ],
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    }
+  },
+  {
+    "id": "tr-tavuklu-bulgur",
+    "country": "TR",
+    "name_ar": "برغل بالدجاج",
+    "name_tr": "Tavuklu bulgur pilavı",
+    "name_en": "Chicken Bulgur Pilaf",
+    "search_terms": [
+      "برغل فراخ",
+      "tavuklu bulgur",
+      "chicken bulgur"
+    ],
+    "serving_weight_g": 410,
+    "serving_ar": "برغل بالطماطم مع دجاج — نحو 410 غرام",
+    "serving_tr": "Domatesli tavuklu bulgur pilavı — yaklaşık 410 g",
+    "serving_en": "Tomato bulgur pilaf with chicken — approx. 410 g",
+    "ingredients": [
+      [
+        "cooked_bulgur",
+        190
+      ],
+      [
+        "roasted_chicken_breast",
+        110
+      ],
+      [
+        "raw_tomato",
+        65
+      ],
+      [
+        "raw_onion",
+        25
+      ],
+      [
+        "olive_oil",
+        8
+      ]
+    ],
+    "ingredient_weight_g": 398,
+    "nutrition": {
+      "kcal": 431.6,
+      "protein": 40.8,
+      "carbs": 40.2,
+      "fat": 12.5
+    },
+    "calculation": {
+      "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+      "source_url": "https://fdc.nal.usda.gov/",
+      "license": "CC0 1.0 Universal",
+      "review_date": "2026-08-27",
+      "ingredient_sources": [
+        {
+          "key": "cooked_bulgur",
+          "grams": 190,
+          "usda_fdc_id": 170287,
+          "usda_description": "Bulgur, cooked"
+        },
+        {
+          "key": "roasted_chicken_breast",
+          "grams": 110,
+          "usda_fdc_id": 171477,
+          "usda_description": "Chicken, broilers or fryers, breast, meat only, cooked, roasted"
+        },
+        {
+          "key": "raw_tomato",
+          "grams": 65,
+          "usda_fdc_id": 170457,
+          "usda_description": "Tomatoes, red, ripe, raw, year round average"
+        },
+        {
+          "key": "raw_onion",
+          "grams": 25,
+          "usda_fdc_id": 170000,
+          "usda_description": "Onions, raw"
+        },
+        {
+          "key": "olive_oil",
+          "grams": 8,
+          "usda_fdc_id": 171413,
+          "usda_description": "Oil, olive, salad or cooking"
+        }
+      ],
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    }
+  },
+  {
+    "id": "tr-yogurtlu-tavuk-pilav",
+    "country": "TR",
+    "name_ar": "دجاج بالزبادي وأرز",
+    "name_tr": "Yoğurtlu tavuk ve pilav",
+    "name_en": "Yogurt Chicken with Rice",
+    "search_terms": [
+      "دجاج زبادي رز",
+      "yoğurtlu tavuk",
+      "yogurt chicken rice"
+    ],
+    "serving_weight_g": 430,
+    "serving_ar": "دجاج بالزبادي مع أرز وسلطة — نحو 430 غرام",
+    "serving_tr": "Yoğurtlu tavuk, pilav ve salata — yaklaşık 430 g",
+    "serving_en": "Yogurt chicken with rice and salad — approx. 430 g",
+    "ingredients": [
+      [
+        "roasted_chicken_breast",
+        120
+      ],
+      [
+        "cooked_white_rice",
+        150
+      ],
+      [
+        "plain_yogurt",
+        90
+      ],
+      [
+        "raw_tomato",
+        35
+      ],
+      [
+        "raw_cucumber",
+        35
+      ]
+    ],
+    "ingredient_weight_g": 430,
+    "nutrition": {
+      "kcal": 459.5,
+      "protein": 44.9,
+      "carbs": 49.1,
+      "fat": 7.7
+    },
+    "calculation": {
+      "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+      "source_url": "https://fdc.nal.usda.gov/",
+      "license": "CC0 1.0 Universal",
+      "review_date": "2026-08-27",
+      "ingredient_sources": [
+        {
+          "key": "roasted_chicken_breast",
+          "grams": 120,
+          "usda_fdc_id": 171477,
+          "usda_description": "Chicken, broilers or fryers, breast, meat only, cooked, roasted"
+        },
+        {
+          "key": "cooked_white_rice",
+          "grams": 150,
+          "usda_fdc_id": 168878,
+          "usda_description": "Rice, white, long-grain, regular, enriched, cooked"
+        },
+        {
+          "key": "plain_yogurt",
+          "grams": 90,
+          "usda_fdc_id": 171284,
+          "usda_description": "Yogurt, plain, whole milk"
+        },
+        {
+          "key": "raw_tomato",
+          "grams": 35,
+          "usda_fdc_id": 170457,
+          "usda_description": "Tomatoes, red, ripe, raw, year round average"
+        },
+        {
+          "key": "raw_cucumber",
+          "grams": 35,
+          "usda_fdc_id": 168409,
+          "usda_description": "Cucumber, with peel, raw"
+        }
+      ],
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    }
+  },
+  {
+    "id": "tr-patlicanli-bulgur",
+    "country": "TR",
+    "name_ar": "برغل بالباذنجان",
+    "name_tr": "Patlıcanlı bulgur pilavı",
+    "name_en": "Eggplant Bulgur Pilaf",
+    "search_terms": [
+      "برغل باذنجان",
+      "patlicanli bulgur",
+      "eggplant bulgur"
+    ],
+    "serving_weight_g": 410,
+    "serving_ar": "برغل بالباذنجان والصلصة — نحو 410 غرام",
+    "serving_tr": "Patlıcanlı domatesli bulgur — yaklaşık 410 g",
+    "serving_en": "Eggplant bulgur pilaf with tomato sauce — approx. 410 g",
+    "ingredients": [
+      [
+        "cooked_bulgur",
+        190
+      ],
+      [
+        "cooked_eggplant",
+        150
+      ],
+      [
+        "raw_tomato",
+        55
+      ],
+      [
+        "raw_onion",
+        25
+      ],
+      [
+        "olive_oil",
+        8
+      ]
+    ],
+    "ingredient_weight_g": 428,
+    "nutrition": {
+      "kcal": 300.8,
+      "protein": 7.9,
+      "carbs": 52.9,
+      "fat": 8.9
+    },
+    "calculation": {
+      "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+      "source_url": "https://fdc.nal.usda.gov/",
+      "license": "CC0 1.0 Universal",
+      "review_date": "2026-08-27",
+      "ingredient_sources": [
+        {
+          "key": "cooked_bulgur",
+          "grams": 190,
+          "usda_fdc_id": 170287,
+          "usda_description": "Bulgur, cooked"
+        },
+        {
+          "key": "cooked_eggplant",
+          "grams": 150,
+          "usda_fdc_id": 169229,
+          "usda_description": "Eggplant, cooked, boiled, drained, without salt"
+        },
+        {
+          "key": "raw_tomato",
+          "grams": 55,
+          "usda_fdc_id": 170457,
+          "usda_description": "Tomatoes, red, ripe, raw, year round average"
+        },
+        {
+          "key": "raw_onion",
+          "grams": 25,
+          "usda_fdc_id": 170000,
+          "usda_description": "Onions, raw"
+        },
+        {
+          "key": "olive_oil",
+          "grams": 8,
+          "usda_fdc_id": 171413,
+          "usda_description": "Oil, olive, salad or cooking"
+        }
+      ],
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    }
+  },
+  {
+    "id": "tr-mercimek-bulgur",
+    "country": "TR",
+    "name_ar": "عدس وبرغل",
+    "name_tr": "Mercimekli bulgur pilavı",
+    "name_en": "Lentil Bulgur Pilaf",
+    "search_terms": [
+      "عدس برغل",
+      "mercimek bulgur",
+      "lentil bulgur"
+    ],
+    "serving_weight_g": 405,
+    "serving_ar": "عدس وبرغل بالطماطم — نحو 405 غرام",
+    "serving_tr": "Domatesli mercimekli bulgur — yaklaşık 405 g",
+    "serving_en": "Lentil bulgur pilaf with tomato — approx. 405 g",
+    "ingredients": [
+      [
+        "cooked_lentils",
+        150
+      ],
+      [
+        "cooked_bulgur",
+        160
+      ],
+      [
+        "raw_tomato",
+        60
+      ],
+      [
+        "raw_onion",
+        25
+      ],
+      [
+        "olive_oil",
+        8
+      ]
+    ],
+    "ingredient_weight_g": 403,
+    "nutrition": {
+      "kcal": 398.3,
+      "protein": 19.3,
+      "carbs": 64.6,
+      "fat": 9.1
+    },
+    "calculation": {
+      "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+      "source_url": "https://fdc.nal.usda.gov/",
+      "license": "CC0 1.0 Universal",
+      "review_date": "2026-08-27",
+      "ingredient_sources": [
+        {
+          "key": "cooked_lentils",
+          "grams": 150,
+          "usda_fdc_id": 172421,
+          "usda_description": "Lentils, mature seeds, cooked, boiled, without salt"
+        },
+        {
+          "key": "cooked_bulgur",
+          "grams": 160,
+          "usda_fdc_id": 170287,
+          "usda_description": "Bulgur, cooked"
+        },
+        {
+          "key": "raw_tomato",
+          "grams": 60,
+          "usda_fdc_id": 170457,
+          "usda_description": "Tomatoes, red, ripe, raw, year round average"
+        },
+        {
+          "key": "raw_onion",
+          "grams": 25,
+          "usda_fdc_id": 170000,
+          "usda_description": "Onions, raw"
+        },
+        {
+          "key": "olive_oil",
+          "grams": 8,
+          "usda_fdc_id": 171413,
+          "usda_description": "Oil, olive, salad or cooking"
+        }
+      ],
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
+    }
+  },
+  {
+    "id": "tr-nohutlu-tavuk",
+    "country": "TR",
+    "name_ar": "دجاج وحمص",
+    "name_tr": "Tavuklu nohut",
+    "name_en": "Chicken and Chickpea Plate",
+    "search_terms": [
+      "فراخ حمص",
+      "tavuklu nohut",
+      "chicken chickpeas"
+    ],
+    "serving_weight_g": 430,
+    "serving_ar": "دجاج وحمص مع سلطة وخبز — نحو 430 غرام",
+    "serving_tr": "Tavuk, nohut, salata ve ekmek — yaklaşık 430 g",
+    "serving_en": "Chicken and chickpeas with salad and pita — approx. 430 g",
+    "ingredients": [
+      [
+        "roasted_chicken_breast",
+        110
+      ],
+      [
+        "cooked_chickpeas",
+        150
+      ],
+      [
+        "raw_tomato",
+        55
+      ],
+      [
+        "raw_cucumber",
+        55
+      ],
+      [
+        "white_pita",
+        60
+      ]
+    ],
+    "ingredient_weight_g": 430,
+    "nutrition": {
+      "kcal": 610.7,
+      "protein": 53.7,
+      "carbs": 78.7,
+      "fat": 8.7
+    },
+    "calculation": {
+      "source": "USDA FoodData Central, Foundation Foods and SR Legacy",
+      "source_url": "https://fdc.nal.usda.gov/",
+      "license": "CC0 1.0 Universal",
+      "review_date": "2026-08-27",
+      "ingredient_sources": [
+        {
+          "key": "roasted_chicken_breast",
+          "grams": 110,
+          "usda_fdc_id": 171477,
+          "usda_description": "Chicken, broilers or fryers, breast, meat only, cooked, roasted"
+        },
+        {
+          "key": "cooked_chickpeas",
+          "grams": 150,
+          "usda_fdc_id": 173757,
+          "usda_description": "Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt"
+        },
+        {
+          "key": "raw_tomato",
+          "grams": 55,
+          "usda_fdc_id": 170457,
+          "usda_description": "Tomatoes, red, ripe, raw, year round average"
+        },
+        {
+          "key": "raw_cucumber",
+          "grams": 55,
+          "usda_fdc_id": 168409,
+          "usda_description": "Cucumber, with peel, raw"
+        },
+        {
+          "key": "white_pita",
+          "grams": 60,
+          "usda_fdc_id": 172816,
+          "usda_description": "Bread, pita, white, unenriched"
+        }
+      ],
+      "user_disclaimer_ar": "قيمة تقريبية لحصة مرجعية ومكونات محددة؛ قد تختلف مع الزيت والإضافات وحجم الوجبة الفعلي.",
+      "user_disclaimer_tr": "Bu değer belirli malzemeler ve referans porsiyon içindir; yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+      "user_disclaimer_en": "This is an approximate value for a reference serving and specified ingredients. Oil, extras, and your actual portion can change it."
     }
   }
 ]

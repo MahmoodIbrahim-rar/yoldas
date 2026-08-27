@@ -5,11 +5,12 @@ import test from "node:test";
 const root = new URL("../", import.meta.url);
 const read = (path) => readFile(new URL(path, root), "utf8");
 
-test("English is a complete third locale for the UI, plans, and Miri", async () => {
-  const [html, app, edge] = await Promise.all([
+test("English is a complete third locale for the UI, plans, Miri, and food catalog", async () => {
+  const [html, app, edge, recipes] = await Promise.all([
     read("index.html"),
     read("app.js"),
     read("supabase/functions/health-assistant/index.ts"),
+    read("data/reference_recipes.json").then(JSON.parse),
   ]);
   assert.match(html, /data-locale="en">English/);
   assert.match(app, /\["ar", "tr", "en"\]/);
@@ -21,4 +22,9 @@ test("English is a complete third locale for the UI, plans, and Miri", async () 
   assert.match(edge, /type Locale = "ar" \| "tr" \| "en"/);
   assert.match(edge, /locale === "en"/);
   assert.match(edge, /natural English/);
+  assert.match(app, /recipe\[`name_\$\{currentLocale\}`\]/);
+  assert.match(app, /INGREDIENT_LABELS_EN/);
+  assert.ok(recipes.every((recipe) => recipe.name_en && recipe.serving_en), "Every recipe has English food and serving text");
+  assert.ok(recipes.some((recipe) => recipe.name_en === "Koshari"), "Koshari keeps its familiar English name");
+  assert.ok(recipes.some((recipe) => recipe.name_en === "Chicken Shawarma Wrap"), "Shawarma has a natural English food name");
 });
