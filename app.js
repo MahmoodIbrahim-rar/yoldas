@@ -584,7 +584,7 @@
     const guide = $("food-library");
     if (!guide) return;
     if (hasRegisteredAccount()) {
-      $("gym-mode")?.insertAdjacentElement("afterend", guide);
+      $("gym-mode")?.insertAdjacentElement("beforebegin", guide);
       return;
     }
     $("faq")?.insertAdjacentElement("afterend", guide);
