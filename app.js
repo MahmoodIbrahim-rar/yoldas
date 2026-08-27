@@ -1729,7 +1729,19 @@
 
   async function socialCall(mode, payload = {}) {
     const { data, error } = await supabase.functions.invoke(CONFIG.socialFunction || "social-service", { body: { mode, ...payload } });
-    if (error || !data?.ok) throw new Error(data?.code || error?.message || "social_failed");
+    if (error || !data?.ok) {
+      let code = data?.code || "";
+      // عند رد غير 2xx، عميل Supabase يضع JSON الخاص بالدالة في Response داخل error.context.
+      if (!code && error?.context?.clone) {
+        try {
+          const errorBody = await error.context.clone().json();
+          code = String(errorBody?.code || "");
+        } catch {
+          // يظل النص العام بديلًا آمنًا إذا لم يكن الرد JSON صالحًا.
+        }
+      }
+      throw new Error(code || error?.message || "social_failed");
+    }
     return data.data || {};
   }
 
