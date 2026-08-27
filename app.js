@@ -130,6 +130,31 @@
   Object.assign(UI_TEXT.ar, { planDescription: "هدفك ومستواك وبياناتك الأساسية تساعد ميري تجهّز بداية عملية ومتدرجة." });
   Object.assign(UI_TEXT.tr, { planDescription: "Hedefin, seviyen ve temel bilgilerin Miri'nin sana uygun, aşamalı bir başlangıç hazırlamasına yardımcı olur." });
   Object.assign(UI_TEXT.en, { planDescription: "Your goal, level, and basic details help Miri prepare a practical, progressive starting plan." });
+  Object.assign(UI_TEXT.ar, { homeConfirm: "هل تريد الرجوع إلى الصفحة الرئيسية؟ ستظل مسجّل الدخول وبياناتك محفوظة." });
+  Object.assign(UI_TEXT.tr, { homeConfirm: "Ana sayfaya dönmek istiyor musun? Oturumun açık kalacak ve verilerin kaydedilecek." });
+  Object.assign(UI_TEXT.en, { homeConfirm: "Return to the home page? You will stay signed in and your data will remain saved." });
+
+  Object.assign(UI_TEXT.ar, {
+    faqQuestion6: "هل قيم دليل الأكل دقيقة لكل وجبة؟", faqAnswer6: "دليل الأكل يقدم حصصًا مرجعية وأوزانًا تقريبية، وقد تختلف القيمة حسب الزيت والإضافات وحجم الوجبة الفعلي.",
+    faqQuestion7: "هل يمكنني تعديل الخطة التي أنشأتها ميري؟", faqAnswer7: "نعم. يمكنك طلب تعديل محدد من ميري، مثل تغيير وجبة أو تخفيف تمرين، ثم تحفظ نسخة جديدة من خطتك.",
+    faqQuestion8: "ما اللغات المتاحة في Yoldaş؟", faqAnswer8: "واجهة Yoldaş متاحة بالعربية والتركية والإنجليزية، ويمكن تغيير اللغة من أعلى الصفحة.",
+    faqQuestion9: "ماذا يحدث عندما أصل إلى الحد اليومي لميري؟", faqAnswer9: "تتوقف طلبات ميري مؤقتًا حتى اليوم التالي، ويمكنك في هذه الأثناء تسجيل وجبتك يدويًا من دليل الأكل.",
+    faqQuestion10: "كيف تعمل الصداقة وصور الستريك؟", faqAnswer10: "تبحث عن صديق باسم المستخدم الدقيق وتحتاج الموافقة. صور الستريك خاصة بين الصديقين وتنتهي خلال 24 ساعة."
+  });
+  Object.assign(UI_TEXT.tr, {
+    faqQuestion6: "Yemek rehberi değerleri her öğün için kesin mi?", faqAnswer6: "Yemek rehberi referans porsiyonlar ve yaklaşık ağırlıklar sunar; değer yağ, ek malzeme ve gerçek porsiyon boyutuna göre değişebilir.",
+    faqQuestion7: "Miri'nin oluşturduğu planı düzenleyebilir miyim?", faqAnswer7: "Evet. Miri'den bir öğünü değiştirmek veya bir egzersizi hafifletmek gibi belirli bir düzenleme isteyebilir, sonra planının yeni sürümünü kaydedebilirsin.",
+    faqQuestion8: "Yoldaş'ta hangi diller var?", faqAnswer8: "Yoldaş arayüzü Arapça, Türkçe ve İngilizce olarak kullanılabilir. Dili sayfanın üstünden değiştirebilirsin.",
+    faqQuestion9: "Miri'nin günlük sınırına ulaşırsam ne olur?", faqAnswer9: "Miri istekleri ertesi güne kadar geçici olarak durur. Bu sırada yemek rehberinden öğününü elle kaydedebilirsin.",
+    faqQuestion10: "Arkadaşlık ve seri fotoğrafları nasıl çalışır?", faqAnswer10: "Bir arkadaşı tam kullanıcı adıyla bulur ve onay alırsın. Seri fotoğrafları iki arkadaş arasında özeldir ve 24 saat içinde sona erer."
+  });
+  Object.assign(UI_TEXT.en, {
+    faqQuestion6: "Are food-guide values exact for every meal?", faqAnswer6: "The food guide provides reference portions and approximate weights. Values can vary with oil, extras, and the actual serving size.",
+    faqQuestion7: "Can I edit the plan Miri created?", faqAnswer7: "Yes. You can ask Miri for a specific change, such as swapping a meal or easing an exercise, then save a new version of your plan.",
+    faqQuestion8: "Which languages are available in Yoldaş?", faqAnswer8: "The Yoldaş interface is available in Arabic, Turkish, and English. You can change the language from the top of the page.",
+    faqQuestion9: "What happens when I reach Miri's daily limit?", faqAnswer9: "Miri requests pause until the next day. You can still log your meal manually from the food guide in the meantime.",
+    faqQuestion10: "How do friendships and streak photos work?", faqAnswer10: "You find a friend by their exact username and need their approval. Streak photos are private between the two friends and expire within 24 hours."
+  });
 
   const PLAN_QUESTIONS_TR = {
     food: [
@@ -366,6 +391,16 @@
   }
 
   function bindNavigation() {
+    document.querySelectorAll("[data-home-link]").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const isDashboardOpen = !$('dashboard-view').hidden;
+        if (isDashboardOpen && !window.confirm(t("homeConfirm"))) return;
+        showWelcome();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
+
     document.querySelectorAll(".tab, .mobile-tab").forEach((btn) => {
       btn.addEventListener("click", () => switchScreen(btn.dataset.screen));
     });

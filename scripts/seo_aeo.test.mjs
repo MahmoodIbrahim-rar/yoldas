@@ -26,11 +26,12 @@ test("visible FAQ content matches valid FAQPage JSON-LD", async () => {
   assert.ok(schema, "FAQ JSON-LD must exist");
   const data = JSON.parse(schema);
   assert.equal(data["@type"], "FAQPage");
-  assert.equal(data.mainEntity.length, 5);
-  assert.equal((html.match(/class="faq-item"/g) || []).length, 5);
+  assert.equal(data.mainEntity.length, 10);
+  assert.equal((html.match(/class="faq-item"/g) || []).length, 10);
   assert.match(html, /data-i18n="faqQuestion1"/);
+  assert.match(html, /data-i18n="faqQuestion10"/);
   assert.match(app, /faqQuestion1:/);
-  assert.match(app, /faqQuestion5:/);
+  assert.match(app, /faqQuestion10:/);
 });
 
 test("robots and sitemap expose only the selected canonical deployment", async () => {

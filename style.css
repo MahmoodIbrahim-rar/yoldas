@@ -972,6 +972,25 @@ input { font-family: inherit; }
   }
 }
 
+/* يمنع أي نسخة أقدم أو قاعدة وراثية من تراكب بطاقة التعريف فوق الهيرو في العرض المتوسط. */
+@media (min-width: 901px) and (max-width: 1120px) {
+  .welcome-ad-shell { display: block; padding: 0 38px; }
+  .welcome-grid {
+    width: min(100%, 960px);
+    margin: 0 auto;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 32px;
+    align-items: stretch;
+  }
+  .hero-card, .intro-card { min-width: 0; margin: 0; }
+  .hero-card { min-height: 610px; padding: 46px 36px; }
+  .intro-card { min-height: 610px; padding: 38px 28px; }
+  .hero-card h1 { font-size: clamp(40px, 5.15vw, 52px); }
+  .intro-card h2 { font-size: clamp(22px, 2.65vw, 29px); }
+  .feature-list { gap: 11px; }
+  .feature-list div { min-height: 72px; }
+}
+
 @media (max-width: 900px) {
   .welcome-ad-shell { padding: 0 18px; }
   .welcome-grid { grid-template-columns: 1fr; }

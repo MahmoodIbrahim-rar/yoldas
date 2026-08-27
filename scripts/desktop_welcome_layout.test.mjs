@@ -9,4 +9,6 @@ test("desktop and laptop welcome cards remain side-by-side without an intro offs
   assert.match(css, /grid-template-columns:\s*minmax\(0, 1\.08fr\) minmax\(0, 0\.92fr\)/);
   assert.match(css, /\.intro-card\s*\{[\s\S]*?margin-top:\s*0;/);
   assert.match(css, /\.hero-card\s*\{[\s\S]*?min-height:\s*620px;/);
+  assert.match(css, /@media \(min-width: 901px\) and \(max-width: 1120px\)/);
+  assert.match(css, /\.hero-card, \.intro-card \{ min-width: 0; margin: 0; \}/);
 });

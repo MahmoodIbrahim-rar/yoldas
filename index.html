@@ -68,6 +68,31 @@
             "@type": "Question",
             "name": "هل ميري بديل للطبيب أو أخصائي التغذية؟",
             "acceptedAnswer": { "@type": "Answer", "text": "لا. ميري تقدم إرشادات عامة داعمة، وليست تشخيصًا أو بديلًا للطبيب أو المختص عند وجود حالة صحية خاصة." }
+          },
+          {
+            "@type": "Question",
+            "name": "هل قيم دليل الأكل دقيقة لكل وجبة؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "دليل الأكل يقدم حصصًا مرجعية وأوزانًا تقريبية، وقد تختلف القيمة حسب الزيت والإضافات وحجم الوجبة الفعلي." }
+          },
+          {
+            "@type": "Question",
+            "name": "هل يمكنني تعديل الخطة التي أنشأتها ميري؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "نعم. يمكنك طلب تعديل محدد من ميري، مثل تغيير وجبة أو تخفيف تمرين، ثم تحفظ نسخة جديدة من خطتك." }
+          },
+          {
+            "@type": "Question",
+            "name": "ما اللغات المتاحة في Yoldaş؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "واجهة Yoldaş متاحة بالعربية والتركية والإنجليزية، ويمكن تغيير اللغة من أعلى الصفحة." }
+          },
+          {
+            "@type": "Question",
+            "name": "ماذا يحدث عندما أصل إلى الحد اليومي لميري؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "تتوقف طلبات ميري مؤقتًا حتى اليوم التالي، ويمكنك في هذه الأثناء تسجيل وجبتك يدويًا من دليل الأكل." }
+          },
+          {
+            "@type": "Question",
+            "name": "كيف تعمل الصداقة وصور الستريك؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "تبحث عن صديق باسم المستخدم الدقيق وتحتاج الموافقة. صور الستريك خاصة بين الصديقين وتنتهي خلال 24 ساعة." }
           }
         ]
       }
@@ -78,7 +103,7 @@
       <!-- ============== صفحة الترحيب ============== -->
       <section id="welcome-view" class="welcome-page">
         <nav class="topbar">
-          <a class="wordmark" href="#" aria-label="Yoldaş"><img class="wordmark-logo" src="assets/Yoldas_nav_logo_trimmed.png" alt="Yoldaş" /></a>
+          <a class="wordmark" href="#welcome-view" data-home-link aria-label="Yoldaş"><img class="wordmark-logo" src="assets/Yoldas_nav_logo_trimmed.png" alt="شعار Yoldaş والعودة إلى الصفحة الرئيسية" /></a>
           <div class="topbar-tools">
             <span class="nav-label" data-i18n="dailyCompanion">رفيقك اليومي</span>
             <div class="language-switch" aria-label="اختيار اللغة">
@@ -241,6 +266,26 @@
               <summary data-i18n="faqQuestion5">هل ميري بديل للطبيب أو أخصائي التغذية؟</summary>
               <p data-i18n="faqAnswer5">لا. ميري تقدم إرشادات عامة داعمة، وليست تشخيصًا أو بديلًا للطبيب أو المختص عند وجود حالة صحية خاصة.</p>
             </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion6">هل قيم دليل الأكل دقيقة لكل وجبة؟</summary>
+              <p data-i18n="faqAnswer6">دليل الأكل يقدم حصصًا مرجعية وأوزانًا تقريبية، وقد تختلف القيمة حسب الزيت والإضافات وحجم الوجبة الفعلي.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion7">هل يمكنني تعديل الخطة التي أنشأتها ميري؟</summary>
+              <p data-i18n="faqAnswer7">نعم. يمكنك طلب تعديل محدد من ميري، مثل تغيير وجبة أو تخفيف تمرين، ثم تحفظ نسخة جديدة من خطتك.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion8">ما اللغات المتاحة في Yoldaş؟</summary>
+              <p data-i18n="faqAnswer8">واجهة Yoldaş متاحة بالعربية والتركية والإنجليزية، ويمكن تغيير اللغة من أعلى الصفحة.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion9">ماذا يحدث عندما أصل إلى الحد اليومي لميري؟</summary>
+              <p data-i18n="faqAnswer9">تتوقف طلبات ميري مؤقتًا حتى اليوم التالي، ويمكنك في هذه الأثناء تسجيل وجبتك يدويًا من دليل الأكل.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion10">كيف تعمل الصداقة وصور الستريك؟</summary>
+              <p data-i18n="faqAnswer10">تبحث عن صديق باسم المستخدم الدقيق وتحتاج الموافقة. صور الستريك خاصة بين الصديقين وتنتهي خلال 24 ساعة.</p>
+            </details>
           </div>
         </section>
       </section>
@@ -248,7 +293,7 @@
       <!-- ============== واجهة التطبيق بعد بدء الرحلة ============== -->
       <section id="dashboard-view" class="dashboard-page" hidden>
         <nav class="topbar dashboard-nav">
-          <a class="wordmark" href="#" aria-label="Yoldaş"><img class="wordmark-logo" src="assets/Yoldas_nav_logo_trimmed.png" alt="Yoldaş" /></a>
+          <a class="wordmark" href="#welcome-view" data-home-link aria-label="Yoldaş"><img class="wordmark-logo" src="assets/Yoldas_nav_logo_trimmed.png" alt="شعار Yoldaş والعودة إلى الصفحة الرئيسية" /></a>
           <div class="nav-tabs">
             <button class="tab active" data-screen="today" data-i18n="navToday">اليوم</button>
             <button class="tab" data-screen="plans" data-i18n="navPlans">الخطط</button>
