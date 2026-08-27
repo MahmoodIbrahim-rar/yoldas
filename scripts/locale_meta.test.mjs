@@ -22,4 +22,9 @@ test("page title, descriptions, and sharing metadata follow the selected locale"
   assert.match(app, /setMetaContent\('meta\[property="og:description"\]', meta\.description\)/);
   assert.match(app, /setMetaContent\('meta\[name="twitter:description"\]', meta\.description\)/);
   assert.match(app, /function applyLocale\(\) \{[\s\S]*?updatePageMeta\(\);/);
+  assert.match(app, /function detectInitialLocale\(\)/);
+  assert.match(app, /navigator\.language/);
+  assert.match(app, /browserLanguage\.startsWith\("tr"\)/);
+  assert.match(app, /browserLanguage\.startsWith\("en"\)/);
+  assert.match(app, /localStorage\.setItem\("yoldas_locale", currentLocale\)/);
 });

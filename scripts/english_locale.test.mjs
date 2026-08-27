@@ -12,8 +12,9 @@ test("English is a complete third locale for the UI, plans, Miri, and food catal
     read("supabase/functions/health-assistant/index.ts"),
     read("data/reference_recipes.json").then(JSON.parse),
   ]);
-  assert.match(html, /data-locale="en">English/);
-  assert.match(app, /\["ar", "tr", "en"\]/);
+  assert.match(html, /data-language-name="English">English/);
+  assert.match(html, /class="language-menu" data-language-menu/);
+  assert.match(app, /const SUPPORTED_LOCALES = \["ar", "tr", "en"\]/);
   assert.match(app, /document\.documentElement\.dir = currentLocale === "ar" \? "rtl" : "ltr"/);
   assert.match(app, /UI_TEXT\.en = \{/);
   assert.match(app, /EXTRA_UI_TEXT[\s\S]*en: \{/);

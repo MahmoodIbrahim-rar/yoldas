@@ -17,6 +17,14 @@
     <meta name="twitter:title" content="Yoldaş | خطة أكل وتمارين ومتابعة صحية يومية" />
     <meta name="twitter:description" content="خطة أكل وتمارين شخصية، متابعة يومية، وميري لمساندة عاداتك الصحية خطوة بخطوة." />
     <meta name="theme-color" content="#f04f21" />
+    <script>
+      (function () {
+        var saved = localStorage.getItem("yoldas_theme");
+        var theme = saved === "dark" || saved === "light" ? saved : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      }());
+    </script>
     <!-- Google Analytics: basic visitor measurement only; no account, meal, plan, or chat data is sent. -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QVQTEFBJE"></script>
     <script>
@@ -35,10 +43,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=20260827-streak-camera-theme" />
     <script src="config.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script defer src="app.js?v=20260827-challenges-locale"></script>
+    <script defer src="app.js?v=20260827-streak-camera-theme"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -131,11 +139,22 @@
           <a class="wordmark" href="#welcome-view" data-home-link aria-label="Yoldaş"><img class="wordmark-logo" src="assets/Yoldas_nav_logo_trimmed.png" alt="شعار Yoldaş والعودة إلى الصفحة الرئيسية" /></a>
           <div class="topbar-tools">
             <span class="nav-label" data-i18n="dailyCompanion">رفيقك اليومي</span>
-            <div class="language-switch" aria-label="اختيار اللغة">
-              <button type="button" class="language-button active" data-locale="ar">العربية</button>
-              <button type="button" class="language-button" data-locale="tr">Türkçe</button>
-              <button type="button" class="language-button" data-locale="en">English</button>
+            <div class="language-menu" data-language-menu>
+              <button class="language-menu-button" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="welcome-language-menu">
+                <span data-language-current>العربية</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg>
+              </button>
+              <div id="welcome-language-menu" class="language-menu-list" role="menu" hidden>
+                <button type="button" class="language-option" role="menuitemradio" aria-checked="true" data-locale="ar" data-language-name="العربية">العربية</button>
+                <button type="button" class="language-option" role="menuitemradio" aria-checked="false" data-locale="tr" data-language-name="Türkçe">Türkçe</button>
+                <button type="button" class="language-option" role="menuitemradio" aria-checked="false" data-locale="en" data-language-name="English">English</button>
+              </div>
             </div>
+            <button id="welcome-theme-toggle" class="theme-toggle" type="button" aria-pressed="false">
+              <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2.1M12 19.9V22M4.93 4.93l1.49 1.49M17.58 17.58l1.49 1.49M2 12h2.1M19.9 12H22M4.93 19.07l1.49-1.49M17.58 6.42l1.49-1.49"/></svg>
+              <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z"/></svg>
+              <span class="sr-only" data-theme-toggle-label>تفعيل الوضع الداكن</span>
+            </button>
           </div>
         </nav>
 
@@ -348,11 +367,22 @@
             <button class="tab" data-screen="settings" data-i18n="navSettings">الإعدادات</button>
           </div>
           <div class="topbar-tools">
-            <div class="language-switch" aria-label="اختيار اللغة">
-              <button type="button" class="language-button active" data-locale="ar">العربية</button>
-              <button type="button" class="language-button" data-locale="tr">Türkçe</button>
-              <button type="button" class="language-button" data-locale="en">English</button>
+            <div class="language-menu" data-language-menu>
+              <button class="language-menu-button" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="dashboard-language-menu">
+                <span data-language-current>العربية</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg>
+              </button>
+              <div id="dashboard-language-menu" class="language-menu-list" role="menu" hidden>
+                <button type="button" class="language-option" role="menuitemradio" aria-checked="true" data-locale="ar" data-language-name="العربية">العربية</button>
+                <button type="button" class="language-option" role="menuitemradio" aria-checked="false" data-locale="tr" data-language-name="Türkçe">Türkçe</button>
+                <button type="button" class="language-option" role="menuitemradio" aria-checked="false" data-locale="en" data-language-name="English">English</button>
+              </div>
             </div>
+            <button id="dashboard-theme-toggle" class="theme-toggle" type="button" aria-pressed="false">
+              <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2.1M12 19.9V22M4.93 4.93l1.49 1.49M17.58 17.58l1.49 1.49M2 12h2.1M19.9 12H22M4.93 19.07l1.49-1.49M17.58 6.42l1.49-1.49"/></svg>
+              <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z"/></svg>
+              <span class="sr-only" data-theme-toggle-label>تفعيل الوضع الداكن</span>
+            </button>
             <button id="reset-journey" class="text-button" type="button" aria-label="بدء من جديد" title="بدء من جديد" data-i18n="startOver">بدء من جديد</button>
           </div>
         </nav>
@@ -525,11 +555,26 @@
                   <div><p class="eyebrow" data-i18n="snapEyebrow">ستريك خاص</p><h2 data-i18n="snapTitle">صورة ستريك لصاحب</h2><p data-i18n="snapPrivacy">صورة واحدة يوميًا لكل صديق، تظهر 24 ساعة فقط. لا ترسل صورًا حساسة أو شخصية.</p></div>
               <form id="snap-form" class="snap-form">
                 <label><span data-i18n="snapFriend">الصاحب</span><select id="snap-recipient" required></select></label>
-                <label class="snap-file-label"><span data-i18n="snapPhoto">الصورة</span><input id="snap-file" type="file" accept="image/jpeg,image/webp" required /></label>
+                <div class="snap-photo-picker">
+                  <span class="snap-photo-label" data-i18n="snapPhoto">الصورة</span>
+                  <div class="snap-photo-actions">
+                    <button id="snap-camera-button" class="snap-media-button snap-camera-button" type="button">
+                      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7.5h3l1.3-2h7.4l1.3 2h3a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13.5" r="3.5"/></svg>
+                      <span data-i18n="snapCapture">التقط صورة</span>
+                    </button>
+                    <button id="snap-file-button" class="snap-media-button" type="button">
+                      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v13A1.5 1.5 0 0 1 18.5 20h-13A1.5 1.5 0 0 1 4 18.5v-13Z"/><circle cx="8.5" cy="9" r="1.25"/><path d="m5 17 4.2-4.2a1.35 1.35 0 0 1 1.9 0l1.8 1.8 1.5-1.5a1.35 1.35 0 0 1 1.9 0L19 16"/></svg>
+                      <span data-i18n="snapChoose">اختر صورة</span>
+                    </button>
+                  </div>
+                  <input id="snap-camera" class="snap-file-input" type="file" accept="image/*" capture="environment" tabindex="-1" aria-hidden="true" />
+                  <input id="snap-file" class="snap-file-input" type="file" accept="image/*" tabindex="-1" aria-hidden="true" />
+                  <small id="snap-file-name" class="snap-file-name" data-i18n="snapNoFile">لم تختر صورة بعد.</small>
+                </div>
                 <label><span data-i18n="snapCaption">كلمة قصيرة (اختياري)</span><input id="snap-caption" maxlength="140" data-i18n-placeholder="snapCaptionPlaceholder" placeholder="مثال: مشي اليوم" /></label>
                 <button class="primary-button" type="submit" data-i18n="sendSnap">أرسل الستريك</button>
               </form>
-              <p id="snap-status" class="settings-hint" hidden></p>
+              <p id="snap-status" class="settings-hint" aria-live="polite" hidden></p>
               <div id="snap-list" class="snap-list"></div>
                 </section>
               </aside>

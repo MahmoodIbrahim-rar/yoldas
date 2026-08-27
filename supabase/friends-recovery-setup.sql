@@ -25,6 +25,15 @@ create table if not exists public.friendships (
 create unique index if not exists friendships_pair_unique
   on public.friendships (least(requester_user_id, addressee_user_id), greatest(requester_user_id, addressee_user_id));
 
+-- مطلوب لعداد سلسلة الإنجاز المتبادلة بين الأصدقاء.
+-- هنا ليُشغّل إعداد الأصدقاء كاملًا بملف واحد، حتى لو كان المستخدم قد شغّله سابقًا.
+create table if not exists public.friend_streaks (
+  friendship_id uuid primary key references public.friendships(id) on delete cascade,
+  streak_count integer not null default 0 check (streak_count >= 0),
+  last_completed_day date,
+  updated_at timestamptz not null default now()
+);
+
 create table if not exists public.friend_blocks (
   id uuid primary key default gen_random_uuid(),
   blocker_user_id uuid not null references auth.users(id) on delete cascade,
@@ -73,6 +82,7 @@ create table if not exists public.snap_reactions (
 );
 
 alter table public.friendships enable row level security;
+alter table public.friend_streaks enable row level security;
 alter table public.friend_blocks enable row level security;
 alter table public.streak_snaps enable row level security;
 alter table public.friend_reports enable row level security;
@@ -81,6 +91,17 @@ alter table public.snap_reactions enable row level security;
 drop policy if exists "friendships_participant_only" on public.friendships;
 create policy "friendships_participant_only" on public.friendships
   for select using (auth.uid() in (requester_user_id, addressee_user_id));
+
+drop policy if exists "friend_streaks_participant_only" on public.friend_streaks;
+create policy "friend_streaks_participant_only" on public.friend_streaks
+  for select using (
+    exists (
+      select 1 from public.friendships
+      where friendships.id = friend_streaks.friendship_id
+        and friendships.status = 'accepted'
+        and auth.uid() in (friendships.requester_user_id, friendships.addressee_user_id)
+    )
+  );
 
 drop policy if exists "friend_blocks_owner_only" on public.friend_blocks;
 create policy "friend_blocks_owner_only" on public.friend_blocks

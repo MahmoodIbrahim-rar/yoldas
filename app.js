@@ -12,7 +12,23 @@
   let currentUser = null;
   let lastChatMessage = null; // لإعادة محاولة آخر رسالة فقط دون تكرارها
   let planState = { type: "food", step: 0, answers: {} };
-  let currentLocale = ["ar", "tr", "en"].includes(localStorage.getItem("yoldas_locale")) ? localStorage.getItem("yoldas_locale") : "ar";
+  const SUPPORTED_LOCALES = ["ar", "tr", "en"];
+  const LOCALE_NAMES = { ar: "العربية", tr: "Türkçe", en: "English" };
+  function detectInitialLocale() {
+    const saved = localStorage.getItem("yoldas_locale");
+    if (SUPPORTED_LOCALES.includes(saved)) return saved;
+    const browserLanguage = String(navigator.language || navigator.languages?.[0] || "ar").toLowerCase();
+    if (browserLanguage.startsWith("tr")) return "tr";
+    if (browserLanguage.startsWith("en")) return "en";
+    return "ar";
+  }
+  function detectInitialTheme() {
+    const saved = localStorage.getItem("yoldas_theme");
+    if (saved === "dark" || saved === "light") return saved;
+    return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  let currentLocale = detectInitialLocale();
+  let currentTheme = detectInitialTheme();
   let accountMode = "signup";
   let referenceRecipes = [];
   let selectedRecipeId = null;
@@ -21,6 +37,7 @@
   let gymSets = [];
   let miriStyle = "supportive";
   let myChallengeLevel = 0;
+  let selectedSnapFile = null;
 
   const UI_TEXT = {
     ar: {
@@ -239,6 +256,18 @@
   Object.assign(UI_TEXT.en, {
     healthAssistant: "Miri, your daily guide", assistantDescription: "Write naturally about a meal, workout, or goal, and Miri will suggest one practical next step.", cupsToday: "cups logged today", mealsToday: "meals logged today", minutesToday: "movement minutes today", foodCatalogDescription: "Egyptian, Turkish, and everyday foods with clear reference portions and weights. Values vary with oil, extras, and the actual serving size.", referenceMealNote: "A reference value calculated for a specific recipe and approximate serving; adjust the serving size if yours differs."
   });
+  Object.assign(UI_TEXT.ar, {
+    snapCapture: "التقط صورة", snapChoose: "اختر صورة", snapNoFile: "لم تختر صورة بعد.", snapPhotoRequired: "التقط صورة أو اختر صورة أولًا.", snapPreparing: "يُجهّز الصورة للإرسال...", snapProcessingError: "تعذر تجهيز الصورة. جرّب صورة JPG أو WebP أخرى.", snapUploadPermission: "تعذر رفع الصورة بسبب إعداد الصلاحيات. أعد تشغيل ملف إعداد الأصدقاء ثم جرّب مرة أخرى.", snapWaitingForFriend: "أُرسلت الصورة. يكتمل الستريك عندما يرسل صديقك صورة لك اليوم أيضًا.", snapStreakCompleted: "أُرسلت الصورة واكتمل ستريك اليوم بينكما."
+  });
+  Object.assign(UI_TEXT.tr, {
+    snapCapture: "Fotoğraf çek", snapChoose: "Fotoğraf seç", snapNoFile: "Henüz fotoğraf seçilmedi.", snapPhotoRequired: "Önce bir fotoğraf çek veya seç.", snapPreparing: "Fotoğraf gönderim için hazırlanıyor...", snapProcessingError: "Fotoğraf hazırlanamadı. Başka bir JPG veya WebP fotoğraf dene.", snapUploadPermission: "İzin ayarları nedeniyle fotoğraf yüklenemedi. Arkadaş kurulum dosyasını yeniden çalıştırıp tekrar dene.", snapWaitingForFriend: "Fotoğraf gönderildi. Serinin tamamlanması için arkadaşının da bugün sana fotoğraf göndermesi gerekir.", snapStreakCompleted: "Fotoğraf gönderildi ve bugünkü seriniz tamamlandı."
+  });
+  Object.assign(UI_TEXT.en, {
+    snapCapture: "Take a photo", snapChoose: "Choose a photo", snapNoFile: "No photo selected yet.", snapPhotoRequired: "Take or choose a photo first.", snapPreparing: "Preparing the photo to send...", snapProcessingError: "The photo could not be prepared. Try another JPG or WebP photo.", snapUploadPermission: "The photo could not be uploaded because of storage permissions. Run the friends setup file again, then try once more.", snapWaitingForFriend: "Photo sent. Your streak completes when your friend also sends you a photo today.", snapStreakCompleted: "Photo sent and today’s streak is complete."
+  });
+  Object.assign(UI_TEXT.ar, { languageMenuLabel: "اختيار اللغة", themeEnableDark: "تفعيل الوضع الداكن", themeEnableLight: "تفعيل الوضع الفاتح" });
+  Object.assign(UI_TEXT.tr, { languageMenuLabel: "Dil seç", themeEnableDark: "Koyu temayı aç", themeEnableLight: "Açık temayı aç" });
+  Object.assign(UI_TEXT.en, { languageMenuLabel: "Choose language", themeEnableDark: "Enable dark theme", themeEnableLight: "Enable light theme" });
   const PLAN_QUESTIONS_TR = {
     food: [
       { key: "goal", label: "Ana hedefin nedir?", placeholder: "Örnek: Sakin şekilde kilo vermek" },
@@ -371,6 +400,37 @@
     setMetaContent('meta[name="twitter:description"]', meta.description);
   }
 
+  function applyTheme() {
+    document.documentElement.dataset.theme = currentTheme;
+    document.documentElement.style.colorScheme = currentTheme;
+    setMetaContent('meta[name="theme-color"]', currentTheme === "dark" ? "#0a0907" : "#f04f21");
+    document.querySelectorAll(".theme-toggle").forEach((button) => {
+      const isDark = currentTheme === "dark";
+      const label = isDark ? t("themeEnableLight") : t("themeEnableDark");
+      button.setAttribute("aria-pressed", String(isDark));
+      button.setAttribute("aria-label", label);
+      button.setAttribute("title", label);
+      const text = button.querySelector("[data-theme-toggle-label]");
+      if (text) text.textContent = label;
+    });
+  }
+
+  function setTheme(theme) {
+    currentTheme = theme === "dark" ? "dark" : "light";
+    localStorage.setItem("yoldas_theme", currentTheme);
+    applyTheme();
+  }
+
+  function closeLanguageMenus(except = null) {
+    document.querySelectorAll("[data-language-menu]").forEach((menu) => {
+      if (menu === except) return;
+      const button = menu.querySelector(".language-menu-button");
+      const list = menu.querySelector(".language-menu-list");
+      if (button) button.setAttribute("aria-expanded", "false");
+      if (list) list.hidden = true;
+    });
+  }
+
   function renderMiriStyleOptions() {
     document.querySelectorAll(".miri-style-option").forEach((button) => {
       const active = button.dataset.miriStyle === miriStyle;
@@ -396,7 +456,14 @@
       const key = el.dataset.i18nPrompt;
       if (UI_TEXT[currentLocale]?.[key]) el.dataset.prompt = UI_TEXT[currentLocale][key];
     });
-    document.querySelectorAll(".language-button").forEach((button) => button.classList.toggle("active", button.dataset.locale === currentLocale));
+    document.querySelectorAll("[data-language-current]").forEach((el) => { el.textContent = LOCALE_NAMES[currentLocale]; });
+    document.querySelectorAll(".language-menu-button").forEach((button) => button.setAttribute("aria-label", t("languageMenuLabel")));
+    document.querySelectorAll(".language-option").forEach((button) => {
+      const active = button.dataset.locale === currentLocale;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-checked", String(active));
+    });
+    applyTheme();
     const chatInput = $("chat-input");
     if (chatInput) chatInput.placeholder = t("chatPlaceholder");
     const greeting = $("chat-messages")?.querySelector(".chat.bot");
@@ -417,8 +484,9 @@
   }
 
   function setLocale(locale) {
-    currentLocale = ["ar", "tr", "en"].includes(locale) ? locale : "ar";
+    currentLocale = SUPPORTED_LOCALES.includes(locale) ? locale : "ar";
     localStorage.setItem("yoldas_locale", currentLocale);
+    closeLanguageMenus();
     applyLocale();
   }
 
@@ -542,8 +610,23 @@
       showWelcome();
     });
 
-    document.querySelectorAll(".language-button").forEach((button) => {
-      button.addEventListener("click", () => setLocale(button.dataset.locale));
+    document.querySelectorAll("[data-language-menu]").forEach((menu) => {
+      const button = menu.querySelector(".language-menu-button");
+      const list = menu.querySelector(".language-menu-list");
+      button?.addEventListener("click", () => {
+        const opening = button.getAttribute("aria-expanded") !== "true";
+        closeLanguageMenus(opening ? menu : null);
+        button.setAttribute("aria-expanded", String(opening));
+        if (list) list.hidden = !opening;
+      });
+      menu.querySelectorAll(".language-option").forEach((option) => option.addEventListener("click", () => setLocale(option.dataset.locale)));
+    });
+    document.querySelectorAll(".theme-toggle").forEach((button) => button.addEventListener("click", () => setTheme(currentTheme === "dark" ? "light" : "dark")));
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest("[data-language-menu]")) closeLanguageMenus();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeLanguageMenus();
     });
   }
 
@@ -1658,8 +1741,65 @@
     if (code.includes("CHALLENGE_PARTICIPANT_LIMIT")) return t("challengeParticipantLimit");
     if (code.includes("CHALLENGE_FRIEND_REQUIRED")) return t("challengeFriendRequired");
     if (/friend_challenges|friend_challenge_participants|claim_friend_challenge_day|award_friend_challenge_win|challenge/i.test(code)) return t("challengeSetupRequired");
-    if (/relation|bucket|function|social-service|friendships|streak_snaps/i.test(code)) return t("communitySetupRequired");
+    if (/friend_streaks/i.test(code)) return t("streakSetupRequired");
+    if (/friendships|streak_snaps|bucket.*(not found|missing)|relation.*(friendships|streak_snaps)/i.test(code)) return t("communitySetupRequired");
     return t("actionFailed");
+  }
+
+  function snapErrorText(error) {
+    const code = String(error?.message || "");
+    if (/SNAP_UNSUPPORTED|SNAP_PROCESSING_FAILED/i.test(code)) return t("snapProcessingError");
+    if (/SNAP_TOO_LARGE/i.test(code)) return t("snapTooLarge");
+    if (/row-level security|permission denied|not authorized|unauthorized/i.test(code)) return t("snapUploadPermission");
+    return socialErrorText(error);
+  }
+
+  function setSelectedSnapFile(file) {
+    selectedSnapFile = file || null;
+    const name = $("snap-file-name");
+    if (name) name.textContent = file?.name || t("snapNoFile");
+  }
+
+  function canvasBlob(canvas, quality) {
+    return new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", quality));
+  }
+
+  async function prepareSnapFile(file) {
+    const allowedTypes = ["image/jpeg", "image/webp"];
+    const maxBytes = 2 * 1024 * 1024;
+    if (!file?.type?.startsWith("image/")) throw new Error("SNAP_UNSUPPORTED");
+    if (allowedTypes.includes(file.type) && file.size <= maxBytes) return file;
+    if (!("createImageBitmap" in window)) {
+      if (file.size > maxBytes) throw new Error("SNAP_TOO_LARGE");
+      throw new Error("SNAP_UNSUPPORTED");
+    }
+    let bitmap;
+    try {
+      bitmap = await createImageBitmap(file);
+      let width = Math.min(bitmap.width, 1600);
+      let height = Math.max(1, Math.round(bitmap.height * (width / bitmap.width)));
+      const canvas = document.createElement("canvas");
+      for (let pass = 0; pass < 7; pass += 1) {
+        canvas.width = width;
+        canvas.height = height;
+        const context = canvas.getContext("2d", { alpha: false });
+        context.fillStyle = "#ffffff";
+        context.fillRect(0, 0, width, height);
+        context.drawImage(bitmap, 0, 0, width, height);
+        const blob = await canvasBlob(canvas, Math.max(0.48, 0.86 - (pass * 0.07)));
+        if (blob && blob.size <= maxBytes && blob.type === "image/jpeg") {
+          return new File([blob], `yoldas-streak-${Date.now()}.jpg`, { type: "image/jpeg" });
+        }
+        width = Math.max(720, Math.round(width * 0.8));
+        height = Math.max(720, Math.round(height * 0.8));
+      }
+    } catch (error) {
+      if (error?.message?.includes("SNAP_")) throw error;
+      throw new Error("SNAP_PROCESSING_FAILED");
+    } finally {
+      bitmap?.close?.();
+    }
+    throw new Error("SNAP_TOO_LARGE");
   }
 
   function renderFriendLists(friends = []) {
@@ -1985,31 +2125,46 @@
       }
     });
 
+    ["snap-camera", "snap-file"].forEach((id) => $(id)?.addEventListener("change", (event) => {
+      const file = event.currentTarget.files?.[0] || null;
+      if (!file) return;
+      const other = $(id === "snap-camera" ? "snap-file" : "snap-camera");
+      if (other) other.value = "";
+      setSelectedSnapFile(file);
+      setFriendsStatus("", false, "snap-status");
+    }));
+    $("snap-camera-button")?.addEventListener("click", () => $("snap-camera")?.click());
+    $("snap-file-button")?.addEventListener("click", () => $("snap-file")?.click());
+
     $("snap-form")?.addEventListener("submit", async (event) => {
       event.preventDefault();
       const recipientId = $("snap-recipient")?.value;
-      const file = $("snap-file")?.files?.[0];
+      const file = selectedSnapFile;
       const caption = $("snap-caption")?.value.trim() || "";
-      if (!recipientId || !file) return;
-      if (!["image/jpeg", "image/webp"].includes(file.type)) return setFriendsStatus(t("snapUnsupported"), true, "snap-status");
-      if (file.size > 2 * 1024 * 1024) return setFriendsStatus(t("snapTooLarge"), true, "snap-status");
-      const ext = file.type === "image/webp" ? "webp" : "jpg";
-      const path = `${currentUser.id}/${crypto.randomUUID()}.${ext}`;
+      if (!recipientId) return;
+      if (!file) return setFriendsStatus(t("snapPhotoRequired"), true, "snap-status");
+      let registration = {};
       try {
-        const { error: uploadError } = await supabase.storage.from("yoldas-streak-snaps").upload(path, file, { contentType: file.type, upsert: false });
+        setFriendsStatus(t("snapPreparing"), false, "snap-status");
+        const uploadFile = await prepareSnapFile(file);
+        const ext = uploadFile.type === "image/webp" ? "webp" : "jpg";
+        const path = `${currentUser.id}/${crypto.randomUUID()}.${ext}`;
+        const { error: uploadError } = await supabase.storage.from("yoldas-streak-snaps").upload(path, uploadFile, { contentType: uploadFile.type, upsert: false });
         if (uploadError) throw uploadError;
         try {
-          await socialCall("register_snap", { userId: recipientId, storagePath: path, caption });
+          registration = await socialCall("register_snap", { userId: recipientId, storagePath: path, caption });
+          if (registration.streakSetupRequired) throw new Error("friend_streaks missing");
         } catch (error) {
           await supabase.storage.from("yoldas-streak-snaps").remove([path]);
           throw error;
         }
         $("snap-form").reset();
-        setFriendsStatus(t("snapSaved"), false, "snap-status");
+        setSelectedSnapFile(null);
+        setFriendsStatus(registration.streakCompletedToday ? t("snapStreakCompleted") : t("snapWaitingForFriend"), false, "snap-status");
         await loadCommunity();
       } catch (error) {
         console.error("send snap failed", error);
-        setFriendsStatus(socialErrorText(error), true, "snap-status");
+        setFriendsStatus(snapErrorText(error), true, "snap-status");
       }
     });
 
@@ -2186,6 +2341,7 @@
 
     loadReferenceRecipes().then(renderFoodCatalog);
 
+    applyTheme();
     applyLocale();
 
     if (!isConfigured()) {
