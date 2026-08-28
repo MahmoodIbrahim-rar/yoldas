@@ -4,16 +4,16 @@ export const REFERENCE_RECIPES = [
     "id": "eg-koshari",
     "country": "EG",
     "name_ar": "كشري",
-    "name_tr": "koshari",
-    "name_en": "Koshari",
+    "name_tr": "Mercimekli pirinç ve makarna",
+    "name_en": "Rice, lentils and pasta",
     "search_terms": [
       "كشري",
       "koshari",
       "Koshari"
     ],
     "serving_ar": "طبق متوسط — نحو 350 غرام",
-    "serving_tr": "Orta porsiyon — yaklaşık 350 g",
-    "serving_en": "Approx. 350 g serving",
+    "serving_tr": "Mercimek, pirinç, makarna ve nohutla orta porsiyon — yaklaşık 350 g",
+    "serving_en": "Rice, lentils, pasta, and chickpeas — approx. 350 g",
     "serving_weight_g": 350,
     "nutrition": {
       "kcal": 482.9,
@@ -29,8 +29,8 @@ export const REFERENCE_RECIPES = [
     "id": "eg-ful-medames",
     "country": "EG",
     "name_ar": "فول مدمس",
-    "name_tr": "ful medames",
-    "name_en": "Ful Medames",
+    "name_tr": "Bakla",
+    "name_en": "Fava beans",
     "search_terms": [
       "فول",
       "فول مدمس",
@@ -38,8 +38,8 @@ export const REFERENCE_RECIPES = [
       "Ful Medames"
     ],
     "serving_ar": "طبق فول متوسط مع رغيف صغير — نحو 355 غرام",
-    "serving_tr": "Küçük pideyle orta ful porsiyonu — yaklaşık 355 g",
-    "serving_en": "Approx. 355 g serving",
+    "serving_tr": "Mısır usulü pişmiş bakla ve küçük pide — yaklaşık 355 g",
+    "serving_en": "Egyptian-style cooked fava beans with a small pita — approx. 355 g",
     "serving_weight_g": 355,
     "nutrition": {
       "kcal": 519.9,
@@ -55,8 +55,8 @@ export const REFERENCE_RECIPES = [
     "id": "eg-taameya",
     "country": "EG",
     "name_ar": "طعمية",
-    "name_tr": "taamiya",
-    "name_en": "Taameya (Egyptian Falafel)",
+    "name_tr": "Mısır falafeli",
+    "name_en": "Egyptian falafel",
     "search_terms": [
       "طعمية",
       "فلافل",
@@ -66,7 +66,7 @@ export const REFERENCE_RECIPES = [
     ],
     "serving_ar": "3 قطع متوسطة مع خبز وسلطة — نحو 245 غرام",
     "serving_tr": "Ekmek ve salatayla 3 orta parça — yaklaşık 245 g",
-    "serving_en": "Approx. 245 g serving",
+    "serving_en": "Three Egyptian falafel pieces with pita and salad — approx. 245 g",
     "serving_weight_g": 245,
     "nutrition": {
       "kcal": 506.3,
@@ -83,7 +83,7 @@ export const REFERENCE_RECIPES = [
     "country": "EG",
     "name_ar": "شوربة عدس",
     "name_tr": "mercimek çorbası (Mısır)",
-    "name_en": "Egyptian Lentil Soup",
+    "name_en": "Lentil soup",
     "search_terms": [
       "شوربة عدس",
       "lentil soup",
@@ -107,8 +107,8 @@ export const REFERENCE_RECIPES = [
     "id": "eg-molokhia-rice",
     "country": "EG",
     "name_ar": "ملوخية وأرز",
-    "name_tr": "molohiya ve pilav",
-    "name_en": "Molokhia with Rice",
+    "name_tr": "Jüt yaprağı yemeği ve pirinç",
+    "name_en": "Jute leaf stew with rice",
     "search_terms": [
       "ملوخية وأرز",
       "ملوخية رز",
@@ -117,8 +117,8 @@ export const REFERENCE_RECIPES = [
       "Molokhia with Rice"
     ],
     "serving_ar": "طبق ملوخية وأرز متوسط — نحو 428 غرام",
-    "serving_tr": "Orta molohiya ve pilav tabağı — yaklaşık 428 g",
-    "serving_en": "Approx. 428 g serving",
+    "serving_tr": "Jüt yaprağı yemeği ve pirinçle orta porsiyon — yaklaşık 428 g",
+    "serving_en": "Jute leaf stew with rice — approx. 428 g",
     "serving_weight_g": 428,
     "nutrition": {
       "kcal": 366.3,
@@ -135,7 +135,7 @@ export const REFERENCE_RECIPES = [
     "country": "EG",
     "name_ar": "محشي كوسة",
     "name_tr": "kabak dolması",
-    "name_en": "Stuffed Zucchini (Mahshi)",
+    "name_en": "Stuffed zucchini",
     "search_terms": [
       "محشي",
       "محشي كوسة",
@@ -145,7 +145,7 @@ export const REFERENCE_RECIPES = [
     ],
     "serving_ar": "4 قطع متوسطة — نحو 340 غرام",
     "serving_tr": "4 orta parça — yaklaşık 340 g",
-    "serving_en": "Approx. 340 g serving",
+    "serving_en": "Zucchini stuffed with rice and beef — approx. 340 g",
     "serving_weight_g": 340,
     "nutrition": {
       "kcal": 367.7,
@@ -162,7 +162,7 @@ export const REFERENCE_RECIPES = [
     "country": "EG",
     "name_ar": "مكرونة بشاميل",
     "name_tr": "beşamel makarna",
-    "name_en": "Egyptian Béchamel Pasta",
+    "name_en": "Baked pasta with béchamel",
     "search_terms": [
       "مكرونة بشاميل",
       "macarona bechamel",
@@ -186,8 +186,8 @@ export const REFERENCE_RECIPES = [
     "id": "eg-chicken-shawarma",
     "country": "EG",
     "name_ar": "شاورما فراخ",
-    "name_tr": "tavuk şavurma",
-    "name_en": "Chicken Shawarma Wrap",
+    "name_tr": "Tavuk döner",
+    "name_en": "Chicken shawarma wrap",
     "search_terms": [
       "شاورما فراخ",
       "شاورما",
@@ -195,8 +195,8 @@ export const REFERENCE_RECIPES = [
       "Chicken Shawarma Wrap"
     ],
     "serving_ar": "سندوتش متوسط — نحو 305 غرام",
-    "serving_tr": "Orta sandviç — yaklaşık 305 g",
-    "serving_en": "Approx. 305 g serving",
+    "serving_tr": "Tavuk dönerli orta sandviç — yaklaşık 305 g",
+    "serving_en": "Chicken, pita, yogurt, and vegetables — approx. 305 g",
     "serving_weight_g": 305,
     "nutrition": {
       "kcal": 556.1,
@@ -213,7 +213,7 @@ export const REFERENCE_RECIPES = [
     "country": "EG",
     "name_ar": "رز بلبن",
     "name_tr": "sütlaç (Mısır)",
-    "name_en": "Egyptian Rice Pudding",
+    "name_en": "Rice pudding",
     "search_terms": [
       "رز بلبن",
       "rice pudding",
@@ -237,8 +237,8 @@ export const REFERENCE_RECIPES = [
     "id": "eg-fatta-beef",
     "country": "EG",
     "name_ar": "فتة باللحم",
-    "name_tr": "etli fetteh",
-    "name_en": "Beef Fatta",
+    "name_tr": "Etli pilav ve kızarmış pide",
+    "name_en": "Beef, rice and toasted pita",
     "search_terms": [
       "فتة",
       "فتة لحمة",
@@ -246,8 +246,8 @@ export const REFERENCE_RECIPES = [
       "Beef Fatta"
     ],
     "serving_ar": "طبق متوسط — نحو 365 غرام",
-    "serving_tr": "Orta porsiyon — yaklaşık 365 g",
-    "serving_en": "Approx. 365 g serving",
+    "serving_tr": "Et, pirinç ve kızarmış pideyle orta porsiyon — yaklaşık 365 g",
+    "serving_en": "Beef, rice, toasted pita, and tomato sauce — approx. 365 g",
     "serving_weight_g": 365,
     "nutrition": {
       "kcal": 627.4,
@@ -263,8 +263,8 @@ export const REFERENCE_RECIPES = [
     "id": "eg-chicken-kabsa",
     "country": "EG",
     "name_ar": "كبسة دجاج",
-    "name_tr": "tavuk kabsa",
-    "name_en": "Chicken Kabsa",
+    "name_tr": "Baharatlı tavuklu pilav",
+    "name_en": "Spiced chicken and rice",
     "search_terms": [
       "كبسة",
       "كبسة فراخ",
@@ -316,7 +316,7 @@ export const REFERENCE_RECIPES = [
     "country": "TR",
     "name_ar": "منمن",
     "name_tr": "menemen",
-    "name_en": "Menemen",
+    "name_en": "Turkish eggs with tomatoes",
     "search_terms": [
       "منمن",
       "menemen",
@@ -341,7 +341,7 @@ export const REFERENCE_RECIPES = [
     "country": "TR",
     "name_ar": "شوربة عدس تركية",
     "name_tr": "mercimek çorbası",
-    "name_en": "Turkish Lentil Soup",
+    "name_en": "Lentil soup",
     "search_terms": [
       "شوربة عدس تركية",
       "mercimek çorbası",
@@ -366,7 +366,7 @@ export const REFERENCE_RECIPES = [
     "country": "TR",
     "name_ar": "دونر دوروم",
     "name_tr": "döner dürüm",
-    "name_en": "Döner Dürüm",
+    "name_en": "Turkish meat wrap",
     "search_terms": [
       "دونر",
       "دونر دوروم",
@@ -392,7 +392,7 @@ export const REFERENCE_RECIPES = [
     "country": "TR",
     "name_ar": "شيش دجاج مع أرز",
     "name_tr": "tavuk şiş ve pilav",
-    "name_en": "Chicken Shish with Rice",
+    "name_en": "Grilled chicken skewers with rice",
     "search_terms": [
       "شيش دجاج",
       "tavuk şiş",
@@ -418,7 +418,7 @@ export const REFERENCE_RECIPES = [
     "country": "TR",
     "name_ar": "كفتة تركية مع برغل",
     "name_tr": "köfte ve bulgur",
-    "name_en": "Turkish Köfte with Bulgur",
+    "name_en": "Meatballs with bulgur",
     "search_terms": [
       "كفتة تركية",
       "köfte",
@@ -444,7 +444,7 @@ export const REFERENCE_RECIPES = [
     "country": "TR",
     "name_ar": "لحم بعجين",
     "name_tr": "lahmacun",
-    "name_en": "Lahmacun",
+    "name_en": "Minced meat flatbread",
     "search_terms": [
       "لحم بعجين",
       "lahmacun",
@@ -494,7 +494,7 @@ export const REFERENCE_RECIPES = [
     "country": "TR",
     "name_ar": "أرز تركي",
     "name_tr": "Türk pilavı",
-    "name_en": "Turkish Rice Pilaf",
+    "name_en": "Rice pilaf",
     "search_terms": [
       "أرز تركي",
       "pilav",
@@ -519,7 +519,7 @@ export const REFERENCE_RECIPES = [
     "country": "TR",
     "name_ar": "سميت",
     "name_tr": "simit",
-    "name_en": "Simit",
+    "name_en": "Sesame bread ring",
     "search_terms": [
       "سميت",
       "simit",
@@ -544,7 +544,7 @@ export const REFERENCE_RECIPES = [
     "country": "TR",
     "name_ar": "إمام بايلدي",
     "name_tr": "imam bayıldı",
-    "name_en": "Imam Bayildi",
+    "name_en": "Braised eggplant with onions",
     "search_terms": [
       "إمام بايلدي",
       "imam bayıldı",
@@ -569,7 +569,7 @@ export const REFERENCE_RECIPES = [
     "country": "TR",
     "name_ar": "بورك جبنة",
     "name_tr": "peynirli börek",
-    "name_en": "Cheese Börek",
+    "name_en": "Cheese pastry",
     "search_terms": [
       "بورك",
       "بوريك",
@@ -595,7 +595,7 @@ export const REFERENCE_RECIPES = [
     "country": "TR",
     "name_ar": "بقلاوة",
     "name_tr": "baklava",
-    "name_en": "Baklava",
+    "name_en": "Layered nut pastry",
     "search_terms": [
       "بقلاوة",
       "baklava",
@@ -888,7 +888,7 @@ export const REFERENCE_RECIPES = [
     "country": "DAILY",
     "name_ar": "سندوتش فول يومي",
     "name_tr": "bakla sandviçi",
-    "name_en": "Ful Medames Sandwich",
+    "name_en": "Fava bean sandwich",
     "search_terms": [
       "سندوتش فول",
       "فول وخبز",
@@ -941,7 +941,7 @@ export const REFERENCE_RECIPES = [
     "country": "EG",
     "name_ar": "مكرونة بالصلصة",
     "name_tr": "Mısır usulü domatesli makarna",
-    "name_en": "Egyptian Tomato Pasta",
+    "name_en": "Pasta with tomato sauce",
     "search_terms": [
       "مكرونة بالصلصة",
       "مكرونة طماطم مصرية",
@@ -968,7 +968,7 @@ export const REFERENCE_RECIPES = [
     "country": "EG",
     "name_ar": "شكشوكة",
     "name_tr": "Mısır usulü şakşuka",
-    "name_en": "Shakshuka",
+    "name_en": "Eggs in tomato sauce",
     "search_terms": [
       "شكشوكة",
       "بيض بالطماطم",
@@ -995,7 +995,7 @@ export const REFERENCE_RECIPES = [
     "country": "EG",
     "name_ar": "مسقعة باذنجان",
     "name_tr": "Mısır usulü patlıcan musakka",
-    "name_en": "Egyptian Eggplant Moussaka",
+    "name_en": "Eggplant in tomato sauce",
     "search_terms": [
       "مسقعة",
       "مسقعة باذنجان",
@@ -1103,7 +1103,7 @@ export const REFERENCE_RECIPES = [
     "country": "EG",
     "name_ar": "سلطة فول",
     "name_tr": "Mısır usulü bakla salatası",
-    "name_en": "Ful Medames Salad",
+    "name_en": "Fava bean salad",
     "search_terms": [
       "سلطة فول",
       "فول سلطة",
@@ -1130,7 +1130,7 @@ export const REFERENCE_RECIPES = [
     "country": "EG",
     "name_ar": "سندوتش طعمية",
     "name_tr": "Mısır falafel sandviçi",
-    "name_en": "Taameya Sandwich",
+    "name_en": "Egyptian falafel sandwich",
     "search_terms": [
       "سندوتش طعمية",
       "ساندويتش فلافل",
@@ -1157,7 +1157,7 @@ export const REFERENCE_RECIPES = [
     "country": "EG",
     "name_ar": "بيض وفول",
     "name_tr": "yumurta ve bakla kahvaltısı",
-    "name_en": "Egg and Ful Breakfast",
+    "name_en": "Eggs and fava beans",
     "search_terms": [
       "بيض وفول",
       "فول بيض",
@@ -1346,7 +1346,7 @@ export const REFERENCE_RECIPES = [
     "country": "TR",
     "name_ar": "مسقعة تركية",
     "name_tr": "patlıcan musakka",
-    "name_en": "Turkish Eggplant Moussaka",
+    "name_en": "Eggplant and minced meat casserole",
     "search_terms": [
       "مسقعة تركية",
       "باذنجان باللحم",
@@ -1400,7 +1400,7 @@ export const REFERENCE_RECIPES = [
     "country": "TR",
     "name_ar": "مجفر كوسة",
     "name_tr": "mücver",
-    "name_en": "Zucchini Fritters (Mücver)",
+    "name_en": "Zucchini fritters",
     "search_terms": [
       "مجفر كوسة",
       "موجفر",
@@ -1427,7 +1427,7 @@ export const REFERENCE_RECIPES = [
     "country": "TR",
     "name_ar": "بورك سيجار",
     "name_tr": "sigara böreği",
-    "name_en": "Cheese Cigars (Sigara Börek)",
+    "name_en": "Cheese pastry rolls",
     "search_terms": [
       "بورك سيجار",
       "بوريك جبنة",
@@ -1535,7 +1535,7 @@ export const REFERENCE_RECIPES = [
     "country": "TR",
     "name_ar": "بورك بالبطاطس",
     "name_tr": "patatesli börek",
-    "name_en": "Potato Börek",
+    "name_en": "Potato pastry",
     "search_terms": [
       "بورك بطاطس",
       "بوريك بطاطس",
@@ -1561,8 +1561,8 @@ export const REFERENCE_RECIPES = [
     "id": "eg-ful-taameya-breakfast",
     "country": "EG",
     "name_ar": "فول وطعمية",
-    "name_tr": "Ful ve taamiya kahvaltısı",
-    "name_en": "Ful and Taameya Breakfast",
+    "name_tr": "Bakla ve Mısır falafeli kahvaltısı",
+    "name_en": "Fava beans and Egyptian falafel breakfast",
     "search_terms": [
       "فول وطعمية",
       "فطار فول طعمية",
