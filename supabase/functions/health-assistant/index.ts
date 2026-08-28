@@ -38,25 +38,6 @@ async function getProfileGender(supabase: ReturnType<typeof createClient>, userI
   return data?.gender === "male" || data?.gender === "female" ? data.gender : null;
 }
 
-type PremiumEntitlement = { isPremium: boolean; miriDailyLimit: number; planCreateLimit: number; planRevisionLimit: number };
-
-async function getPremiumEntitlement(supabase: ReturnType<typeof createClient>, userId: string): Promise<PremiumEntitlement> {
-  const free = { isPremium: false, miriDailyLimit: 3, planCreateLimit: 1, planRevisionLimit: 2 };
-  const { data, error } = await supabase.from("premium_entitlements").select("tier, premium_until").eq("user_id", userId).maybeSingle();
-  if (error || data?.tier !== "premium" || !data.premium_until || new Date(data.premium_until).getTime() <= Date.now()) return free;
-  return { isPremium: true, miriDailyLimit: 15, planCreateLimit: 4, planRevisionLimit: 12 };
-}
-
-async function reservePremiumPlanAction(supabase: ReturnType<typeof createClient>, userId: string, action: "plan_create" | "plan_revise") {
-  const { data, error } = await supabase.rpc("reserve_premium_monthly_action", { p_user_id: userId, p_action: action });
-  const result = Array.isArray(data) ? data[0] : data;
-  return !error && Boolean(result?.allowed);
-}
-
-async function releasePremiumPlanAction(supabase: ReturnType<typeof createClient>, userId: string, action: "plan_create" | "plan_revise") {
-  await supabase.rpc("release_premium_monthly_action", { p_user_id: userId, p_action: action });
-}
-
 function genderContext(locale: Locale, gender: string | null) {
   if (!gender) return "";
   const localizedGender = locale === "tr" ? (gender === "female" ? "kadın" : "erkek") : locale === "en" ? gender : (gender === "female" ? "أنثى" : "ذكر");
@@ -272,10 +253,12 @@ async function callGemini(apiKey: string, prompt: string, expectJson = false) {
   return text;
 }
 
-async function reserveMiriTextRequest(supabase: ReturnType<typeof createClient>, userId: string, locale: Locale, limit: number) {
+const MIRI_TEXT_DAILY_LIMIT = 5;
+
+async function reserveMiriTextRequest(supabase: ReturnType<typeof createClient>, userId: string, locale: "ar" | "tr") {
   const { data, error } = await supabase.rpc("reserve_miri_text_request", {
     p_user_id: userId,
-    p_limit: limit,
+    p_limit: MIRI_TEXT_DAILY_LIMIT,
   });
   if (error) {
     console.error("Miri usage limit setup failed", error);
@@ -283,7 +266,7 @@ async function reserveMiriTextRequest(supabase: ReturnType<typeof createClient>,
   }
   const result = Array.isArray(data) ? data[0] : data;
   if (!result?.allowed) {
-    return { ok: false, response: jsonResponse({ ok: false, error: "AI_DAILY_LIMIT", limit }) };
+    return { ok: false, response: jsonResponse({ ok: false, error: "AI_DAILY_LIMIT", limit: MIRI_TEXT_DAILY_LIMIT }) };
   }
   return { ok: true };
 }
@@ -362,7 +345,6 @@ serve(async (req) => {
     return errorResponse("تعذر التحقق من الجلسة. أعد تسجيل الدخول.", 401);
   }
   const userId = userData.user.id;
-  const premiumEntitlement = await getPremiumEntitlement(supabase, userId);
 
   let payload: Record<string, unknown>;
   try {
@@ -419,11 +401,8 @@ serve(async (req) => {
       if (!answers) {
         return errorResponse(localeText(locale, "بيانات الخطة غير مكتملة أو غير مناسبة. راجع الإجابات وحاول مرة أخرى.", "Plan bilgileri eksik veya uygun değil. Cevaplarını kontrol edip tekrar dene.", "Plan details are incomplete or invalid. Review your answers and try again."));
       }
-      if (!await reservePremiumPlanAction(supabase, userId, "plan_create")) {
-        return jsonResponse({ ok: false, error: "PREMIUM_PLAN_LIMIT", action: "plan_create" }, 429);
-      }
-      const reservation = await reserveMiriTextRequest(supabase, userId, locale, premiumEntitlement.miriDailyLimit);
-      if (!reservation.ok) { await releasePremiumPlanAction(supabase, userId, "plan_create"); return reservation.response; }
+      const reservation = await reserveMiriTextRequest(supabase, userId, locale);
+      if (!reservation.ok) return reservation.response;
       const planTypeName = locale === "tr"
         ? (planType === "food" ? "beslenme" : "antrenman")
         : locale === "en" ? (planType === "food" ? "food" : "workout") : (planType === "food" ? "أكل" : "تمرين");
@@ -476,7 +455,6 @@ ${planType === "food" ? `- العمر: ${answers.age}\n- الطول: ${answers.h
         planJson.source_locale = locale;
       } catch (e) {
         await releaseMiriTextRequest(supabase, userId);
-        await releasePremiumPlanAction(supabase, userId, "plan_create");
         console.error("plan generation failed", e);
         return errorResponse(localeText(locale, "تعذر إنشاء الخطة الآن. حاول مرة أخرى.", "Plan şu anda oluşturulamadı. Lütfen tekrar dene."), 502);
       }
@@ -496,8 +474,6 @@ ${planType === "food" ? `- العمر: ${answers.age}\n- الطول: ${answers.h
         .single();
 
       if (insertError) {
-        await releaseMiriTextRequest(supabase, userId);
-        await releasePremiumPlanAction(supabase, userId, "plan_create");
         console.error("plan insert failed", insertError);
         return errorResponse(localeText(locale, "تم إنشاء الخطة لكن تعذر حفظها. حاول مرة أخرى.", "Plan hazırlandı ancak kaydedilemedi. Lütfen tekrar dene."), 500);
       }
@@ -530,11 +506,8 @@ ${planType === "food" ? `- العمر: ${answers.age}\n- الطول: ${answers.h
         .single();
       if (planError || !savedPlan) return errorResponse(localeText(locale, "تعذر العثور على خطتك الحالية.", "Geçerli planın bulunamadı.", "Your current plan could not be found."), 404);
 
-      if (!await reservePremiumPlanAction(supabase, userId, "plan_revise")) {
-        return jsonResponse({ ok: false, error: "PREMIUM_PLAN_LIMIT", action: "plan_revise" }, 429);
-      }
-      const reservation = await reserveMiriTextRequest(supabase, userId, locale, premiumEntitlement.miriDailyLimit);
-      if (!reservation.ok) { await releasePremiumPlanAction(supabase, userId, "plan_revise"); return reservation.response; }
+      const reservation = await reserveMiriTextRequest(supabase, userId, locale);
+      if (!reservation.ok) return reservation.response;
       const planType = savedPlan.plan_type === "workout" ? "workout" : "food";
       const originalPlan = { ...((savedPlan.plan_json ?? {}) as Record<string, unknown>) };
       delete originalPlan.translations;
@@ -577,7 +550,6 @@ ${requestedEdit}`;
         revisedJson.revision_request = requestedEdit;
       } catch (error) {
         await releaseMiriTextRequest(supabase, userId);
-        await releasePremiumPlanAction(supabase, userId, "plan_revise");
         console.error("plan revision failed", error);
         return errorResponse(localeText(locale, "تعذر تعديل الخطة الآن. حاول مرة أخرى.", "Plan şu anda düzenlenemedi. Lütfen tekrar dene.", "The plan could not be updated right now. Try again."), 502);
       }
@@ -589,8 +561,6 @@ ${requestedEdit}`;
         .select()
         .single();
       if (insertError || !inserted) {
-        await releaseMiriTextRequest(supabase, userId);
-        await releasePremiumPlanAction(supabase, userId, "plan_revise");
         console.error("plan revision save failed", insertError);
         return errorResponse(localeText(locale, "تم تجهيز التعديل لكن تعذر حفظه. حاول مرة أخرى.", "Düzenleme hazırlandı ancak kaydedilemedi. Lütfen tekrar dene.", "The revision was created but could not be saved. Try again."), 500);
       }
@@ -624,7 +594,7 @@ ${requestedEdit}`;
 
       const sourcePlan = { ...storedPlan };
       delete sourcePlan.translations;
-      const reservation = await reserveMiriTextRequest(supabase, userId, locale, premiumEntitlement.miriDailyLimit);
+      const reservation = await reserveMiriTextRequest(supabase, userId, locale);
       if (!reservation.ok) return reservation.response;
       const languageRule = locale === "tr"
         ? "Tüm metin değerlerini doğal ve sade Türkçeye çevir. Alan adları İngilizce kalmalı."
@@ -656,7 +626,6 @@ ${JSON.stringify(sourcePlan)}`;
         .select()
         .single();
       if (updateError) {
-        await releaseMiriTextRequest(supabase, userId);
         console.error("plan translation save failed", updateError);
         return errorResponse(localeText(locale, "تمت الترجمة لكن تعذر حفظها. حاول مرة أخرى.", "Çeviri hazırlandı ancak kaydedilemedi. Lütfen tekrar dene."), 500);
       }
@@ -673,15 +642,10 @@ ${JSON.stringify(sourcePlan)}`;
       if (!GEMINI_API_KEY) {
         return errorResponse(localeText(locale, "المساعد غير مفعّل بعد. راجع إعدادات Gemini الآمنة في Supabase.", "Yardımcı henüz etkin değil. Supabase içindeki güvenli Gemini ayarlarını kontrol et."), 500);
       }
-      const reservation = await reserveMiriTextRequest(supabase, userId, locale, premiumEntitlement.miriDailyLimit);
+      const reservation = await reserveMiriTextRequest(supabase, userId, locale);
       if (!reservation.ok) return reservation.response;
 
-      const { error: userMessageError } = await supabase.from("assistant_messages").insert({ user_id: userId, role: "user", content: message });
-      if (userMessageError) {
-        await releaseMiriTextRequest(supabase, userId);
-        console.error("user chat message save failed", userMessageError);
-        return errorResponse(localeText(locale, "تعذر حفظ رسالتك الآن. حاول مرة أخرى.", "Mesajın şu anda kaydedilemedi. Lütfen tekrar dene.", "Your message could not be saved right now. Try again."), 500);
-      }
+      await supabase.from("assistant_messages").insert({ user_id: userId, role: "user", content: message });
 
       const recipeContext = catalogContext(message, locale);
       const gymContext = await gymProgressContext(supabase, userId, locale);
@@ -714,12 +678,7 @@ ${gymContext}
         return errorResponse(localeText(locale, "تعذر التواصل مع المساعد الآن. حاول مرة أخرى.", "Yardımcıya şu anda ulaşılamıyor. Lütfen tekrar dene."), 502);
       }
 
-      const { error: assistantMessageError } = await supabase.from("assistant_messages").insert({ user_id: userId, role: "assistant", content: reply });
-      if (assistantMessageError) {
-        await releaseMiriTextRequest(supabase, userId);
-        console.error("assistant chat message save failed", assistantMessageError);
-        return errorResponse(localeText(locale, "تم تجهيز الرد لكن تعذر حفظه. حاول مرة أخرى.", "Yanıt hazırlandı ancak kaydedilemedi. Lütfen tekrar dene.", "The reply was created but could not be saved. Try again."), 500);
-      }
+      await supabase.from("assistant_messages").insert({ user_id: userId, role: "assistant", content: reply });
 
       const summary = await getTodaySummary(supabase, userId);
       return jsonResponse({ ok: true, reply, summary, action: null, data: {} });

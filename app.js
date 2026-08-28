@@ -41,19 +41,6 @@
   let miriStyle = "supportive";
   let myChallengeLevel = 0;
   let selectedSnapFile = null;
-  let premiumEntitlement = { tier: "free", isPremium: false, miriDailyLimit: 3, planCreateLimit: 1, planRevisionLimit: 2 };
-  let premiumWelcomeShown = false;
-  let activePlanForRescue = null;
-
-  const PREMIUM_COPY = {
-    ar: { title: "Yoldaş Premium", free: "الخطة المجانية", active: "Premium نشط", explore: "استكشف Premium", code: "لدي كود", codeHint: "أدخل كود Premium الخاص بك", redeem: "تفعيل الكود", close: "ليس الآن", closeLabel: "إغلاق", rescue: "وضع إنقاذ اليوم", rescueHint: "نسخة أخف من اليوم، بلا حفظ تلقائي ولا طلب لميري.", busy: "يوم مشغول", home: "في البيت", low: "طاقة قليلة", gym: "مساعد تطور الجيم", gymHint: "اقتراح اختياري مبني على مجموعاتك المسجلة فقط.", noSets: "سجّل مجموعة أولى ليظهر لك اقتراح من بياناتك الحقيقية.", gymNotEnough: "لا توجد بيانات كافية من التمرين نفسه للمقارنة؛ حافظ على أداء مريح وسجّل مجموعتك التالية.", gymProgress: "يوجد تحسن مسجل مقارنة بالمجموعة السابقة. حافظ على الأداء المريح بدل زيادة مفروضة.", gymSteady: "بياناتك لا تشير إلى تحسن واضح بعد؛ كرر الوزن والعدات المريحة أو خففهما عند الحاجة.", gymCaution: "توقف إذا ظهر ألم أو دوار، ولا تستخدم هذا الاقتراح بدل تقييم مختص.", premiumUntil: "نشط حتى {date}", upgraded: "تم تفعيل Premium حتى {date}.", codeError: "الكود غير صحيح أو غير متاح.", checkout: "الدفع سيُفعّل بعد إعداد بوابة تركيا.", modalTitle: "خلّي خطتك تمشي مع يومك", modalText: "خطة أكثر مرونة، مراجعة أسبوعية، ومساعدات محلية ليومك المزدحم.", benefitPlan: "مرونة أكبر في الخطط", benefitGym: "مساعد تطور الجيم", benefitRescue: "وضع إنقاذ اليوم", rescueBusy: "رتّب أقصر نسخة من يومك: {planStep} اختر من الدليل {recipe} كوجبة مرجعية سريعة. لا يتم حفظ أي شيء من هنا.", rescueHome: "ابدأ من خطتك الحالية: {planStep} وفي البيت يمكنك تجهيز {recipe} أو اختيار بديل قريب من الدليل. لا يتم حفظ أي شيء من هنا.", rescueLow: "خفّف اليوم: {planStep} اختر وجبة مرجعية بسيطة مثل {recipe}، وتحرك فقط بما تشعر أنه مريح. توقّف إذا ظهر ألم أو دوار." },
-    tr: { title: "Yoldaş Premium", free: "Ücretsiz plan", active: "Premium aktif", explore: "Premium'u keşfet", code: "Kodum var", codeHint: "Premium kodunu gir", redeem: "Kodu etkinleştir", close: "Şimdi değil", closeLabel: "Kapat", rescue: "Günü kurtarma modu", rescueHint: "Günün daha hafif bir sürümü; otomatik kayıt ve Miri isteği yok.", busy: "Yoğun gün", home: "Evdeyim", low: "Düşük enerji", gym: "Spor gelişim yardımcısı", gymHint: "Yalnızca kayıtlı setlerine dayanan isteğe bağlı öneri.", noSets: "Gerçek kayıtlarına göre öneri için ilk setini kaydet.", gymNotEnough: "Aynı egzersizden karşılaştırmak için yeterli kayıt yok; rahat bir formu koru ve sonraki setini kaydet.", gymProgress: "Önceki sete göre kayıtlı bir ilerleme var. Zorunlu artış yerine rahat formunu koru.", gymSteady: "Kayıtların henüz belirgin bir ilerleme göstermiyor; rahat ağırlığı ve tekrarı koru veya gerektiğinde azalt.", gymCaution: "Ağrı veya baş dönmesi olursa dur; bu öneri bir uzmanın değerlendirmesinin yerine geçmez.", premiumUntil: "Şu tarihe kadar aktif: {date}", upgraded: "Premium şu tarihe kadar etkin: {date}.", codeError: "Kod geçersiz veya kullanılamıyor.", checkout: "Ödeme, Türkiye ödeme altyapısı ayarlandıktan sonra açılacak.", modalTitle: "Planın gününe uyum sağlasın", modalText: "Daha esnek planlar, haftalık bakış ve yoğun günün için yerel yardımcılar.", benefitPlan: "Daha esnek planlar", benefitGym: "Spor gelişim yardımcısı", benefitRescue: "Günü kurtarma modu", rescueBusy: "Günün en kısa sürümünü düzenle: {planStep} Rehberden hızlı bir referans öğün olarak {recipe} seç. Burada hiçbir şey kaydedilmez.", rescueHome: "Mevcut planından başla: {planStep} Evde {recipe} hazırlayabilir veya rehberden yakın bir alternatif seçebilirsin. Burada hiçbir şey kaydedilmez.", rescueLow: "Bugünü hafiflet: {planStep} {recipe} gibi basit bir referans öğün seç ve yalnızca rahat hissettiğin kadar hareket et. Ağrı veya baş dönmesi olursa dur." },
-    en: { title: "Yoldaş Premium", free: "Free plan", active: "Premium active", explore: "Explore Premium", code: "I have a code", codeHint: "Enter your Premium code", redeem: "Redeem code", close: "Not now", closeLabel: "Close", rescue: "Day rescue mode", rescueHint: "A lighter version of your day, with no automatic saving or Miri request.", busy: "Busy day", home: "At home", low: "Low energy", gym: "Gym progress helper", gymHint: "An optional suggestion based only on your logged sets.", noSets: "Log your first set to see a suggestion from your real data.", gymNotEnough: "There is not enough data for the same exercise yet; keep a comfortable form and log your next set.", gymProgress: "Your records show progress from the prior set. Keep comfortable form rather than forcing an increase.", gymSteady: "Your records do not show clear progress yet; keep a comfortable weight and repetitions, or reduce them if needed.", gymCaution: "Stop if you feel pain or dizziness; this suggestion does not replace a qualified assessment.", premiumUntil: "Active until {date}", upgraded: "Premium is active until {date}.", codeError: "The code is invalid or unavailable.", checkout: "Payment will be enabled after the Turkey payment setup is complete.", modalTitle: "Let your plan fit your day", modalText: "More flexible plans, a weekly view, and local helpers for busy days.", benefitPlan: "More flexible plans", benefitGym: "Gym progress helper", benefitRescue: "Day rescue mode", rescueBusy: "Use the shortest version of today: {planStep} Choose {recipe} from the guide as a quick reference meal. Nothing is saved from here.", rescueHome: "Start from your active plan: {planStep} At home, you can make {recipe} or choose a close alternative from the guide. Nothing is saved from here.", rescueLow: "Make today lighter: {planStep} Choose a simple reference meal such as {recipe}, and move only as long as it feels comfortable. Stop if you feel pain or dizziness." },
-  };
-  Object.assign(PREMIUM_COPY.ar, { planCreateLimit: "وصلت إلى حد إنشاء الخطط خلال آخر 30 يومًا.", planRevisionLimit: "وصلت إلى حد تعديل الخطط خلال آخر 30 يومًا." });
-  Object.assign(PREMIUM_COPY.tr, { planCreateLimit: "Son 30 gündeki plan oluşturma sınırına ulaştın.", planRevisionLimit: "Son 30 gündeki plan düzenleme sınırına ulaştın." });
-  Object.assign(PREMIUM_COPY.en, { planCreateLimit: "You reached the plan-creation limit for the last 30 days.", planRevisionLimit: "You reached the plan-edit limit for the last 30 days." });
-  const premiumT = (key) => PREMIUM_COPY[currentLocale]?.[key] || PREMIUM_COPY.ar[key] || key;
 
   const UI_TEXT = {
     ar: {
@@ -700,16 +687,6 @@
 
   // ============== الحسابات باسم المستخدم وكلمة المرور ==============
 
-  async function accountFunctionCall(body) {
-    const result = await supabase.functions.invoke(CONFIG.accountFunction || "account-auth", { body });
-    let code = result.data?.code || "";
-    if (!code && result.error?.context?.clone) {
-      try { code = (await result.error.context.clone().json())?.code || ""; } catch { /* response body may be unavailable */ }
-    }
-    if (result.error || !result.data?.ok) throw new Error(code || (body.mode === "login" ? "INVALID_CREDENTIALS" : "SIGNUP_FAILED"));
-    return result.data;
-  }
-
   function normalizedUsername(value) {
     return String(value || "").trim().toLowerCase();
   }
@@ -789,15 +766,6 @@
     closeAccountPanel();
     showDashboard();
     switchScreen("today");
-    await loadPremiumEntitlement();
-    const createdAt = new Date(user.created_at || 0).getTime();
-    const welcomeKey = `yoldas_premium_welcome_seen_${user.id}`;
-    const isNewAccount = Number.isFinite(createdAt) && Date.now() - createdAt < 10 * 60 * 1000;
-    if (isNewAccount && !localStorage.getItem(welcomeKey) && !premiumWelcomeShown) {
-      premiumWelcomeShown = true;
-      localStorage.setItem(welcomeKey, "1");
-      setTimeout(() => showPremiumDialog(), 500);
-    }
     return true;
   }
 
@@ -877,7 +845,10 @@
 
     try {
       if (accountMode === "signup") {
-        const data = await accountFunctionCall({ mode: "signup", username, password, recoveryEmail, gender });
+        const { data, error } = await supabase.functions.invoke(CONFIG.accountFunction || "account-auth", {
+          body: { mode: "signup", username, password, recoveryEmail, gender },
+        });
+        if (error || !data?.ok) throw new Error(data?.code || "signup_failed");
         const { data: sessionData, error: sessionError } = await supabase.auth.setSession({
           access_token: data.session.access_token,
           refresh_token: data.session.refresh_token,
@@ -885,7 +856,10 @@
         if (sessionError || !sessionData.user) throw sessionError || new Error("session_failed");
         await completeAccountSession(sessionData.user, username);
       } else {
-        const data = await accountFunctionCall({ mode: "login", username, password });
+        const { data, error } = await supabase.functions.invoke(CONFIG.accountFunction || "account-auth", {
+          body: { mode: "login", username, password },
+        });
+        if (error || !data?.ok) throw new Error(data?.code || "invalid_login");
         const { data: sessionData, error: sessionError } = await supabase.auth.setSession({
           access_token: data.session.access_token,
           refresh_token: data.session.refresh_token,
@@ -896,20 +870,12 @@
     } catch (error) {
       console.error("account authentication failed", error);
       const reason = String(error?.message || "");
-      const accountMessages = {
-        USERNAME_TAKEN: currentLocale === "tr" ? "Bu kullanıcı adı zaten kullanılıyor. Başka bir ad dene." : currentLocale === "en" ? "That username is already in use. Try another one." : "اسم المستخدم مستخدم بالفعل. جرّب اسمًا آخر.",
-        RECOVERY_EMAIL_TAKEN: currentLocale === "tr" ? "Bu kurtarma e-postası başka bir hesapta kullanılıyor." : currentLocale === "en" ? "That recovery email is already linked to another account." : "بريد الاسترداد مستخدم بالفعل مع حساب آخر.",
-        INVALID_RECOVERY_EMAIL: currentLocale === "tr" ? "Geçerli bir kurtarma e-postası yaz." : currentLocale === "en" ? "Enter a valid recovery email." : "اكتب بريد استرداد صحيحًا.",
-        INVALID_GENDER: t("genderRequired"),
-        PROFILE_SETUP_FAILED: currentLocale === "tr" ? "Hesap ayarı tamamlanamadı. Supabase hesap SQL dosyasının çalıştırıldığından emin ol." : currentLocale === "en" ? "Account setup could not be completed. Confirm that the account SQL setup was run in Supabase." : "تعذر تجهيز الحساب. تأكد من تشغيل ملف SQL الخاص بالحسابات في Supabase.",
-        SERVER_CONFIGURATION: currentLocale === "tr" ? "Sunucu ayarı tamamlanamadı. Lütfen daha sonra tekrar dene." : currentLocale === "en" ? "The server is not ready yet. Please try again later." : "إعداد الخادم غير مكتمل. حاول مرة أخرى لاحقًا.",
-      };
-      if (accountMessages[reason]) {
-        setAccountError(accountMessages[reason]);
+      if (reason.includes("PROFILE_SETUP_FAILED")) {
+        setAccountError(currentLocale === "tr" ? "Hesap ayarı tamamlanamadı. Önce Supabase SQL dosyasını çalıştır." : "تعذر تجهيز الحساب. شغّل ملف SQL الخاص بالحسابات في Supabase أولًا.");
       } else if (accountMode === "signup") {
-        setAccountError(currentLocale === "tr" ? "Kayıt şu anda tamamlanamadı. Bilgilerini kontrol edip tekrar dene." : currentLocale === "en" ? "Sign-up could not be completed. Check your details and try again." : "تعذر إنشاء الحساب الآن. راجع بياناتك وحاول مرة أخرى.");
+        setAccountError(currentLocale === "tr" ? "Bu kullanıcı adı kullanılamıyor. Başka bir ad dene." : "اسم المستخدم غير متاح. جرّب اسمًا آخر.");
       } else {
-        setAccountError(currentLocale === "tr" ? "Kullanıcı adı veya şifre doğru değil." : currentLocale === "en" ? "The username or password is incorrect." : "اسم المستخدم أو كلمة المرور غير صحيحين.");
+        setAccountError(currentLocale === "tr" ? "Kullanıcı adı veya şifre doğru değil." : "اسم المستخدم أو كلمة المرور غير صحيحين.");
       }
     } finally {
       submitButton.disabled = false;
@@ -1033,14 +999,21 @@
     return data?.gender !== "male" && data?.gender !== "female";
   }
 
-  function startGuestExploration() {
-    hide($("welcome-error"));
+  async function startJourney() {
+    const errorBox = $("welcome-error");
+    hide(errorBox);
+
+    if (!isConfigured()) {
+      errorBox.textContent = t("notConfigured");
+      show(errorBox);
+      return;
+    }
     if (hasRegisteredAccount()) {
       showDashboard();
       switchScreen("today");
       return;
     }
-    $("food-library")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    openAccountPanel("signup");
   }
 
   // ============== شاشة اليوم ==============
@@ -1051,12 +1024,10 @@
       supabase.from("daily_logs").select("water_cups, calorie_goal").eq("user_id", currentUser.id).eq("log_date", log_date).maybeSingle(),
       supabase.from("meals").select("calories_estimate").eq("user_id", currentUser.id).eq("log_date", log_date),
       supabase.from("exercises").select("minutes").eq("user_id", currentUser.id).eq("log_date", log_date),
-      supabase.from("plans").select("id, plan_type, plan_json").eq("user_id", currentUser.id).eq("is_active", true),
+      supabase.from("plans").select("id, plan_type").eq("user_id", currentUser.id).eq("is_active", true),
       supabase.from("gym_sessions").select("id").eq("user_id", currentUser.id).eq("session_date", log_date),
     ]);
 
-    activePlanForRescue = (plans ?? [])[0] || null;
-    renderPremiumSurfaces();
     const calorieGoal = dailyLog?.calorie_goal ?? 0;
     const consumed = (meals ?? []).reduce((sum, m) => sum + (m.calories_estimate ?? 0), 0);
     const exerciseMinutes = (exercises ?? []).reduce((sum, e) => sum + (e.minutes ?? 0), 0);
@@ -1500,105 +1471,6 @@
     box.classList.toggle("error", Boolean(message && isError));
   }
 
-  function isPremiumMember() { return Boolean(premiumEntitlement?.isPremium); }
-
-  async function billingCall(mode, body = {}) {
-    if (!requireRegisteredAccount() || !supabase) return null;
-    const { data, error } = await supabase.functions.invoke(CONFIG.billingFunction || "billing-service", { body: { mode, ...body } });
-    if (error) throw error;
-    return data;
-  }
-
-  async function loadPremiumEntitlement() {
-    if (!hasRegisteredAccount() || !supabase) return;
-    try {
-      const data = await billingCall("status");
-      if (data?.ok && data.entitlement) premiumEntitlement = { ...premiumEntitlement, ...data.entitlement };
-    } catch (error) { console.warn("premium status unavailable", error); }
-    renderPremiumSurfaces();
-  }
-
-  function renderPremiumSurfaces() {
-    const settings = $("premium-settings-card");
-    const rescue = $("premium-day-rescue");
-    const advisor = $("premium-gym-advisor");
-    if (!settings || !rescue || !advisor) return;
-    const active = isPremiumMember();
-    const date = premiumEntitlement.premiumUntil ? new Intl.DateTimeFormat(currentLocale === "tr" ? "tr-TR" : currentLocale === "en" ? "en-US" : "ar-EG", { day: "numeric", month: "short", year: "numeric" }).format(new Date(premiumEntitlement.premiumUntil)) : "—";
-    settings.innerHTML = active ? `<p class="eyebrow">${escapeHtml(premiumT("title"))}</p><h3>${escapeHtml(premiumT("active"))}</h3><p class="settings-hint">${escapeHtml(premiumT("premiumUntil").replace("{date}", date))}</p>` : `<p class="eyebrow">${escapeHtml(premiumT("title"))}</p><h3>${escapeHtml(premiumT("modalTitle"))}</h3><p class="settings-hint">${escapeHtml(premiumT("modalText"))}</p><button id="premium-open" class="secondary-button" type="button">${escapeHtml(premiumT("explore"))}</button>`;
-    rescue.hidden = !active;
-    rescue.innerHTML = active ? `<p class="eyebrow">${escapeHtml(premiumT("title"))}</p><h2>${escapeHtml(premiumT("rescue"))}</h2><p>${escapeHtml(premiumT("rescueHint"))}</p><div class="quick-actions"><button type="button" data-rescue="busy" class="action-button">${escapeHtml(premiumT("busy"))}</button><button type="button" data-rescue="home" class="action-button">${escapeHtml(premiumT("home"))}</button><button type="button" data-rescue="low" class="action-button">${escapeHtml(premiumT("low"))}</button></div><p id="premium-rescue-result" class="premium-result" hidden></p>` : "";
-    advisor.hidden = !active;
-    if (!active) return;
-    const last = gymSets[0];
-    const earlier = last && gymSets.slice(1).find((set) => normalizedGymExercise(set.exercise_name).toLowerCase() === normalizedGymExercise(last.exercise_name).toLowerCase());
-    const hasRecordedProgress = earlier && Number(last.reps) >= Number(earlier.reps) && Number(last.weight_kg) >= Number(earlier.weight_kg);
-    const suggestion = !last ? premiumT("noSets") : !earlier ? `${last.exercise_name}: ${premiumT("gymNotEnough")}` : `${last.exercise_name}: ${premiumT(hasRecordedProgress ? "gymProgress" : "gymSteady")}`;
-    advisor.innerHTML = `<h3>${escapeHtml(premiumT("gym"))}</h3><p>${escapeHtml(premiumT("gymHint"))}</p><strong>${escapeHtml(suggestion)}</strong><p class="premium-caution">${escapeHtml(premiumT("gymCaution"))}</p>`;
-  }
-
-  function activePlanRescueStep() {
-    const stored = activePlanForRescue?.plan_json || {};
-    const plan = stored.translations?.[currentLocale] || stored;
-    const days = Array.isArray(plan.days) ? plan.days : [];
-    const today = days[new Date().getDay() % Math.max(days.length, 1)] || days[0] || {};
-    return [...(Array.isArray(today.meals) ? today.meals : []), ...(Array.isArray(today.workout) ? today.workout : [])][0] || (Array.isArray(plan.dailyTargets) ? plan.dailyTargets[0] : "") || premiumT("rescueHint");
-  }
-
-  function rescueRecipeName() {
-    const recipes = referenceRecipes.filter((recipe) => recipe.country === "DAY");
-    const index = new Date().getDate() % Math.max(recipes.length, 1);
-    return localRecipeName(recipes[index] || referenceRecipes[index] || { name_ar: "وجبة بسيطة", name_tr: "basit bir öğün", name_en: "a simple meal" });
-  }
-
-  function rescueMessage(mode) {
-    const key = mode === "busy" ? "rescueBusy" : mode === "home" ? "rescueHome" : "rescueLow";
-    return premiumT(key)
-      .replace("{planStep}", activePlanRescueStep())
-      .replace("{recipe}", rescueRecipeName());
-  }
-
-  function showPremiumDialog() {
-    if (!requireRegisteredAccount()) return;
-    $("premium-dialog")?.remove();
-    const dialog = document.createElement("section");
-    dialog.id = "premium-dialog";
-    dialog.className = "premium-dialog";
-    dialog.innerHTML = `<div class="premium-dialog-card" role="dialog" aria-modal="true"><button type="button" data-premium-close class="premium-close" aria-label="${escapeHtml(premiumT("closeLabel"))}">×</button><p class="eyebrow">${escapeHtml(premiumT("title"))}</p><h2>${escapeHtml(premiumT("modalTitle"))}</h2><p>${escapeHtml(premiumT("modalText"))}</p><ul><li>${escapeHtml(premiumT("benefitPlan"))}</li><li>${escapeHtml(premiumT("benefitRescue"))}</li><li>${escapeHtml(premiumT("benefitGym"))}</li></ul><label><span>${escapeHtml(premiumT("code"))}</span><input id="premium-code-input" maxlength="64" placeholder="YOLDAS-XXXX" /></label><button id="premium-code-redeem" class="primary-button" type="button">${escapeHtml(premiumT("redeem"))}</button><button id="premium-checkout" class="text-button" type="button">${escapeHtml(premiumT("explore"))}</button><p id="premium-code-message" class="form-message" hidden></p></div>`;
-    document.body.append(dialog);
-  }
-
-  async function redeemPremiumCode() {
-    const code = $("premium-code-input")?.value?.trim();
-    const message = $("premium-code-message");
-    if (!code || !message) return;
-    try {
-      const data = await billingCall("redeem_code", { code });
-      if (!data?.ok) throw new Error(data?.code || "INVALID_CODE");
-      premiumEntitlement = { ...premiumEntitlement, ...data.entitlement };
-      renderPremiumSurfaces();
-      const date = premiumEntitlement.premiumUntil ? new Intl.DateTimeFormat(currentLocale === "tr" ? "tr-TR" : currentLocale === "en" ? "en-US" : "ar-EG", { day: "numeric", month: "short", year: "numeric" }).format(new Date(premiumEntitlement.premiumUntil)) : "—";
-      message.textContent = premiumT("upgraded").replace("{date}", date); message.hidden = false;
-      setTimeout(() => $("premium-dialog")?.remove(), 700);
-    } catch { message.textContent = premiumT("codeError"); message.hidden = false; }
-  }
-
-  function bindPremium() {
-    document.addEventListener("click", async (event) => {
-      const target = event.target.closest("button");
-      if (!target) return;
-      if (target.id === "premium-open") return showPremiumDialog();
-      if (target.matches("[data-premium-close]")) return $("premium-dialog")?.remove();
-      if (target.id === "premium-code-redeem") return redeemPremiumCode();
-      if (target.id === "premium-checkout") { const box = $("premium-code-message"); if (box) { box.textContent = premiumT("checkout"); box.hidden = false; } return; }
-      const rescueMode = target.dataset.rescue;
-      if (!rescueMode) return;
-      const result = $("premium-rescue-result");
-      if (!result) return;
-      result.textContent = rescueMessage(rescueMode); result.hidden = false;
-    });
-  }
-
   function renderGymProgress() {
     const recent = $("gym-recent-sets");
     const bests = $("gym-personal-bests");
@@ -1632,7 +1504,6 @@
       gymSets = [];
     }
     renderGymProgress();
-    renderPremiumSurfaces();
   }
 
   async function saveGymSet(event) {
@@ -1745,10 +1616,8 @@
       console.error("sendChatMessage failed", e);
       thinking.remove();
       const errorBox = $("assistant-error");
-      const limitReached = String(e?.message || "").includes("AI_DAILY_LIMIT");
-      errorBox.querySelector("span").textContent = limitReached ? t("aiDailyLimit") : t("retryError");
+      errorBox.querySelector("span").textContent = String(e?.message || "").includes("AI_DAILY_LIMIT") ? t("aiDailyLimit") : t("retryError");
       show(errorBox);
-      if (limitReached && !isPremiumMember()) setTimeout(() => showPremiumDialog(), 250);
     } finally {
       submitButton.disabled = false;
     }
@@ -1814,7 +1683,6 @@
   function renderActivePlan(plan) {
     const card = $("active-plan-card");
     if (!plan) { hide(card); card.innerHTML = ""; return; }
-    activePlanForRescue = plan;
 
     const storedPlan = plan.plan_json || {};
     const planJson = storedPlan.translations?.[currentLocale] || storedPlan;
@@ -1891,9 +1759,7 @@
       if (data.summary) { renderMissionList(data.summary); renderSummaryGrid(data.summary); }
     } catch (error) {
       console.error("reviseActivePlan failed", error);
-      const limitReached = String(error?.message || "").includes("PREMIUM_PLAN_LIMIT");
-      setPlanEditStatus(limitReached ? premiumT("planRevisionLimit") : t("planEditError"), true);
-      if (limitReached && !isPremiumMember()) setTimeout(() => showPremiumDialog(), 250);
+      setPlanEditStatus(t("planEditError"), true);
     } finally {
       if (document.body.contains(button)) {
         button.disabled = false;
@@ -1976,11 +1842,9 @@
       if (data.summary) { renderMissionList(data.summary); renderSummaryGrid(data.summary); }
     } catch (e) {
       console.error("submitPlan failed", e);
-      const limitReached = String(e?.message || "").includes("PREMIUM_PLAN_LIMIT");
-      resultBox.textContent = limitReached ? premiumT("planCreateLimit") : t("planError");
+      resultBox.textContent = t("planError");
       resultBox.classList.add("error");
       show(resultBox);
-      if (limitReached && !isPremiumMember()) setTimeout(() => showPremiumDialog(), 250);
     } finally {
       nextButton.disabled = false;
       nextButton.textContent = originalLabel;
@@ -2723,8 +2587,8 @@
   // ============== بدء التشغيل ==============
 
   Object.assign(UI_TEXT.ar, {
-    startGuest: "استكشف كزائر",
-    guestPrivacy: "استكشف شكل الموقع ودليل الطعام من دون حساب، وأنشئ حسابًا فقط عندما تريد الحفظ أو استخدام الميزات الشخصية.",
+    startGuest: "أنشئ حسابًا للبدء",
+    guestPrivacy: "استكشف شكل الموقع ودليل الطعام، ثم أنشئ حسابًا لحفظ رحلة تقدمك واستخدام الميزات.",
     exploreFoodGuide: "استكشف دليل الطعام",
     snapSentPrivate: "تم إرسال الصورة بشكل خاص. لن تظهر لك مرة أخرى؛ يراها صديقك المستلم فقط.",
     catalogPrevious: "السابق",
@@ -2756,8 +2620,8 @@
     accountRequired: "أنشئ حسابًا أو سجّل الدخول لاستخدام هذه الميزة وحفظ رحلتك.",
   });
   Object.assign(UI_TEXT.tr, {
-    startGuest: "Misafir olarak keşfet",
-    guestPrivacy: "Siteyi ve yemek rehberini hesapsız keşfet; kayıt yapmak veya kişisel özellikleri kullanmak istediğinde hesap oluştur.",
+    startGuest: "Başlamak için hesap oluştur",
+    guestPrivacy: "Sitenin görünümünü ve yemek rehberini keşfet; ardından yolculuğunu kaydetmek ve özellikleri kullanmak için hesap oluştur.",
     exploreFoodGuide: "Yemek rehberini keşfet",
     snapSentPrivate: "Fotoğraf gizli olarak gönderildi. Sana yeniden gösterilmez; yalnızca alıcı arkadaşın görebilir.",
     catalogPrevious: "Önceki",
@@ -2789,8 +2653,8 @@
     accountRequired: "Bu özelliği kullanmak ve yolculuğunu kaydetmek için hesap oluştur veya giriş yap.",
   });
   Object.assign(UI_TEXT.en, {
-    startGuest: "Explore as a visitor",
-    guestPrivacy: "Explore the site and food guide without an account; create one only when you want to save or use personal features.",
+    startGuest: "Create an account to get started",
+    guestPrivacy: "Explore the site and food guide, then create an account to save your journey and use its features.",
     exploreFoodGuide: "Explore the food guide",
     snapSentPrivate: "Your photo was sent privately. It will not be shown to you again; only the receiving friend can view it.",
     catalogPrevious: "Previous",
@@ -2828,7 +2692,6 @@
       if (event === "PASSWORD_RECOVERY") showResetCompletion();
     });
     bindNavigation();
-    bindPremium();
     bindAccounts();
     bindAssistant();
     bindPlans();
@@ -2837,7 +2700,7 @@
     bindCommunity();
     bindSettings();
 
-    $("start-button")?.addEventListener("click", startGuestExploration);
+    $("start-button")?.addEventListener("click", startJourney);
     $("water-button")?.addEventListener("click", addWaterCup);
 
     loadReferenceRecipes().then(renderFoodCatalog);
