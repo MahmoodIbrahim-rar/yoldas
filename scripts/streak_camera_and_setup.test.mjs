@@ -41,3 +41,22 @@ test("snap upload compresses local camera images and keeps specific error paths"
   assert.match(app, /snapWaitingForFriend/);
   assert.match(app, /snapStreakCompleted/);
 });
+
+test("a sent streak photo is listed and signed only for its receiving friend", async () => {
+  const [service, app, baseSql, privacySql] = await Promise.all([
+    read("supabase/functions/social-service/index.ts"),
+    read("app.js"),
+    read("supabase/friends-recovery-setup.sql"),
+    read("supabase/streak-snap-recipient-privacy.sql"),
+  ]);
+  const listSnaps = service.slice(service.indexOf('if (mode === "list_snaps")'), service.indexOf('if (mode === "set_snap_reaction")'));
+  assert.match(listSnaps, /\.eq\("recipient_user_id", userId\)/);
+  assert.match(listSnaps, /\.is\("opened_at", null\)/);
+  assert.doesNotMatch(listSnaps, /sender_user_id\.eq\.\$\{userId\}/);
+  assert.match(listSnaps, /fromMe: false, canReact: true/);
+  assert.match(baseSql, /streak_snaps_recipient_only/);
+  assert.match(privacySql, /for select using \(auth\.uid\(\) = recipient_user_id\)/);
+  assert.match(app, /const receivedSnaps = snaps\.filter\(\(snap\) => !snap\.fromMe\)/);
+  assert.match(app, /snapSentPrivate/);
+  assert.match(service, /mark_snap_opened[\s\S]*\.eq\("recipient_user_id", userId\)[\s\S]*\.is\("opened_at", null\)/);
+});

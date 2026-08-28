@@ -26,6 +26,8 @@ test("language and theme follow device preferences first, then preserve manual c
   assert.match(app, /localStorage\.setItem\("yoldas_theme", currentTheme\)/);
   assert.match(app, /document\.documentElement\.dir = currentLocale === "ar" \? "rtl" : "ltr"/);
   assert.match(app, /setMetaContent\('meta\[name="theme-color"\]/);
+  assert.match(app, /resetJourney\.setAttribute\("aria-label", t\("startOver"\)\)/);
+  assert.match(app, /resetJourney\.setAttribute\("title", t\("startOver"\)\)/);
 });
 
 test("dropdown behavior and dark-theme CSS prevent mobile header overflow", async () => {
@@ -38,4 +40,14 @@ test("dropdown behavior and dark-theme CSS prevent mobile header overflow", asyn
   assert.match(css, /html\[data-theme="dark"\]/);
   assert.match(css, /@media \(max-width: 480px\)[\s\S]*?\.language-menu-button/);
   assert.match(css, /\.topbar-tools \{ display: flex; min-width: 0;/);
+});
+
+test("dark theme uses Yoldaş-adjacent copper accents and darkens the phone navigation", async () => {
+  const [html, css] = await Promise.all([read("index.html"), read("style.css")]);
+  assert.match(html, /style\.css\?v=20260827-dark-copper-challenges-locale/);
+  assert.match(css, /--color-primary: #e76632/);
+  assert.match(css, /--color-primary-light: #ffad7e/);
+  assert.match(css, /html\[data-theme="dark"\] \.mobile-nav \{ background: rgba\(16,12,10,\.97\)/);
+  assert.match(css, /html\[data-theme="dark"\] \.mobile-tab\.active \{ color: #ffad7e/);
+  assert.match(css, /html\[data-theme="dark"\] \.mobile-tab\.active::before \{ background: #e76632/);
 });

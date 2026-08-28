@@ -26,8 +26,8 @@ test("English is a complete third locale for the UI, plans, Miri, and food catal
   assert.match(app, /recipe\[`name_\$\{currentLocale\}`\]/);
   assert.match(app, /INGREDIENT_LABELS_EN/);
   assert.ok(recipes.every((recipe) => recipe.name_en && recipe.serving_en), "Every recipe has English food and serving text");
-  assert.ok(recipes.some((recipe) => recipe.name_en === "Koshari"), "Koshari keeps its familiar English name");
-  assert.ok(recipes.some((recipe) => recipe.name_en === "Chicken Shawarma Wrap"), "Shawarma has a natural English food name");
+  assert.ok(recipes.some((recipe) => recipe.name_en === "Rice, lentils and pasta" && recipe.serving_en.includes("chickpeas")), "Koshari uses a natural English name and a clear ingredient description");
+  assert.ok(recipes.some((recipe) => recipe.name_en === "Chicken shawarma wrap"), "Chicken shawarma uses a natural English food name");
   assert.ok(recipes.some((recipe) => recipe.name_en === "Potato Chips" && recipe.serving_en.includes("Small pack")), "Potato chips have natural English copy");
   assert.ok(recipes.some((recipe) => recipe.name_en === "Milk Chocolate" && recipe.serving_en.includes("squares")), "Chocolate has natural English copy");
   assert.ok(recipes.some((recipe) => recipe.name_en === "Glazed Doughnut" && recipe.serving_en.includes("doughnut")), "Doughnut has natural English copy");
