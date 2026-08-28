@@ -700,6 +700,16 @@
 
   // ============== الحسابات باسم المستخدم وكلمة المرور ==============
 
+  async function accountFunctionCall(body) {
+    const result = await supabase.functions.invoke(CONFIG.accountFunction || "account-auth", { body });
+    let code = result.data?.code || "";
+    if (!code && result.error?.context?.clone) {
+      try { code = (await result.error.context.clone().json())?.code || ""; } catch { /* response body may be unavailable */ }
+    }
+    if (result.error || !result.data?.ok) throw new Error(code || (body.mode === "login" ? "INVALID_CREDENTIALS" : "SIGNUP_FAILED"));
+    return result.data;
+  }
+
   function normalizedUsername(value) {
     return String(value || "").trim().toLowerCase();
   }
@@ -867,10 +877,7 @@
 
     try {
       if (accountMode === "signup") {
-        const { data, error } = await supabase.functions.invoke(CONFIG.accountFunction || "account-auth", {
-          body: { mode: "signup", username, password, recoveryEmail, gender },
-        });
-        if (error || !data?.ok) throw new Error(data?.code || "signup_failed");
+        const data = await accountFunctionCall({ mode: "signup", username, password, recoveryEmail, gender });
         const { data: sessionData, error: sessionError } = await supabase.auth.setSession({
           access_token: data.session.access_token,
           refresh_token: data.session.refresh_token,
@@ -878,10 +885,7 @@
         if (sessionError || !sessionData.user) throw sessionError || new Error("session_failed");
         await completeAccountSession(sessionData.user, username);
       } else {
-        const { data, error } = await supabase.functions.invoke(CONFIG.accountFunction || "account-auth", {
-          body: { mode: "login", username, password },
-        });
-        if (error || !data?.ok) throw new Error(data?.code || "invalid_login");
+        const data = await accountFunctionCall({ mode: "login", username, password });
         const { data: sessionData, error: sessionError } = await supabase.auth.setSession({
           access_token: data.session.access_token,
           refresh_token: data.session.refresh_token,
@@ -892,12 +896,20 @@
     } catch (error) {
       console.error("account authentication failed", error);
       const reason = String(error?.message || "");
-      if (reason.includes("PROFILE_SETUP_FAILED")) {
-        setAccountError(currentLocale === "tr" ? "Hesap ayarı tamamlanamadı. Önce Supabase SQL dosyasını çalıştır." : "تعذر تجهيز الحساب. شغّل ملف SQL الخاص بالحسابات في Supabase أولًا.");
+      const accountMessages = {
+        USERNAME_TAKEN: currentLocale === "tr" ? "Bu kullanıcı adı zaten kullanılıyor. Başka bir ad dene." : currentLocale === "en" ? "That username is already in use. Try another one." : "اسم المستخدم مستخدم بالفعل. جرّب اسمًا آخر.",
+        RECOVERY_EMAIL_TAKEN: currentLocale === "tr" ? "Bu kurtarma e-postası başka bir hesapta kullanılıyor." : currentLocale === "en" ? "That recovery email is already linked to another account." : "بريد الاسترداد مستخدم بالفعل مع حساب آخر.",
+        INVALID_RECOVERY_EMAIL: currentLocale === "tr" ? "Geçerli bir kurtarma e-postası yaz." : currentLocale === "en" ? "Enter a valid recovery email." : "اكتب بريد استرداد صحيحًا.",
+        INVALID_GENDER: t("genderRequired"),
+        PROFILE_SETUP_FAILED: currentLocale === "tr" ? "Hesap ayarı tamamlanamadı. Supabase hesap SQL dosyasının çalıştırıldığından emin ol." : currentLocale === "en" ? "Account setup could not be completed. Confirm that the account SQL setup was run in Supabase." : "تعذر تجهيز الحساب. تأكد من تشغيل ملف SQL الخاص بالحسابات في Supabase.",
+        SERVER_CONFIGURATION: currentLocale === "tr" ? "Sunucu ayarı tamamlanamadı. Lütfen daha sonra tekrar dene." : currentLocale === "en" ? "The server is not ready yet. Please try again later." : "إعداد الخادم غير مكتمل. حاول مرة أخرى لاحقًا.",
+      };
+      if (accountMessages[reason]) {
+        setAccountError(accountMessages[reason]);
       } else if (accountMode === "signup") {
-        setAccountError(currentLocale === "tr" ? "Bu kullanıcı adı kullanılamıyor. Başka bir ad dene." : "اسم المستخدم غير متاح. جرّب اسمًا آخر.");
+        setAccountError(currentLocale === "tr" ? "Kayıt şu anda tamamlanamadı. Bilgilerini kontrol edip tekrar dene." : currentLocale === "en" ? "Sign-up could not be completed. Check your details and try again." : "تعذر إنشاء الحساب الآن. راجع بياناتك وحاول مرة أخرى.");
       } else {
-        setAccountError(currentLocale === "tr" ? "Kullanıcı adı veya şifre doğru değil." : "اسم المستخدم أو كلمة المرور غير صحيحين.");
+        setAccountError(currentLocale === "tr" ? "Kullanıcı adı veya şifre doğru değil." : currentLocale === "en" ? "The username or password is incorrect." : "اسم المستخدم أو كلمة المرور غير صحيحين.");
       }
     } finally {
       submitButton.disabled = false;

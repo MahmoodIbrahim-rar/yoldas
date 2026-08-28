@@ -344,9 +344,9 @@ serve(async (req) => {
 
   if (mode === "list_snaps") {
     const { data: snaps, error } = await admin.from("streak_snaps").select("id, sender_user_id, recipient_user_id, storage_path, caption, created_at, expires_at, opened_at")
-      .or(`sender_user_id.eq.${userId},recipient_user_id.eq.${userId}`).gt("expires_at", isoNow()).order("created_at", { ascending: false }).limit(60);
+      .eq("recipient_user_id", userId).is("opened_at", null).gt("expires_at", isoNow()).order("created_at", { ascending: false }).limit(60);
     if (error) return fail("SNAPS_READ_FAILED", 500);
-    const ids = [...new Set((snaps || []).map((snap) => snap.sender_user_id === userId ? snap.recipient_user_id : snap.sender_user_id))];
+    const ids = [...new Set((snaps || []).map((snap) => snap.sender_user_id))];
     const snapIds = (snaps || []).map((snap) => snap.id);
     const { data: profiles } = ids.length ? await admin.from("profiles").select("id, username, alias").in("id", ids) : { data: [] };
     const { data: reactions } = snapIds.length ? await admin.from("snap_reactions").select("snap_id, user_id, reaction").in("snap_id", snapIds) : { data: [] };
@@ -354,10 +354,9 @@ serve(async (req) => {
     const reactionsBySnap = new Map<string, { user_id: string; reaction: string }[]>();
     (reactions || []).forEach((reaction) => reactionsBySnap.set(reaction.snap_id, [...(reactionsBySnap.get(reaction.snap_id) || []), reaction]));
     const output = await Promise.all((snaps || []).map(async (snap) => {
-      const otherId = snap.sender_user_id === userId ? snap.recipient_user_id : snap.sender_user_id;
       const signed = await admin.storage.from(SNAP_BUCKET).createSignedUrl(snap.storage_path, 60 * 10);
       const snapReactions = reactionsBySnap.get(snap.id) || [];
-      return { id: snap.id, fromMe: snap.sender_user_id === userId, canReact: snap.recipient_user_id === userId, userId: otherId, username: profileById.get(otherId)?.username || "", alias: profileById.get(otherId)?.alias || profileById.get(otherId)?.username || "", caption: snap.caption || "", createdAt: snap.created_at, expiresAt: snap.expires_at, openedAt: snap.opened_at, reactions: snapReactions.map((item) => item.reaction), myReaction: snapReactions.find((item) => item.user_id === userId)?.reaction || null, url: signed.data?.signedUrl || null };
+      return { id: snap.id, fromMe: false, canReact: true, userId: snap.sender_user_id, username: profileById.get(snap.sender_user_id)?.username || "", alias: profileById.get(snap.sender_user_id)?.alias || profileById.get(snap.sender_user_id)?.username || "", caption: snap.caption || "", createdAt: snap.created_at, expiresAt: snap.expires_at, openedAt: snap.opened_at, reactions: snapReactions.map((item) => item.reaction), myReaction: snapReactions.find((item) => item.user_id === userId)?.reaction || null, url: signed.data?.signedUrl || null };
     }));
     return reply({ ok: true, data: { snaps: output.filter((snap) => snap.url) } });
   }

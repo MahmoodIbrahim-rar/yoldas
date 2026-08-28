@@ -33,6 +33,13 @@ function validEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) && value.length <= 254;
 }
 
+function isEmailConflict(error: { code?: string; status?: number; message?: string } | null) {
+  const code = String(error?.code || "").toLowerCase();
+  const status = Number(error?.status || 0);
+  const text = String(error?.message || "").toLowerCase();
+  return code === "email_exists" || code === "user_already_exists" || (status === 422 && /email|already registered|already exists/.test(text));
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: CORS_HEADERS });
   if (req.method !== "POST") return response({ ok: false, code: "METHOD_NOT_ALLOWED" }, 405);
@@ -44,7 +51,7 @@ serve(async (req) => {
     return response({ ok: false, code: "SERVER_CONFIGURATION" }, 500);
   }
 
-  let body: { mode?: string; username?: string; password?: string; recoveryEmail?: string; redirectTo?: string };
+  let body: { mode?: string; username?: string; password?: string; recoveryEmail?: string; gender?: string; redirectTo?: string };
   try {
     body = await req.json();
   } catch {
@@ -55,6 +62,7 @@ serve(async (req) => {
   const username = String(body.username ?? "").trim().toLowerCase();
   const password = String(body.password ?? "");
   const recoveryEmail = String(body.recoveryEmail ?? "").trim().toLowerCase();
+  const gender = String(body.gender ?? "");
   if (!mode || (mode !== "update_recovery" && !validUsername(username)) || ((mode === "signup" || mode === "login") && password.length < 8)) {
     return response({ ok: false, code: "INVALID_INPUT" }, 400);
   }
@@ -89,11 +97,14 @@ serve(async (req) => {
     return response({ ok: true });
   }
 
-  const { data: accountProfile } = await adminClient.from("profiles").select("recovery_email").eq("username", username).maybeSingle();
+  const { data: accountProfile, error: accountProfileError } = await adminClient.from("profiles").select("id, recovery_email").eq("username", username).maybeSingle();
+  if (accountProfileError) return response({ ok: false, code: "PROFILE_LOOKUP_FAILED" }, 500);
   const identity = accountProfile?.recovery_email || internalIdentity(username);
 
   if (mode === "signup") {
+    if (accountProfile) return response({ ok: false, code: "USERNAME_TAKEN" }, 409);
     if (!validEmail(recoveryEmail)) return response({ ok: false, code: "INVALID_RECOVERY_EMAIL" }, 400);
+    if (gender !== "male" && gender !== "female") return response({ ok: false, code: "INVALID_GENDER" }, 400);
     const { data: created, error: createError } = await adminClient.auth.admin.createUser({
       email: recoveryEmail,
       password,
@@ -101,7 +112,8 @@ serve(async (req) => {
       user_metadata: { username },
     });
     if (createError || !created.user) {
-      return response({ ok: false, code: "USERNAME_TAKEN" }, 409);
+      console.error("account signup failed", createError?.code || createError?.status || "unknown");
+      return isEmailConflict(createError) ? response({ ok: false, code: "RECOVERY_EMAIL_TAKEN" }, 409) : response({ ok: false, code: "SIGNUP_FAILED" }, 500);
     }
 
     const { error: profileError } = await adminClient.from("profiles").insert({
@@ -109,11 +121,13 @@ serve(async (req) => {
       username,
       alias: username,
       recovery_email: recoveryEmail,
+      gender,
     });
     if (profileError) {
       // لا نكشف تفاصيل قاعدة البيانات أو كلمة المرور إلى المتصفح.
       console.error("account profile creation failed", profileError.code);
       await adminClient.auth.admin.deleteUser(created.user.id);
+      if (profileError.code === "23505") return response({ ok: false, code: "USERNAME_TAKEN" }, 409);
       return response({ ok: false, code: "PROFILE_SETUP_FAILED" }, 500);
     }
   }

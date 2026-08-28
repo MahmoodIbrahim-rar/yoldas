@@ -108,20 +108,22 @@ create policy "friend_blocks_owner_only" on public.friend_blocks
   for select using (auth.uid() = blocker_user_id);
 
 drop policy if exists "streak_snaps_participant_only" on public.streak_snaps;
-create policy "streak_snaps_participant_only" on public.streak_snaps
-  for select using (auth.uid() in (sender_user_id, recipient_user_id));
+drop policy if exists "streak_snaps_recipient_only" on public.streak_snaps;
+create policy "streak_snaps_recipient_only" on public.streak_snaps
+  for select using (auth.uid() = recipient_user_id);
 
 drop policy if exists "friend_reports_reporter_only" on public.friend_reports;
 create policy "friend_reports_reporter_only" on public.friend_reports
   for select using (auth.uid() = reporter_user_id);
 
 drop policy if exists "snap_reactions_participant_only" on public.snap_reactions;
-create policy "snap_reactions_participant_only" on public.snap_reactions
+drop policy if exists "snap_reactions_recipient_only" on public.snap_reactions;
+create policy "snap_reactions_recipient_only" on public.snap_reactions
   for select using (
     exists (
       select 1 from public.streak_snaps
       where streak_snaps.id = snap_reactions.snap_id
-        and auth.uid() in (streak_snaps.sender_user_id, streak_snaps.recipient_user_id)
+        and streak_snaps.recipient_user_id = auth.uid()
     )
   );
 
