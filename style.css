@@ -208,14 +208,10 @@ input { font-family: inherit; }
 
 .welcome-page .topbar { max-width: 1540px; padding-left: clamp(24px, 4vw, 64px); padding-right: clamp(24px, 4vw, 64px); }
 
-.welcome-ad-shell {
+.welcome-content-shell {
   max-width: 1840px;
   margin: 24px auto 0;
   padding: 0 clamp(24px, 3vw, 48px);
-  display: grid;
-  grid-template-columns: clamp(132px, 11vw, 200px) minmax(0, 1540px) clamp(132px, 11vw, 200px);
-  gap: clamp(16px, 1.6vw, 30px);
-  align-items: stretch;
 }
 
 .welcome-grid {
@@ -314,26 +310,6 @@ input { font-family: inherit; }
   animation: rise 520ms var(--ease) both;
   animation-delay: 60ms;
 }
-.ad-slot {
-  align-self: stretch;
-  min-height: 190px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  text-align: center;
-  padding: 18px 12px;
-  color: #82745d;
-  background: linear-gradient(145deg, rgba(255, 247, 214, 0.88), rgba(255, 253, 242, 0.7));
-  border: 1px dashed rgba(209, 157, 33, 0.48);
-  border-radius: 12px 4px 12px 4px;
-}
-.ad-slot span { font-size: 12px; font-weight: 800; color: #9b7020; }
-.ad-slot small { max-width: 14ch; font-size: 11px; line-height: 1.55; }
-.ad-slot-rail { min-height: 100%; }
-.ad-slot-mobile { display: none; }
-.ad-slot-section { margin-block: 30px; }
 .intro-card h2 { font-size: 22px; margin: 0 0 10px; line-height: 1.4; }
 .intro-card > p { color: var(--color-text-soft); margin: 0 0 20px; font-size: 15px; }
 
@@ -1071,8 +1047,7 @@ html[data-theme="dark"] .theme-icon-moon { display: block; }
 /* ============== استجابة ============== */
 
 @media (max-width: 1350px) {
-  .welcome-ad-shell { display: block; margin-top: 18px; padding: 0 clamp(24px, 4vw, 64px); }
-  .welcome-ad-shell > .ad-slot { display: none; }
+  .welcome-content-shell { display: block; margin-top: 18px; padding: 0 clamp(24px, 4vw, 64px); }
 }
 
 /* شاشة اللابتوب والكمبيوتر المتوسط: كارتان متوازنان بدل التراكب أو الفراغات. */
@@ -1098,7 +1073,7 @@ html[data-theme="dark"] .theme-icon-moon { display: block; }
 
 /* يمنع أي نسخة أقدم أو قاعدة وراثية من تراكب بطاقة التعريف فوق الهيرو في العرض المتوسط. */
 @media (min-width: 901px) and (max-width: 1120px) {
-  .welcome-ad-shell { display: block; padding: 0 38px; }
+  .welcome-content-shell { display: block; padding: 0 38px; }
   .welcome-grid {
     width: min(100%, 960px);
     margin: 0 auto;
@@ -1116,7 +1091,7 @@ html[data-theme="dark"] .theme-icon-moon { display: block; }
 }
 
 @media (max-width: 900px) {
-  .welcome-ad-shell { padding: 0 18px; }
+  .welcome-content-shell { padding: 0 18px; }
   .welcome-grid { grid-template-columns: 1fr; }
   .hero-card { min-height: 570px; }
   .intro-card { min-height: 0; margin-top: 0; }
@@ -1130,15 +1105,7 @@ html[data-theme="dark"] .theme-icon-moon { display: block; }
 }
 
 @media (max-width: 720px) {
-  .ad-slot-mobile {
-    display: flex;
-    min-height: 112px;
-    margin: 8px 0 20px;
-    padding: 16px;
-    border-radius: 12px 4px 12px 4px;
-  }
-  .ad-slot-section { margin: 26px 0; }
-  .food-catalog-tools { grid-template-columns: 1fr; }
+.food-catalog-tools { grid-template-columns: 1fr; }
   .food-catalog-results { grid-template-columns: 1fr; }
   .food-catalog-group > div { grid-template-columns: 1fr; }
   .food-catalog-pagination { gap: 8px; }
@@ -1201,7 +1168,7 @@ html[data-theme="dark"] .theme-icon-moon { display: block; }
   }
   .dashboard-nav #reset-journey::before { content: "↻"; font-size: 21px; line-height: 1; }
   .topbar { padding: 15px 18px; }
-  .welcome-page .topbar, .welcome-ad-shell, .how-section, .dashboard-heading, .screen { padding-left: 18px; padding-right: 18px; }
+  .welcome-page .topbar, .welcome-content-shell, .how-section, .dashboard-heading, .screen { padding-left: 18px; padding-right: 18px; }
   .wordmark-logo { width: 112px; height: 48px; }
   .recipe-nutrients { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .gym-set-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1376,8 +1343,6 @@ html[data-theme="dark"] .snap-camera-button:hover { color: #fff2d3; background: 
 html[data-theme="dark"] .faq-item { background: rgba(22,20,18,.96); border-color: rgba(212,160,60,.24); box-shadow: var(--shadow-card); }
 html[data-theme="dark"] .faq-item summary::after { color: #e5b554; background: rgba(212,160,60,.12); }
 html[data-theme="dark"] .faq-item[open] summary::after { color: #15110e; background: #d4a03c; }
-html[data-theme="dark"] .ad-slot { color: #b9a987; background: linear-gradient(145deg, rgba(212,160,60,.08), rgba(22,20,18,.76)); border-color: rgba(212,160,60,.38); }
-html[data-theme="dark"] .ad-slot span { color: #e5b554; }
 html[data-theme="dark"] .settings-hint,
 html[data-theme="dark"] .community-note,
 html[data-theme="dark"] .reference-note,
@@ -1411,8 +1376,6 @@ html[data-theme="dark"] .snap-camera-button { color: #ffad7e; background: #27150
 html[data-theme="dark"] .faq-item { border-color: rgba(231,102,50,.28); }
 html[data-theme="dark"] .faq-item summary::after { color: #f0844d; background: rgba(231,102,50,.14); }
 html[data-theme="dark"] .faq-item[open] summary::after { background: #e76632; }
-html[data-theme="dark"] .ad-slot { color: #dca181; background: linear-gradient(145deg, rgba(231,102,50,.09), rgba(22,20,18,.76)); border-color: rgba(231,102,50,.4); }
-html[data-theme="dark"] .ad-slot span { color: #f0844d; }
 @media (max-width: 720px) {
   html[data-theme="dark"] .dashboard-nav { border-bottom-color: rgba(231,102,50,.24); }
   html[data-theme="dark"] .dashboard-nav #reset-journey { color: #f0844d; border-color: rgba(231,102,50,.32); }
@@ -1455,3 +1418,58 @@ html[data-theme="dark"] .challenge-card-actions button:not(.primary-button),
 html[data-theme="dark"] .challenge-card > .text-button { color: #ffad7e; background: #1f1511; border-color: rgba(231,102,50,.3); }
 html[data-theme="dark"] .challenge-start-guide { background: #17120f; border-color: rgba(231,102,50,.3); }
 html[data-theme="dark"] .challenge-start-guide p { color: #c6b6ac; }
+
+/* ============== ذيل الموقع (Footer) ============== */
+.site-footer {
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 0.88em;
+  border-top: 1px solid var(--border-color, #e0d6cc);
+  margin-top: 32px;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.footer-links a {
+  color: var(--color-text-soft, #6b5e52);
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+.footer-links a:hover,
+.footer-links a:focus {
+  color: var(--color-primary, #f04f21);
+  background: rgba(240, 79, 33, 0.08);
+}
+.footer-sep {
+  color: var(--border-color, #d4c8bb);
+  user-select: none;
+}
+.footer-copy {
+  margin: 0;
+  color: var(--color-text-soft, #8c7f73);
+  font-size: 0.92em;
+}
+html[data-theme="dark"] .site-footer {
+  border-top-color: rgba(231,102,50,.2);
+}
+html[data-theme="dark"] .footer-links a {
+  color: #bcaaa1;
+}
+html[data-theme="dark"] .footer-links a:hover,
+html[data-theme="dark"] .footer-links a:focus {
+  color: #ffad7e;
+  background: rgba(231,102,50,.12);
+}
+html[data-theme="dark"] .footer-sep {
+  color: rgba(231,102,50,.3);
+}
+html[data-theme="dark"] .footer-copy {
+  color: #8a7b6e;
+}
