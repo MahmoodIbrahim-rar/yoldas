@@ -1473,3 +1473,120 @@ html[data-theme="dark"] .footer-sep {
 html[data-theme="dark"] .footer-copy {
   color: #8a7b6e;
 }
+
+/* ============== مميزات Premium ============== */
+.gym-evolution {
+  background: linear-gradient(145deg, rgba(255, 247, 214, 0.88), rgba(255, 253, 242, 0.7));
+  border: 1px solid rgba(209, 157, 33, 0.48);
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 16px;
+}
+.gym-evolution-title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #82745d;
+  margin: 0 0 10px;
+}
+.gym-evolution ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.gym-evolution li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(209, 157, 33, 0.2);
+  font-size: 0.9rem;
+  color: #3a3228;
+}
+.gym-evolution li:last-child {
+  border-bottom: none;
+}
+html[data-theme="dark"] .gym-evolution {
+  background: linear-gradient(145deg, rgba(212, 160, 60, 0.08), rgba(22, 20, 18, 0.76));
+  border-color: rgba(212, 160, 60, 0.38);
+}
+html[data-theme="dark"] .gym-evolution-title { color: #b9a987; }
+html[data-theme="dark"] .gym-evolution li { color: #e5d5c5; border-color: rgba(212, 160, 60, 0.2); }
+
+.day-rescue {
+  background: linear-gradient(145deg, rgba(255, 247, 214, 0.88), rgba(255, 253, 242, 0.7));
+  border: 1px solid rgba(209, 157, 33, 0.48);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+.day-rescue-title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #82745d;
+  margin: 0 0 12px;
+}
+.day-rescue-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.day-rescue-option {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid rgba(209, 157, 33, 0.48);
+  background: var(--color-surface, #fff8f2);
+  color: #3a3228;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.day-rescue-option:hover {
+  background: #f04f21;
+  color: #fff;
+  border-color: #f04f21;
+}
+.day-rescue-result {
+  margin-top: 14px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #3a3228;
+}
+html[data-theme="dark"] .day-rescue {
+  background: linear-gradient(145deg, rgba(212, 160, 60, 0.08), rgba(22, 20, 18, 0.76));
+  border-color: rgba(212, 160, 60, 0.38);
+}
+html[data-theme="dark"] .day-rescue-title { color: #b9a987; }
+html[data-theme="dark"] .day-rescue-option { background: #1a1411; color: #e5d5c5; border-color: rgba(212, 160, 60, 0.3); }
+html[data-theme="dark"] .day-rescue-option:hover { background: #f04f21; color: #fff; }
+html[data-theme="dark"] .day-rescue-result { background: rgba(22, 20, 18, 0.8); color: #e5d5c5; }
+
+/* ============== شريط الزائر ============== */
+.guest-banner {
+  background: linear-gradient(145deg, rgba(255, 247, 214, 0.9), rgba(255, 253, 242, 0.8));
+  border: 1px dashed rgba(209, 157, 33, 0.5);
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin: 12px 18px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b5e52;
+}
+.guest-banner p { margin: 0; }
+.guest-banner-btn {
+  background: #f04f21;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-inline-start: 8px;
+}
+.guest-banner-btn:hover { opacity: 0.9; }
+html[data-theme="dark"] .guest-banner {
+  background: linear-gradient(145deg, rgba(212, 160, 60, 0.1), rgba(22, 20, 18, 0.8));
+  border-color: rgba(212, 160, 60, 0.35);
+  color: #c6b6ac;
+}

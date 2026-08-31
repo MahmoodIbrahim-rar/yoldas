@@ -38,6 +38,19 @@
   const CATALOG_PAGE_SIZE = 10;
   let planTranslationInFlight = false;
   let gymSets = [];
+  let premiumState = { isPremium: false, premiumUntil: null };
+
+  async function checkPremiumStatus() {
+    if (!currentUser || !supabase) return;
+    try {
+      const { data } = await supabase.functions.invoke(CONFIG.billingFunction || "billing-service", { body: { mode: "entitlement" } });
+      if (data?.ok && data.entitlement) {
+        premiumState = { isPremium: Boolean(data.entitlement.isPremium), premiumUntil: data.entitlement.premiumUntil || null };
+      }
+    } catch (e) {
+      premiumState = { isPremium: false, premiumUntil: null };
+    }
+  }
   let miriStyle = "supportive";
   let myChallengeLevel = 0;
   let selectedSnapFile = null;
@@ -613,7 +626,7 @@
   }
 
   function switchScreen(name) {
-    if (!requireRegisteredAccount()) return;
+    if (!requireRegisteredAccount() && name !== 'today' && name !== 'plans') return;
     document.querySelectorAll(".screen").forEach((s) => hide(s));
     show($(`${name}-screen`));
 
@@ -1493,8 +1506,101 @@
     bests.innerHTML = bestSets.length ? bestSets.map((set) => `<div class="gym-set-row"><span><b>${escapeHtml(set.exercise_name)}</b><small>${set.reps} ${escapeHtml(t("gymReps"))}</small></span><strong>${Number(set.weight_kg)} ${escapeHtml(t("kilogram"))}</strong></div>`).join("") : `<p class="gym-empty">${escapeHtml(t("gymNoBests"))}</p>`;
   }
 
+
+  // ============== مساعد تطور الجيم (Premium) ==============
+  function getGymEvolutionSuggestion() {
+    if (!premiumState.isPremium || gymSets.length === 0) return null;
+    
+    const byExercise = new Map();
+    gymSets.forEach((set) => {
+      const key = normalizedGymExercise(set.exercise_name).toLocaleLowerCase();
+      if (!byExercise.has(key)) byExercise.set(key, []);
+      byExercise.get(key).push(set);
+    });
+    
+    const suggestions = [];
+    byExercise.forEach((sets, exerciseKey) => {
+      if (sets.length < 2) return;
+      const sorted = [...sets].sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+      const latest = sorted.slice(-6);
+      const latestWeight = Math.max(...latest.map(s => Number(s.weight_kg) || 0));
+      const latestReps = Math.max(...latest.map(s => Number(s.reps) || 0));
+      const avgReps = latest.reduce((sum, s) => sum + (Number(s.reps) || 0), 0) / latest.length;
+      
+      if (avgReps >= 12) {
+        suggestions.push({
+          exercise: latest[0].exercise_name,
+          type: "weight",
+          message: t("gymEvolutionWeight").replace("{exercise}", latest[0].exercise_name).replace("{weight}", String(latestWeight + 2.5))
+        });
+      } else if (avgReps >= 8 && avgReps < 12) {
+        suggestions.push({
+          exercise: latest[0].exercise_name,
+          type: "reps",
+          message: t("gymEvolutionReps").replace("{exercise}", latest[0].exercise_name).replace("{reps}", String(latestReps + 2))
+        });
+      }
+    });
+    
+    return suggestions.slice(0, 3);
+  }
+
+  function renderGymEvolution() {
+    const container = document.querySelector("#gym-mode .gym-evolution");
+    if (!container) return;
+    if (!premiumState.isPremium) {
+      container.hidden = true;
+      return;
+    }
+    const suggestions = getGymEvolutionSuggestion();
+    if (!suggestions || suggestions.length === 0) {
+      container.hidden = true;
+      return;
+    }
+    container.hidden = false;
+    container.innerHTML = `<p class="gym-evolution-title">${escapeHtml(t("gymEvolutionTitle"))}</p><ul>${suggestions.map(s => `<li>${escapeHtml(s.message)}</li>`).join("")}</ul>`;
+  }
+
+  // ============== وضع إنقاذ اليوم (Premium) ==============
+  function renderDayRescue() {
+    const container = document.querySelector("#today-screen .day-rescue");
+    if (!container) return;
+    if (!premiumState.isPremium) {
+      container.hidden = true;
+      return;
+    }
+    container.hidden = false;
+    container.innerHTML = `
+      <p class="day-rescue-title">${escapeHtml(t("dayRescueTitle"))}</p>
+      <div class="day-rescue-options">
+        <button class="day-rescue-option" data-rescue="busy">${escapeHtml(t("dayRescueBusy"))}</button>
+        <button class="day-rescue-option" data-rescue="home">${escapeHtml(t("dayRescueHome"))}</button>
+        <button class="day-rescue-option" data-rescue="low">${escapeHtml(t("dayRescueLow"))}</button>
+      </div>
+      <div id="day-rescue-result" class="day-rescue-result" hidden></div>
+    `;
+    container.querySelectorAll(".day-rescue-option").forEach(btn => {
+      btn.addEventListener("click", () => showDayRescue(btn.dataset.rescue));
+    });
+  }
+
+  function showDayRescue(mode) {
+    const result = document.querySelector("#day-rescue-result");
+    if (!result) return;
+    let text = "";
+    if (mode === "busy") {
+      text = t("dayRescueBusyText");
+    } else if (mode === "home") {
+      text = t("dayRescueHomeText");
+    } else if (mode === "low") {
+      text = t("dayRescueLowText");
+    }
+    result.hidden = false;
+    result.innerHTML = `<p>${escapeHtml(text)}</p>`;
+  }
   async function loadGymProgress() {
     if (!currentUser || !supabase) return;
+    await checkPremiumStatus();
     try {
       const { data, error } = await supabase.from("gym_sets").select("id, exercise_name, set_number, reps, weight_kg, created_at, gym_sessions!inner(session_date)").eq("user_id", currentUser.id).order("created_at", { ascending: false }).limit(120);
       gymSets = error ? [] : (data || []).map((set) => ({ ...set, session_date: set.gym_sessions?.session_date || "" }));
@@ -1504,6 +1610,8 @@
       gymSets = [];
     }
     renderGymProgress();
+    renderGymEvolution();
+    renderDayRescue();
   }
 
   async function saveGymSet(event) {
@@ -2587,8 +2695,8 @@
   // ============== بدء التشغيل ==============
 
   Object.assign(UI_TEXT.ar, {
-    startGuest: "أنشئ حسابًا للبدء",
-    guestPrivacy: "استكشف شكل الموقع ودليل الطعام، ثم أنشئ حسابًا لحفظ رحلة تقدمك واستخدام الميزات.",
+    startGuest: "استكشف كزائر ←",
+    guestPrivacy: "استكشف شكل الموقع ودليل الطعام كزائر. أنشئ حسابًا حين ترغب في حفظ رحلتك.",
     exploreFoodGuide: "استكشف دليل الطعام",
     snapSentPrivate: "تم إرسال الصورة بشكل خاص. لن تظهر لك مرة أخرى؛ يراها صديقك المستلم فقط.",
     catalogPrevious: "السابق",
@@ -2620,8 +2728,8 @@
     accountRequired: "أنشئ حسابًا أو سجّل الدخول لاستخدام هذه الميزة وحفظ رحلتك.",
   });
   Object.assign(UI_TEXT.tr, {
-    startGuest: "Başlamak için hesap oluştur",
-    guestPrivacy: "Sitenin görünümünü ve yemek rehberini keşfet; ardından yolculuğunu kaydetmek ve özellikleri kullanmak için hesap oluştur.",
+    startGuest: "Misafir olarak keşfet ←",
+    guestPrivacy: "Siteyi ve yemek rehberini misafir olarak keşfet. Yolculuğunu kaydetmek istediğinde hesap oluştur.",
     exploreFoodGuide: "Yemek rehberini keşfet",
     snapSentPrivate: "Fotoğraf gizli olarak gönderildi. Sana yeniden gösterilmez; yalnızca alıcı arkadaşın görebilir.",
     catalogPrevious: "Önceki",
@@ -2653,8 +2761,8 @@
     accountRequired: "Bu özelliği kullanmak ve yolculuğunu kaydetmek için hesap oluştur veya giriş yap.",
   });
   Object.assign(UI_TEXT.en, {
-    startGuest: "Create an account to get started",
-    guestPrivacy: "Explore the site and food guide, then create an account to save your journey and use its features.",
+    startGuest: "Explore as a guest ←",
+    guestPrivacy: "Explore the site and food guide as a guest. Create an account when you want to save your journey.",
     exploreFoodGuide: "Explore the food guide",
     snapSentPrivate: "Your photo was sent privately. It will not be shown to you again; only the receiving friend can view it.",
     catalogPrevious: "Previous",
