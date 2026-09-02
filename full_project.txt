@@ -1,3 +1,2181 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Yoldaş يساعدك على تحسين لياقتك بخطة أكل وخطة تمرين شخصية، ومتابعة يومية للماء والوجبات والحركة، مع ميري لمساندة عاداتك الصحية بإرشادات تناسب يومك خطوة بخطوة." />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="canonical" href="https://yoldas-beta.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ar_EG" />
+    <meta property="og:site_name" content="Yoldaş" />
+    <meta property="og:title" content="Yoldaş | خطة أكل وتمارين ومتابعة صحية يومية" />
+    <meta property="og:description" content="خطة أكل وتمارين شخصية، متابعة يومية، وميري لمساندة عاداتك الصحية خطوة بخطوة." />
+    <meta property="og:url" content="https://yoldas-beta.vercel.app/" />
+    <meta property="og:image" content="https://yoldas-beta.vercel.app/assets/Yoldas_logo_enhanced.jpg" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Yoldaş | خطة أكل وتمارين ومتابعة صحية يومية" />
+    <meta name="twitter:description" content="خطة أكل وتمارين شخصية، متابعة يومية، وميري لمساندة عاداتك الصحية خطوة بخطوة." />
+    <meta name="theme-color" content="#f04f21" />
+    <script>
+      (function () {
+        var saved = localStorage.getItem("yoldas_theme");
+        var theme = saved === "dark" || saved === "light" ? saved : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      }());
+    </script>
+    <!-- Google Analytics: basic visitor measurement only; no account, meal, plan, or chat data is sent. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QVQTEFBJE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0QVQTEFBJE', {
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false
+      });
+    </script>
+    <!-- Google AdSense: supplied by the owner; ads appear only after Google approves the site and the owner enables placements. -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3016603922174948" crossorigin="anonymous"></script>
+    <title>Yoldaş | خطة أكل وتمارين ومتابعة صحية يومية</title>
+    <link rel="icon" type="image/jpeg" href="assets/Yoldas_logo_enhanced.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css?v=20260827-dark-copper-challenges-locale" />
+    <script src="config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script defer src="app.js?v=20260827-challenges-natural-locale"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "كيف أحسب احتياجي من السعرات؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "احتياجك يتأثر بالعمر والطول والوزن والنشاط والهدف. استخدم الخطة كبداية تقديرية ثم راقب تقدمك وعدّل تدريجيًا بدل الاعتماد على رقم ثابت للجميع." }
+          },
+          {
+            "@type": "Question",
+            "name": "كم بروتين أحتاج يوميًا؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "احتياج البروتين يختلف حسب الوزن والنشاط والهدف. الخطة الشخصية تساعدك على توزيعه على وجباتك، وإذا كان لديك مرض كلوي أو حالة صحية خاصة فاستشر مختصًا أولًا." }
+          },
+          {
+            "@type": "Question",
+            "name": "كيف أخس من غير حرمان؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "ابدأ بتغيير صغير يمكن الالتزام به: وجبات مشبعة، كميات أوضح، وحركة منتظمة. لا تحتاج منع أكل تحبه؛ الأهم هو الكمية وتكرارها ضمن يومك كله." }
+          },
+          {
+            "@type": "Question",
+            "name": "كيف أبدأ تمرين في البيت؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "ابدأ بوقت قصير ومستوى يناسبك، مثل المشي وتمارين وزن الجسم البسيطة. أخبر ميري بما تستطيع فعله فعلًا لتقترح بداية متدرجة وبدائل مناسبة." }
+          },
+          {
+            "@type": "Question",
+            "name": "هل لازم أوزن الأكل؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "ليس دائمًا. وزن الأكل لفترة قصيرة قد يساعدك على فهم الحصص، لكن يمكنك أيضًا استخدام حصص تقريبية واضحة ثم التدرج حسب ما يناسب حياتك." }
+          },
+          {
+            "@type": "Question",
+            "name": "هل سعرات الأكل في الدليل ثابتة؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "لا. القيم في الدليل محسوبة لحصة مرجعية ومكونات محددة، وقد تزيد أو تقل مع الزيت والصلصات والإضافات وحجم طبقك الفعلي." }
+          },
+          {
+            "@type": "Question",
+            "name": "هل يمكنني أكل كشري أو شاورما وأنا أخس؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "نعم، يمكن أن تدخل الأكلات التي تحبها في يومك. اختر حصة مناسبة وسجّلها، ثم وازن بقية اليوم بدل اعتبار وجبة واحدة فشلًا للخطة." }
+          },
+          {
+            "@type": "Question",
+            "name": "أبدأ بخطة أكل أم خطة تمرين؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "ابدأ بالخطوة الأسهل عليك الآن. إذا كان تنظيم الوجبات هو التحدي الأكبر فابدأ بخطة أكل، وإذا كنت تحتاج روتين حركة فابدأ بخطة تمرين؛ ويمكن الجمع بينهما بالتدريج." }
+          },
+          {
+            "@type": "Question",
+            "name": "آكل قبل التمرين أم بعده؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "الوجبة الخفيفة قبل التمرين قد تساعد بعض الناس على الطاقة، وبعده وجبة عادية فيها بروتين وكربوهيدرات مناسبة قد تدعم التعافي. اختَر التوقيت الذي تشعر معه براحة ولا تتدرب فوق ألم أو دوخة." }
+          },
+          {
+            "@type": "Question",
+            "name": "متى أحتاج لطبيب أو أخصائي تغذية؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "اطلب مساعدة مختص إذا لديك حالة صحية، ألم مستمر، حمل، اضطراب أكل، أو هدف علاجي محدد. ميري تقدم إرشادات عامة وليست تشخيصًا أو علاجًا." }
+          },
+          {
+            "@type": "Question",
+            "name": "كيف أبدأ باستخدام Yoldaş؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "ابدأ كتجربة أو سجّل حسابًا، ثم اختر خطة أكل أو تمرين وأجب عن الأسئلة القصيرة. بعد ذلك سجّل خطوة صغيرة مثل وجبة أو كوب ماء أو حركة في يومك." }
+          },
+          {
+            "@type": "Question",
+            "name": "هل أستطيع استخدام Yoldaş من غير حساب؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "نعم، يمكنك التجربة من غير حساب. الحساب باسم مستخدم وكلمة مرور يساعدك على حفظ خططك وسجلّك، ثم الدخول لنفس رحلتك لاحقًا." }
+          },
+          {
+            "@type": "Question",
+            "name": "هل الخطة التي تنشئها ميري تُحفظ في حسابي؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "عند استخدام حسابك، تُحفظ خطة الأكل أو التمرين التي تنشئها أو تعدّلها ميري داخل تبويب الخطط. في وضع التجربة تظل البيانات مرتبطة بهذا المتصفح." }
+          },
+          {
+            "@type": "Question",
+            "name": "كيف أسجل أكلي من دليل الأكل؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "من المتابعة اليومية اضغط تسجيل وجبة، وابحث عن الأكلة، ثم افتحها واختر حجم الحصة المناسب وسجّلها. القيمة مرجعية، لذلك عدّل حجم الحصة إذا كان طبقك مختلفًا." }
+          },
+          {
+            "@type": "Question",
+            "name": "كيف أعدل خطة ميري إذا لم تناسب وقتي؟",
+            "acceptedAnswer": { "@type": "Answer", "text": "افتح خطتك واطلب من ميري تعديلًا واضحًا، مثل تغيير وجبة أو تقليل وقت التمرين أو اقتراح بديل. ستحفظ النسخة المعدّلة داخل حسابك بعد إنشائها." }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <main id="app">
+      <!-- ============== صفحة الترحيب ============== -->
+      <section id="welcome-view" class="welcome-page">
+        <nav class="topbar">
+          <a class="wordmark" href="#welcome-view" data-home-link aria-label="Yoldaş"><img class="wordmark-logo" src="assets/Yoldas_nav_logo_trimmed.png" alt="شعار Yoldaş والعودة إلى الصفحة الرئيسية" /></a>
+          <div class="topbar-tools">
+            <span class="nav-label" data-i18n="dailyCompanion">رفيقك اليومي</span>
+            <div class="language-menu" data-language-menu>
+              <button class="language-menu-button" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="welcome-language-menu">
+                <span data-language-current>العربية</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg>
+              </button>
+              <div id="welcome-language-menu" class="language-menu-list" role="menu" hidden>
+                <button type="button" class="language-option" role="menuitemradio" aria-checked="true" data-locale="ar" data-language-name="العربية">العربية</button>
+                <button type="button" class="language-option" role="menuitemradio" aria-checked="false" data-locale="tr" data-language-name="Türkçe">Türkçe</button>
+                <button type="button" class="language-option" role="menuitemradio" aria-checked="false" data-locale="en" data-language-name="English">English</button>
+              </div>
+            </div>
+            <button id="welcome-theme-toggle" class="theme-toggle" type="button" aria-pressed="false">
+              <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2.1M12 19.9V22M4.93 4.93l1.49 1.49M17.58 17.58l1.49 1.49M2 12h2.1M19.9 12H22M4.93 19.07l1.49-1.49M17.58 6.42l1.49-1.49"/></svg>
+              <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z"/></svg>
+              <span class="sr-only" data-theme-toggle-label>تفعيل الوضع الداكن</span>
+            </button>
+          </div>
+        </nav>
+
+        <div class="welcome-ad-shell">
+          <aside class="ad-slot ad-slot-rail" data-ad-slot="welcome-left-rail" aria-label="مساحة إعلانية جاهزة">
+            <span data-i18n="adSlotLabel">مساحة إعلانية</span>
+            <small data-i18n="adSlotHint">مهيّأة لإعلان Google لاحقًا</small>
+          </aside>
+          <div class="welcome-grid">
+          <article class="hero-card">
+            <img class="brand-mark hero-logo" src="assets/Yoldas_nav_logo_trimmed.png" alt="شعار Yoldaş" width="150" height="64" />
+            <p class="eyebrow light" data-i18n="heroEyebrow">رحلتك تبدأ بخطوة مفهومة</p>
+            <h1 class="hero-title"><span data-i18n="heroTitleLead">غيّر جسمك. ثبّت عاداتك.</span><span data-i18n="heroTitleTail">خطوتك الجاية تبدأ هنا.</span></h1>
+            <p data-i18n="heroDescription">نحوّل هدفك إلى أكل وحركة ومتابعة يومية من غير تعقيد أو حرمان.</p>
+            <div class="hero-steps">
+              <span><b>01</b> <em data-i18n="heroStepFood">أكل أذكى</em></span>
+              <span><b>02</b> <em data-i18n="heroStepMove">حركة ثابتة</em></span>
+              <span><b>03</b> <em data-i18n="heroStepTrack">متابعة هادية</em></span>
+            </div>
+          </article>
+
+          <article class="intro-card">
+            <p class="eyebrow" data-i18n="introEyebrow">برنامجك الصحي الشخصي</p>
+            <h2 data-i18n="introTitle">كل ما تحتاجه لتبدأ صح — في مكان واحد.</h2>
+            <p data-i18n="introDescription">خطة أكل وتمارين تناسب هدفك، ومتابعة للماء والوجبات والحركة، مع مساعد يفهم كلامك الطبيعي.</p>
+            <div class="feature-list">
+              <div><i>🥗</i><span><b data-i18n="featureFood">خطة أكل شخصية</b><small data-i18n="featureFoodSub">حسب هدفك وتفضيلاتك</small></span></div>
+              <div><i>🏋️</i><span><b data-i18n="featureWorkout">خطة تمرين قابلة للتعديل</b><small data-i18n="featureWorkoutSub">حسب وقتك ومستواك</small></span></div>
+              <div><i>💧</i><span><b data-i18n="featureTrack">متابعة بسيطة لليوم</b><small data-i18n="featureTrackSub">ماء ووجبات وتمرين</small></span></div>
+              <div><i>💬</i><span><b data-i18n="featureAssistant">مساعد واضح</b><small data-i18n="featureAssistantSub">اسأل وسجّل من كلامك الطبيعي</small></span></div>
+            </div>
+            <aside class="ad-slot ad-slot-mobile" data-ad-slot="welcome-mobile-inline" aria-label="مساحة إعلانية جاهزة للهاتف">
+              <span data-i18n="adSlotLabel">مساحة إعلانية</span>
+              <small data-i18n="adSlotHint">مهيّأة لإعلان Google لاحقًا</small>
+            </aside>
+            <div class="welcome-actions">
+              <button id="start-button" class="primary-button" data-i18n="startGuest">ابدأ كتجربة ←</button>
+              <button id="account-button" class="secondary-button" type="button" data-i18n="accountButton">دخول أو إنشاء حساب</button>
+              <a class="secondary-button" href="#how-it-works" data-i18n="discoverHow">اكتشف كيف يعمل Yoldaş</a>
+              <a class="secondary-button" href="#food-library" data-i18n="exploreFoodGuide">استكشف دليل الطعام</a>
+            </div>
+            <p id="welcome-error" class="form-message" hidden></p>
+          </article>
+          </div>
+          <aside class="ad-slot ad-slot-rail" data-ad-slot="welcome-right-rail" aria-label="مساحة إعلانية جاهزة">
+            <span data-i18n="adSlotLabel">مساحة إعلانية</span>
+            <small data-i18n="adSlotHint">مهيّأة لإعلان Google لاحقًا</small>
+          </aside>
+        </div>
+
+        <section id="account-panel" class="account-panel" hidden aria-live="polite">
+          <div class="account-panel-header">
+            <div><p class="eyebrow" data-i18n="accountEyebrow">احفظ رحلتك</p><h2 id="account-title">إنشاء حساب</h2></div>
+            <button id="account-close" class="text-button" type="button" data-i18n="close">إغلاق</button>
+          </div>
+          <p id="account-description" class="account-description">أنشئ اسم مستخدم وكلمة مرور. لا نطلب منك بريدًا إلكترونيًا.</p>
+          <div class="account-tabs">
+            <button class="account-mode active" type="button" data-account-mode="signup" data-i18n="createAccount">إنشاء حساب</button>
+            <button class="account-mode" type="button" data-account-mode="login" data-i18n="login">تسجيل الدخول</button>
+          </div>
+          <form id="account-form" class="account-form">
+            <div id="account-username-field">
+              <label for="account-username" data-i18n="username">اسم المستخدم</label>
+              <input id="account-username" type="text" autocomplete="username" autocapitalize="none" data-i18n-placeholder="usernamePlaceholder" placeholder="مثال: ahmed.fit" />
+              <small id="username-hint" data-i18n="usernameHint">من 3 إلى 24 حرفًا إنجليزيًا صغيرًا أو رقمًا، مع . أو _ أو - فقط.</small>
+            </div>
+            <div id="account-password-field">
+              <label for="account-password" data-i18n="password">كلمة المرور</label>
+              <input id="account-password" type="password" autocomplete="current-password" data-i18n-placeholder="passwordPlaceholder" placeholder="8 أحرف أو أكثر" />
+              <small id="password-hint" data-i18n="passwordHint">احفظها جيدًا: بدون بريد إلكتروني لا تتوفر استعادة تلقائية لكلمة المرور.</small>
+            </div>
+            <div id="recovery-email-field" hidden>
+              <label for="account-recovery-email" data-i18n="recoveryEmail">بريد الاسترجاع</label>
+              <input id="account-recovery-email" type="email" autocomplete="email" data-i18n-placeholder="recoveryEmailPlaceholder" placeholder="name@example.com" />
+              <small data-i18n="recoveryEmailHint">خاص ولا يظهر للناس. يستخدم فقط عند نسيان كلمة السر.</small>
+            </div>
+            <fieldset id="account-gender-field" class="account-gender-field" hidden>
+              <legend data-i18n="genderLabel">النوع</legend>
+              <p data-i18n="genderHint">يُستخدم لتحسين صياغة خطتك فقط، ولا يظهر للآخرين.</p>
+              <div class="gender-options">
+                <label><input type="radio" name="account-gender" value="male" /><span data-i18n="genderMale">ذكر</span></label>
+                <label><input type="radio" name="account-gender" value="female" /><span data-i18n="genderFemale">أنثى</span></label>
+              </div>
+            </fieldset>
+            <button id="account-submit" class="primary-button" type="submit">إنشاء حسابي</button>
+            <button id="forgot-password" class="text-button" type="button" hidden data-i18n="forgotPassword">نسيت كلمة السر؟</button>
+            <p id="account-error" class="form-message" hidden></p>
+          </form>
+          <form id="reset-request-form" class="account-form" hidden>
+            <label for="reset-username" data-i18n="username">اسم المستخدم</label>
+            <input id="reset-username" type="text" autocomplete="username" data-i18n-placeholder="usernamePlaceholder" placeholder="مثال: ahmed.fit" />
+            <p class="settings-hint" data-i18n="resetPasswordHint">إذا كان للحساب بريد استرجاع، سنرسل له رابط تغيير كلمة السر.</p>
+            <button id="reset-request-submit" class="primary-button" type="submit" data-i18n="sendResetLink">أرسل رابط الاسترجاع</button>
+            <button id="back-to-login" class="text-button" type="button" data-i18n="backToLogin">العودة للدخول</button>
+            <p id="reset-request-message" class="form-message info" hidden></p>
+          </form>
+          <form id="reset-complete-form" class="account-form" hidden>
+            <h3 data-i18n="resetCompleteTitle">اختَر كلمة سر جديدة</h3>
+            <p class="settings-hint" data-i18n="resetCompleteHint">اكتب كلمة سر جديدة من 8 أحرف أو أكثر لحسابك.</p>
+            <label for="reset-new-password" data-i18n="newPassword">كلمة السر الجديدة</label>
+            <input id="reset-new-password" type="password" autocomplete="new-password" data-i18n-placeholder="passwordPlaceholder" placeholder="8 أحرف أو أكثر" />
+            <label for="reset-confirm-password" data-i18n="confirmPassword">تأكيد كلمة السر</label>
+            <input id="reset-confirm-password" type="password" autocomplete="new-password" data-i18n-placeholder="passwordPlaceholder" placeholder="8 أحرف أو أكثر" />
+            <button class="primary-button" type="submit" data-i18n="saveNewPassword">حفظ كلمة السر الجديدة</button>
+            <p id="reset-complete-message" class="form-message info" hidden></p>
+          </form>
+        </section>
+
+        <section id="how-it-works" class="how-section">
+          <p class="eyebrow" data-i18n="howEyebrow">رحلة بسيطة</p>
+          <h2 data-i18n="howTitle">كيف يعمل Yoldaş؟</h2>
+          <div class="how-grid">
+            <article><b>1</b><h3 data-i18n="howStep1Title">جاوب على أسئلة بسيطة</h3><p data-i18n="howStep1Desc">عن هدفك ووضعك الحالي.</p></article>
+            <article><b>2</b><h3 data-i18n="howStep2Title">خد خطتك الشخصية</h3><p data-i18n="howStep2Desc">أكل وتمارين يناسبوك.</p></article>
+            <article><b>3</b><h3 data-i18n="howStep3Title">سجّل يومك</h3><p data-i18n="howStep3Desc">ماء ووجبات وتمرين.</p></article>
+            <article><b>4</b><h3 data-i18n="howStep4Title">عدّل مع الوقت</h3><p data-i18n="howStep4Desc">حسب احتياجك وتطورك.</p></article>
+          </div>
+          <div class="how-detail-panel">
+            <article>
+              <span>01</span>
+              <div><h3 data-i18n="howDetail1Title">ابدأ من هدفك الحقيقي</h3><p data-i18n="howDetail1Desc">تختار هدفك، مستوى نشاطك، وقتك المتاح، وتفضيلاتك. لا نستخدم نموذجًا واحدًا للجميع.</p></div>
+            </article>
+            <article>
+              <span>02</span>
+              <div><h3 data-i18n="howDetail2Title">خطة بداية قابلة للتنفيذ</h3><p data-i18n="howDetail2Desc">Yoldaş يجهّز بداية عملية للأكل أو التمرين، ثم يمكنك إنشاء خطة جديدة عندما يتغير وقتك أو هدفك.</p></div>
+            </article>
+            <article>
+              <span>03</span>
+              <div><h3 data-i18n="howDetail3Title">متابعة يومية بدون ضغط</h3><p data-i18n="howDetail3Desc">سجّل كوب ماء أو وجبة أو تمرين. ستظهر لك خطوات اليوم من بياناتك الفعلية فقط، من غير أرقام أو إنجازات وهمية.</p></div>
+            </article>
+            <article>
+              <span>04</span>
+              <div><h3 data-i18n="howDetail4Title">مساعد عربي داعم</h3><p data-i18n="howDetail4Desc">اكتب ما أكلته أو اسأل عن تنظيم يومك بلغة طبيعية. الإرشادات عامة ولا تستبدل الطبيب أو المختص عند وجود حالة صحية خاصة.</p></div>
+            </article>
+          </div>
+          <aside class="ad-slot ad-slot-mobile ad-slot-section" data-ad-slot="how-mobile-inline" aria-label="مساحة إعلانية جاهزة للهاتف">
+            <span data-i18n="adSlotLabel">مساحة إعلانية</span>
+            <small data-i18n="adSlotHint">مهيّأة لإعلان Google لاحقًا</small>
+          </aside>
+        </section>
+
+        <section id="faq" class="faq-section" aria-labelledby="faq-title">
+          <header class="faq-heading">
+            <p class="eyebrow" data-i18n="faqEyebrow">إجابات عملية</p>
+            <h2 id="faq-title" data-i18n="faqTitle">أسئلة عن الأكل والتمرين واستخدام Yoldaş</h2>
+            <p data-i18n="faqIntro">إجابات مباشرة عن بداية رحلتك واستخدام البرنامج بشكل أبسط.</p>
+          </header>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary data-i18n="faqQuestion1">كيف أحسب احتياجي من السعرات؟</summary>
+              <p data-i18n="faqAnswer1">احتياجك يتأثر بالعمر والطول والوزن والنشاط والهدف. استخدم الخطة كبداية تقديرية ثم راقب تقدمك وعدّل تدريجيًا بدل الاعتماد على رقم ثابت للجميع.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion2">كم بروتين أحتاج يوميًا؟</summary>
+              <p data-i18n="faqAnswer2">احتياج البروتين يختلف حسب الوزن والنشاط والهدف. الخطة الشخصية تساعدك على توزيعه على وجباتك، وإذا كان لديك مرض كلوي أو حالة صحية خاصة فاستشر مختصًا أولًا.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion3">كيف أخس من غير حرمان؟</summary>
+              <p data-i18n="faqAnswer3">ابدأ بتغيير صغير يمكن الالتزام به: وجبات مشبعة، كميات أوضح، وحركة منتظمة. لا تحتاج منع أكل تحبه؛ الأهم هو الكمية وتكرارها ضمن يومك كله.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion4">كيف أبدأ تمرين في البيت؟</summary>
+              <p data-i18n="faqAnswer4">ابدأ بوقت قصير ومستوى يناسبك، مثل المشي وتمارين وزن الجسم البسيطة. أخبر ميري بما تستطيع فعله فعلًا لتقترح بداية متدرجة وبدائل مناسبة.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion5">هل لازم أوزن الأكل؟</summary>
+              <p data-i18n="faqAnswer5">ليس دائمًا. وزن الأكل لفترة قصيرة قد يساعدك على فهم الحصص، لكن يمكنك أيضًا استخدام حصص تقريبية واضحة ثم التدرج حسب ما يناسب حياتك.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion6">هل سعرات الأكل في الدليل ثابتة؟</summary>
+              <p data-i18n="faqAnswer6">لا. القيم في الدليل محسوبة لحصة مرجعية ومكونات محددة، وقد تزيد أو تقل مع الزيت والصلصات والإضافات وحجم طبقك الفعلي.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion7">هل يمكنني أكل كشري أو شاورما وأنا أخس؟</summary>
+              <p data-i18n="faqAnswer7">نعم، يمكن أن تدخل الأكلات التي تحبها في يومك. اختر حصة مناسبة وسجّلها، ثم وازن بقية اليوم بدل اعتبار وجبة واحدة فشلًا للخطة.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion8">أبدأ بخطة أكل أم خطة تمرين؟</summary>
+              <p data-i18n="faqAnswer8">ابدأ بالخطوة الأسهل عليك الآن. إذا كان تنظيم الوجبات هو التحدي الأكبر فابدأ بخطة أكل، وإذا كنت تحتاج روتين حركة فابدأ بخطة تمرين؛ ويمكن الجمع بينهما بالتدريج.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion9">آكل قبل التمرين أم بعده؟</summary>
+              <p data-i18n="faqAnswer9">الوجبة الخفيفة قبل التمرين قد تساعد بعض الناس على الطاقة، وبعده وجبة عادية فيها بروتين وكربوهيدرات مناسبة قد تدعم التعافي. اختَر التوقيت الذي تشعر معه براحة ولا تتدرب فوق ألم أو دوخة.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion10">متى أحتاج لطبيب أو أخصائي تغذية؟</summary>
+              <p data-i18n="faqAnswer10">اطلب مساعدة مختص إذا لديك حالة صحية، ألم مستمر، حمل، اضطراب أكل، أو هدف علاجي محدد. ميري تقدم إرشادات عامة وليست تشخيصًا أو علاجًا.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion11">كيف أبدأ باستخدام Yoldaş؟</summary>
+              <p data-i18n="faqAnswer11">ابدأ كتجربة أو سجّل حسابًا، ثم اختر خطة أكل أو تمرين وأجب عن الأسئلة القصيرة. بعد ذلك سجّل خطوة صغيرة مثل وجبة أو كوب ماء أو حركة في يومك.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion12">هل أستطيع استخدام Yoldaş من غير حساب؟</summary>
+              <p data-i18n="faqAnswer12">نعم، يمكنك التجربة من غير حساب. الحساب باسم مستخدم وكلمة مرور يساعدك على حفظ خططك وسجلّك، ثم الدخول لنفس رحلتك لاحقًا.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion13">هل الخطة التي تنشئها ميري تُحفظ في حسابي؟</summary>
+              <p data-i18n="faqAnswer13">عند استخدام حسابك، تُحفظ خطة الأكل أو التمرين التي تنشئها أو تعدّلها ميري داخل تبويب الخطط. في وضع التجربة تظل البيانات مرتبطة بهذا المتصفح.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion14">كيف أسجل أكلي من دليل الأكل؟</summary>
+              <p data-i18n="faqAnswer14">من المتابعة اليومية اضغط تسجيل وجبة، وابحث عن الأكلة، ثم افتحها واختر حجم الحصة المناسب وسجّلها. القيمة مرجعية، لذلك عدّل حجم الحصة إذا كان طبقك مختلفًا.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faqQuestion15">كيف أعدل خطة ميري إذا لم تناسب وقتي؟</summary>
+              <p data-i18n="faqAnswer15">افتح خطتك واطلب من ميري تعديلًا واضحًا، مثل تغيير وجبة أو تقليل وقت التمرين أو اقتراح بديل. ستحفظ النسخة المعدّلة داخل حسابك بعد إنشائها.</p>
+            </details>
+          </div>
+        </section>
+        <article id="food-library" class="food-library-card food-library-explore">
+          <div class="section-title"><div><p class="eyebrow" data-i18n="referenceRecipes">وصفات مرجعية محلية</p><h2 data-i18n="foodCatalogTitle">دليل أكل Yoldaş</h2></div><span id="food-catalog-count">36</span></div>
+          <p class="food-library-intro" data-i18n="foodCatalogDescription">وصفات مصرية وتركية ووجبات يومية بحصص متوسطة وأوزان واضحة. القيمة مرجعية وتختلف مع الزيت والإضافات والحجم الفعلي.</p>
+          <div class="food-catalog-tools">
+            <input id="food-catalog-search" autocomplete="off" data-i18n-placeholder="foodSearchPlaceholder" placeholder="ابحث عن كشري أو دونر أو شوربة عدس..." />
+            <div class="food-filter-row" aria-label="تصنيف الوصفات">
+              <button type="button" class="food-filter active" data-food-filter="all" data-i18n="allRecipes">الكل</button>
+              <button type="button" class="food-filter" data-food-filter="EG" data-i18n="egyptRecipes">مصرية</button>
+              <button type="button" class="food-filter" data-food-filter="TR" data-i18n="turkeyRecipes">تركية</button>
+              <button type="button" class="food-filter" data-food-filter="DAILY" data-i18n="dailyRecipes">وجبات يومية</button>
+            </div>
+          </div>
+          <p id="food-catalog-context" class="food-catalog-context" aria-live="polite"></p>
+          <div id="food-catalog-results" class="food-catalog-results" aria-live="polite"></div>
+          <section id="food-catalog-suggestions" class="food-catalog-suggestions" hidden aria-live="polite"></section>
+          <nav id="food-catalog-pagination" class="food-catalog-pagination" aria-label="التنقل بين صفحات دليل الطعام" hidden>
+            <button id="food-page-prev" class="secondary-button" type="button" data-i18n="catalogPrevious">السابق</button>
+            <span id="food-page-status"></span>
+            <button id="food-page-next" class="secondary-button" type="button" data-i18n="catalogNext">التالي</button>
+          </nav>
+          <div id="food-catalog-detail" class="food-catalog-detail" hidden></div>
+          <p id="food-catalog-message" class="food-catalog-message" hidden aria-live="polite"></p>
+        </article>
+      </section>
+
+      <!-- ============== واجهة التطبيق بعد بدء الرحلة ============== -->
+      <section id="dashboard-view" class="dashboard-page" hidden>
+        <nav class="topbar dashboard-nav">
+          <a class="wordmark" href="#welcome-view" data-home-link aria-label="Yoldaş"><img class="wordmark-logo" src="assets/Yoldas_nav_logo_trimmed.png" alt="شعار Yoldaş والعودة إلى الصفحة الرئيسية" /></a>
+          <div class="nav-tabs">
+            <button class="tab active" data-screen="today" data-i18n="navToday">اليوم</button>
+            <button class="tab" data-screen="plans" data-i18n="navPlans">الخطط</button>
+            <button class="tab" data-screen="assistant" data-i18n="navAssistant">المساعد</button>
+            <button class="tab" data-screen="progress" data-i18n="navProgress">التقدم</button>
+            <button class="tab" data-screen="community" data-i18n="navCommunity">المجتمع</button>
+            <button class="tab" data-screen="settings" data-i18n="navSettings">الإعدادات</button>
+          </div>
+          <div class="topbar-tools">
+            <div class="language-menu" data-language-menu>
+              <button class="language-menu-button" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="dashboard-language-menu">
+                <span data-language-current>العربية</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg>
+              </button>
+              <div id="dashboard-language-menu" class="language-menu-list" role="menu" hidden>
+                <button type="button" class="language-option" role="menuitemradio" aria-checked="true" data-locale="ar" data-language-name="العربية">العربية</button>
+                <button type="button" class="language-option" role="menuitemradio" aria-checked="false" data-locale="tr" data-language-name="Türkçe">Türkçe</button>
+                <button type="button" class="language-option" role="menuitemradio" aria-checked="false" data-locale="en" data-language-name="English">English</button>
+              </div>
+            </div>
+            <button id="dashboard-theme-toggle" class="theme-toggle" type="button" aria-pressed="false">
+              <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2.1M12 19.9V22M4.93 4.93l1.49 1.49M17.58 17.58l1.49 1.49M2 12h2.1M19.9 12H22M4.93 19.07l1.49-1.49M17.58 6.42l1.49-1.49"/></svg>
+              <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z"/></svg>
+              <span class="sr-only" data-theme-toggle-label>تفعيل الوضع الداكن</span>
+            </button>
+            <button id="reset-journey" class="text-button" type="button" aria-label="بدء من جديد" title="بدء من جديد" data-i18n="startOver">بدء من جديد</button>
+          </div>
+        </nav>
+
+        <div id="connection-status" class="connection-status" hidden></div>
+
+        <!-- شاشة اليوم -->
+        <section id="today-screen" class="screen active">
+          <header class="dashboard-heading">
+            <p class="eyebrow" data-i18n="dailyTracking">المتابعة اليومية</p>
+            <h1 data-i18n="todayTitle">مهمتي اليوم</h1>
+            <p data-i18n="todayDescription">خطوات صغيرة وواضحة تساعدك تكمّل من غير ضغط.</p>
+          </header>
+
+          <div class="summary-grid">
+            <article class="active-plan-summary-card"><span data-i18n="activePlanSummary">الخطة النشطة</span><strong id="active-plan-value">—</strong><small id="active-plan-caption" data-i18n="activePlanNone">مفيش خطة حالية</small></article>
+            <article><span data-i18n="water">الماء</span><strong id="water-value">—</strong><small data-i18n="cupsToday">كوب اليوم</small></article>
+            <article><span data-i18n="meals">الوجبات</span><strong id="meal-value">—</strong><small data-i18n="mealsToday">وجبات اليوم</small></article>
+            <article><span data-i18n="movement">الحركة</span><strong id="exercise-value">—</strong><small id="movement-caption" data-i18n="minutesToday">دقيقة اليوم</small></article>
+            <article class="streak-card"><span data-i18n="streak">الستريك</span><strong id="streak-value">—</strong><small id="streak-caption" data-i18n="streakStart">سجّل خطوة اليوم لتبدأ</small></article>
+          </div>
+
+          <div class="content-grid">
+            <article class="mission-card">
+              <div class="section-title"><div><p class="eyebrow" data-i18n="yourSteps">خطواتك</p><h2 data-i18n="todayTitle">مهمتي اليوم</h2></div><span id="mission-count">0 / 4</span></div>
+              <div id="mission-list" class="mission-list"></div>
+              <div class="quick-actions">
+                <button id="water-button" class="action-button" data-i18n="addWater">+ كوباية ميه</button>
+                <button id="open-food-catalog" class="action-button" data-i18n="missionMeal">سجّل وجبة</button>
+                <button id="open-gym-mode" class="action-button" data-i18n="openGymMode">وضع الجيم</button>
+                <button class="action-button" data-go="assistant" data-prompt="" data-i18n="askYoldas">اسأل ميري</button>
+              </div>
+            </article>
+            <article class="empty-card" id="today-empty-card">
+              <span>✦</span>
+              <h2 data-i18n="emptyTodayTitle">بياناتك تظهر هنا</h2>
+              <p data-i18n="emptyTodayDescription">لن نعرض أرقامًا أو مستخدمين وهميين. ابدأ بتسجيل أي خطوة في يومك.</p>
+            </article>
+          </div>
+
+
+          <article id="gym-mode" class="gym-mode-card">
+            <div class="section-title"><div><p class="eyebrow" data-i18n="gymEyebrow">تدريبك الحقيقي</p><h2 data-i18n="gymTitle">وضع الجيم</h2></div><span id="gym-week-volume">—</span></div>
+            <p class="gym-intro" data-i18n="gymDescription">سجّل كل مجموعة بوزنها وعداتها. تقدمك يعتمد على أرقامك التي تدخلها أنت فقط.</p>
+            <form id="gym-set-form" class="gym-set-form">
+              <label><span data-i18n="gymExercise">التمرين</span><input id="gym-exercise" autocomplete="off" maxlength="120" required data-i18n-placeholder="gymExercisePlaceholder" placeholder="مثال: بنش برس" /></label>
+              <label><span data-i18n="gymSetNumber">المجموعة</span><input id="gym-set-number" type="number" min="1" max="50" value="1" required /></label>
+              <label><span data-i18n="gymReps">العدات</span><input id="gym-reps" type="number" min="1" max="500" value="10" required /></label>
+              <label><span data-i18n="gymWeight">الوزن (كجم)</span><input id="gym-weight" type="number" min="0" max="1000" step="0.25" value="0" required /></label>
+              <button class="primary-button" type="submit" data-i18n="gymSaveSet">سجّل المجموعة</button>
+            </form>
+            <p id="gym-message" class="gym-message" hidden></p>
+            <div class="gym-progress-layout">
+              <div><h3 data-i18n="gymRecentSets">آخر المجموعات</h3><div id="gym-recent-sets" class="gym-recent-sets"></div></div>
+              <div><h3 data-i18n="gymPersonalBest">أفضل أرقامك</h3><div id="gym-personal-bests" class="gym-personal-bests"></div></div>
+            </div>
+          </article>
+          <aside class="ad-slot ad-slot-mobile ad-slot-section" data-ad-slot="today-mobile-inline" aria-label="مساحة إعلانية جاهزة للهاتف">
+            <span data-i18n="adSlotLabel">مساحة إعلانية</span>
+            <small data-i18n="adSlotHint">مهيّأة لإعلان Google لاحقًا</small>
+          </aside>
+        </section>
+
+        <!-- شاشة الخطط -->
+        <section id="plans-screen" class="screen" hidden>
+          <header class="dashboard-heading"><p class="eyebrow" data-i18n="personalPlan">خطة شخصية</p><h1 data-i18n="planTitle">خطة أكل أو تمرين</h1><p data-i18n="planDescription">جاوب على أسئلة مناسبة لهدفك ومستواك، وميري تجهز بداية عملية ومتدرجة.</p></header>
+          <article class="plan-card">
+            <div id="plan-wizard">
+              <div class="plan-switch"><button class="plan-type active" data-plan="food" data-i18n="planFood">خطة أكل</button><button class="plan-type" data-plan="workout" data-i18n="planWorkout">خطة تمرين</button></div>
+              <div class="step-meta"><span id="plan-step-label">السؤال 1 من 4</span><span id="plan-kind-label">خطة أكل</span></div>
+              <div class="progress-track"><i id="plan-progress"></i></div>
+              <label id="plan-question" for="plan-answer">ما هدفك الأساسي؟</label>
+              <input id="plan-answer" type="text" placeholder="مثال: خسارة وزن بهدوء" autocomplete="off" />
+              <small id="plan-answer-hint" class="plan-answer-hint"></small>
+              <div class="plan-actions"><button id="plan-back" class="secondary-button" hidden>السابق</button><button id="plan-next" class="primary-button">التالي</button></div>
+              <p id="plan-result" class="plan-result" hidden></p>
+            </div>
+          </article>
+          <article id="active-plan-card" class="active-plan-card" hidden></article>
+          <aside class="ad-slot ad-slot-mobile ad-slot-section" data-ad-slot="plans-mobile-inline" aria-label="مساحة إعلانية جاهزة للهاتف">
+            <span data-i18n="adSlotLabel">مساحة إعلانية</span>
+            <small data-i18n="adSlotHint">مهيّأة لإعلان Google لاحقًا</small>
+          </aside>
+        </section>
+
+        <!-- شاشة المساعد -->
+        <section id="assistant-screen" class="screen" hidden>
+          <header class="dashboard-heading"><p class="eyebrow" data-i18n="healthAssistant">Miri، مساعدتك الصحية</p><h1 data-i18n="askYoldas">اسأل ميري</h1><p data-i18n="assistantDescription">اكتب عن وجبتك أو تمرينك أو هدفك بكلامك الطبيعي.</p></header>
+          <article class="assistant-card">
+            <div class="assistant-identity" aria-label="Miri">
+              <span class="assistant-avatar" aria-hidden="true">M</span>
+              <div><strong data-i18n="assistantName">Miri</strong><small data-i18n="assistantStatus">معك خطوة بخطوة</small></div>
+            </div>
+            <div id="chat-messages" class="chat-messages" aria-live="polite"><div class="chat bot">أهلًا، أنا ميري. اكتب لي ما أكلته أو تمرينك اليوم، ونأخذ خطوة مفيدة معًا.</div></div>
+            <div class="prompt-row"><button data-prompt="مشيت 20 دقيقة النهارده" data-i18n="promptWalk" data-i18n-prompt="promptWalkValue">مشيت 20 دقيقة</button><button data-prompt="اقترح لي فطار صحي سريع" data-i18n="promptBreakfast" data-i18n-prompt="promptBreakfastValue">فطار صحي سريع</button><button data-prompt="كيف أرتب وجباتي اليوم؟" data-i18n="promptOrganize" data-i18n-prompt="promptOrganizeValue">رتّب يومي</button></div>
+            <form id="chat-form" class="chat-form"><input id="chat-input" autocomplete="off" placeholder="اكتب وجبتك أو سؤالك..." /><button class="primary-button" type="submit" data-i18n="send">إرسال</button></form>
+            <div id="assistant-error" class="assistant-error" hidden><span></span><button id="assistant-retry" data-i18n="retry">حاول مرة أخرى</button></div>
+          </article>
+          <aside class="ad-slot ad-slot-mobile ad-slot-section" data-ad-slot="assistant-mobile-inline" aria-label="مساحة إعلانية جاهزة للهاتف">
+            <span data-i18n="adSlotLabel">مساحة إعلانية</span>
+            <small data-i18n="adSlotHint">مهيّأة لإعلان Google لاحقًا</small>
+          </aside>
+        </section>
+
+        <!-- شاشة التقدم -->
+        <section id="progress-screen" class="screen" hidden>
+          <header class="dashboard-heading"><p class="eyebrow" data-i18n="yourJourney">مسيرتك</p><h1 data-i18n="navProgress">التقدم</h1><p data-i18n="progressDescription">صورة أوضح لخطواتك كل ما سجّلت بياناتك الحقيقية.</p></header>
+          <article class="empty-card wide" id="progress-empty">
+            <span>📈</span>
+            <h2 data-i18n="progressEmptyTitle">لسه مفيش بيانات هنا</h2>
+            <p data-i18n="progressEmptyDescription">ابدأ بتسجيل أول وجبة أو تمرين، وسنحوّل خطواتك الصغيرة إلى صورة أوضح لتقدمك.</p>
+          </article>
+          <div id="progress-content" class="progress-content" hidden></div>
+          <aside class="ad-slot ad-slot-mobile ad-slot-section" data-ad-slot="progress-mobile-inline" aria-label="مساحة إعلانية جاهزة للهاتف">
+            <span data-i18n="adSlotLabel">مساحة إعلانية</span>
+            <small data-i18n="adSlotHint">مهيّأة لإعلان Google لاحقًا</small>
+          </aside>
+        </section>
+
+        <!-- شاشة المجتمع -->
+        <section id="community-screen" class="screen" hidden>
+          <header class="dashboard-heading"><p class="eyebrow" data-i18n="friendsEyebrow">أصحابك المختارين</p><h1 data-i18n="navCommunity">المجتمع</h1><p data-i18n="friendsDescription">ابحث باسم مستخدم دقيق، أضف أصحابك بموافقتهم، وشارك ستريك صغير خاص.</p></header>
+          <article class="community-card community-hub">
+            <section class="community-brief">
+              <div>
+                <span class="community-private-label"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span data-i18n="communityPrivateLabel">خاص بين الأصدقاء</span></span>
+                <p data-i18n="communityPromise">لا يوجد ترتيب عام أو حسابات وهمية. أنت وحدك تختار أصدقاءك، وصور الستريك لا يراها إلا طرفا الصداقة.</p>
+              </div>
+              <div class="community-live-summary" aria-live="polite">
+                <div><strong id="community-friend-count">0</strong><span data-i18n="communityFriendsStat">أصحاب مقبولين</span></div>
+                <div><strong id="community-streak-count">0</strong><span data-i18n="communityStreaksStat">ستريك نشط</span></div>
+                <div><strong id="community-snap-count">0</strong><span data-i18n="communitySnapsStat">صور نشطة</span></div>
+              </div>
+            </section>
+            <div class="community-workspace">
+              <div class="community-main-column">
+                <section class="friends-search-card">
+                  <header class="community-section-header"><span>01</span><div><h2 data-i18n="findFriend">ابحث عن صاحب</h2><p data-i18n="communityFindHint">ابحث باسم المستخدم الدقيق فقط، ثم أرسل طلب صداقة.</p></div></header>
+              <form id="friend-search-form" class="chat-form"><input id="friend-search-input" autocomplete="off" data-i18n-placeholder="friendSearchPlaceholder" placeholder="اكتب اسم المستخدم بالضبط" /><button class="primary-button" type="submit" data-i18n="search">بحث</button></form>
+              <div id="friend-search-result" class="friend-search-result" hidden></div>
+              <p id="friends-status" class="settings-hint" hidden></p>
+                </section>
+                <section class="friends-section community-requests-panel">
+                  <header class="community-section-header"><span>02</span><div><h2 data-i18n="friendRequests">طلبات الصداقة</h2><p data-i18n="communityRequestsHint">لا تتم إضافة أي شخص إلا بعد قبوله.</p></div></header>
+                  <div id="friend-requests" class="friend-list"></div>
+                </section>
+                <section class="friends-section community-friends-panel">
+                  <header class="community-section-header"><span>03</span><div><h2 data-i18n="myFriends">أصحابي</h2><p data-i18n="communityFriendsHint">هنا يظهر عداد الستريك المشترك لكل صديق.</p></div></header>
+                  <div id="friends-list" class="friend-list"></div>
+                </section>
+              </div>
+              <aside class="community-side-column">
+                <section class="snap-section">
+                  <div><p class="eyebrow" data-i18n="snapEyebrow">ستريك خاص</p><h2 data-i18n="snapTitle">صورة ستريك لصاحب</h2><p data-i18n="snapPrivacy">صورة واحدة يوميًا لكل صديق، تظهر 24 ساعة فقط. لا ترسل صورًا حساسة أو شخصية.</p></div>
+              <form id="snap-form" class="snap-form">
+                <label><span data-i18n="snapFriend">الصاحب</span><select id="snap-recipient" required></select></label>
+                <div class="snap-photo-picker">
+                  <span class="snap-photo-label" data-i18n="snapPhoto">الصورة</span>
+                  <div class="snap-photo-actions">
+                    <button id="snap-camera-button" class="snap-media-button snap-camera-button" type="button">
+                      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7.5h3l1.3-2h7.4l1.3 2h3a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13.5" r="3.5"/></svg>
+                      <span data-i18n="snapCapture">التقط صورة</span>
+                    </button>
+                    <button id="snap-file-button" class="snap-media-button" type="button">
+                      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v13A1.5 1.5 0 0 1 18.5 20h-13A1.5 1.5 0 0 1 4 18.5v-13Z"/><circle cx="8.5" cy="9" r="1.25"/><path d="m5 17 4.2-4.2a1.35 1.35 0 0 1 1.9 0l1.8 1.8 1.5-1.5a1.35 1.35 0 0 1 1.9 0L19 16"/></svg>
+                      <span data-i18n="snapChoose">اختر صورة</span>
+                    </button>
+                  </div>
+                  <input id="snap-camera" class="snap-file-input" type="file" accept="image/*" capture="environment" tabindex="-1" aria-hidden="true" />
+                  <input id="snap-file" class="snap-file-input" type="file" accept="image/*" tabindex="-1" aria-hidden="true" />
+                  <small id="snap-file-name" class="snap-file-name" data-i18n="snapNoFile">لم تختر صورة بعد.</small>
+                </div>
+                <label><span data-i18n="snapCaption">كلمة قصيرة (اختياري)</span><input id="snap-caption" maxlength="140" data-i18n-placeholder="snapCaptionPlaceholder" placeholder="مثال: مشي اليوم" /></label>
+                <button class="primary-button" type="submit" data-i18n="sendSnap">أرسل الستريك</button>
+              </form>
+              <p id="snap-status" class="settings-hint" aria-live="polite" hidden></p>
+              <div id="snap-list" class="snap-list"></div>
+                </section>
+              </aside>
+            </div>
+            <section class="friend-challenges-section" aria-live="polite">
+              <header class="community-section-header"><span>04</span><div><p class="eyebrow" data-i18n="challengeEyebrow">تحديات الأصدقاء</p><h2 data-i18n="challengeTitle">تحدّوا معًا بخطوات صغيرة</h2><p data-i18n="challengeDescription">أنشئ تحديًا حركيًا لمدة 3 أو 7 أيام مع 2 إلى 5 أصدقاء. لا توجد صور أو ترتيب عام.</p></div></header>
+              <div id="challenge-level-card" class="challenge-level-card challenge-level-0" hidden>
+                <div class="challenge-level-orbit" aria-hidden="true"><span id="challenge-level-number">0</span></div>
+                <div><small data-i18n="challengeLevel">مستوى سلسلة الإنجاز</small><h3 id="challenge-level-name">بداية الطريق</h3><p><strong id="challenge-wins-count">0</strong> <span data-i18n="challengeWins">تحديات مكتملة</span></p></div>
+              </div>
+              <form id="challenge-form" class="challenge-form" hidden>
+                <p class="challenge-create-hint" data-i18n="challengeCreateHint">اختر التحدي والمدة والأصدقاء؛ يبدأ بعد موافقة جميع المدعوين.</p>
+                <label><span data-i18n="challengeTemplate">نوع التحدي</span><select id="challenge-template" required>
+                  <option value="pushups" data-i18n="challengePushups">ضغط اليوم</option>
+                  <option value="squats" data-i18n="challengeSquats">سكوات ثابت</option>
+                  <option value="plank" data-i18n="challengePlank">بلانك هادئ</option>
+                  <option value="walk" data-i18n="challengeWalk">مشي نشيط</option>
+                  <option value="chair_stands" data-i18n="challengeChairStands">قيام من الكرسي</option>
+                </select></label>
+                <label><span data-i18n="challengeDuration">المدة</span><select id="challenge-duration" required>
+                  <option value="3" data-i18n="challengeDuration3">3 أيام</option>
+                  <option value="7" data-i18n="challengeDuration7">7 أيام</option>
+                </select></label>
+                <fieldset id="challenge-friends" class="challenge-friends"><legend data-i18n="challengeFriends">اختر الأصدقاء</legend></fieldset>
+                <button class="primary-button" type="submit" data-i18n="challengeCreate">إنشاء تحدٍ</button>
+              </form>
+              <div id="challenge-start-guide" class="challenge-start-guide" hidden>
+                <p data-i18n="challengeNoFriends">أضف أصدقاء مقبولين أولًا لإنشاء تحدٍ.</p>
+                <button id="challenge-find-friends" class="secondary-button" type="button" data-i18n="challengeFindFriends">ابحث عن صديق أولًا</button>
+              </div>
+              <p id="challenge-status" class="settings-hint" hidden></p>
+              <div id="challenge-list" class="challenge-list"></div>
+            </section>
+            <section class="motivation-card" aria-live="polite">
+              <div><p class="eyebrow" data-i18n="motivationEyebrow">دعم اختياري</p><h2 data-i18n="motivationTitle">خُد دفعة حماس حقيقية</h2><p data-i18n="motivationDescription">رسالة كتبها مستخدم واختار مشاركتها بدون اسم. لا يوجد ترتيب ولا حسابات وهمية.</p></div>
+              <button id="get-motivation" class="secondary-button" type="button" data-i18n="motivationGet">اعرض رسالة داعمة</button>
+              <blockquote id="motivation-message" class="motivation-message" hidden></blockquote>
+              <p id="motivation-status" class="motivation-status" hidden></p>
+            </section>
+          </article>
+        </section>
+
+        <!-- شاشة الإعدادات -->
+        <section id="settings-screen" class="screen" hidden>
+          <header class="dashboard-heading"><p class="eyebrow" data-i18n="fullControl">تحكّم كامل</p><h1 data-i18n="navSettings">الإعدادات</h1><p data-i18n="settingsDescription">عدّل هدفك وتفضيلاتك، أو تعرّف على خصوصية جلستك.</p></header>
+
+          <article class="settings-card">
+            <h3 data-i18n="recoveryEmail">بريد الاسترجاع</h3>
+            <p class="settings-hint" data-i18n="recoveryEmailHint">خاص ولا يظهر للناس. يستخدم فقط عند نسيان كلمة السر.</p>
+            <div class="settings-row">
+              <input id="recovery-email-input" type="email" autocomplete="email" data-i18n-placeholder="recoveryEmailPlaceholder" placeholder="name@example.com" />
+              <button id="recovery-email-save" class="secondary-button" type="button" data-i18n="saveRecoveryEmail">حفظ بريد الاسترجاع</button>
+            </div>
+            <p id="recovery-email-message" class="settings-hint" hidden></p>
+          </article>
+
+          <article class="settings-card">
+            <h3 data-i18n="aliasTitle">الاسم المستعار في المجتمع</h3>
+            <div class="settings-row">
+              <input id="alias-input" type="text" data-i18n-placeholder="aliasPlaceholder" placeholder="مثال: رفيق_هادي" autocomplete="off" />
+              <button id="alias-save" class="secondary-button" data-i18n="save">حفظ</button>
+            </div>
+          </article>
+
+          <article class="settings-card">
+            <h3 data-i18n="goalTitle">الهدف الأساسي</h3>
+            <div class="settings-row">
+              <input id="goal-input" type="text" data-i18n-placeholder="goalPlaceholder" placeholder="مثال: خسارة وزن بهدوء" autocomplete="off" />
+              <button id="goal-save" class="secondary-button" data-i18n="save">حفظ</button>
+            </div>
+          </article>
+
+          <article class="settings-card">
+            <h3 data-i18n="miriStyleTitle">أسلوب ميري</h3>
+            <p class="settings-hint" data-i18n="miriStyleDescription">اختَر نبرة الحديث التي تناسبك. حدود الإرشاد الصحي لا تتغير.</p>
+            <div id="miri-style-options" class="miri-style-options" role="radiogroup" data-i18n-aria-label="miriStyleTitle">
+              <button type="button" class="miri-style-option" data-miri-style="supportive" role="radio"><b data-i18n="miriStyleSupportive">داعم ودافئ</b><small data-i18n="miriStyleSupportiveHint">تشجيع متزن وخطوة بسيطة.</small></button>
+              <button type="button" class="miri-style-option" data-miri-style="calm" role="radio"><b data-i18n="miriStyleCalm">هادئ ومباشر</b><small data-i18n="miriStyleCalmHint">إجابة قصيرة بلا زحمة كلام.</small></button>
+              <button type="button" class="miri-style-option" data-miri-style="energetic" role="radio"><b data-i18n="miriStyleEnergetic">حماسي</b><small data-i18n="miriStyleEnergeticHint">طاقة وتشجيع من غير ضغط.</small></button>
+            </div>
+            <div class="settings-row"><button id="miri-style-save" class="secondary-button" data-i18n="saveMiriStyle">حفظ أسلوب ميري</button></div>
+          </article>
+
+          <article class="settings-card">
+            <h3 data-i18n="motivationSettingsTitle">رسالة حماس اختيارية</h3>
+            <p class="settings-hint" data-i18n="motivationSettingsHint">اكتب رسالة قصيرة حقيقية لو تحب تساعد شخصًا آخر. لن يظهر اسمك ولا يمكن للموقع اختراع رسائل أو نسبتها لك.</p>
+            <textarea id="motivation-note-input" maxlength="280" rows="3" data-i18n-placeholder="motivationPlaceholder" placeholder="مثال: البداية الصغيرة أحسن من انتظار اليوم المثالي."></textarea>
+            <label class="settings-toggle"><input id="motivation-opt-in" type="checkbox" /><span data-i18n="motivationOptIn">أوافق على مشاركة هذه الرسالة بدون اسمي داخل مساحة الدعم.</span></label>
+            <div class="settings-row"><button id="motivation-save" class="secondary-button" data-i18n="motivationSave">احفظ تفضيل الرسالة</button></div>
+            <p id="motivation-settings-message" class="settings-hint" hidden></p>
+          </article>
+
+          <article class="settings-card">
+            <h3 data-i18n="reminderTitle">تفضيلات التذكير</h3>
+            <label class="settings-toggle">
+              <input id="reminder-toggle" type="checkbox" />
+              <span data-i18n="reminderToggle">ذكّرني بتسجيل يومي (اختياري)</span>
+            </label>
+            <p class="settings-hint" data-i18n="reminderHint">لن نطلب إذن الإشعارات إلا بعد أن ترى فائدة واضحة، ولن نفعّله دون موافقتك.</p>
+          </article>
+
+          <article class="settings-card">
+            <h3 data-i18n="privacyTitle">بياناتك وخصوصيتك</h3>
+            <p class="settings-hint" data-i18n="privacyHint">في وضع التجربة، بياناتك مرتبطة بهذا المتصفح فقط. الحساب باسم المستخدم يحفظ رحلتك بشكل منفصل.</p>
+            <div class="settings-row">
+              <button id="export-data" class="secondary-button" data-i18n="exportData">تصدير بياناتي</button>
+              <button id="delete-data" class="danger-button" data-i18n="deleteData">حذف بياناتي</button>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <!-- شريط تنقل سفلي للهاتف -->
+      <nav id="mobile-nav" class="mobile-nav" hidden>
+        <button class="mobile-tab active" data-screen="today"><span class="mobile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></svg></span><em data-i18n="navToday">اليوم</em></button>
+        <button class="mobile-tab" data-screen="plans"><span class="mobile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5h6M9 10h6M9 14h6M9 18h3"/></svg></span><em data-i18n="navPlans">الخطط</em></button>
+        <button class="mobile-tab" data-screen="assistant"><span class="mobile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-7.8 7.5 8.3 8.3 0 0 1-3.5-.8L4 20l1.4-4a7.3 7.3 0 0 1-1.2-4.1A7.5 7.5 0 0 1 12 4a7.5 7.5 0 0 1 8 7.5Z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg></span><em data-i18n="navAssistant">المساعد</em></button>
+        <button class="mobile-tab" data-screen="community"><span class="mobile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.8 20v-1.7a4.6 4.6 0 0 1 4.6-4.6h1.2a4.6 4.6 0 0 1 4.6 4.6V20"/><path d="M16 5.6a3 3 0 0 1 0 5.8M18 14.1a4.6 4.6 0 0 1 2.2 3.9V20"/></svg></span><em data-i18n="navCommunity">المجتمع</em></button>
+        <button class="mobile-tab" data-screen="progress"><span class="mobile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="m7 15 4-4 3 2 5-6"/></svg></span><em data-i18n="navProgress">التقدم</em></button>
+        <button class="mobile-tab" data-screen="settings"><span class="mobile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.2 2.2-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-3.2v-.2a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1-2.2-2.2.1-.1A1.7 1.7 0 0 0 6.6 15a1.7 1.7 0 0 0-1.6-1H4.8v-3.2H5a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1 2.2-2.2.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.6v-.2h3.2v.2a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1 2.2 2.2-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2V14H21a1.7 1.7 0 0 0-1.6 1Z"/></svg></span><em data-i18n="navSettings">الإعدادات</em></button>
+      </nav>
+    </main>
+  </body>
+</html>
+/* ============================================================
+   Yoldaş — style.css
+   كل الألوان والخطوط هنا. غيّر متغيرات :root لتغيير الهوية بسهولة.
+   ============================================================ */
+
+:root {
+  /* الألوان الأساسية */
+  --color-primary: #F04F21;
+  --color-primary-dark: #C73E19;
+  --color-primary-light: #FF8B45;
+  --color-gold: #FFB648;
+  --color-bg: #FAF7F3;
+  --color-surface: #FFFFFF;
+  --color-text: #2A211E;
+  --color-text-soft: #776F69;
+  --color-ink: var(--color-text);
+  --color-muted: var(--color-text-soft);
+
+  /* مشتقات */
+  --color-danger: #C73E19;
+  --color-success: #2E7D32;
+  --shadow-soft: 0 14px 34px rgba(76, 39, 24, 0.09), 0 2px 7px rgba(42, 33, 30, 0.05);
+  --shadow-card: 0 5px 18px rgba(42, 33, 30, 0.045);
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 7px;
+  --radius-pill: 14px;
+
+  --font-display: "Cairo", "Tajawal", sans-serif;
+  --font-body: "Cairo", "Tajawal", sans-serif;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; }
+
+/* اجعل خاصية hidden في HTML أقوى من أي display في مكوّنات الواجهة. */
+[hidden] { display: none !important; }
+
+html { direction: rtl; }
+html[dir="ltr"] { direction: ltr; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background:
+    radial-gradient(850px 500px at 96% -16%, rgba(255, 182, 72, 0.14), transparent 62%),
+    linear-gradient(118deg, #fcfaf7 0%, var(--color-bg) 66%, #fffaf2 100%);
+  color: var(--color-text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; }
+input { font-family: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ============== أدوات مشتركة ============== */
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-primary-dark);
+  margin: 0 0 8px;
+}
+.eyebrow.light { color: rgba(255, 255, 255, 0.85); }
+
+.primary-button {
+  background: linear-gradient(105deg, var(--color-primary-dark), var(--color-primary));
+  color: #fff;
+  border: none;
+  border-radius: 10px 3px 10px 3px;
+  padding: 14px 26px;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(240, 79, 33, 0.28);
+  transition: transform 160ms var(--ease), box-shadow 160ms var(--ease), opacity 160ms var(--ease);
+}
+.primary-button:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(240, 79, 33, 0.34); }
+.primary-button:active { transform: translateY(0); }
+.primary-button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.secondary-button {
+  background: var(--color-surface);
+  color: var(--color-primary-dark);
+  border: 1.5px solid rgba(240, 79, 33, 0.25);
+  border-radius: 9px 3px 9px 3px;
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 160ms var(--ease), transform 160ms var(--ease);
+}
+.secondary-button:hover { background: rgba(240, 79, 33, 0.06); transform: translateY(-1px); }
+
+.danger-button {
+  background: transparent;
+  color: var(--color-danger);
+  border: 1.5px solid rgba(199, 62, 25, 0.3);
+  border-radius: 8px 3px 8px 3px;
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.danger-button:hover { background: rgba(199, 62, 25, 0.06); }
+
+.text-button {
+  background: none;
+  border: none;
+  color: var(--color-text-soft);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 4px;
+}
+.text-button:hover { color: var(--color-primary-dark); }
+
+.form-message {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--color-danger);
+  background: rgba(199, 62, 25, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+.form-message.info { color: var(--color-text-soft); background: rgba(119, 111, 105, 0.08); }
+
+/* ============== شريط التنقل العلوي ============== */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.wordmark { display: inline-flex; align-items: center; text-decoration: none; }
+.wordmark-logo {
+  width: 124px;
+  height: 54px;
+  object-fit: contain;
+  object-position: center;
+  filter: brightness(0) saturate(100%) invert(42%) sepia(96%) saturate(2104%) hue-rotate(347deg) brightness(99%) contrast(93%);
+}
+
+.nav-label {
+  color: var(--color-text-soft);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dashboard-nav {
+  max-width: 1180px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(240, 79, 33, 0.12);
+  border-radius: 13px 4px 13px 4px;
+  padding: 4px;
+}
+
+.tab {
+  border: none;
+  background: transparent;
+  padding: 9px 16px;
+  border-radius: 9px 3px 9px 3px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-soft);
+  transition: background 160ms var(--ease), color 160ms var(--ease);
+}
+.tab.active { background: var(--color-primary); color: #fff; }
+.tab:not(.active):hover { background: rgba(240, 79, 33, 0.08); color: var(--color-text); }
+
+.connection-status {
+  max-width: 1180px;
+  margin: 0 auto 12px;
+  padding: 0 24px;
+}
+.connection-status span {
+  display: block;
+  background: rgba(199, 62, 25, 0.08);
+  color: var(--color-primary-dark);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ============== صفحة الترحيب ============== */
+
+.welcome-page { padding-bottom: 60px; }
+
+.welcome-page .topbar { max-width: 1540px; padding-left: clamp(24px, 4vw, 64px); padding-right: clamp(24px, 4vw, 64px); }
+
+.welcome-ad-shell {
+  max-width: 1840px;
+  margin: 24px auto 0;
+  padding: 0 clamp(24px, 3vw, 48px);
+  display: grid;
+  grid-template-columns: clamp(132px, 11vw, 200px) minmax(0, 1540px) clamp(132px, 11vw, 200px);
+  gap: clamp(16px, 1.6vw, 30px);
+  align-items: stretch;
+}
+
+.welcome-grid {
+  max-width: 1540px;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.46fr) minmax(430px, 1fr);
+  gap: clamp(28px, 3.6vw, 60px);
+  align-items: start;
+}
+
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #bd3b1a 0%, var(--color-primary) 68%, #f96d31 100%);
+  color: #fff;
+  border-radius: 20px 7px 20px 7px;
+  min-height: 720px;
+  padding: clamp(56px, 5.8vw, 92px) clamp(46px, 5.7vw, 88px) clamp(50px, 4.8vw, 76px);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: rise 520ms var(--ease) both;
+}
+.brand-mark {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 9px rgba(61, 20, 8, 0.22));
+  margin-bottom: 20px;
+}
+.hero-logo {
+  width: 150px;
+  height: 64px;
+  object-position: center;
+  filter: brightness(0) invert(1) drop-shadow(0 5px 9px rgba(61, 20, 8, 0.22));
+}
+
+.hero-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 auto;
+  width: 44%;
+  height: 5px;
+  background: rgba(255, 238, 218, 0.78);
+  transform: skewX(-22deg) translateX(16px);
+}
+
+.hero-card h1 {
+  position: relative;
+  font-size: clamp(44px, 5.15vw, 78px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  margin: 8px 0 20px;
+  font-weight: 900;
+  max-width: 11.6ch;
+}
+.hero-card h1 span { display: block; }
+.hero-card h1 span:first-child { color: #FFE3C6; }
+.hero-card > p {
+  position: relative;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 46ch;
+  margin: 0 0 22px;
+}
+
+.hero-steps {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.hero-steps span {
+  background: rgba(95, 24, 7, 0.18);
+  border-inline-start: 2px solid rgba(255, 227, 198, 0.86);
+  border-radius: 3px;
+  padding: 8px 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.hero-steps b { font-family: var(--font-display); margin-inline-end: 6px; opacity: 0.85; }
+
+.intro-card {
+  background: var(--color-surface);
+  border-radius: 8px 18px 8px 18px;
+  min-height: 620px;
+  padding: 56px 48px 50px;
+  margin-top: 86px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  animation: rise 520ms var(--ease) both;
+  animation-delay: 60ms;
+}
+.ad-slot {
+  align-self: stretch;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  padding: 18px 12px;
+  color: #82745d;
+  background: linear-gradient(145deg, rgba(255, 247, 214, 0.88), rgba(255, 253, 242, 0.7));
+  border: 1px dashed rgba(209, 157, 33, 0.48);
+  border-radius: 12px 4px 12px 4px;
+}
+.ad-slot span { font-size: 12px; font-weight: 800; color: #9b7020; }
+.ad-slot small { max-width: 14ch; font-size: 11px; line-height: 1.55; }
+.ad-slot-rail { min-height: 100%; }
+.ad-slot-mobile { display: none; }
+.ad-slot-section { margin-block: 30px; }
+.intro-card h2 { font-size: 22px; margin: 0 0 10px; line-height: 1.4; }
+.intro-card > p { color: var(--color-text-soft); margin: 0 0 20px; font-size: 15px; }
+
+.feature-list { display: grid; gap: 14px; margin-bottom: 20px; }
+.feature-list div {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--color-bg);
+  border-radius: 7px 12px 7px 12px;
+  padding: 13px 15px;
+  border-inline-start: 2px solid rgba(240, 79, 33, 0.28);
+}
+.feature-list i { font-style: normal; font-size: 20px; }
+.feature-list b { display: block; font-size: 14.5px; }
+.feature-list small { color: var(--color-text-soft); font-size: 13px; }
+
+.privacy {
+  font-size: 13.5px;
+  color: var(--color-text-soft);
+  background: rgba(255, 182, 72, 0.14);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin: 0 0 20px;
+}
+.privacy b { color: var(--color-text); }
+
+.welcome-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: auto; }
+.topbar-tools { display: flex; min-width: 0; align-items: center; justify-content: flex-end; gap: 10px; }
+.language-menu { position: relative; flex: 0 1 auto; }
+.language-menu-button, .theme-toggle {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(240,79,33,.18);
+  color: var(--color-text);
+  background: rgba(255,255,255,.76);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  transition: transform 160ms var(--ease), border-color 160ms var(--ease), background 160ms var(--ease), color 160ms var(--ease);
+}
+.language-menu-button { max-inline-size: 132px; gap: 7px; padding: 8px 11px; border-radius: 8px 13px 8px 13px; white-space: nowrap; }
+.language-menu-button span { overflow: hidden; text-overflow: ellipsis; }
+.language-menu-button svg { width: 15px; height: 15px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; transition: transform 160ms var(--ease); }
+.language-menu-button[aria-expanded="true"] { border-color: rgba(240,79,33,.52); background: var(--color-surface); color: var(--color-primary-dark); }
+.language-menu-button[aria-expanded="true"] svg { transform: rotate(180deg); }
+.language-menu-list { position: absolute; z-index: 60; inset-inline-end: 0; top: calc(100% + 7px); display: grid; min-inline-size: 152px; gap: 3px; padding: 5px; background: var(--color-surface); border: 1px solid rgba(240,79,33,.16); border-radius: 10px 16px 10px 16px; box-shadow: 0 16px 34px rgba(42,33,30,.16); }
+.language-option { width: 100%; border: 0; border-radius: 7px 11px 7px 11px; padding: 9px 10px; color: var(--color-text-soft); background: transparent; text-align: start; font: inherit; font-size: 12px; font-weight: 750; }
+.language-option:hover, .language-option:focus-visible { color: var(--color-text); background: var(--color-bg); outline: none; }
+.language-option.active { color: var(--color-primary-dark); background: rgba(240,79,33,.08); }
+.theme-toggle { flex: 0 0 40px; width: 40px; padding: 0; border-radius: 50%; }
+.theme-toggle:hover { color: var(--color-primary-dark); border-color: rgba(240,79,33,.5); background: rgba(240,79,33,.07); transform: translateY(-1px); }
+.theme-toggle:active, .language-menu-button:active { transform: scale(.97); }
+.language-menu-button:focus-visible, .theme-toggle:focus-visible { outline: 2px solid var(--color-primary-light); outline-offset: 2px; }
+.theme-icon { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.theme-icon-moon { display: none; }
+html[data-theme="dark"] .theme-icon-sun { display: none; }
+html[data-theme="dark"] .theme-icon-moon { display: block; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.account-panel {
+  max-width: 760px;
+  margin: 22px auto 0;
+  padding: 26px;
+  background: var(--color-surface);
+  border: 1px solid rgba(240, 79, 33, 0.14);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+.account-panel-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+.account-panel-header h2 { margin: 0; font-size: 23px; }
+.account-description { margin: 10px 0 18px; color: var(--color-text-soft); font-size: 14px; }
+.account-tabs { display: flex; gap: 8px; padding-bottom: 14px; border-bottom: 1px solid rgba(42, 33, 30, 0.08); }
+.account-mode { border: 1px solid rgba(240, 79, 33, 0.2); color: var(--color-primary-dark); background: #fff; padding: 9px 14px; font: inherit; font-size: 14px; font-weight: 700; border-radius: var(--radius-pill); }
+.account-mode.active { color: #fff; background: var(--color-primary); border-color: var(--color-primary); }
+.account-form { display: grid; gap: 8px; margin-top: 18px; }
+.account-form label { font-size: 14px; font-weight: 800; }
+.account-form input { width: 100%; border: 1px solid rgba(42, 33, 30, 0.13); border-radius: var(--radius-sm); padding: 13px 14px; font: inherit; background: #fff; }
+.account-form input:focus { outline: 2px solid var(--color-primary-light); outline-offset: 1px; }
+.account-form small { margin-bottom: 8px; color: var(--color-text-soft); font-size: 12px; line-height: 1.7; }
+.account-form .primary-button { justify-self: start; margin-top: 4px; }
+.account-gender-field { margin: 6px 0 0; padding: 12px; border: 1px solid rgba(240, 79, 33, 0.18); border-radius: 12px; background: color-mix(in srgb, var(--color-surface) 88%, var(--color-primary) 4%); }
+.account-gender-field legend { padding: 0 4px; color: var(--color-text); font-size: 14px; font-weight: 800; }
+.account-gender-field p { margin: 0 0 9px; color: var(--color-text-soft); font-size: 12px; line-height: 1.6; }
+.gender-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.gender-options label { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; margin: 0; padding: 9px 10px; color: var(--color-text); border: 1px solid rgba(42, 33, 30, 0.14); border-radius: 9px; background: var(--color-surface); cursor: pointer; }
+.gender-options input { width: auto; margin: 0; padding: 0; accent-color: var(--color-primary); }
+.gender-options label:has(input:checked) { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(240, 79, 33, 0.12); }
+.locale-tr { font-family: "Manrope", sans-serif; letter-spacing: -0.012em; }
+.locale-tr .hero-card h1, .locale-tr .intro-card h2, .locale-tr .dashboard-heading h1 { letter-spacing: -0.035em; }
+.locale-tr .topbar, .locale-tr .step-meta, .locale-tr .section-title, .locale-tr .settings-row { direction: ltr; }
+.locale-tr .how-grid, .locale-tr .how-detail-panel { direction: ltr; grid-auto-flow: row; }
+.locale-tr .how-grid, .locale-tr .how-detail-panel, .locale-tr .account-panel, .locale-tr .dashboard-heading, .locale-tr .screen { text-align: left; }
+.locale-tr .how-grid article, .locale-tr .how-detail-panel article { direction: ltr; text-align: left; }
+
+.how-section {
+  max-width: 1540px;
+  margin: 76px auto 0;
+  padding: 0 clamp(24px, 4vw, 64px);
+  text-align: center;
+}
+.how-section h2 { font-size: 26px; margin: 0 0 28px; }
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: right;
+}
+.how-detail-panel {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  text-align: right;
+}
+.how-detail-panel article {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(240, 79, 33, 0.12);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  box-shadow: var(--shadow-card);
+}
+.how-detail-panel span {
+  flex: 0 0 auto;
+  color: var(--color-primary-dark);
+  font-size: 12px;
+  font-weight: 900;
+}
+.how-detail-panel h3 { margin: 0 0 5px; font-size: 15px; }
+.how-detail-panel p { margin: 0; font-size: 13px; line-height: 1.8; color: var(--color-text-soft); }
+.how-grid article {
+  background: var(--color-surface);
+  border-radius: 7px 13px 7px 13px;
+  min-height: 132px;
+  padding: 28px 22px;
+  box-shadow: var(--shadow-card);
+}
+.how-grid article:nth-child(even) { transform: translateY(16px); }
+.how-detail-panel article:nth-child(2n) { border-radius: 14px 6px 14px 6px; }
+.how-grid b {
+  display: inline-block;
+  color: var(--color-primary-dark);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  margin-bottom: 9px;
+  padding-inline-start: 9px;
+  border-inline-start: 3px solid var(--color-primary);
+}
+.how-grid h3 { font-size: 15.5px; margin: 0 0 6px; }
+.how-grid p { font-size: 13.5px; color: var(--color-text-soft); margin: 0; }
+
+/* ============== لوحة التطبيق ============== */
+
+.dashboard-page { padding-bottom: 96px; min-height: 100vh; }
+
+.dashboard-heading {
+  max-width: 1180px;
+  margin: 8px auto 0;
+  padding: 0 24px;
+}
+.dashboard-heading h1 { font-size: clamp(27px, 3vw, 35px); letter-spacing: -0.03em; margin: 2px 0 6px; font-weight: 900; }
+.dashboard-heading > p { color: var(--color-text-soft); margin: 0; font-size: 14.5px; }
+
+.screen {
+  max-width: 1180px;
+  margin: 20px auto 0;
+  padding: 0 24px;
+  animation: fade 380ms var(--ease) both;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.summary-grid article {
+  background: var(--color-surface);
+  border-radius: 7px 13px 7px 13px;
+  padding: 18px;
+  box-shadow: var(--shadow-card);
+  border-top: 2px solid rgba(240, 79, 33, 0.13);
+}
+.summary-grid article:nth-child(3) { transform: translateY(9px); }
+.summary-grid span { display: block; font-size: 13px; color: var(--color-text-soft); margin-bottom: 6px; }
+.summary-grid strong { font-size: 26px; display: block; font-family: var(--font-display); }
+.summary-grid small { color: var(--color-text-soft); font-size: 12.5px; }
+.active-plan-summary-card { border-top-color: rgba(240, 79, 33, 0.7) !important; background: linear-gradient(145deg, #fffdf9, #fff4e7) !important; }
+.calorie-card { background: linear-gradient(155deg, var(--color-primary-dark), var(--color-primary)); color: #fff; }
+.calorie-card span, .calorie-card small { color: rgba(255,255,255,0.85); }
+.streak-card { border-top-color: rgba(255, 182, 72, 0.8) !important; background: linear-gradient(150deg, #fffaf2, #fff) !important; }
+.streak-card strong::before { content: "🔥 "; font-size: 18px; }
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+}
+
+.mission-card, .assistant-card, .plan-card, .community-card, .settings-card {
+  background: var(--color-surface);
+  border-radius: 9px 18px 9px 18px;
+  padding: 26px;
+  box-shadow: var(--shadow-card);
+}
+
+.section-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.section-title h2 { font-size: 18px; margin: 2px 0 0; }
+.section-title span { font-weight: 700; color: var(--color-primary-dark); font-size: 14px; }
+
+.mission-list { display: grid; gap: 10px; margin-bottom: 18px; }
+.mission-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-bg);
+  border-radius: 6px 11px 6px 11px;
+  padding: 13px 16px;
+  font-size: 14.5px;
+}
+.mission-item.done { background: rgba(46, 125, 50, 0.08); }
+.mission-status {
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 5px;
+  background: rgba(240, 79, 33, 0.1);
+  color: var(--color-primary-dark);
+}
+.mission-item.done .mission-status { background: rgba(46, 125, 50, 0.14); color: var(--color-success); }
+
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.food-library-card {
+  margin-top: 24px;
+  background: var(--color-surface);
+  border-radius: 18px 7px 18px 7px;
+  padding: 26px;
+  box-shadow: var(--shadow-card);
+  border-top: 2px solid rgba(240, 79, 33, 0.13);
+}
+.gym-mode-card { margin-top: 24px; background: var(--color-surface); border-radius: 8px 18px 8px 18px; padding: 26px; box-shadow: var(--shadow-card); border-top: 2px solid rgba(255, 182, 72, 0.65); }
+.gym-intro { max-width: 760px; color: var(--color-text-soft); font-size: 14px; line-height: 1.8; margin: 0 0 16px; }
+.gym-set-form { display: grid; grid-template-columns: minmax(150px, 1.5fr) repeat(3, minmax(86px, .55fr)) auto; gap: 10px; align-items: end; }
+.gym-set-form label { display: grid; gap: 5px; color: var(--color-text-soft); font-size: 12px; font-weight: 800; }
+.gym-set-form input { width: 100%; min-height: 45px; border: 1px solid rgba(240,79,33,.2); border-radius: 7px 3px 7px 3px; background: var(--color-bg); padding: 10px 12px; font: inherit; color: var(--color-text); }
+.gym-set-form input:focus { outline: 2px solid var(--color-primary-light); outline-offset: 1px; }
+.gym-set-form .primary-button { min-height: 45px; padding: 10px 16px; }
+.gym-message { margin: 12px 0 0; padding: 10px 12px; background: rgba(46,125,50,.09); color: var(--color-success); border-radius: 6px 11px 6px 11px; font-size: 13px; font-weight: 700; }
+.gym-message.error { background: rgba(199,62,25,.08); color: var(--color-danger); }
+.gym-progress-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 18px; }
+.gym-progress-layout h3 { margin: 0 0 9px; font-size: 14px; }
+.gym-recent-sets, .gym-personal-bests { display: grid; gap: 7px; }
+.gym-set-row { display: flex; justify-content: space-between; gap: 10px; align-items: center; background: var(--color-bg); padding: 10px 12px; border-radius: 6px 10px 6px 10px; font-size: 12.5px; }
+.gym-set-row b { font-size: 13px; }
+.gym-set-row small { color: var(--color-text-soft); }
+.gym-empty { margin: 0; color: var(--color-text-soft); font-size: 12.5px; padding: 14px 0; }
+.food-library-intro { max-width: 760px; color: var(--color-text-soft); font-size: 14px; line-height: 1.8; margin: 0 0 16px; }
+.food-catalog-tools { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; }
+.food-catalog-tools input { width: 100%; border: 1px solid rgba(240, 79, 33, 0.2); border-radius: 7px 3px 7px 3px; background: var(--color-bg); padding: 12px 14px; font: inherit; }
+.food-filter-row { display: flex; gap: 5px; }
+.food-filter, .portion-choice button { border: 1px solid rgba(240, 79, 33, 0.18); border-radius: 5px; background: transparent; color: var(--color-text-soft); padding: 8px 10px; font: inherit; cursor: pointer; }
+.food-filter.active, .portion-choice button.active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+.food-catalog-context { min-height: 1.4em; margin: 14px 0 0; color: var(--color-text-soft); font-size: 12.5px; font-weight: 700; }
+.food-catalog-results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 14px; }
+.food-catalog-group { grid-column: 1 / -1; }
+.food-catalog-group + .food-catalog-group { margin-top: 16px; }
+.food-catalog-group h3 { margin: 0 0 8px; padding-inline-start: 10px; border-inline-start: 3px solid var(--color-primary); color: var(--color-text); font-size: 14px; }
+.food-catalog-group > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.food-recipe-option { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: center; text-align: inherit; border: 1px solid rgba(32, 27, 23, 0.08); border-inline-start: 3px solid rgba(240, 79, 33, 0.28); border-radius: 6px 11px 6px 11px; background: var(--color-bg); padding: 11px; cursor: pointer; font: inherit; color: var(--color-text); }
+.food-recipe-option.selected { border-color: var(--color-primary); background: rgba(240, 79, 33, 0.05); }
+.food-recipe-option b, .food-recipe-option small { display: block; }
+.food-recipe-option small { color: var(--color-text-soft); font-size: 11.5px; margin-top: 3px; }
+.food-recipe-option strong { color: var(--color-primary-dark); white-space: nowrap; font-size: 13px; }
+.recipe-country { color: var(--color-primary); font-weight: 900; font-size: 11px; letter-spacing: 0.08em; }
+.food-catalog-empty { margin: 14px 0 0; color: var(--color-text-soft); }
+.food-catalog-suggestions { margin-top: 16px; padding: 15px; border: 1px dashed rgba(240, 79, 33, 0.38); border-radius: 8px 16px 8px 16px; background: rgba(240, 79, 33, 0.045); }
+.food-catalog-suggestions h3 { margin: 0; font-size: 14px; color: var(--color-text); }
+.food-catalog-suggestions p { margin: 5px 0 10px; color: var(--color-text-soft); font-size: 12px; line-height: 1.6; }
+.food-catalog-suggestions > div { display: flex; flex-wrap: wrap; gap: 7px; }
+.food-catalog-suggestions button { border: 1px solid rgba(240, 79, 33, 0.28); border-radius: 999px; background: var(--color-surface); color: var(--color-primary-dark); padding: 7px 10px; cursor: pointer; font: inherit; font-size: 12px; font-weight: 750; }
+.food-catalog-suggestions .catalog-miri-button { display: inline-flex; margin-top: 12px; border-radius: 7px 3px 7px 3px; background: transparent; font-size: 12px; }
+.food-catalog-pagination { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 18px; }
+.food-catalog-pagination .secondary-button { min-width: 92px; padding: 9px 13px; }
+.food-catalog-pagination .secondary-button:disabled { opacity: 0.45; cursor: not-allowed; }
+.food-catalog-pagination span { min-width: 110px; color: var(--color-text-soft); font-size: 12px; font-weight: 800; text-align: center; }
+.food-catalog-detail { margin-top: 14px; padding: 16px; background: linear-gradient(135deg, rgba(240, 79, 33, 0.09), rgba(255, 248, 239, 0.75)); border-radius: 8px 16px 8px 16px; border-inline-start: 4px solid var(--color-primary); }
+.food-catalog-message { margin: 14px 0 0; padding: 10px 12px; border-radius: 5px 11px 5px 11px; background: rgba(46, 125, 50, 0.08); color: var(--color-success); font-size: 13px; font-weight: 700; }
+.food-catalog-message.error { background: rgba(199, 62, 25, 0.08); color: var(--color-danger); }
+.food-detail-heading { display: flex; justify-content: space-between; gap: 18px; align-items: start; }
+.food-detail-heading h3 { margin: 2px 0 4px; font-size: 19px; }
+.food-detail-heading p { margin: 0; color: var(--color-text-soft); font-size: 13px; }
+.food-detail-heading > strong { color: var(--color-primary-dark); font-size: 28px; line-height: 1; text-align: end; }
+.food-detail-heading > strong small { display: block; color: var(--color-text-soft); font-size: 11px; font-weight: 600; margin-top: 4px; }
+.portion-choice { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 10px; }
+.reference-note, .reference-meta, .reference-source { color: var(--color-text-soft); font-size: 12.5px; line-height: 1.65; margin: 5px 0; }
+.recipe-nutrients { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; margin: 14px 0 12px; }
+.recipe-nutrients span { padding: 8px; text-align: center; background: rgba(255,255,255,0.68); border: 1px solid rgba(240, 79, 33, 0.1); border-radius: 5px; color: var(--color-primary-dark); font-size: 11.5px; font-weight: 800; }
+.recipe-ingredients { margin: 12px 0; padding: 13px; background: rgba(255,255,255,0.56); border-radius: 6px 12px 6px 12px; }
+.recipe-ingredients h4 { margin: 0 0 8px; font-size: 13px; color: var(--color-text); }
+.recipe-ingredients ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 5px; }
+.recipe-ingredients li { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 5px; border-bottom: 1px solid rgba(42,33,30,0.07); color: var(--color-text-soft); font-size: 12px; }
+.recipe-ingredients li:last-child { border-bottom: 0; padding-bottom: 0; }
+.recipe-ingredients li b { color: var(--color-text); white-space: nowrap; }
+.reference-source a { color: var(--color-primary-dark); font-weight: 700; text-decoration-thickness: 1px; }
+#save-reference-recipe { margin-top: 12px; }
+.action-button {
+  background: var(--color-bg);
+  border: 1px solid rgba(240, 79, 33, 0.14);
+  border-radius: 7px 3px 7px 3px;
+  padding: 10px 16px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--color-text);
+  transition: background 150ms var(--ease), transform 150ms var(--ease);
+}
+.action-button:hover { background: rgba(240, 79, 33, 0.08); transform: translateY(-1px); }
+.action-button:disabled { opacity: 0.6; cursor: wait; transform: none; }
+
+.empty-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--color-bg);
+  border: 1.5px dashed rgba(240, 79, 33, 0.22);
+  border-radius: var(--radius-lg);
+  padding: 30px 20px;
+}
+.empty-card span { font-size: 26px; margin-bottom: 8px; }
+.empty-card h2 { font-size: 16px; margin: 0 0 6px; }
+.empty-card p { font-size: 13.5px; color: var(--color-text-soft); margin: 0; max-width: 30ch; }
+.empty-card.wide { max-width: 520px; margin: 0 auto; padding: 44px 24px; }
+
+/* ============== شاشة الخطط ============== */
+
+.plan-switch { display: flex; gap: 8px; margin-bottom: 20px; }
+.plan-type {
+  flex: 1;
+  border: 1.5px solid rgba(240, 79, 33, 0.18);
+  background: var(--color-bg);
+  border-radius: 7px 3px 7px 3px;
+  padding: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-text-soft);
+}
+.plan-type.active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+
+.step-meta { display: flex; justify-content: space-between; font-size: 13px; color: var(--color-text-soft); margin-bottom: 8px; }
+.progress-track { height: 6px; border-radius: 3px; background: rgba(240, 79, 33, 0.12); overflow: hidden; margin-bottom: 22px; }
+.progress-track i {
+  display: block; height: 100%; border-radius: inherit;
+  background: linear-gradient(90deg, var(--color-primary-dark), var(--color-gold));
+  width: 25%;
+  transition: width 260ms var(--ease);
+}
+
+#plan-question { display: block; font-weight: 700; font-size: 16px; margin-bottom: 12px; }
+#plan-answer {
+  width: 100%;
+  border: 1.5px solid rgba(240, 79, 33, 0.18);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  font-size: 15px;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+#plan-answer:focus { outline: 2px solid var(--color-primary-light); outline-offset: 1px; }
+.plan-answer-hint { display: block; min-height: 18px; margin-top: 8px; color: var(--color-text-soft); font-size: 12px; line-height: 1.55; }
+
+.plan-actions { display: flex; gap: 10px; margin-top: 20px; }
+.plan-result {
+  margin-top: 16px;
+  font-size: 14px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(240, 79, 33, 0.08);
+  color: var(--color-primary-dark);
+}
+.plan-result.error { background: rgba(199, 62, 25, 0.08); color: var(--color-danger); }
+
+.active-plan-card {
+  margin-top: 18px;
+  background: var(--color-surface);
+  border-radius: 18px 7px 18px 7px;
+  padding: 26px;
+  box-shadow: var(--shadow-card);
+}
+.active-plan-card h3 { margin: 0 0 6px; font-size: 18px; }
+.active-plan-card .plan-summary { color: var(--color-text-soft); font-size: 14px; margin: 0 0 18px; }
+.plan-targets { display: grid; gap: 7px; margin: 0 0 16px; padding: 12px 15px; background: rgba(240,79,33,.06); border-inline-start: 3px solid var(--color-primary); border-radius: 5px 12px 5px 12px; list-style: none; }
+.plan-targets li { position: relative; padding-inline-start: 16px; font-size: 13px; line-height: 1.55; color: var(--color-text); }
+.plan-targets li::before { content: "•"; position: absolute; inset-inline-start: 0; color: var(--color-primary-dark); font-weight: 900; }
+.plan-day { background: var(--color-bg); border-radius: 6px 12px 6px 12px; border-inline-start: 3px solid rgba(240, 79, 33, 0.35); padding: 14px 16px; margin-bottom: 12px; }
+.plan-day h4 { margin: 0 0 8px; font-size: 14.5px; color: var(--color-primary-dark); }
+.plan-day ul { margin: 0; padding-inline-start: 18px; font-size: 13.5px; color: var(--color-text); }
+.plan-disclaimer { font-size: 12.5px; color: var(--color-text-soft); margin-top: 12px; }
+.plan-card-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+.plan-edit-panel { display: grid; gap: 9px; margin-top: 14px; padding: 15px; background: #fff9f4; border: 1px solid rgba(240,79,33,.16); border-radius: 7px 16px 7px 16px; }
+.plan-edit-panel label { font-weight: 850; font-size: 14px; }
+.plan-edit-panel textarea { width: 100%; min-height: 84px; box-sizing: border-box; resize: vertical; padding: 11px 12px; color: var(--color-text); background: #fff; border: 1px solid rgba(240,79,33,.2); border-radius: 6px 12px 6px 12px; font: inherit; line-height: 1.55; }
+.plan-edit-panel textarea:focus { outline: 2px solid var(--color-primary-light); outline-offset: 1px; }
+.plan-edit-panel p { margin: 0; color: var(--color-text-soft); font-size: 12px; line-height: 1.55; }
+.plan-edit-panel > div { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; }
+.plan-edit-status { color: var(--color-primary-dark); font-size: 12px; font-weight: 700; }
+.plan-edit-status.error { color: var(--color-danger); }
+
+/* ============== شاشة المساعد ============== */
+
+.assistant-identity {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 15px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(240, 79, 33, 0.12);
+}
+.assistant-avatar {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(145deg, var(--color-primary-dark), var(--color-primary-light));
+  border-radius: 12px 5px 12px 5px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  box-shadow: 0 7px 16px rgba(240, 79, 33, 0.2);
+}
+.assistant-identity strong, .assistant-identity small { display: block; }
+.assistant-identity strong { font-size: 15px; }
+.assistant-identity small { margin-top: 1px; color: var(--color-text-soft); font-size: 12px; }
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 420px;
+  min-height: 200px;
+  overflow-y: auto;
+  padding: 4px 4px 14px;
+  margin-bottom: 14px;
+}
+.chat {
+  max-width: 78%;
+  padding: 11px 15px;
+  border-radius: var(--radius-md);
+  font-size: 14.5px;
+  line-height: 1.55;
+  animation: fade 220ms var(--ease) both;
+}
+.chat.bot { align-self: flex-start; background: var(--color-bg); color: var(--color-text); }
+.chat.user { align-self: flex-end; background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); color: #fff; }
+.chat.thinking { align-self: flex-start; background: var(--color-bg); color: var(--color-text-soft); font-style: normal; }
+
+.prompt-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.prompt-row button {
+  background: var(--color-bg);
+  border: 1px solid rgba(240, 79, 33, 0.16);
+  border-radius: 6px 3px 6px 3px;
+  padding: 8px 14px;
+  font-size: 13px;
+  color: var(--color-text);
+}
+.prompt-row button:hover { background: rgba(240, 79, 33, 0.08); }
+
+.chat-form { display: flex; gap: 10px; }
+.chat-form input {
+  flex: 1;
+  border: 1.5px solid rgba(240, 79, 33, 0.18);
+  border-radius: 8px 3px 8px 3px;
+  padding: 13px 18px;
+  font-size: 14.5px;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+.chat-form input:focus { outline: 2px solid var(--color-primary-light); outline-offset: 1px; }
+
+.assistant-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  background: rgba(199, 62, 25, 0.08);
+  color: var(--color-danger);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 14px;
+}
+.assistant-error button {
+  background: #fff;
+  border: 1px solid rgba(199, 62, 25, 0.3);
+  border-radius: var(--radius-pill);
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-danger);
+  white-space: nowrap;
+}
+
+/* ============== شاشة التقدم ============== */
+
+.progress-content { display: grid; gap: 14px; }
+.progress-row { background: var(--color-surface); border-radius: var(--radius-md); padding: 16px 18px; box-shadow: var(--shadow-card); display: flex; justify-content: space-between; align-items: center; }
+
+/* ============== شاشة المجتمع ============== */
+
+.community-hub { display: grid; gap: 18px; }
+.community-brief { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr); gap: 20px; align-items: center; padding: 20px; background: linear-gradient(115deg, #fff9f3, #fff); border: 1px solid rgba(240,79,33,.15); border-radius: 8px 18px 8px 18px; box-shadow: inset 4px 0 0 var(--color-primary); }
+.community-private-label { display: inline-flex; align-items: center; gap: 7px; color: var(--color-primary-dark); font-size: 12px; font-weight: 900; letter-spacing: .02em; }
+.community-private-label svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.community-brief p { max-width: 60ch; margin: 9px 0 0; color: var(--color-text-soft); font-size: 13.5px; line-height: 1.8; }
+.community-live-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.community-live-summary > div { display: grid; gap: 2px; min-height: 78px; align-content: center; padding: 10px 9px; text-align: center; background: rgba(255,255,255,.86); border: 1px solid rgba(240,79,33,.1); border-radius: 7px 13px 7px 13px; }
+.community-live-summary strong { color: var(--color-primary-dark); font-size: 22px; line-height: 1; }
+.community-live-summary span { color: var(--color-text-soft); font-size: 10px; font-weight: 800; line-height: 1.35; }
+.community-workspace { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(330px, .88fr); gap: 16px; align-items: start; }
+.community-main-column, .community-side-column { display: grid; gap: 14px; }
+.motivation-card { display: grid; gap: 12px; padding: 18px; margin-bottom: 0; background: linear-gradient(135deg, rgba(240,79,33,.09), rgba(252,189,93,.13)); border: 1px solid rgba(240,79,33,.14); border-radius: 10px 20px 10px 20px; }
+.motivation-card h2 { margin: 0; font-size: 20px; }
+.motivation-card p { margin: 4px 0 0; color: var(--color-text-soft); font-size: 13px; }
+.motivation-card .secondary-button { justify-self: start; }
+.motivation-message { margin: 0; padding: 14px 16px; background: rgba(255,255,255,.72); border-inline-start: 3px solid var(--color-primary); font-weight: 700; line-height: 1.7; }
+.motivation-status { margin: 0; font-size: 13px; color: var(--color-text-soft); }
+.community-list { display: grid; gap: 10px; margin-bottom: 16px; max-height: 360px; overflow-y: auto; }
+.community-empty { text-align: center; color: var(--color-text-soft); font-size: 14px; padding: 30px 10px; }
+.community-item { background: var(--color-bg); border-radius: var(--radius-md); padding: 12px 16px; }
+.community-item b { font-size: 13px; color: var(--color-primary-dark); display: block; margin-bottom: 4px; }
+.community-item p { margin: 0; font-size: 14px; }
+.community-note { font-size: 12.5px; color: var(--color-text-soft); margin: 12px 0 0; }
+.friends-search-card, .friends-section, .snap-section { display: grid; gap: 12px; padding: 18px; margin-bottom: 0; background: var(--color-bg); border: 1px solid rgba(240,79,33,.13); border-radius: 10px 18px 10px 18px; }
+.friends-search-card h2, .friends-section h2, .snap-section h2 { margin: 0; font-size: 17px; }
+.community-section-header { display: flex; align-items: flex-start; gap: 10px; }
+.community-section-header > span { flex: 0 0 auto; display: grid; place-items: center; width: 30px; height: 30px; color: #fff; background: var(--color-primary); border-radius: 4px 10px 4px 10px; font-size: 11px; font-weight: 900; }
+.community-section-header > div { display: grid; gap: 3px; }
+.community-section-header p { margin: 0; color: var(--color-text-soft); font-size: 12px; line-height: 1.55; }
+.community-requests-panel { background: rgba(255,255,255,.88); }
+.community-friends-panel { background: #fff; border-color: rgba(255,182,72,.32); }
+.friend-list { display: grid; gap: 8px; }
+.friend-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 11px; background: #fff; border: 1px solid rgba(32,45,40,.09); border-radius: 8px 14px 8px 14px; }
+.friend-row b { color: var(--color-primary-dark); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.friend-row span { color: var(--color-text-soft); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.friend-row > div { display: flex; flex-wrap: wrap; gap: 6px; }
+.friend-row-accepted { grid-template-columns: minmax(0, 1fr) auto auto; }
+.friend-identity { display: grid; gap: 3px; min-width: 0; }
+.friend-streak { display: inline-flex; align-items: baseline; gap: 3px; min-width: max-content; padding: 6px 8px; color: #9c4a14 !important; background: rgba(255, 182, 72, .16); border: 1px solid rgba(240, 79, 33, .17); border-radius: 7px 11px 7px 11px; font-size: 12px !important; font-weight: 800; overflow: visible !important; white-space: nowrap; }
+.friend-streak strong { color: var(--color-primary-dark); font-size: 14px; }
+.friend-streak small { font-size: 10px; font-weight: 700; color: inherit; }
+.friend-streak.is-empty { color: var(--color-text-soft) !important; background: rgba(119, 111, 105, .08); border-color: rgba(119, 111, 105, .13); }
+.friend-streak-level-1 { color: #2d679d !important; background: #eef6ff; border-color: rgba(76,134,198,.32); }
+.friend-streak-level-2 { color: #9b6114 !important; background: #fff7df; border-color: rgba(217,141,45,.35); }
+.friend-streak-level-3 { color: #0b5d57 !important; background: #eaf6f3; border-color: rgba(11,93,87,.28); }
+.friend-streak-level-4 { color: #51417c !important; background: #f1eef9; border-color: rgba(102,84,154,.3); }
+.friend-streak-level-5 { color: #715516 !important; background: #fbf4df; border-color: rgba(217,164,65,.35); }
+.friend-streak-level-6 { color: #93455c !important; background: #fff0f1; border-color: rgba(184,96,118,.28); }
+.friend-streak-level-7 { color: #2b4d86 !important; background: #edf3fc; border-color: rgba(56,93,157,.28); }
+.friend-streak-level-8 { color: #174d52 !important; background: #eff8f3; border-color: rgba(217,164,65,.48); box-shadow: inset 2px 0 0 #d9a441; }
+.friend-streak[class*="friend-streak-level-"] strong { color: currentColor; }
+.friend-row button, .friend-search-result button { border: 1px solid rgba(240,79,33,.22); border-radius: 6px 11px 6px 11px; padding: 7px 9px; background: #fffaf5; color: var(--color-primary-dark); font: inherit; font-size: 12px; cursor: pointer; }
+.friend-row button:hover, .friend-search-result button:hover { background: rgba(240,79,33,.09); }
+.snap-section { position: sticky; top: 82px; background: linear-gradient(160deg, #fff7f0, #fffdfb 66%); border-color: rgba(240,79,33,.2); box-shadow: 0 10px 24px rgba(91,44,20,.05); }
+.snap-section::before { content: ""; width: 42px; height: 3px; background: var(--color-primary); border-radius: 0 0 4px 4px; }
+.snap-form { display: grid; grid-template-columns: 1fr; gap: 10px; align-items: end; }
+.snap-form label { display: grid; gap: 6px; font-size: 12px; font-weight: 700; }
+.snap-form input, .snap-form select { min-height: 42px; box-sizing: border-box; width: 100%; padding: 9px 10px; color: var(--color-text); background: #fff; border: 1px solid rgba(240,79,33,.18); border-radius: 7px 12px 7px 12px; font: inherit; }
+.snap-photo-picker { display: grid; gap: 7px; }
+.snap-photo-label { color: var(--color-text); font-size: 12px; font-weight: 700; }
+.snap-photo-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.snap-media-button { display: inline-flex; min-width: 0; min-height: 46px; align-items: center; justify-content: center; gap: 7px; padding: 9px 10px; color: var(--color-primary-dark); background: #fff; border: 1px solid rgba(240,79,33,.2); border-radius: 7px 12px 7px 12px; font: inherit; font-size: 12px; font-weight: 800; white-space: nowrap; transition: transform 160ms var(--ease), background 160ms var(--ease), border-color 160ms var(--ease); }
+.snap-media-button svg { flex: 0 0 auto; width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.85; stroke-linecap: round; stroke-linejoin: round; }
+.snap-media-button:hover { background: rgba(240,79,33,.07); border-color: rgba(240,79,33,.45); transform: translateY(-1px); }
+.snap-media-button:active { transform: scale(.97); }
+.snap-media-button:focus-visible { outline: 2px solid var(--color-primary-light); outline-offset: 2px; }
+.snap-camera-button { color: #fff; background: linear-gradient(105deg, var(--color-primary-dark), var(--color-primary)); border-color: var(--color-primary); box-shadow: 0 6px 14px rgba(240,79,33,.17); }
+.snap-camera-button:hover { color: #fff; background: linear-gradient(105deg, #ad3214, var(--color-primary-dark)); }
+.snap-file-input { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+.snap-file-name { min-height: 18px; color: var(--color-text-soft); font-size: 11.5px; line-height: 1.5; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.snap-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.snap-item { overflow: hidden; background: #fff; border: 1px solid rgba(32,45,40,.1); border-radius: 9px 16px 9px 16px; }
+.snap-item img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: #eee; }
+.snap-item footer { display: grid; gap: 4px; padding: 9px; font-size: 12px; }
+.snap-item footer p, .snap-item footer small { margin: 0; color: var(--color-text-soft); }
+.snap-reactions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 3px; }
+.snap-reactions button { width: 34px; height: 32px; padding: 0; border: 1px solid rgba(240,79,33,.16); border-radius: 8px 12px 8px 12px; background: #fffaf5; cursor: pointer; font-size: 16px; line-height: 1; }
+.snap-reactions button.active { border-color: var(--color-primary); background: rgba(240,79,33,.12); box-shadow: inset 2px 0 0 var(--color-primary); }
+.snap-reaction-summary { display: inline-flex; width: max-content; gap: 2px; padding: 3px 6px; border-radius: var(--radius-pill); background: rgba(240,79,33,.08); font-size: 13px; }
+.friend-row button[data-friend-block], .friend-row button[data-friend-report] { color: #9f3922; border-color: rgba(159,57,34,.2); background: #fff9f7; }
+
+/* ============== تحديات الأصدقاء ومكافآت سلسلة الإنجاز ============== */
+
+.friend-challenges-section { display: grid; gap: 14px; padding: 20px; background: linear-gradient(135deg, #fffdf9 0%, #fff7ef 100%); border: 1px solid rgba(240,79,33,.16); border-radius: 10px 22px 10px 22px; }
+.friend-challenges-section .community-section-header h2 { margin: 0; font-size: 20px; }
+.challenge-level-card { --level-main: #f0522d; --level-soft: #fff2e8; --level-glow: rgba(240,79,33,.17); display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center; padding: 14px; color: #26302d; background: linear-gradient(120deg, var(--level-soft), #fff); border: 1px solid var(--level-glow); border-inline-start: 4px solid var(--level-main); border-radius: 8px 17px 8px 17px; box-shadow: 0 9px 20px rgba(61,39,23,.05); }
+.challenge-level-card small { display: block; color: #6d635c; font-size: 11px; font-weight: 800; letter-spacing: .02em; }
+.challenge-level-card h3 { margin: 3px 0; color: var(--level-main); font-size: 18px; }
+.challenge-level-card p { margin: 0; color: #5e554f; font-size: 12px; }
+.challenge-level-card p strong { color: var(--level-main); font-size: 16px; }
+.challenge-level-orbit { display: grid; place-items: center; width: 54px; height: 54px; color: var(--level-main); background: #fff; border: 2px solid var(--level-main); border-radius: 14px 22px 14px 22px; box-shadow: 0 0 0 5px var(--level-glow); font-size: 22px; font-weight: 950; }
+.challenge-level-0 { --level-main: #a6532a; --level-soft: #fff7ef; --level-glow: rgba(166,83,42,.12); }
+.challenge-level-1 { --level-main: #4c86c6; --level-soft: #edf5ff; --level-glow: rgba(76,134,198,.15); }
+.challenge-level-2 { --level-main: #d98d2d; --level-soft: #fff7df; --level-glow: rgba(217,141,45,.17); }
+.challenge-level-3 { --level-main: #0b5d57; --level-soft: #eaf6f3; --level-glow: rgba(11,93,87,.16); }
+.challenge-level-4 { --level-main: #66549a; --level-soft: #f1eef9; --level-glow: rgba(102,84,154,.16); }
+.challenge-level-5 { --level-main: #85672a; --level-soft: #fbf4df; --level-glow: rgba(217,164,65,.21); }
+.challenge-level-6 { --level-main: #b86076; --level-soft: #fff0f1; --level-glow: rgba(184,96,118,.16); }
+.challenge-level-7 { --level-main: #385d9d; --level-soft: #edf3fc; --level-glow: rgba(56,93,157,.16); }
+.challenge-level-8 { --level-main: #174d52; --level-soft: #eff8f3; --level-glow: rgba(232,214,168,.42); }
+.challenge-level-8 .challenge-level-orbit { border-color: #d9a441; box-shadow: 0 0 0 5px var(--level-glow), 0 6px 12px rgba(23,77,82,.12); }
+.challenge-form { display: grid; grid-template-columns: minmax(170px, .8fr) minmax(130px, .55fr) minmax(240px, 1.4fr) auto; gap: 10px; align-items: end; padding: 15px; background: rgba(255,255,255,.76); border: 1px solid rgba(32,45,40,.08); border-radius: 8px 15px 8px 15px; }
+.challenge-form label, .challenge-form fieldset { display: grid; gap: 6px; min-width: 0; margin: 0; padding: 0; border: 0; color: var(--color-text); font-size: 12px; font-weight: 800; }
+.challenge-form select { min-height: 42px; width: 100%; padding: 9px 10px; color: var(--color-text); background: #fff; border: 1px solid rgba(240,79,33,.18); border-radius: 7px 12px 7px 12px; font: inherit; }
+.challenge-friends { grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: start; }
+.challenge-friends legend { grid-column: 1 / -1; padding: 0; margin-bottom: 1px; }
+.challenge-friend-option { grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 5px; min-height: 21px; padding: 3px 0; font-weight: 700 !important; }
+.challenge-friend-option input { accent-color: var(--color-primary); }
+.challenge-friend-option span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.challenge-friend-option small { grid-column: 2; color: var(--color-text-soft); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.challenge-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 12px; }
+.challenge-card { display: grid; gap: 12px; padding: 15px; background: #fff; border: 1px solid rgba(32,45,40,.1); border-radius: 9px 17px 9px 17px; box-shadow: 0 7px 16px rgba(61,39,23,.04); }
+.challenge-card header { display: flex; gap: 10px; align-items: flex-start; justify-content: space-between; }
+.challenge-card header p { margin: 0 0 2px; color: var(--color-primary-dark); font-size: 12px; font-weight: 900; }
+.challenge-card h3 { margin: 0; font-size: 17px; }
+.challenge-card header > span, .challenge-card-status { margin: 0; color: var(--color-text-soft); font-size: 11.5px; font-weight: 750; text-align: end; }
+.challenge-status-pending { border-style: dashed; }
+.challenge-status-completed { border-color: rgba(11,93,87,.24); box-shadow: inset 3px 0 0 #0b5d57; }
+.challenge-progress { height: 7px; overflow: hidden; background: #f3ede8; border-radius: 3px 8px 3px 8px; }
+.challenge-progress i { display: block; width: var(--challenge-progress, 0%); height: 100%; background: linear-gradient(90deg, var(--color-primary), #f6b34f); border-radius: inherit; transition: width 220ms var(--ease); }
+.challenge-members { display: grid; gap: 6px; }
+.challenge-members > small { color: var(--color-text-soft); font-size: 11px; font-weight: 800; }
+.challenge-members > div { display: flex; flex-wrap: wrap; gap: 5px; }
+.challenge-members span { padding: 4px 7px; color: #695346; background: #fff5eb; border-radius: 5px 9px 5px 9px; font-size: 11px; font-weight: 750; }
+.challenge-members span.is-rewarded { color: #0b5d57; background: #e9f7f1; }
+.challenge-card-actions { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; }
+.challenge-card-actions button:not(.primary-button), .challenge-card > .text-button { padding: 7px 9px; color: var(--color-primary-dark); background: #fffaf5; border: 1px solid rgba(240,79,33,.2); border-radius: 6px 11px 6px 11px; font: inherit; font-size: 12px; font-weight: 800; cursor: pointer; }
+.challenge-card-actions button:not(.primary-button):hover { background: rgba(240,79,33,.08); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .challenge-level-card:not(.challenge-level-0) .challenge-level-orbit { animation: challenge-level-arrival 260ms var(--ease) both; }
+}
+@keyframes challenge-level-arrival { from { opacity: .55; transform: translateY(3px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+/* ============== شاشة الإعدادات ============== */
+
+.settings-card { margin-bottom: 16px; }
+.settings-card h3 { margin: 0 0 12px; font-size: 15.5px; }
+.settings-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.settings-row input {
+  flex: 1;
+  min-width: 200px;
+  border: 1.5px solid rgba(240, 79, 33, 0.18);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 14.5px;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+.text-button { justify-self: start; padding: 4px 0; border: 0; background: none; color: var(--color-primary-dark); font: inherit; font-weight: 700; cursor: pointer; }
+.form-message.info { color: var(--color-primary-dark); }
+.settings-toggle { display: flex; align-items: center; gap: 10px; font-size: 14.5px; }
+.settings-hint { font-size: 12.5px; color: var(--color-text-soft); margin: 10px 0 0; }
+.miri-style-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; margin: 14px 0; }
+.miri-style-option { display: grid; gap: 4px; text-align: inherit; padding: 13px; background: var(--color-bg); border: 1px solid rgba(240,79,33,.16); border-radius: 7px 14px 7px 14px; color: var(--color-text); font: inherit; }
+.miri-style-option b { font-size: 13px; }
+.miri-style-option small { color: var(--color-text-soft); font-size: 11.5px; line-height: 1.4; }
+.miri-style-option.active { border-color: var(--color-primary); background: rgba(240,79,33,.07); box-shadow: inset 3px 0 0 var(--color-primary); }
+
+/* ============== شريط التنقل السفلي (هاتف) ============== */
+
+.mobile-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  display: none;
+  background: rgba(255, 253, 250, 0.97);
+  backdrop-filter: blur(18px);
+  border-top: 1px solid rgba(32, 27, 23, 0.08);
+  box-shadow: 0 -10px 28px rgba(63, 38, 23, 0.08);
+  padding: 7px 10px calc(8px + env(safe-area-inset-bottom));
+  z-index: 30;
+}
+.mobile-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--color-text-soft);
+  padding: 7px 2px 6px;
+  min-height: 58px;
+  border-radius: 10px;
+  position: relative;
+  transition: color 160ms var(--ease), background 160ms var(--ease), transform 160ms var(--ease);
+}
+.mobile-tab em { font-style: normal; line-height: 1; }
+.mobile-icon { width: 21px; height: 21px; display: grid; place-items: center; }
+.mobile-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.mobile-tab.active { color: var(--color-primary-dark); background: rgba(240, 79, 33, 0.08); }
+.mobile-tab.active::before { content: ""; position: absolute; top: 0; width: 22px; height: 3px; border-radius: 0 0 4px 4px; background: var(--color-primary); }
+.mobile-tab:active { transform: scale(0.96); }
+
+@media (max-width: 440px) {
+  .mobile-nav { padding-inline: 5px; }
+  .mobile-tab { min-width: 0; min-height: 56px; gap: 3px; padding: 7px 1px 5px; font-size: 9.5px; }
+  .mobile-icon { width: 19px; height: 19px; }
+  .mobile-icon svg { width: 19px; height: 19px; }
+}
+
+/* ============== حركات ============== */
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ============== استجابة ============== */
+
+@media (max-width: 1350px) {
+  .welcome-ad-shell { display: block; margin-top: 18px; padding: 0 clamp(24px, 4vw, 64px); }
+  .welcome-ad-shell > .ad-slot { display: none; }
+}
+
+/* شاشة اللابتوب والكمبيوتر المتوسط: كارتان متوازنان بدل التراكب أو الفراغات. */
+@media (min-width: 901px) and (max-width: 1350px) {
+  .welcome-grid {
+    max-width: 1160px;
+    margin: 0 auto;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: clamp(26px, 3.3vw, 46px);
+    align-items: center;
+  }
+  .hero-card {
+    min-height: 620px;
+    padding: clamp(44px, 5vw, 68px) clamp(34px, 4.4vw, 58px);
+  }
+  .hero-card h1 { font-size: clamp(46px, 5vw, 66px); }
+  .intro-card {
+    min-height: 540px;
+    margin-top: 0;
+    padding: clamp(34px, 4vw, 50px) clamp(28px, 3.5vw, 42px);
+  }
+}
+
+/* يمنع أي نسخة أقدم أو قاعدة وراثية من تراكب بطاقة التعريف فوق الهيرو في العرض المتوسط. */
+@media (min-width: 901px) and (max-width: 1120px) {
+  .welcome-ad-shell { display: block; padding: 0 38px; }
+  .welcome-grid {
+    width: min(100%, 960px);
+    margin: 0 auto;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 32px;
+    align-items: stretch;
+  }
+  .hero-card, .intro-card { min-width: 0; margin: 0; }
+  .hero-card { min-height: 610px; padding: 46px 36px; }
+  .intro-card { min-height: 610px; padding: 38px 28px; }
+  .hero-card h1 { font-size: clamp(40px, 5.15vw, 52px); }
+  .intro-card h2 { font-size: clamp(22px, 2.65vw, 29px); }
+  .feature-list { gap: 11px; }
+  .feature-list div { min-height: 72px; }
+}
+
+@media (max-width: 900px) {
+  .welcome-ad-shell { padding: 0 18px; }
+  .welcome-grid { grid-template-columns: 1fr; }
+  .hero-card { min-height: 570px; }
+  .intro-card { min-height: 0; margin-top: 0; }
+  .how-grid { grid-template-columns: repeat(2, 1fr); }
+  .content-grid { grid-template-columns: 1fr; }
+  .summary-grid { grid-template-columns: repeat(2, 1fr); }
+  .community-brief, .community-workspace { grid-template-columns: 1fr; }
+  .snap-section { position: static; }
+  .challenge-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .challenge-form fieldset, .challenge-form .primary-button { grid-column: 1 / -1; }
+}
+
+@media (max-width: 720px) {
+  .ad-slot-mobile {
+    display: flex;
+    min-height: 112px;
+    margin: 8px 0 20px;
+    padding: 16px;
+    border-radius: 12px 4px 12px 4px;
+  }
+  .ad-slot-section { margin: 26px 0; }
+  .food-catalog-tools { grid-template-columns: 1fr; }
+  .food-catalog-results { grid-template-columns: 1fr; }
+  .food-catalog-group > div { grid-template-columns: 1fr; }
+  .food-catalog-pagination { gap: 8px; }
+  .food-catalog-pagination .secondary-button { min-width: 76px; padding-inline: 9px; }
+  .food-catalog-pagination span { min-width: 0; }
+  .food-library-card { padding: 18px; }
+  .dashboard-nav .nav-tabs { display: none; }
+  .mobile-nav { display: flex; }
+  .snap-form { grid-template-columns: 1fr; }
+  .snap-photo-actions { gap: 7px; }
+  .snap-media-button { min-height: 44px; padding-inline: 8px; font-size: 11.5px; }
+  .friend-row { grid-template-columns: 1fr; gap: 6px; }
+  .friend-row-accepted { grid-template-columns: minmax(0, 1fr) auto; }
+  .friend-row-accepted > div:last-child { grid-column: 1 / -1; }
+  .community-hub { gap: 14px; }
+  .community-brief { gap: 14px; padding: 16px; }
+  .community-live-summary { gap: 6px; }
+  .community-live-summary > div { min-height: 67px; padding: 8px 5px; }
+  .community-live-summary strong { font-size: 20px; }
+  .community-live-summary span { font-size: 9px; }
+  .friends-search-card, .friends-section, .snap-section { padding: 15px; }
+  .friend-challenges-section { padding: 15px; }
+  .challenge-form { grid-template-columns: 1fr; padding: 13px; }
+  .challenge-form fieldset, .challenge-form .primary-button { grid-column: auto; }
+  .challenge-friends { grid-template-columns: 1fr; }
+  .challenge-card header { display: grid; }
+  .challenge-card header > span, .challenge-card-status { text-align: start; }
+  .friend-row > div { justify-content: flex-start; }
+  .snap-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dashboard-page { padding-bottom: 86px; }
+  .dashboard-nav {
+    position: sticky;
+    top: 0;
+    z-index: 25;
+    min-height: 64px;
+    padding: 9px 16px;
+    margin: 0;
+    background: rgba(255, 253, 250, 0.94);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(32, 27, 23, 0.06);
+    box-shadow: 0 6px 20px rgba(63, 38, 23, 0.04);
+    flex-wrap: nowrap;
+  }
+  .dashboard-nav .wordmark-logo { width: 88px; height: 36px; }
+  .dashboard-nav .topbar-tools { display: flex; min-width: 0; align-items: center; gap: 6px; }
+  .dashboard-nav .language-menu-button { min-height: 34px; max-inline-size: 104px; gap: 5px; padding: 6px 8px; font-size: 11px; }
+  .dashboard-nav .theme-toggle { flex-basis: 34px; width: 34px; min-height: 34px; }
+  .dashboard-nav .theme-icon { width: 16px; height: 16px; }
+  .dashboard-nav #reset-journey {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 1px solid rgba(240, 79, 33, 0.16);
+    border-radius: 50%;
+    background: #fff;
+    color: var(--color-primary-dark);
+    font-size: 0;
+    display: grid;
+    place-items: center;
+  }
+  .dashboard-nav #reset-journey::before { content: "↻"; font-size: 21px; line-height: 1; }
+  .topbar { padding: 15px 18px; }
+  .welcome-page .topbar, .welcome-ad-shell, .how-section, .dashboard-heading, .screen { padding-left: 18px; padding-right: 18px; }
+  .wordmark-logo { width: 112px; height: 48px; }
+  .recipe-nutrients { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gym-set-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gym-set-form label:first-child, .gym-set-form .primary-button { grid-column: 1 / -1; }
+  .gym-progress-layout { grid-template-columns: 1fr; }
+  .miri-style-options { grid-template-columns: 1fr; }
+  .photo-upload-form { grid-template-columns: 1fr; }
+  .hero-card, .intro-card { padding: 28px 22px; }
+	.action-button { flex: 1 1 45%; text-align: center; }
+  .how-detail-panel { grid-template-columns: 1fr; }
+  .topbar-tools { gap: 8px; }
+  .nav-label { display: none; }
+  .account-panel { margin-left: 18px; margin-right: 18px; padding: 20px; }
+}
+
+@media (max-width: 480px) {
+  .how-grid { grid-template-columns: 1fr; }
+  .summary-grid { grid-template-columns: repeat(2, 1fr); }
+  .welcome-actions { flex-direction: column; align-items: stretch; }
+  .welcome-actions .primary-button, .welcome-actions .secondary-button { text-align: center; }
+  .topbar { gap: 8px; padding-inline: 12px; }
+  .welcome-page .topbar { padding-inline: 12px; }
+  .wordmark-logo { width: 102px; height: 42px; }
+  .language-menu-button { min-height: 36px; max-inline-size: 96px; padding-inline: 8px; font-size: 11px; }
+  .theme-toggle { flex-basis: 36px; width: 36px; min-height: 36px; }
+  .dashboard-nav .wordmark-logo { width: 80px; height: 34px; }
+  .dashboard-nav .language-menu-button { max-inline-size: 88px; }
+}
+
+/* FAQ ظاهر للمستخدم ومهيأ لاستخراج الإجابات المباشرة دون إرباك الصفحة. */
+.faq-section {
+  max-width: 940px;
+  margin: clamp(54px, 8vw, 104px) auto 72px;
+  padding: 0 clamp(20px, 4vw, 42px);
+}
+.faq-heading { max-width: 620px; margin: 0 auto 28px; text-align: center; }
+.faq-heading h2 { margin: 8px 0 10px; color: var(--color-ink); font-size: clamp(28px, 3vw, 42px); letter-spacing: -0.04em; }
+.faq-heading p:not(.eyebrow) { margin: 0; color: var(--color-muted); }
+.faq-list { display: grid; gap: 12px; }
+.faq-item {
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(240, 79, 33, 0.15);
+  border-radius: 16px 7px 16px 7px;
+  box-shadow: 0 12px 28px rgba(56, 34, 20, 0.05);
+}
+.faq-item summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  padding: 16px 58px 16px 22px;
+  cursor: pointer;
+  color: var(--color-ink);
+  font-weight: 800;
+  line-height: 1.55;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  inset-inline-end: 19px;
+  top: 50%;
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(240, 79, 33, 0.1);
+  color: var(--color-primary-dark);
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+.faq-item[open] summary::after { content: "−"; background: var(--color-primary); color: #fff; }
+.faq-item p { margin: -1px 22px 20px; color: var(--color-muted); line-height: 1.9; }
+.faq-item summary:focus-visible { outline: 3px solid rgba(240, 79, 33, 0.34); outline-offset: -3px; }
+@media (max-width: 720px) {
+  .faq-section { margin-top: 52px; margin-bottom: 46px; padding: 0 18px; }
+  .faq-heading { margin-bottom: 22px; }
+  .faq-item summary { min-height: 60px; padding-inline-start: 17px; padding-inline-end: 52px; font-size: 15px; }
+  .faq-item p { margin-inline: 17px; font-size: 14px; }
+}
+
+/* ============== الوضع الداكن الاختياري ============== */
+html[data-theme="dark"] {
+  --color-primary: #e76632;
+  --color-primary-dark: #f0844d;
+  --color-primary-light: #ffad7e;
+  --color-gold: #e76632;
+  --color-bg: #0a0907;
+  --color-surface: #161412;
+  --color-text: #f6f0e8;
+  --color-text-soft: #b7aca0;
+  --color-ink: #f6f0e8;
+  --color-muted: #b7aca0;
+  --color-danger: #f19a7c;
+  --color-success: #9aca9d;
+  --shadow-soft: 0 20px 50px rgba(0,0,0,.42), 0 2px 9px rgba(0,0,0,.25);
+  --shadow-card: 0 12px 28px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.035);
+}
+html[data-theme="dark"] body {
+  background:
+    radial-gradient(680px 450px at 89% -9%, rgba(231,102,50,.17), transparent 62%),
+    radial-gradient(7px 7px at 20% 25%, rgba(255,255,255,.045) 0 0.7px, transparent .9px),
+    linear-gradient(130deg, #0a0907, #0d0b09 58%, #080706);
+  background-size: auto, 8px 8px, auto;
+}
+html[data-theme="dark"] .wordmark-logo { filter: brightness(0) saturate(100%) invert(54%) sepia(61%) saturate(3859%) hue-rotate(344deg) brightness(95%) contrast(88%); }
+html[data-theme="dark"] .language-menu-button,
+html[data-theme="dark"] .theme-toggle { color: var(--color-text); background: rgba(22,20,18,.88); border-color: rgba(212,160,60,.26); }
+html[data-theme="dark"] .language-menu-button[aria-expanded="true"],
+html[data-theme="dark"] .theme-toggle:hover { color: #f0cf83; background: #1d1814; border-color: rgba(212,160,60,.7); }
+html[data-theme="dark"] .language-menu-list { background: #191613; border-color: rgba(212,160,60,.25); box-shadow: 0 18px 44px rgba(0,0,0,.52); }
+html[data-theme="dark"] .language-option { color: var(--color-text-soft); }
+html[data-theme="dark"] .language-option:hover,
+html[data-theme="dark"] .language-option:focus-visible { color: var(--color-text); background: #252019; }
+html[data-theme="dark"] .language-option.active { color: #f0cf83; background: rgba(212,160,60,.13); }
+html[data-theme="dark"] .hero-card { background: linear-gradient(145deg, #221a12, #12100e 72%); border: 1px solid rgba(212,160,60,.42); }
+html[data-theme="dark"] .hero-card h1 span:first-child { color: #f0d39a; }
+html[data-theme="dark"] .hero-card > p, html[data-theme="dark"] .hero-steps span { color: rgba(246,240,232,.86); }
+html[data-theme="dark"] .hero-steps span { background: rgba(212,160,60,.08); border-inline-start-color: rgba(212,160,60,.76); }
+html[data-theme="dark"] .hero-card::after { background: rgba(212,160,60,.62); }
+html[data-theme="dark"] .primary-button { color: #f0cf83; background: #171310; border: 1px solid #d4a03c; box-shadow: 0 8px 21px rgba(0,0,0,.26), inset 0 1px 0 rgba(255,255,255,.04); }
+html[data-theme="dark"] .primary-button:hover { color: #fff2d3; background: #211a13; box-shadow: 0 12px 28px rgba(0,0,0,.38), 0 0 0 1px rgba(212,160,60,.18); }
+html[data-theme="dark"] .secondary-button,
+html[data-theme="dark"] .account-mode,
+html[data-theme="dark"] .assistant-error button,
+html[data-theme="dark"] .friend-row,
+html[data-theme="dark"] .snap-item,
+html[data-theme="dark"] .community-requests-panel,
+html[data-theme="dark"] .community-friends-panel { color: var(--color-text); background: #191613; border-color: rgba(212,160,60,.23); }
+html[data-theme="dark"] .secondary-button:hover { background: rgba(212,160,60,.11); }
+html[data-theme="dark"] .nav-tabs { background: rgba(22,20,18,.84); border-color: rgba(212,160,60,.2); }
+html[data-theme="dark"] .tab:not(.active):hover { color: var(--color-text); background: rgba(212,160,60,.12); }
+html[data-theme="dark"] .tab.active { color: #f0cf83; background: #2a2118; box-shadow: inset 0 0 0 1px rgba(212,160,60,.58); }
+html[data-theme="dark"] .feature-list div,
+html[data-theme="dark"] .mission-item,
+html[data-theme="dark"] .gym-set-row,
+html[data-theme="dark"] .food-recipe-option,
+html[data-theme="dark"] .chat.bot,
+html[data-theme="dark"] .chat.thinking,
+html[data-theme="dark"] .prompt-row button,
+html[data-theme="dark"] .plan-type,
+html[data-theme="dark"] .plan-day,
+html[data-theme="dark"] .community-item { background: #201c18; }
+html[data-theme="dark"] .active-plan-summary-card,
+html[data-theme="dark"] .streak-card { background: linear-gradient(145deg, #1c1712, #14110f) !important; }
+html[data-theme="dark"] .calorie-card { color: #f6f0e8; background: linear-gradient(145deg, #211a12, #12100e); border: 1px solid rgba(212,160,60,.55); }
+html[data-theme="dark"] .how-detail-panel article,
+html[data-theme="dark"] .community-brief,
+html[data-theme="dark"] .motivation-card,
+html[data-theme="dark"] .snap-section { background: linear-gradient(145deg, #1b1713, #12100e 75%); border-color: rgba(212,160,60,.25); }
+html[data-theme="dark"] .community-live-summary > div,
+html[data-theme="dark"] .motivation-message,
+html[data-theme="dark"] .recipe-nutrients span,
+html[data-theme="dark"] .recipe-ingredients { background: rgba(255,255,255,.045); border-color: rgba(212,160,60,.16); }
+html[data-theme="dark"] .account-form input,
+html[data-theme="dark"] .gym-set-form input,
+html[data-theme="dark"] .food-catalog-tools input,
+html[data-theme="dark"] #plan-answer,
+html[data-theme="dark"] .plan-edit-panel textarea,
+html[data-theme="dark"] .chat-form input,
+html[data-theme="dark"] .snap-form input,
+html[data-theme="dark"] .snap-form select { color: var(--color-text); background: #100e0c; border-color: rgba(212,160,60,.26); }
+html[data-theme="dark"] .snap-media-button { color: #e5b554; background: #171310; border-color: rgba(212,160,60,.42); }
+html[data-theme="dark"] .snap-media-button:hover { background: #241d15; border-color: #d4a03c; }
+html[data-theme="dark"] .snap-camera-button { color: #f0cf83; background: #211a13; border-color: #d4a03c; }
+html[data-theme="dark"] .snap-camera-button:hover { color: #fff2d3; background: #2a2118; }
+html[data-theme="dark"] .faq-item { background: rgba(22,20,18,.96); border-color: rgba(212,160,60,.24); box-shadow: var(--shadow-card); }
+html[data-theme="dark"] .faq-item summary::after { color: #e5b554; background: rgba(212,160,60,.12); }
+html[data-theme="dark"] .faq-item[open] summary::after { color: #15110e; background: #d4a03c; }
+html[data-theme="dark"] .ad-slot { color: #b9a987; background: linear-gradient(145deg, rgba(212,160,60,.08), rgba(22,20,18,.76)); border-color: rgba(212,160,60,.38); }
+html[data-theme="dark"] .ad-slot span { color: #e5b554; }
+html[data-theme="dark"] .settings-hint,
+html[data-theme="dark"] .community-note,
+html[data-theme="dark"] .reference-note,
+html[data-theme="dark"] .reference-meta,
+html[data-theme="dark"] .reference-source { color: var(--color-text-soft); }
+@media (max-width: 720px) {
+  html[data-theme="dark"] .dashboard-nav { background: rgba(13,11,9,.94); border-bottom-color: rgba(212,160,60,.2); box-shadow: 0 6px 20px rgba(0,0,0,.3); }
+  html[data-theme="dark"] .dashboard-nav #reset-journey { color: #e5b554; background: #171310; border-color: rgba(212,160,60,.28); }
+}
+
+/* اللمسة النحاسية: تقرّب الداكن من برتقالي Yoldaş من دون تحويله إلى لون ساطع. */
+html[data-theme="dark"] .language-menu-button,
+html[data-theme="dark"] .theme-toggle { border-color: rgba(231,102,50,.3); }
+html[data-theme="dark"] .language-menu-button[aria-expanded="true"],
+html[data-theme="dark"] .theme-toggle:hover { color: #ffad7e; background: #211511; border-color: rgba(231,102,50,.75); }
+html[data-theme="dark"] .language-menu-list { background: #191310; border-color: rgba(231,102,50,.28); }
+html[data-theme="dark"] .language-option.active { color: #ffad7e; background: rgba(231,102,50,.14); }
+html[data-theme="dark"] .hero-card { background: linear-gradient(145deg, #24150f, #12100e 72%); border-color: rgba(231,102,50,.45); }
+html[data-theme="dark"] .hero-card h1 span:first-child { color: #ffb187; }
+html[data-theme="dark"] .hero-steps span { background: rgba(231,102,50,.09); border-inline-start-color: rgba(231,102,50,.8); }
+html[data-theme="dark"] .hero-card::after { background: rgba(231,102,50,.68); }
+html[data-theme="dark"] .primary-button { color: #ffad7e; background: #1a110e; border-color: #e76632; }
+html[data-theme="dark"] .primary-button:hover { color: #fff0e8; background: #27150f; box-shadow: 0 12px 28px rgba(0,0,0,.38), 0 0 0 1px rgba(231,102,50,.2); }
+html[data-theme="dark"] .secondary-button,
+html[data-theme="dark"] .friend-row,
+html[data-theme="dark"] .snap-item { border-color: rgba(231,102,50,.26); }
+html[data-theme="dark"] .tab.active { color: #ffad7e; background: #2a1813; box-shadow: inset 0 0 0 1px rgba(231,102,50,.6); }
+html[data-theme="dark"] .calorie-card { background: linear-gradient(145deg, #25160f, #12100e); border-color: rgba(231,102,50,.58); }
+html[data-theme="dark"] .snap-media-button { color: #f0844d; border-color: rgba(231,102,50,.44); }
+html[data-theme="dark"] .snap-camera-button { color: #ffad7e; background: #27150f; border-color: #e76632; }
+html[data-theme="dark"] .faq-item { border-color: rgba(231,102,50,.28); }
+html[data-theme="dark"] .faq-item summary::after { color: #f0844d; background: rgba(231,102,50,.14); }
+html[data-theme="dark"] .faq-item[open] summary::after { background: #e76632; }
+html[data-theme="dark"] .ad-slot { color: #dca181; background: linear-gradient(145deg, rgba(231,102,50,.09), rgba(22,20,18,.76)); border-color: rgba(231,102,50,.4); }
+html[data-theme="dark"] .ad-slot span { color: #f0844d; }
+@media (max-width: 720px) {
+  html[data-theme="dark"] .dashboard-nav { border-bottom-color: rgba(231,102,50,.24); }
+  html[data-theme="dark"] .dashboard-nav #reset-journey { color: #f0844d; border-color: rgba(231,102,50,.32); }
+  html[data-theme="dark"] .mobile-nav { background: rgba(16,12,10,.97); border-top-color: rgba(231,102,50,.3); box-shadow: 0 -12px 30px rgba(0,0,0,.42); }
+  html[data-theme="dark"] .mobile-tab { color: #bcaaa1; }
+  html[data-theme="dark"] .mobile-tab.active { color: #ffad7e; background: rgba(231,102,50,.14); }
+  html[data-theme="dark"] .mobile-tab.active::before { background: #e76632; }
+}
+
+/* تحديات الأصدقاء: سطح داكن مريح بدل البطاقة البيضاء في الوضع الداكن. */
+.challenge-create-hint { grid-column: 1 / -1; margin: 0 0 2px; color: var(--color-text-soft); font-size: 12px; line-height: 1.65; }
+.challenge-start-guide { display: grid; gap: 11px; padding: 15px; color: var(--color-text); background: rgba(255,255,255,.6); border: 1px dashed rgba(240,79,33,.22); border-radius: 8px 15px 8px 15px; }
+.challenge-start-guide p { margin: 0; color: var(--color-text-soft); line-height: 1.75; }
+.challenge-start-guide .secondary-button { justify-self: start; }
+html[data-theme="dark"] .friend-challenges-section { background: linear-gradient(145deg, #18130f 0%, #120f0d 100%); border-color: rgba(231,102,50,.24); box-shadow: 0 14px 30px rgba(0,0,0,.2); }
+html[data-theme="dark"] .friend-challenges-section .community-section-header h2 { color: #f3ebe6; }
+html[data-theme="dark"] .friend-challenges-section .community-section-header > div > p { color: #bdaea4; }
+html[data-theme="dark"] .challenge-level-card { color: #f0e8e2; background: linear-gradient(135deg, #1c1511, #14100e); border-color: rgba(231,102,50,.23); box-shadow: 0 8px 20px rgba(0,0,0,.18); }
+html[data-theme="dark"] .challenge-level-card small { color: #b7a89f; }
+html[data-theme="dark"] .challenge-level-card p { color: #d1c2b8; }
+html[data-theme="dark"] .challenge-level-orbit { background: #221611; }
+html[data-theme="dark"] .challenge-level-0 { --level-main: #ff9566; --level-glow: rgba(231,102,50,.16); }
+html[data-theme="dark"] .challenge-level-1 { --level-main: #86baf1; --level-glow: rgba(134,186,241,.16); }
+html[data-theme="dark"] .challenge-level-2 { --level-main: #f4b662; --level-glow: rgba(244,182,98,.16); }
+html[data-theme="dark"] .challenge-level-3 { --level-main: #78c4b8; --level-glow: rgba(120,196,184,.15); }
+html[data-theme="dark"] .challenge-level-4 { --level-main: #b8a4eb; --level-glow: rgba(184,164,235,.16); }
+html[data-theme="dark"] .challenge-level-5 { --level-main: #e3c477; --level-glow: rgba(227,196,119,.16); }
+html[data-theme="dark"] .challenge-level-6 { --level-main: #ef9aae; --level-glow: rgba(239,154,174,.16); }
+html[data-theme="dark"] .challenge-level-7 { --level-main: #9ab7ea; --level-glow: rgba(154,183,234,.16); }
+html[data-theme="dark"] .challenge-level-8 { --level-main: #9dceca; --level-glow: rgba(157,206,202,.16); }
+html[data-theme="dark"] .challenge-form { background: rgba(25,19,15,.88); border-color: rgba(231,102,50,.2); }
+html[data-theme="dark"] .challenge-form select { color: #f3ebe6; background: #110e0c; border-color: rgba(231,102,50,.3); }
+html[data-theme="dark"] .challenge-card { color: #f1e8e2; background: #1a1411; border-color: rgba(231,102,50,.18); box-shadow: 0 7px 16px rgba(0,0,0,.18); }
+html[data-theme="dark"] .challenge-card h3 { color: #f1e8e2; }
+html[data-theme="dark"] .challenge-progress { background: #30241e; }
+html[data-theme="dark"] .challenge-progress i { background: linear-gradient(90deg, #c9562d, #ef8755); }
+html[data-theme="dark"] .challenge-members span { color: #ead7ca; background: #271b15; }
+html[data-theme="dark"] .challenge-members span.is-rewarded { color: #a6ddd4; background: rgba(53,117,107,.2); }
+html[data-theme="dark"] .challenge-card-actions button:not(.primary-button),
+html[data-theme="dark"] .challenge-card > .text-button { color: #ffad7e; background: #1f1511; border-color: rgba(231,102,50,.3); }
+html[data-theme="dark"] .challenge-start-guide { background: #17120f; border-color: rgba(231,102,50,.3); }
+html[data-theme="dark"] .challenge-start-guide p { color: #c6b6ac; }
 // ============================================================
 // Yoldaş — app.js
 // كل التفاعل: التنقل، الجلسة المجهولة، Supabase، الماء، الوجبات،
@@ -8,7 +2186,6 @@
   "use strict";
 
   const CONFIG = window.YOLDAS_CONFIG || {};
-  let isGuestMode = false;
   let supabase = null;
   let currentUser = null;
   let lastChatMessage = null; // لإعادة محاولة آخر رسالة فقط دون تكرارها
@@ -43,7 +2220,7 @@
   let myChallengeLevel = 0;
   let selectedSnapFile = null;
 
-  const  = {
+  const UI_TEXT = {
     ar: {
       dailyCompanion: "رفيقك اليومي", startGuest: "ابدأ كتجربة ←", accountButton: "دخول أو إنشاء حساب", discoverHow: "اكتشف كيف يعمل Yoldaş",
       privacyFirst: "الخصوصية أولًا.", guestPrivacy: "يمكنك التجربة بدون حساب، أو حفظ رحلتك باسم مستخدم وكلمة مرور.",
@@ -123,20 +2300,14 @@
     ar: {
       motivationEyebrow: "دعم اختياري", motivationTitle: "خُد دفعة حماس حقيقية", motivationDescription: "رسالة كتبها مستخدم واختار مشاركتها بدون اسم. لا يوجد ترتيب ولا حسابات وهمية.", motivationGet: "اعرض رسالة داعمة", motivationEmpty: "لا توجد رسالة مشاركة الآن. يمكنك العودة لاحقًا أو كتابة رسالة حقيقية خاصة بك.", motivationLoadError: "تعذر تحميل رسالة الدعم الآن.", motivationSettingsTitle: "رسالة حماس اختيارية", motivationSettingsHint: "اكتب رسالة قصيرة حقيقية لو تحب تساعد شخصًا آخر. لن يظهر اسمك ولا يمكن للموقع اختراع رسائل أو نسبتها لك.", motivationPlaceholder: "مثال: البداية الصغيرة أحسن من انتظار اليوم المثالي.", motivationOptIn: "أوافق على مشاركة هذه الرسالة بدون اسمي داخل مساحة الدعم.", motivationSave: "احفظ تفضيل الرسالة", motivationSaved: "تم حفظ تفضيل الرسالة. يمكنك إيقاف المشاركة في أي وقت.", motivationSaveError: "تعذر حفظ تفضيل الرسالة الآن.", motivationSetupRequired: "دعم الحافز لم يتم تفعيله بعد: شغّل ملف motivation-support-setup.sql مرة واحدة داخل Supabase SQL Editor، ثم أعد تحميل الموقع.", motivationMinLength: "اكتب رسالة من 12 حرفًا على الأقل قبل المشاركة.",
       friendsEyebrow: "أصحابك المختارين", friendsDescription: "ابحث باسم مستخدم دقيق، أضف أصحابك بموافقتهم، وشارك ستريك صغير خاص.", findFriend: "ابحث عن صاحب", friendSearchPlaceholder: "اكتب اسم المستخدم بالضبط", search: "بحث", addFriend: "أرسل طلب صداقة", requestSent: "تم إرسال طلب الصداقة.", friendRequests: "طلبات الصداقة", myFriends: "أصحابي", accept: "قبول", decline: "رفض", removeFriend: "إزالة", block: "حظر", report: "إبلاغ", noRequests: "لا توجد طلبات صداقة الآن.", noFriends: "لسه ما أضفتش أصحاب.", noSearchResult: "لم نجد حسابًا مطابقًا أو لا يسمح بالبحث عنه.", friendStreakDays: "يوم ستريك", friendStreakStart: "ابدأ الستريك", streakSetupRequired: "لتشغيل عداد الستريك، شغّل ملف friend-streak-counter-setup.sql مرة واحدة داخل Supabase SQL Editor.", snapEyebrow: "ستريك خاص", snapTitle: "صورة ستريك لصاحب", snapPrivacy: "صورة واحدة يوميًا لكل صديق، تظهر 24 ساعة فقط. لا ترسل صورًا حساسة أو شخصية.", snapFriend: "الصاحب", snapPhoto: "الصورة", snapCaption: "كلمة قصيرة (اختياري)", snapCaptionPlaceholder: "مثال: مشي اليوم", sendSnap: "أرسل الستريك", snapNoFriends: "أضف صديقًا مقبولًا أولًا لإرسال ستريك.", snapSaved: "تم إرسال الستريك، وينتهي خلال 24 ساعة.", snapEmpty: "لا توجد صور ستريك نشطة الآن.", snapTooLarge: "حجم الصورة يجب ألا يتجاوز 2 ميجابايت.", snapUnsupported: "اختر صورة JPG أو WebP فقط.", snapLimit: "أرسلت ستريك لهذا الصديق اليوم بالفعل.", friendLimit: "وصل أحدكما إلى حد 20 صديقًا حاليًا.", communitySetupRequired: "شغّل ملف friends-recovery-setup.sql ثم انشر social-service لتفعيل الأصدقاء والستريك.", reportPrompt: "اكتب سببًا قصيرًا للإبلاغ", actionFailed: "تعذر تنفيذ هذا الإجراء الآن. حاول لاحقًا.",
-      gymAssistantTitle: "مساعد تقدم الجيم", gymAssistantDesc: "أرقامك بتتكلم. ميري بتساعدك تعرف خطوتك الجاية في الوزن.", gymPB: "أفضل رقم (PB)", gymSuggestion: "الوزن المقترح المرة الجاية", gymNextSet: "المجموعة القادمة", gymProgressTitle: "مؤشر التقدم", gymKeepGoing: "استمر، أرقامك في تحسن!",
-      rescueTitle: "منقذ اليوم", rescueDesc: "سعراتك قليلة؟ ميري اختارت لك وجبات سريعة ومناسبة من دليل الأكل.", rescueQuickMeal: "وجبة سريعة منقذة", rescueRemaining: "المتبقي لك {kcal} سعرة", rescueShowMore: "اعرض بدائل تانية",
     },
     tr: {
       motivationEyebrow: "İsteğe bağlı destek", motivationTitle: "Gerçek bir motivasyon mesajı al", motivationDescription: "Bir kullanıcının adı gösterilmeden paylaşmayı seçtiği gerçek bir mesajdır. Sıralama veya sahte hesap yoktur.", motivationGet: "Destek mesajı göster", motivationEmpty: "Şu anda paylaşılmış bir mesaj yok. Sonra tekrar deneyebilir veya kendi gerçek mesajını yazabilirsin.", motivationLoadError: "Destek mesajı şu anda yüklenemedi.", motivationSettingsTitle: "İsteğe bağlı motivasyon mesajı", motivationSettingsHint: "Başka birine yardımcı olmak istersen kısa ve gerçek bir mesaj yaz. Adın görünmez; uygulama sahte mesaj üretmez veya sana aitmiş gibi göstermez.", motivationPlaceholder: "Örnek: Küçük bir başlangıç, mükemmel günü beklemekten iyidir.", motivationOptIn: "Bu mesajın destek alanında adım olmadan paylaşılmasına izin veriyorum.", motivationSave: "Mesaj tercihini kaydet", motivationSaved: "Mesaj tercihin kaydedildi. Paylaşımı istediğin zaman kapatabilirsin.", motivationSaveError: "Mesaj tercihi şu anda kaydedilemedi.", motivationSetupRequired: "İsteğe bağlı destek henüz etkin değil: Supabase SQL Editor’da motivation-support-setup.sql dosyasını bir kez çalıştır, sonra siteyi yenile.", motivationMinLength: "Paylaşmadan önce en az 12 karakterlik bir mesaj yaz.",
       friendsEyebrow: "Seçtiğin arkadaşların", friendsDescription: "Tam kullanıcı adıyla ara, onayla arkadaş ekle ve özel küçük bir seri paylaş.", findFriend: "Arkadaş ara", friendSearchPlaceholder: "Kullanıcı adını tam yaz", search: "Ara", addFriend: "Arkadaşlık isteği gönder", requestSent: "Arkadaşlık isteği gönderildi.", friendRequests: "Arkadaşlık istekleri", myFriends: "Arkadaşlarım", accept: "Kabul et", decline: "Reddet", removeFriend: "Kaldır", block: "Engelle", report: "Bildir", noRequests: "Şu anda arkadaşlık isteği yok.", noFriends: "Henüz arkadaş eklemedin.", noSearchResult: "Eşleşen bir hesap bulunamadı veya aramaya izin vermiyor.", friendStreakDays: "günlük seri", friendStreakStart: "Seriye başla", streakSetupRequired: "Seri sayacını etkinleştirmek için friend-streak-counter-setup.sql dosyasını Supabase SQL Editor’da bir kez çalıştır.", snapEyebrow: "Özel seri", snapTitle: "Bir arkadaşa seri fotoğrafı", snapPrivacy: "Her arkadaş için günde bir fotoğraf; yalnızca 24 saat görünür. Hassas veya kişisel fotoğraf gönderme.", snapFriend: "Arkadaş", snapPhoto: "Fotoğraf", snapCaption: "Kısa not (isteğe bağlı)", snapCaptionPlaceholder: "Örnek: Bugünkü yürüyüş", sendSnap: "Seriyi gönder", snapNoFriends: "Seri göndermek için önce kabul edilmiş bir arkadaş ekle.", snapSaved: "Seri gönderildi; 24 saat içinde sona erer.", snapEmpty: "Şu anda etkin seri fotoğrafı yok.", snapTooLarge: "Fotoğraf boyutu 2 MB’ı aşmamalı.", snapUnsupported: "Yalnızca JPG veya WebP seç.", snapLimit: "Bugün bu arkadaşa zaten seri gönderdin.", friendLimit: "Biriniz 20 arkadaş sınırına ulaştı.", communitySetupRequired: "Arkadaşları ve serileri etkinleştirmek için friends-recovery-setup.sql dosyasını çalıştırıp social-service’i yayınla.", reportPrompt: "Bildirim için kısa bir neden yaz", actionFailed: "Bu işlem şu anda tamamlanamadı. Sonra tekrar dene.",
-      gymAssistantTitle: "Spor Gelişim Yardımcısı", gymAssistantDesc: "Rakamların konuşuyor. Miri bir sonraki ağırlığını belirlemene yardımcı olur.", gymPB: "En İyi Derece (PB)", gymSuggestion: "Gelecek Sefer Önerilen", gymNextSet: "Sıradaki Set", gymProgressTitle: "Gelişim Göstergesi", gymKeepGoing: "Devam et, rakamların iyileşiyor!",
-      rescueTitle: "Günün Kurtarıcısı", rescueDesc: "Kalorin mi azaldı? Miri senin için yemek rehberinden hızlı ve uygun öğünler seçti.", rescueQuickMeal: "Kurtarıcı Hızlı Öğün", rescueRemaining: "Kalan {kcal} kcal", rescueShowMore: "Diğer alternatifleri göster",
     },
     en: {
       motivationEyebrow: "Optional support", motivationTitle: "Get a real boost", motivationDescription: "A real message a user chose to share without their name. There are no rankings or fake accounts.", motivationGet: "Show a supportive message", motivationEmpty: "No shared message is available right now. You can return later or write your own real message.", motivationLoadError: "Support message could not be loaded now.", motivationSettingsTitle: "Optional motivation message", motivationSettingsHint: "Write a real short message if you want to help someone else. Your name is never shown and the app never invents messages.", motivationPlaceholder: "Example: A small start is better than waiting for the perfect day.", motivationOptIn: "I agree that this message may be shared without my name in the support space.", motivationSave: "Save message preference", motivationSaved: "Your message preference was saved. You can stop sharing at any time.", motivationSaveError: "Message preference could not be saved now.", motivationSetupRequired: "Optional support is not enabled yet: run motivation-support-setup.sql once in Supabase SQL Editor, then reload the site.", motivationMinLength: "Write at least 12 characters before sharing.",
-      friendsEyebrow: "Friends you choose", friendsDescription: "Search by an exact username, add friends with mutual consent, and share a small private streak.", findFriend: "Find a friend", friendSearchPlaceholder: "Type the exact username", search: "Search", addFriend: "Send friend request", requestSent: "Friend request sent.", friendRequests: "Friend requests", myFriends: "My friends", accept: "Accept", decline: "Decline", removeFriend: "Remove", block: "Block", report: "Report", noRequests: "No friend requests right now.", noFriends: "You have not added friends yet.", noSearchResult: "No matching account was found, or it does not allow discovery.", friendStreakDays: "day streak", friendStreakStart: "Start a streak", streakSetupRequired: "Run friend-streak-counter-setup.sql once in Supabase SQL Editor to enable the streak counter.", snapEyebrow: "Private streak", snapTitle: "Streak photo for a friend", snapPrivacy: "One photo per friend per day, visible for 24 hours only. Do not send sensitive or personal images.", snapFriend: "Friend", snapPhoto: "Photo", snapCaption: "Short note (optional)", snapCaptionPlaceholder: "Example: Today’s walk", sendSnap: "Send streak", snapNoFriends: "Add an accepted friend before sending a streak.", snapSaved: "Streak sent. It expires within 24 hours.", snapEmpty: "No active streak photos right now.", snapTooLarge: "Photo size must not exceed 2 MB.", snapUnsupported: "Choose JPG or WebP only.", snapLimit: "You already sent this friend a streak today.", friendLimit: "One of you has reached the current 20-friend limit.", communitySetupRequired: "Run friends-recovery-setup.sql and deploy social-service to enable friends and streaks.", reportPrompt: "Write a short reason for the report", actionFailed: "This action could not be completed. Try again later.",
-      gymAssistantTitle: "Gym Progression Assistant", gymAssistantDesc: "Your numbers speak. Miri helps you find your next weight step.", gymPB: "Personal Best (PB)", gymSuggestion: "Suggested Next Weight", gymNextSet: "Next Set", gymProgressTitle: "Progression Indicator", gymKeepGoing: "Keep going, your numbers are improving!",
-      rescueTitle: "Day Rescue Mode", rescueDesc: "Low on calories? Miri selected quick and suitable meals from the food guide for you.", rescueQuickMeal: "Rescue Quick Meal", rescueRemaining: "{kcal} kcal left", rescueShowMore: "Show other alternatives",
+      friendsEyebrow: "Friends you choose", friendsDescription: "Search by an exact username, add friends with mutual consent, and share a small private streak.", findFriend: "Find a friend", friendSearchPlaceholder: "Type the exact username", search: "Search", addFriend: "Send friend request", requestSent: "Friend request sent.", friendRequests: "Friend requests", myFriends: "My friends", accept: "Accept", decline: "Decline", removeFriend: "Remove", block: "Block", report: "Report", noRequests: "No friend requests right now.", noFriends: "You have not added friends yet.", noSearchResult: "No matching account was found, or it does not allow discovery.", friendStreakDays: "day streak", friendStreakStart: "Start a streak", streakSetupRequired: "Run friend-streak-counter-setup.sql once in Supabase SQL Editor to enable the streak counter.", snapEyebrow: "Private streak", snapTitle: "Streak photo for a friend", snapPrivacy: "One photo per friend per day, visible for 24 hours only. Do not send sensitive or personal images.", snapFriend: "Friend", snapPhoto: "Photo", snapCaption: "Short note (optional)", snapCaptionPlaceholder: "Example: Today’s walk", sendSnap: "Send streak", snapNoFriends: "Add an accepted friend before sending a streak.", snapSaved: "Streak sent. It expires within 24 hours.", snapEmpty: "No active streak photos right now.", snapTooLarge: "Photo size must not exceed 2 MB.", snapUnsupported: "Choose JPG or WebP only.", snapLimit: "You already sent this friend a streak today.", friendLimit: "One of you has reached the current 20-friend limit.", communitySetupRequired: "Run friends-recovery-setup.sql and deploy social-service to enable friends and streaks.", reportPrompt: "Write a short reason for the report", actionFailed: "This action could not be completed. Try again later."
     },
   };
 
@@ -627,16 +2798,7 @@
     document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("active", t.dataset.screen === name));
     document.querySelectorAll(".mobile-tab").forEach((t) => t.classList.toggle("active", t.dataset.screen === name));
 
-    if (name === "today") {
-      loadTodaySummary().then((summary) => {
-        if (summary) renderDayRescueMode(summary.calories_consumed, summary.calorie_goal);
-      });
-      loadGymProgress().then(() => {
-        renderGymProgressionAssistant();
-      });
-      loadGuidedJourney();
-      triggerPremiumPaywall();
-    }
+    if (name === "today") { loadTodaySummary(); loadGymProgress(); }
     if (name === "progress") loadProgress();
     if (name === "community") loadCommunity();
     if (name === "settings") loadSettings();
@@ -1139,14 +3301,13 @@
   }
 
   async function loadTodaySummary() {
-    if (!currentUser) return null;
+    if (!currentUser) return;
     try {
       const [summary, streak] = await Promise.all([fetchTodaySummary(), fetchActivityStreak()]);
       summary.streak = streak;
       renderMissionList(summary);
       renderSummaryGrid(summary);
       setConnectionMessage("");
-      return summary;
     } catch (e) {
       console.error("loadTodaySummary failed", e);
       setConnectionMessage(t("todayLoadError"));
@@ -1564,106 +3725,6 @@
   function bindGymMode() {
     $("open-gym-mode")?.addEventListener("click", () => $("gym-mode")?.scrollIntoView({ behavior: "smooth", block: "start" }));
     $("gym-set-form")?.addEventListener("submit", saveGymSet);
-  }
-
-  // ============== Gym Progression Assistant & Day Rescue Mode (Premium) ==============
-
-  function isPremiumUser() {
-    return hasRegisteredAccount(); // Premium is defined as any registered user in this context.
-  }
-
-  function getProgressionSuggestion(exerciseName) {
-    const exerciseSets = gymSets.filter((s) => normalizedGymExercise(s.exercise_name).toLocaleLowerCase() === normalizedGymExercise(exerciseName).toLocaleLowerCase());
-    if (!exerciseSets.length) return null;
-    const maxWeight = Math.max(...exerciseSets.map((s) => Number(s.weight_kg) || 0));
-    const recentSet = exerciseSets[0];
-    // Simple logic: if weight is same as max, suggest +1.25kg or +2.5kg. If less, suggest matching max.
-    if (Number(recentSet.weight_kg) >= maxWeight) {
-      return maxWeight + (maxWeight >= 50 ? 2.5 : 1.25);
-    }
-    return maxWeight;
-  }
-
-  function renderGymProgressionAssistant() {
-    const container = $("gym-progression-assistant");
-    if (!container) return;
-    if (!isPremiumUser()) { hide(container); return; }
-
-    const uniqueExercises = [...new Set(gymSets.map((s) => normalizedGymExercise(s.exercise_name)))].slice(0, 3);
-    if (!uniqueExercises.length) {
-      container.innerHTML = `<div class="premium-feature-card"><h3>${escapeHtml(t("gymAssistantTitle"))}</h3><p>${escapeHtml(t("gymNoSets"))}</p></div>`;
-      show(container);
-      return;
-    }
-
-    const cards = uniqueExercises.map((ex) => {
-      const pb = Math.max(...gymSets.filter((s) => normalizedGymExercise(s.exercise_name) === ex).map((s) => Number(s.weight_kg) || 0));
-      const suggestion = getProgressionSuggestion(ex);
-      return `
-        <div class="progression-item">
-          <header><b>${escapeHtml(ex)}</b></header>
-          <div class="progression-stats">
-            <span><small>${escapeHtml(t("gymPB"))}</small><strong>${pb}kg</strong></span>
-            <span><small>${escapeHtml(t("gymSuggestion"))}</small><strong class="suggestion">${suggestion}kg</strong></span>
-          </div>
-        </div>`;
-    }).join("");
-
-    container.innerHTML = `
-      <div class="premium-feature-card gym-assistant">
-        <p class="premium-badge">Premium</p>
-        <h3>${escapeHtml(t("gymAssistantTitle"))}</h3>
-        <p class="desc">${escapeHtml(t("gymAssistantDesc"))}</p>
-        <div class="progression-list">${cards}</div>
-        <p class="footer-note">${escapeHtml(t("gymKeepGoing"))}</p>
-      </div>`;
-    show(container);
-  }
-
-  async function renderDayRescueMode(currentCalories = 0, calorieGoal = 2000) {
-    const container = $("day-rescue-mode");
-    if (!container) return;
-    if (!isPremiumUser()) { hide(container); return; }
-
-    const remaining = calorieGoal - currentCalories;
-    // Trigger rescue if remaining calories are less than 30% of goal or less than 500
-    const isLow = remaining < (calorieGoal * 0.3) || remaining < 500;
-    
-    if (!isLow && !container.dataset.forceShow) {
-      hide(container);
-      return;
-    }
-
-    const suggestions = referenceRecipes
-      .filter((r) => r.nutrition.kcal <= Math.max(remaining, 300))
-      .sort((a, b) => b.nutrition.kcal - a.nutrition.kcal)
-      .slice(0, 3);
-
-    container.innerHTML = `
-      <div class="premium-feature-card rescue-mode">
-        <p class="premium-badge">Premium</p>
-        <h3>${escapeHtml(t("rescueTitle"))}</h3>
-        <p class="desc">${escapeHtml(t("rescueDesc"))}</p>
-        <div class="rescue-status">
-          <strong>${escapeHtml(t("rescueRemaining").replace("{kcal}", Math.max(0, Math.round(remaining))))}</strong>
-        </div>
-        <div class="rescue-suggestions">
-          ${suggestions.map((r) => `
-            <button type="button" data-recipe-id="${escapeHtml(r.id)}">
-              <span>${escapeHtml(localRecipeName(r))}</span>
-              <b>${Math.round(r.nutrition.kcal)} kcal</b>
-            </button>
-          `).join("")}
-        </div>
-        <button type="button" class="text-button show-more-rescue" id="toggle-rescue-more">${escapeHtml(t("rescueShowMore"))}</button>
-      </div>`;
-    
-    container.querySelectorAll("[data-recipe-id]").forEach(btn => {
-      btn.addEventListener("click", () => showRecipeDetail(btn.dataset.recipeId));
-    });
-    container.querySelector("#toggle-rescue-more")?.addEventListener("click", openFoodGuide);
-
-    show(container);
   }
 
   function getReferenceRecipeHints(message) {
@@ -2735,10 +4796,6 @@
     completeGenderDescription: "اختر النوع مرة واحدة قبل استخدام ميزات حسابك. يُستخدم فقط لتحسين صياغة الخطة ولا يظهر للآخرين.",
     saveGender: "حفظ والمتابعة",
     accountRequired: "أنشئ حسابًا أو سجّل الدخول لاستخدام هذه الميزة وحفظ رحلتك.",
-    exploreAsGuest: "استكشف كزائر",
-accountRequired: "أنشئ حساباً أو سجّل دخولك للوصول لهذه الميزة.",
-guestNotice: "أنت تتصفح كزائر. أنشئ حساباً لحفظ بياناتك والوصول للميزات الكاملة.",
-
   });
   Object.assign(UI_TEXT.tr, {
     startGuest: "Başlamak için hesap oluştur",
@@ -2772,9 +4829,6 @@ guestNotice: "أنت تتصفح كزائر. أنشئ حساباً لحفظ بي�
     completeGenderDescription: "Hesap özelliklerini kullanmadan önce cinsiyetini bir kez seç. Yalnızca plan dilini iyileştirmek için kullanılır ve başkalarına gösterilmez.",
     saveGender: "Kaydet ve devam et",
     accountRequired: "Bu özelliği kullanmak ve yolculuğunu kaydetmek için hesap oluştur veya giriş yap.",
-    exploreAsGuest: "Misafir olarak keşfet",
-accountRequired: "Bu özelliğe erişmek için hesap oluştur veya giriş yap.",
-guestNotice: "Misafir olarak geziyorsunuz. Verilerinizi kaydetmek ve tüm özelliklere erişmek için hesap oluşturun.",
   });
   Object.assign(UI_TEXT.en, {
     startGuest: "Create an account to get started",
@@ -2808,171 +4862,7 @@ guestNotice: "Misafir olarak geziyorsunuz. Verilerinizi kaydetmek ve tüm özell
     completeGenderDescription: "Choose your gender once before using account features. It is used only to improve plan wording and is never shown to others.",
     saveGender: "Save and continue",
     accountRequired: "Create an account or sign in to use this feature and save your journey.",
-    exploreAsGuest: "Explore as guest",
-accountRequired: "Create an account or sign in to access this feature.",
-    guestNotice: "You are browsing as a guest. Create an account to save your data and access all features.",
-
   });
-
-
-  // ============== 7-Day Guided Journey & Premium Paywall ==============
-
-  const JOURNEY_TASKS = {
-    1: [
-      { id: 1, text: "Günü bir bardak su ile başlat", bit: 1 },
-      { id: 2, text: "10 dakika hafif yürüyüş yap", bit: 2 },
-      { id: 3, text: "Bugünkü ilk öğününü kaydet", bit: 4 }
-    ],
-    2: [
-      { id: 1, text: "Protein odaklı bir kahvaltı yap", bit: 1 },
-      { id: 2, text: "Miri ile yarınki planını konuş", bit: 2 },
-      { id: 3, text: "Şekersiz bir gün geçir", bit: 4 }
-    ],
-    3: [
-      { id: 1, text: "En sevdiğin sağlıklı yemeği seç", bit: 1 },
-      { id: 2, text: "15 dakika egzersiz yap", bit: 2 },
-      { id: 3, text: "Su hedefini tamamla", bit: 4 }
-    ],
-    4: [
-      { id: 1, text: "Yeni bir sebze dene", bit: 1 },
-      { id: 2, text: "Uyku düzenine dikkat et", bit: 2 },
-      { id: 3, text: "Miri'ye bir soru sor", bit: 4 }
-    ],
-    5: [
-      { id: 1, text: "Aktif bir mola ver", bit: 1 },
-      { id: 2, text: "Öğünlerini vaktinde ye", bit: 2 },
-      { id: 3, text: "Gelişimini kontrol et", bit: 4 }
-    ],
-    6: [
-      { id: 1, text: "Dışarıda sağlıklı seçim yap", bit: 1 },
-      { id: 2, text: "20 dakika hareket et", bit: 2 },
-      { id: 3, text: "Motivasyon mesajı oku", bit: 4 }
-    ],
-    7: [
-      { id: 1, text: "Haftalık özetini incele", bit: 1 },
-      { id: 2, text: "Gelecek hafta için hedef koy", bit: 2 },
-      { id: 3, text: "Yolculuğunu kutla!", bit: 4 }
-    ]
-  };
-
-  let sessionPaywallShown = false;
-
-  async function loadGuidedJourney() {
-    if (!currentUser || currentUser.is_anonymous) return;
-    const container = $("guided-journey-card");
-    if (!container) return;
-
-    try {
-      // Find current day based on user creation date
-      const createdDate = new Date(currentUser.created_at);
-      const now = new Date();
-      const diffTime = Math.abs(now - createdDate);
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      const currentDay = Math.min(Math.max(diffDays, 1), 7);
-
-      const { data, error } = await supabase
-        .from("user_weekly_tasks")
-        .select("day_mask")
-        .eq("user_id", currentUser.id)
-        .eq("day_number", currentDay)
-        .maybeSingle();
-
-      if (error) throw error;
-
-      let mask = data?.day_mask || 0;
-      renderJourney(currentDay, mask);
-      show(container);
-    } catch (e) {
-      console.error("Guided journey load failed", e);
-      hide(container);
-    }
-  }
-
-  function renderJourney(day, mask) {
-    const dayLabel = $("journey-day-label");
-    const progressBar = $("journey-progress-bar");
-    const tasksList = $("journey-tasks-list");
-    if (!dayLabel || !progressBar || !tasksList) return;
-
-    dayLabel.textContent = `Gün ${day}`;
-    const tasks = JOURNEY_TASKS[day] || [];
-    
-    let completedCount = 0;
-    tasksList.innerHTML = "";
-
-    tasks.forEach(task => {
-      const isCompleted = (mask & task.bit) !== 0;
-      if (isCompleted) completedCount++;
-
-      const li = document.createElement("li");
-      li.className = `journey-task-item ${isCompleted ? "completed" : ""}`;
-      li.innerHTML = `
-        <input type="checkbox" id="task-${task.id}" ${isCompleted ? "checked" : ""}>
-        <label for="task-${task.id}">${task.text}</label>
-      `;
-      
-      const ck = li.querySelector("input");
-      ck.addEventListener("change", () => toggleTask(day, task.bit, ck.checked));
-      
-      tasksList.appendChild(li);
-    });
-
-    const progress = (completedCount / tasks.length) * 100;
-    progressBar.style.width = `${progress}%`;
-  }
-
-  async function toggleTask(day, bit, completed) {
-    if (!currentUser || currentUser.is_anonymous) return;
-    
-    try {
-      // Get current mask first
-      const { data } = await supabase
-        .from("user_weekly_tasks")
-        .select("day_mask")
-        .eq("user_id", currentUser.id)
-        .eq("day_number", day)
-        .maybeSingle();
-
-      let currentMask = data?.day_mask || 0;
-      let newMask = completed ? (currentMask | bit) : (currentMask & ~bit);
-
-      const { error } = await supabase
-        .from("user_weekly_tasks")
-        .upsert({
-          user_id: currentUser.id,
-          day_number: day,
-          day_mask: newMask,
-          updated_at: new Date().toISOString()
-        }, { onConflict: 'user_id,day_number' });
-
-      if (error) throw error;
-      renderJourney(day, newMask);
-    } catch (e) {
-      console.error("Task toggle failed", e);
-    }
-  }
-
-  function triggerPremiumPaywall() {
-    bindPaywall();
-    if (sessionPaywallShown || isPremiumUser()) return;
-    const modal = $("premium-paywall-modal");
-    if (!modal) return;
-
-    show(modal);
-    sessionPaywallShown = true;
-  }
-
-  function bindPaywall() {
-    $("paywall-dismiss")?.addEventListener("click", () => hide($("premium-paywall-modal")));
-    $("paywall-explore")?.addEventListener("click", () => {
-      alert("Premium feature coming soon!");
-      hide($("premium-paywall-modal"));
-    });
-    $("paywall-code")?.addEventListener("click", () => {
-      const code = prompt("Enter your premium code:");
-      if (code) alert("Processing code...");
-    });
-  }
 
   async function init() {
     supabase = initSupabase();
@@ -3017,3 +4907,28 @@ accountRequired: "Create an account or sign in to access this feature.",
 
   document.addEventListener("DOMContentLoaded", init);
 })();
+// انسخ هذا الملف إلى config.js ثم ضع القيم العامة الخاصة بمشروعك في Supabase.
+// لا تضع هنا أي مفتاح سري (لا service_role، ولا GEMINI_API_KEY).
+window.YOLDAS_CONFIG = {
+  // رابط مشروعك في Supabase — من Project Settings > API
+  // شكله الصحيح: https://PROJECT_REF.supabase.co
+  // تنبيه: لا تضف /rest/v1 أو أي مسار بعد الرابط.
+  supabaseUrl: "https://imzlviynwgnzsfwbvaqj.supabase.co",
+
+  // المفتاح العام فقط (Publishable key أو anon key) — من نفس الصفحة.
+  // لا تستخدم أبدًا service_role key هنا.
+  supabasePublishableKey: "sb_publishable_rSp8f-erHFqqE6z5Yu0J4A_vNagLwBO",
+
+  // اسم الـ Edge Function المنشورة في Supabase للمساعد (لا تغيّره إلا إذا غيّرت اسم الدالة فعليًا)
+  assistantFunction: "health-assistant",
+
+  // دالة الحسابات الآمنة باسم المستخدم وكلمة المرور
+  accountFunction: "account-auth"
+};
+// إعدادات Yoldaş العامة — لا تضع هنا أي مفتاح سري.
+// اتبع README_AR.md لمعرفة كيف تضع رابط Supabase والمفتاح العام فقط.
+window.YOLDAS_CONFIG = {
+  supabaseUrl: "https://imzlviynwgnzsfwbvaqj.supabase.co",
+  supabasePublishableKey: "sb_publishable_rSp8f-erHFqqE6z5Yu0J4A_vNagLwBO",
+  assistantFunction: "health-assistant"
+};
