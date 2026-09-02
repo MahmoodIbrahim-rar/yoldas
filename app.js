@@ -8,7 +8,6 @@
   "use strict";
 
   const CONFIG = window.YOLDAS_CONFIG || {};
-  let isGuestMode = false;
   let supabase = null;
   let currentUser = null;
   let lastChatMessage = null; // لإعادة محاولة آخر رسالة فقط دون تكرارها
@@ -43,7 +42,7 @@
   let myChallengeLevel = 0;
   let selectedSnapFile = null;
 
-  const  = {
+  const UI_TEXT = {
     ar: {
       dailyCompanion: "رفيقك اليومي", startGuest: "ابدأ كتجربة ←", accountButton: "دخول أو إنشاء حساب", discoverHow: "اكتشف كيف يعمل Yoldaş",
       privacyFirst: "الخصوصية أولًا.", guestPrivacy: "يمكنك التجربة بدون حساب، أو حفظ رحلتك باسم مستخدم وكلمة مرور.",
@@ -123,20 +122,14 @@
     ar: {
       motivationEyebrow: "دعم اختياري", motivationTitle: "خُد دفعة حماس حقيقية", motivationDescription: "رسالة كتبها مستخدم واختار مشاركتها بدون اسم. لا يوجد ترتيب ولا حسابات وهمية.", motivationGet: "اعرض رسالة داعمة", motivationEmpty: "لا توجد رسالة مشاركة الآن. يمكنك العودة لاحقًا أو كتابة رسالة حقيقية خاصة بك.", motivationLoadError: "تعذر تحميل رسالة الدعم الآن.", motivationSettingsTitle: "رسالة حماس اختيارية", motivationSettingsHint: "اكتب رسالة قصيرة حقيقية لو تحب تساعد شخصًا آخر. لن يظهر اسمك ولا يمكن للموقع اختراع رسائل أو نسبتها لك.", motivationPlaceholder: "مثال: البداية الصغيرة أحسن من انتظار اليوم المثالي.", motivationOptIn: "أوافق على مشاركة هذه الرسالة بدون اسمي داخل مساحة الدعم.", motivationSave: "احفظ تفضيل الرسالة", motivationSaved: "تم حفظ تفضيل الرسالة. يمكنك إيقاف المشاركة في أي وقت.", motivationSaveError: "تعذر حفظ تفضيل الرسالة الآن.", motivationSetupRequired: "دعم الحافز لم يتم تفعيله بعد: شغّل ملف motivation-support-setup.sql مرة واحدة داخل Supabase SQL Editor، ثم أعد تحميل الموقع.", motivationMinLength: "اكتب رسالة من 12 حرفًا على الأقل قبل المشاركة.",
       friendsEyebrow: "أصحابك المختارين", friendsDescription: "ابحث باسم مستخدم دقيق، أضف أصحابك بموافقتهم، وشارك ستريك صغير خاص.", findFriend: "ابحث عن صاحب", friendSearchPlaceholder: "اكتب اسم المستخدم بالضبط", search: "بحث", addFriend: "أرسل طلب صداقة", requestSent: "تم إرسال طلب الصداقة.", friendRequests: "طلبات الصداقة", myFriends: "أصحابي", accept: "قبول", decline: "رفض", removeFriend: "إزالة", block: "حظر", report: "إبلاغ", noRequests: "لا توجد طلبات صداقة الآن.", noFriends: "لسه ما أضفتش أصحاب.", noSearchResult: "لم نجد حسابًا مطابقًا أو لا يسمح بالبحث عنه.", friendStreakDays: "يوم ستريك", friendStreakStart: "ابدأ الستريك", streakSetupRequired: "لتشغيل عداد الستريك، شغّل ملف friend-streak-counter-setup.sql مرة واحدة داخل Supabase SQL Editor.", snapEyebrow: "ستريك خاص", snapTitle: "صورة ستريك لصاحب", snapPrivacy: "صورة واحدة يوميًا لكل صديق، تظهر 24 ساعة فقط. لا ترسل صورًا حساسة أو شخصية.", snapFriend: "الصاحب", snapPhoto: "الصورة", snapCaption: "كلمة قصيرة (اختياري)", snapCaptionPlaceholder: "مثال: مشي اليوم", sendSnap: "أرسل الستريك", snapNoFriends: "أضف صديقًا مقبولًا أولًا لإرسال ستريك.", snapSaved: "تم إرسال الستريك، وينتهي خلال 24 ساعة.", snapEmpty: "لا توجد صور ستريك نشطة الآن.", snapTooLarge: "حجم الصورة يجب ألا يتجاوز 2 ميجابايت.", snapUnsupported: "اختر صورة JPG أو WebP فقط.", snapLimit: "أرسلت ستريك لهذا الصديق اليوم بالفعل.", friendLimit: "وصل أحدكما إلى حد 20 صديقًا حاليًا.", communitySetupRequired: "شغّل ملف friends-recovery-setup.sql ثم انشر social-service لتفعيل الأصدقاء والستريك.", reportPrompt: "اكتب سببًا قصيرًا للإبلاغ", actionFailed: "تعذر تنفيذ هذا الإجراء الآن. حاول لاحقًا.",
-      gymAssistantTitle: "مساعد تقدم الجيم", gymAssistantDesc: "أرقامك بتتكلم. ميري بتساعدك تعرف خطوتك الجاية في الوزن.", gymPB: "أفضل رقم (PB)", gymSuggestion: "الوزن المقترح المرة الجاية", gymNextSet: "المجموعة القادمة", gymProgressTitle: "مؤشر التقدم", gymKeepGoing: "استمر، أرقامك في تحسن!",
-      rescueTitle: "منقذ اليوم", rescueDesc: "سعراتك قليلة؟ ميري اختارت لك وجبات سريعة ومناسبة من دليل الأكل.", rescueQuickMeal: "وجبة سريعة منقذة", rescueRemaining: "المتبقي لك {kcal} سعرة", rescueShowMore: "اعرض بدائل تانية",
     },
     tr: {
       motivationEyebrow: "İsteğe bağlı destek", motivationTitle: "Gerçek bir motivasyon mesajı al", motivationDescription: "Bir kullanıcının adı gösterilmeden paylaşmayı seçtiği gerçek bir mesajdır. Sıralama veya sahte hesap yoktur.", motivationGet: "Destek mesajı göster", motivationEmpty: "Şu anda paylaşılmış bir mesaj yok. Sonra tekrar deneyebilir veya kendi gerçek mesajını yazabilirsin.", motivationLoadError: "Destek mesajı şu anda yüklenemedi.", motivationSettingsTitle: "İsteğe bağlı motivasyon mesajı", motivationSettingsHint: "Başka birine yardımcı olmak istersen kısa ve gerçek bir mesaj yaz. Adın görünmez; uygulama sahte mesaj üretmez veya sana aitmiş gibi göstermez.", motivationPlaceholder: "Örnek: Küçük bir başlangıç, mükemmel günü beklemekten iyidir.", motivationOptIn: "Bu mesajın destek alanında adım olmadan paylaşılmasına izin veriyorum.", motivationSave: "Mesaj tercihini kaydet", motivationSaved: "Mesaj tercihin kaydedildi. Paylaşımı istediğin zaman kapatabilirsin.", motivationSaveError: "Mesaj tercihi şu anda kaydedilemedi.", motivationSetupRequired: "İsteğe bağlı destek henüz etkin değil: Supabase SQL Editor’da motivation-support-setup.sql dosyasını bir kez çalıştır, sonra siteyi yenile.", motivationMinLength: "Paylaşmadan önce en az 12 karakterlik bir mesaj yaz.",
       friendsEyebrow: "Seçtiğin arkadaşların", friendsDescription: "Tam kullanıcı adıyla ara, onayla arkadaş ekle ve özel küçük bir seri paylaş.", findFriend: "Arkadaş ara", friendSearchPlaceholder: "Kullanıcı adını tam yaz", search: "Ara", addFriend: "Arkadaşlık isteği gönder", requestSent: "Arkadaşlık isteği gönderildi.", friendRequests: "Arkadaşlık istekleri", myFriends: "Arkadaşlarım", accept: "Kabul et", decline: "Reddet", removeFriend: "Kaldır", block: "Engelle", report: "Bildir", noRequests: "Şu anda arkadaşlık isteği yok.", noFriends: "Henüz arkadaş eklemedin.", noSearchResult: "Eşleşen bir hesap bulunamadı veya aramaya izin vermiyor.", friendStreakDays: "günlük seri", friendStreakStart: "Seriye başla", streakSetupRequired: "Seri sayacını etkinleştirmek için friend-streak-counter-setup.sql dosyasını Supabase SQL Editor’da bir kez çalıştır.", snapEyebrow: "Özel seri", snapTitle: "Bir arkadaşa seri fotoğrafı", snapPrivacy: "Her arkadaş için günde bir fotoğraf; yalnızca 24 saat görünür. Hassas veya kişisel fotoğraf gönderme.", snapFriend: "Arkadaş", snapPhoto: "Fotoğraf", snapCaption: "Kısa not (isteğe bağlı)", snapCaptionPlaceholder: "Örnek: Bugünkü yürüyüş", sendSnap: "Seriyi gönder", snapNoFriends: "Seri göndermek için önce kabul edilmiş bir arkadaş ekle.", snapSaved: "Seri gönderildi; 24 saat içinde sona erer.", snapEmpty: "Şu anda etkin seri fotoğrafı yok.", snapTooLarge: "Fotoğraf boyutu 2 MB’ı aşmamalı.", snapUnsupported: "Yalnızca JPG veya WebP seç.", snapLimit: "Bugün bu arkadaşa zaten seri gönderdin.", friendLimit: "Biriniz 20 arkadaş sınırına ulaştı.", communitySetupRequired: "Arkadaşları ve serileri etkinleştirmek için friends-recovery-setup.sql dosyasını çalıştırıp social-service’i yayınla.", reportPrompt: "Bildirim için kısa bir neden yaz", actionFailed: "Bu işlem şu anda tamamlanamadı. Sonra tekrar dene.",
-      gymAssistantTitle: "Spor Gelişim Yardımcısı", gymAssistantDesc: "Rakamların konuşuyor. Miri bir sonraki ağırlığını belirlemene yardımcı olur.", gymPB: "En İyi Derece (PB)", gymSuggestion: "Gelecek Sefer Önerilen", gymNextSet: "Sıradaki Set", gymProgressTitle: "Gelişim Göstergesi", gymKeepGoing: "Devam et, rakamların iyileşiyor!",
-      rescueTitle: "Günün Kurtarıcısı", rescueDesc: "Kalorin mi azaldı? Miri senin için yemek rehberinden hızlı ve uygun öğünler seçti.", rescueQuickMeal: "Kurtarıcı Hızlı Öğün", rescueRemaining: "Kalan {kcal} kcal", rescueShowMore: "Diğer alternatifleri göster",
     },
     en: {
       motivationEyebrow: "Optional support", motivationTitle: "Get a real boost", motivationDescription: "A real message a user chose to share without their name. There are no rankings or fake accounts.", motivationGet: "Show a supportive message", motivationEmpty: "No shared message is available right now. You can return later or write your own real message.", motivationLoadError: "Support message could not be loaded now.", motivationSettingsTitle: "Optional motivation message", motivationSettingsHint: "Write a real short message if you want to help someone else. Your name is never shown and the app never invents messages.", motivationPlaceholder: "Example: A small start is better than waiting for the perfect day.", motivationOptIn: "I agree that this message may be shared without my name in the support space.", motivationSave: "Save message preference", motivationSaved: "Your message preference was saved. You can stop sharing at any time.", motivationSaveError: "Message preference could not be saved now.", motivationSetupRequired: "Optional support is not enabled yet: run motivation-support-setup.sql once in Supabase SQL Editor, then reload the site.", motivationMinLength: "Write at least 12 characters before sharing.",
-      friendsEyebrow: "Friends you choose", friendsDescription: "Search by an exact username, add friends with mutual consent, and share a small private streak.", findFriend: "Find a friend", friendSearchPlaceholder: "Type the exact username", search: "Search", addFriend: "Send friend request", requestSent: "Friend request sent.", friendRequests: "Friend requests", myFriends: "My friends", accept: "Accept", decline: "Decline", removeFriend: "Remove", block: "Block", report: "Report", noRequests: "No friend requests right now.", noFriends: "You have not added friends yet.", noSearchResult: "No matching account was found, or it does not allow discovery.", friendStreakDays: "day streak", friendStreakStart: "Start a streak", streakSetupRequired: "Run friend-streak-counter-setup.sql once in Supabase SQL Editor to enable the streak counter.", snapEyebrow: "Private streak", snapTitle: "Streak photo for a friend", snapPrivacy: "One photo per friend per day, visible for 24 hours only. Do not send sensitive or personal images.", snapFriend: "Friend", snapPhoto: "Photo", snapCaption: "Short note (optional)", snapCaptionPlaceholder: "Example: Today’s walk", sendSnap: "Send streak", snapNoFriends: "Add an accepted friend before sending a streak.", snapSaved: "Streak sent. It expires within 24 hours.", snapEmpty: "No active streak photos right now.", snapTooLarge: "Photo size must not exceed 2 MB.", snapUnsupported: "Choose JPG or WebP only.", snapLimit: "You already sent this friend a streak today.", friendLimit: "One of you has reached the current 20-friend limit.", communitySetupRequired: "Run friends-recovery-setup.sql and deploy social-service to enable friends and streaks.", reportPrompt: "Write a short reason for the report", actionFailed: "This action could not be completed. Try again later.",
-      gymAssistantTitle: "Gym Progression Assistant", gymAssistantDesc: "Your numbers speak. Miri helps you find your next weight step.", gymPB: "Personal Best (PB)", gymSuggestion: "Suggested Next Weight", gymNextSet: "Next Set", gymProgressTitle: "Progression Indicator", gymKeepGoing: "Keep going, your numbers are improving!",
-      rescueTitle: "Day Rescue Mode", rescueDesc: "Low on calories? Miri selected quick and suitable meals from the food guide for you.", rescueQuickMeal: "Rescue Quick Meal", rescueRemaining: "{kcal} kcal left", rescueShowMore: "Show other alternatives",
+      friendsEyebrow: "Friends you choose", friendsDescription: "Search by an exact username, add friends with mutual consent, and share a small private streak.", findFriend: "Find a friend", friendSearchPlaceholder: "Type the exact username", search: "Search", addFriend: "Send friend request", requestSent: "Friend request sent.", friendRequests: "Friend requests", myFriends: "My friends", accept: "Accept", decline: "Decline", removeFriend: "Remove", block: "Block", report: "Report", noRequests: "No friend requests right now.", noFriends: "You have not added friends yet.", noSearchResult: "No matching account was found, or it does not allow discovery.", friendStreakDays: "day streak", friendStreakStart: "Start a streak", streakSetupRequired: "Run friend-streak-counter-setup.sql once in Supabase SQL Editor to enable the streak counter.", snapEyebrow: "Private streak", snapTitle: "Streak photo for a friend", snapPrivacy: "One photo per friend per day, visible for 24 hours only. Do not send sensitive or personal images.", snapFriend: "Friend", snapPhoto: "Photo", snapCaption: "Short note (optional)", snapCaptionPlaceholder: "Example: Today’s walk", sendSnap: "Send streak", snapNoFriends: "Add an accepted friend before sending a streak.", snapSaved: "Streak sent. It expires within 24 hours.", snapEmpty: "No active streak photos right now.", snapTooLarge: "Photo size must not exceed 2 MB.", snapUnsupported: "Choose JPG or WebP only.", snapLimit: "You already sent this friend a streak today.", friendLimit: "One of you has reached the current 20-friend limit.", communitySetupRequired: "Run friends-recovery-setup.sql and deploy social-service to enable friends and streaks.", reportPrompt: "Write a short reason for the report", actionFailed: "This action could not be completed. Try again later."
     },
   };
 
@@ -627,16 +620,7 @@
     document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("active", t.dataset.screen === name));
     document.querySelectorAll(".mobile-tab").forEach((t) => t.classList.toggle("active", t.dataset.screen === name));
 
-    if (name === "today") {
-      loadTodaySummary().then((summary) => {
-        if (summary) renderDayRescueMode(summary.calories_consumed, summary.calorie_goal);
-      });
-      loadGymProgress().then(() => {
-        renderGymProgressionAssistant();
-      });
-      loadGuidedJourney();
-      triggerPremiumPaywall();
-    }
+    if (name === "today") { loadTodaySummary(); loadGymProgress(); }
     if (name === "progress") loadProgress();
     if (name === "community") loadCommunity();
     if (name === "settings") loadSettings();
@@ -1139,14 +1123,13 @@
   }
 
   async function loadTodaySummary() {
-    if (!currentUser) return null;
+    if (!currentUser) return;
     try {
       const [summary, streak] = await Promise.all([fetchTodaySummary(), fetchActivityStreak()]);
       summary.streak = streak;
       renderMissionList(summary);
       renderSummaryGrid(summary);
       setConnectionMessage("");
-      return summary;
     } catch (e) {
       console.error("loadTodaySummary failed", e);
       setConnectionMessage(t("todayLoadError"));
@@ -1564,106 +1547,6 @@
   function bindGymMode() {
     $("open-gym-mode")?.addEventListener("click", () => $("gym-mode")?.scrollIntoView({ behavior: "smooth", block: "start" }));
     $("gym-set-form")?.addEventListener("submit", saveGymSet);
-  }
-
-  // ============== Gym Progression Assistant & Day Rescue Mode (Premium) ==============
-
-  function isPremiumUser() {
-    return hasRegisteredAccount(); // Premium is defined as any registered user in this context.
-  }
-
-  function getProgressionSuggestion(exerciseName) {
-    const exerciseSets = gymSets.filter((s) => normalizedGymExercise(s.exercise_name).toLocaleLowerCase() === normalizedGymExercise(exerciseName).toLocaleLowerCase());
-    if (!exerciseSets.length) return null;
-    const maxWeight = Math.max(...exerciseSets.map((s) => Number(s.weight_kg) || 0));
-    const recentSet = exerciseSets[0];
-    // Simple logic: if weight is same as max, suggest +1.25kg or +2.5kg. If less, suggest matching max.
-    if (Number(recentSet.weight_kg) >= maxWeight) {
-      return maxWeight + (maxWeight >= 50 ? 2.5 : 1.25);
-    }
-    return maxWeight;
-  }
-
-  function renderGymProgressionAssistant() {
-    const container = $("gym-progression-assistant");
-    if (!container) return;
-    if (!isPremiumUser()) { hide(container); return; }
-
-    const uniqueExercises = [...new Set(gymSets.map((s) => normalizedGymExercise(s.exercise_name)))].slice(0, 3);
-    if (!uniqueExercises.length) {
-      container.innerHTML = `<div class="premium-feature-card"><h3>${escapeHtml(t("gymAssistantTitle"))}</h3><p>${escapeHtml(t("gymNoSets"))}</p></div>`;
-      show(container);
-      return;
-    }
-
-    const cards = uniqueExercises.map((ex) => {
-      const pb = Math.max(...gymSets.filter((s) => normalizedGymExercise(s.exercise_name) === ex).map((s) => Number(s.weight_kg) || 0));
-      const suggestion = getProgressionSuggestion(ex);
-      return `
-        <div class="progression-item">
-          <header><b>${escapeHtml(ex)}</b></header>
-          <div class="progression-stats">
-            <span><small>${escapeHtml(t("gymPB"))}</small><strong>${pb}kg</strong></span>
-            <span><small>${escapeHtml(t("gymSuggestion"))}</small><strong class="suggestion">${suggestion}kg</strong></span>
-          </div>
-        </div>`;
-    }).join("");
-
-    container.innerHTML = `
-      <div class="premium-feature-card gym-assistant">
-        <p class="premium-badge">Premium</p>
-        <h3>${escapeHtml(t("gymAssistantTitle"))}</h3>
-        <p class="desc">${escapeHtml(t("gymAssistantDesc"))}</p>
-        <div class="progression-list">${cards}</div>
-        <p class="footer-note">${escapeHtml(t("gymKeepGoing"))}</p>
-      </div>`;
-    show(container);
-  }
-
-  async function renderDayRescueMode(currentCalories = 0, calorieGoal = 2000) {
-    const container = $("day-rescue-mode");
-    if (!container) return;
-    if (!isPremiumUser()) { hide(container); return; }
-
-    const remaining = calorieGoal - currentCalories;
-    // Trigger rescue if remaining calories are less than 30% of goal or less than 500
-    const isLow = remaining < (calorieGoal * 0.3) || remaining < 500;
-    
-    if (!isLow && !container.dataset.forceShow) {
-      hide(container);
-      return;
-    }
-
-    const suggestions = referenceRecipes
-      .filter((r) => r.nutrition.kcal <= Math.max(remaining, 300))
-      .sort((a, b) => b.nutrition.kcal - a.nutrition.kcal)
-      .slice(0, 3);
-
-    container.innerHTML = `
-      <div class="premium-feature-card rescue-mode">
-        <p class="premium-badge">Premium</p>
-        <h3>${escapeHtml(t("rescueTitle"))}</h3>
-        <p class="desc">${escapeHtml(t("rescueDesc"))}</p>
-        <div class="rescue-status">
-          <strong>${escapeHtml(t("rescueRemaining").replace("{kcal}", Math.max(0, Math.round(remaining))))}</strong>
-        </div>
-        <div class="rescue-suggestions">
-          ${suggestions.map((r) => `
-            <button type="button" data-recipe-id="${escapeHtml(r.id)}">
-              <span>${escapeHtml(localRecipeName(r))}</span>
-              <b>${Math.round(r.nutrition.kcal)} kcal</b>
-            </button>
-          `).join("")}
-        </div>
-        <button type="button" class="text-button show-more-rescue" id="toggle-rescue-more">${escapeHtml(t("rescueShowMore"))}</button>
-      </div>`;
-    
-    container.querySelectorAll("[data-recipe-id]").forEach(btn => {
-      btn.addEventListener("click", () => showRecipeDetail(btn.dataset.recipeId));
-    });
-    container.querySelector("#toggle-rescue-more")?.addEventListener("click", openFoodGuide);
-
-    show(container);
   }
 
   function getReferenceRecipeHints(message) {
@@ -2735,10 +2618,6 @@
     completeGenderDescription: "اختر النوع مرة واحدة قبل استخدام ميزات حسابك. يُستخدم فقط لتحسين صياغة الخطة ولا يظهر للآخرين.",
     saveGender: "حفظ والمتابعة",
     accountRequired: "أنشئ حسابًا أو سجّل الدخول لاستخدام هذه الميزة وحفظ رحلتك.",
-    exploreAsGuest: "استكشف كزائر",
-accountRequired: "أنشئ حساباً أو سجّل دخولك للوصول لهذه الميزة.",
-guestNotice: "أنت تتصفح كزائر. أنشئ حساباً لحفظ بياناتك والوصول للميزات الكاملة.",
-
   });
   Object.assign(UI_TEXT.tr, {
     startGuest: "Başlamak için hesap oluştur",
@@ -2772,9 +2651,6 @@ guestNotice: "أنت تتصفح كزائر. أنشئ حساباً لحفظ بي�
     completeGenderDescription: "Hesap özelliklerini kullanmadan önce cinsiyetini bir kez seç. Yalnızca plan dilini iyileştirmek için kullanılır ve başkalarına gösterilmez.",
     saveGender: "Kaydet ve devam et",
     accountRequired: "Bu özelliği kullanmak ve yolculuğunu kaydetmek için hesap oluştur veya giriş yap.",
-    exploreAsGuest: "Misafir olarak keşfet",
-accountRequired: "Bu özelliğe erişmek için hesap oluştur veya giriş yap.",
-guestNotice: "Misafir olarak geziyorsunuz. Verilerinizi kaydetmek ve tüm özelliklere erişmek için hesap oluşturun.",
   });
   Object.assign(UI_TEXT.en, {
     startGuest: "Create an account to get started",
@@ -2808,171 +2684,7 @@ guestNotice: "Misafir olarak geziyorsunuz. Verilerinizi kaydetmek ve tüm özell
     completeGenderDescription: "Choose your gender once before using account features. It is used only to improve plan wording and is never shown to others.",
     saveGender: "Save and continue",
     accountRequired: "Create an account or sign in to use this feature and save your journey.",
-    exploreAsGuest: "Explore as guest",
-accountRequired: "Create an account or sign in to access this feature.",
-    guestNotice: "You are browsing as a guest. Create an account to save your data and access all features.",
-
   });
-
-
-  // ============== 7-Day Guided Journey & Premium Paywall ==============
-
-  const JOURNEY_TASKS = {
-    1: [
-      { id: 1, text: "Günü bir bardak su ile başlat", bit: 1 },
-      { id: 2, text: "10 dakika hafif yürüyüş yap", bit: 2 },
-      { id: 3, text: "Bugünkü ilk öğününü kaydet", bit: 4 }
-    ],
-    2: [
-      { id: 1, text: "Protein odaklı bir kahvaltı yap", bit: 1 },
-      { id: 2, text: "Miri ile yarınki planını konuş", bit: 2 },
-      { id: 3, text: "Şekersiz bir gün geçir", bit: 4 }
-    ],
-    3: [
-      { id: 1, text: "En sevdiğin sağlıklı yemeği seç", bit: 1 },
-      { id: 2, text: "15 dakika egzersiz yap", bit: 2 },
-      { id: 3, text: "Su hedefini tamamla", bit: 4 }
-    ],
-    4: [
-      { id: 1, text: "Yeni bir sebze dene", bit: 1 },
-      { id: 2, text: "Uyku düzenine dikkat et", bit: 2 },
-      { id: 3, text: "Miri'ye bir soru sor", bit: 4 }
-    ],
-    5: [
-      { id: 1, text: "Aktif bir mola ver", bit: 1 },
-      { id: 2, text: "Öğünlerini vaktinde ye", bit: 2 },
-      { id: 3, text: "Gelişimini kontrol et", bit: 4 }
-    ],
-    6: [
-      { id: 1, text: "Dışarıda sağlıklı seçim yap", bit: 1 },
-      { id: 2, text: "20 dakika hareket et", bit: 2 },
-      { id: 3, text: "Motivasyon mesajı oku", bit: 4 }
-    ],
-    7: [
-      { id: 1, text: "Haftalık özetini incele", bit: 1 },
-      { id: 2, text: "Gelecek hafta için hedef koy", bit: 2 },
-      { id: 3, text: "Yolculuğunu kutla!", bit: 4 }
-    ]
-  };
-
-  let sessionPaywallShown = false;
-
-  async function loadGuidedJourney() {
-    if (!currentUser || currentUser.is_anonymous) return;
-    const container = $("guided-journey-card");
-    if (!container) return;
-
-    try {
-      // Find current day based on user creation date
-      const createdDate = new Date(currentUser.created_at);
-      const now = new Date();
-      const diffTime = Math.abs(now - createdDate);
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      const currentDay = Math.min(Math.max(diffDays, 1), 7);
-
-      const { data, error } = await supabase
-        .from("user_weekly_tasks")
-        .select("day_mask")
-        .eq("user_id", currentUser.id)
-        .eq("day_number", currentDay)
-        .maybeSingle();
-
-      if (error) throw error;
-
-      let mask = data?.day_mask || 0;
-      renderJourney(currentDay, mask);
-      show(container);
-    } catch (e) {
-      console.error("Guided journey load failed", e);
-      hide(container);
-    }
-  }
-
-  function renderJourney(day, mask) {
-    const dayLabel = $("journey-day-label");
-    const progressBar = $("journey-progress-bar");
-    const tasksList = $("journey-tasks-list");
-    if (!dayLabel || !progressBar || !tasksList) return;
-
-    dayLabel.textContent = `Gün ${day}`;
-    const tasks = JOURNEY_TASKS[day] || [];
-    
-    let completedCount = 0;
-    tasksList.innerHTML = "";
-
-    tasks.forEach(task => {
-      const isCompleted = (mask & task.bit) !== 0;
-      if (isCompleted) completedCount++;
-
-      const li = document.createElement("li");
-      li.className = `journey-task-item ${isCompleted ? "completed" : ""}`;
-      li.innerHTML = `
-        <input type="checkbox" id="task-${task.id}" ${isCompleted ? "checked" : ""}>
-        <label for="task-${task.id}">${task.text}</label>
-      `;
-      
-      const ck = li.querySelector("input");
-      ck.addEventListener("change", () => toggleTask(day, task.bit, ck.checked));
-      
-      tasksList.appendChild(li);
-    });
-
-    const progress = (completedCount / tasks.length) * 100;
-    progressBar.style.width = `${progress}%`;
-  }
-
-  async function toggleTask(day, bit, completed) {
-    if (!currentUser || currentUser.is_anonymous) return;
-    
-    try {
-      // Get current mask first
-      const { data } = await supabase
-        .from("user_weekly_tasks")
-        .select("day_mask")
-        .eq("user_id", currentUser.id)
-        .eq("day_number", day)
-        .maybeSingle();
-
-      let currentMask = data?.day_mask || 0;
-      let newMask = completed ? (currentMask | bit) : (currentMask & ~bit);
-
-      const { error } = await supabase
-        .from("user_weekly_tasks")
-        .upsert({
-          user_id: currentUser.id,
-          day_number: day,
-          day_mask: newMask,
-          updated_at: new Date().toISOString()
-        }, { onConflict: 'user_id,day_number' });
-
-      if (error) throw error;
-      renderJourney(day, newMask);
-    } catch (e) {
-      console.error("Task toggle failed", e);
-    }
-  }
-
-  function triggerPremiumPaywall() {
-    bindPaywall();
-    if (sessionPaywallShown || isPremiumUser()) return;
-    const modal = $("premium-paywall-modal");
-    if (!modal) return;
-
-    show(modal);
-    sessionPaywallShown = true;
-  }
-
-  function bindPaywall() {
-    $("paywall-dismiss")?.addEventListener("click", () => hide($("premium-paywall-modal")));
-    $("paywall-explore")?.addEventListener("click", () => {
-      alert("Premium feature coming soon!");
-      hide($("premium-paywall-modal"));
-    });
-    $("paywall-code")?.addEventListener("click", () => {
-      const code = prompt("Enter your premium code:");
-      if (code) alert("Processing code...");
-    });
-  }
 
   async function init() {
     supabase = initSupabase();
